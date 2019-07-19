@@ -4,6 +4,7 @@
 
 * `cvar.set_string(value: string)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -14,11 +15,13 @@
 
 * `cvar.get_string()`
 	
+	
 	Returns nil on failure.
 
 
 
 * `cvar.set_float(value: number)`
+	
 	
 	**Arguments:**
 	
@@ -29,6 +32,7 @@
 
 
 * `cvar.set_raw_float(value: number)`
+	
 	
 	**Arguments:**
 	
@@ -42,11 +46,13 @@
 
 * `cvar.get_float()`
 	
+	
 	Returns nil if called on a ConCommand.
 
 
 
 * `cvar.set_int(value: number)`
+	
 	
 	**Arguments:**
 	
@@ -57,6 +63,7 @@
 
 
 * `cvar.set_raw_int(value: number)`
+	
 	
 	**Arguments:**
 	
@@ -70,10 +77,12 @@
 
 * `cvar.get_int()`
 	
+	
 	Returns nil if called on a ConCommand.
 
 
 
 * `cvar.invoke_callback()`
+	
 
 

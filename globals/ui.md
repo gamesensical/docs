@@ -4,6 +4,7 @@
 
 * `ui.new_checkbox(tab: string, container: string, name: string)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -17,6 +18,7 @@
 
 
 * `ui.new_slider(tab: string, container: string, name: string, min: number, max: number, init_value: number, show_tooltip: boolean, unit: string, scale: number, tooltips: table)`
+	
 	
 	**Arguments:**
 	
@@ -39,6 +41,7 @@
 
 * `ui.new_combobox(tab: string, container: string, name: string, ...)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -53,6 +56,7 @@
 
 
 * `ui.new_multiselect(tab: string, container: string, name: string, ...)`
+	
 	
 	**Arguments:**
 	
@@ -69,6 +73,7 @@
 
 * `ui.new_hotkey(tab: string, container: string, name: string, inline: boolean)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -84,6 +89,7 @@
 
 * `ui.new_button(tab: string, container: string, name: string, callback: function)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -98,6 +104,7 @@
 
 
 * `ui.new_color_picker(tab: string, container: string, name: string, r: number, g: number, b: number, a: number)`
+	
 	
 	**Arguments:**
 	
@@ -117,6 +124,7 @@
 
 * `ui.new_textbox(tab: string, container: string)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -129,6 +137,7 @@
 
 
 * `ui.reference(tab: string, container: string, name: string)`
+	
 	
 	**Arguments:**
 	
@@ -144,6 +153,7 @@
 
 * `ui.set(item: number, value: any, ...)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -158,6 +168,7 @@
 
 * `ui.get(item: number)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -170,6 +181,7 @@
 
 * `ui.set_callback(item: number, callback: function)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -180,6 +192,7 @@
 
 
 * `ui.set_visible(item: number, visible: boolean)`
+	
 	
 	**Arguments:**
 	
@@ -192,11 +205,13 @@
 
 * `ui.is_menu_open()`
 	
+	
 	Returns true if the menu is currently open.
 
 
 
 * `ui.mouse_position()`
+	
 	
 	Returns current mouse coordinates x, y
 

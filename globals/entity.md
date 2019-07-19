@@ -4,11 +4,13 @@
 
 * `entity.get_local_player()`
 	
+	
 	Returns the entity index for the local player, or nil on failure.
 
 
 
 * `entity.get_all(classname: string)`
+	
 	
 	**Arguments:**
 	
@@ -22,6 +24,7 @@
 
 * `entity.get_players(enemies_only: boolean)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -34,17 +37,20 @@
 
 * `entity.get_game_rules()`
 	
+	
 	Returns entity index of CCSGameRulesProxy instance, or nil if none exists.
 
 
 
 * `entity.get_player_resource()`
 	
+	
 	Returns entity index of CCSPlayerResource instance, or nil if none exists.
 
 
 
 * `entity.get_classname(ent: number)`
+	
 	
 	**Arguments:**
 	
@@ -58,6 +64,7 @@
 
 * `entity.set_prop(ent: number, propname: string, value: any, array_index: number)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -70,6 +77,7 @@
 
 
 * `entity.get_prop(ent: number, propname: string, array_index: number)`
+	
 	
 	**Arguments:**
 	
@@ -85,6 +93,7 @@
 
 * `entity.is_enemy(ent: number)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -96,6 +105,7 @@
 
 
 * `entity.is_alive(ent: number)`
+	
 	
 	**Arguments:**
 	
@@ -109,6 +119,7 @@
 
 * `entity.is_dormant(ent: number)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -120,6 +131,7 @@
 
 
 * `entity.get_player_name(ent: number)`
+	
 	
 	**Arguments:**
 	
@@ -133,6 +145,7 @@
 
 * `entity.get_player_weapon(ent: number)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -144,6 +157,7 @@
 
 
 * `entity.hitbox_position(player: number, hitbox: number)`
+	
 	
 	**Arguments:**
 	
@@ -158,6 +172,7 @@
 
 * `entity.get_steam64(player: number)`
 	
+	
 	**Arguments:**
 	
 	Name | Description
@@ -169,6 +184,7 @@
 
 
 * `entity.get_bounding_box(player: number)`
+	
 	
 	**Arguments:**
 	
