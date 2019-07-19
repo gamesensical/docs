@@ -19,3 +19,4 @@ luajit.exe -b script.lua compiled.ljbc
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+

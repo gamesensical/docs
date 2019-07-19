@@ -1,4 +1,4 @@
-# gamesense.pub documentation
+# Overview
 
 ## This website documents the configuration options, usage and LUA API of [gamesense.pub](https://gamesense.pub).
 
@@ -7,3 +7,6 @@
 
 **Writing your own LUA Scripts**:
 {% page-ref page="../development/getting\_started.md" %}
+
+{% page-ref page="../development/getting\_started.md" %}
+
