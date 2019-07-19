@@ -113,20 +113,44 @@
 			}
 		},
 		"materialsystem": {
+			"arms_material": {
+				"name": "materialsystem.arms_material",
+				"description": "Returns the players hand cham material as an object."
+			},
 			"chams_material": {
 				"name": "materialsystem.chams_material",
-				"description": "Returns the player chams material as an object."
+				"description": "Returns the players cham material as an object."
 			},
-			"alpha_modulate": {
-				"name": ":alpha_modulate",
-				"description": "Sets alpha of material object its called on",
+			"find_material": {
+				"name": "materialsystem.find_material",
+				"description": "Returns a material object for the specified material.",
 				"args": [
 					{
-						"name": "a",
-						"description": "New alpha value of the material"
+						"name": "material",
+						"description": "The name of the material."
 					}
 				]
-			}
+			},
+			"find_materials": {
+				"name": "materialsystem.find_materials",
+				"description": "Returns all material objects that contain the specified material.",
+				"args": [
+					{
+						"name": "materials",
+						"description": "The substring that the material name must contain."
+					}
+				]
+			},
+			"get_model_materials": {
+				"name": "materialsystem.get_model_materials",
+				"description": "Returns all material objects for a specified entity.",
+				"args": [
+					{
+						"name": "entindex",
+						"description": "The entity whos materials will be returned."
+					}
+				]
+			},
 		},
 		"ui": {
 			"new_listbox": {
