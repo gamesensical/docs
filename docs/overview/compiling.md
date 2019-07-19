@@ -2,7 +2,9 @@
 
 **Compiling scripts can give a slight performance boost, although you should be fine without it.**
 
-{% file src="docs/assets/luajit.zip" caption="LuaJIT portable" %}
+{% hint style="success" %}
+[**Download from MEGA**](https://mega.nz/#!JpFAhYjb!35AbAx8sGdmVAI3o-EVHtGA_-Y1WqReo7WWUWHOdYo4) ****
+{% endhint %}
 
 1. Extract the archive anywhere
 2. Copy the script you want to compile into the extracted folder
