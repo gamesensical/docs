@@ -4,6 +4,7 @@ description: Functions for getting game globals such as the server time and map 
 
 # Globals
 
+### Functions:
 #### globals.absoluteframetime
 
 `globals.absoluteframetime()`

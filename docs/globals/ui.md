@@ -4,6 +4,7 @@ description: Functions for interfacing with the gamesense menu
 
 # Ui
 
+### Functions:
 #### ui.get
 
 `ui.get(item: number)`

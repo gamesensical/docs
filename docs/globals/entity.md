@@ -4,6 +4,7 @@ description: Functions for getting and setting entities and entity data.
 
 # Entity
 
+### Functions:
 #### entity.get_all
 
 `entity.get_all(classname: string)`

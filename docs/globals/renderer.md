@@ -4,6 +4,7 @@ description: Functions for drawing visuals. Usually won't work outside the `pain
 
 # Renderer
 
+### Functions:
 #### renderer.circle
 
 `renderer.circle(x: number, y: number, r: number, g: number, b: number, a: number, radius: number, start_degrees: number, percentage: number)`

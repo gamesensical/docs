@@ -3,3 +3,5 @@ description: Functions controlling the CS:GO Material System, letting you modula
 ---
 
 # Materialsystem
+
+### Functions:

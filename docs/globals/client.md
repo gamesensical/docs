@@ -4,6 +4,7 @@ description: General game- and cheat-related functions
 
 # Client
 
+### Functions:
 #### client.camera_angles
 
 `client.camera_angles(pitch: number, yaw: number)`
