@@ -4,7 +4,6 @@
 
 * `renderer.text(x: number, y: number, r: number, g: number, b: number, a: number, flags: string, max_width: number, ...)`
 	
-	
 	**Arguments:**
 	
 	Name | Description
@@ -25,7 +24,6 @@
 
 * `renderer.measure_text(flags: string, ...)`
 	
-	
 	**Arguments:**
 	
 	Name | Description
@@ -38,7 +36,6 @@
 
 
 * `renderer.rectangle(x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number)`
-	
 	
 	**Arguments:**
 	
@@ -59,7 +56,6 @@
 
 * `renderer.line(xa: number, ya: number, xb: number, yb: number, r: number, g: number, b: number, a: number)`
 	
-	
 	**Arguments:**
 	
 	Name | Description
@@ -78,7 +74,6 @@
 
 
 * `renderer.gradient(x: number, y: number, w: number, h: number, r1: number, g1: number, b1: number, a1: number, r2: number, g2: number, b2: number, a2: number, ltr: boolean)`
-	
 	
 	**Arguments:**
 	
@@ -104,7 +99,6 @@
 
 * `renderer.circle(x: number, y: number, r: number, g: number, b: number, a: number, radius: number, start_degrees: number, percentage: number)`
 	
-	
 	**Arguments:**
 	
 	Name | Description
@@ -124,7 +118,6 @@
 
 
 * `renderer.circle_outline(x: number, y: number, r: number, g: number, b: number, a: number, radius: number, start_degrees: number, percentage: number, thickness: number)`
-	
 	
 	**Arguments:**
 	
@@ -147,7 +140,6 @@
 
 * `renderer.triangle(x0: number, y0: number, x1: number, y1: number, x2: number, y2: number, r: number, g: number, b: number, a: number)`
 	
-	
 	**Arguments:**
 	
 	Name | Description
@@ -169,7 +161,6 @@
 
 * `renderer.world_to_screen(x: number, y: number, z: number)`
 	
-	
 	**Arguments:**
 	
 	Name | Description
@@ -183,7 +174,6 @@
 
 
 * `renderer.indicator(r: number, g: number, b: number, a: number, ...)`
-	
 	
 	**Arguments:**
 	
@@ -200,7 +190,6 @@
 
 
 * `renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number)`
-	
 	
 	**Arguments:**
 	
@@ -219,7 +208,6 @@
 
 
 * `renderer.load_svg(contents: string, width: number, height: number)`
-	
 	
 	**Arguments:**
 	
