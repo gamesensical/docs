@@ -1,7 +1,8 @@
 # Table of contents
 
 * [Overview](overview/README.md)
-  * [Getting started](overview/getting_started.md)
+  * [Getting started](overview/using_lua_scripts.md)
+* [Writing lua scripts](overview/writing_lua_scripts.md)
   * [Compiling lua scripts](overview/compiling.md)
   * [Event names](overview/events.md)
 * [Globals](globals.md)
