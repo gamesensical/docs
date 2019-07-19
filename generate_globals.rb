@@ -62,7 +62,7 @@ class ArgumentTypes
 			"number (hitgroup id)" => ["hitgroup"],
 			"number" => ["array_index", "duration", "line_offset", "tick", "minimum", "maximum", "damage", "delay", "min", "max", "init_value", "radius", "scale", "max_width", "r", "g", "b", "a", "r1", "g1", "b1", "a1", "r2", "g2", "b2", "a2", "key"],
 			"boolean" => ["enemies_only", "show_tooltip", "inline", "visible", "ltr"],
-			"string" => ["event_name", "msg", "cmd", "unit"],
+			"string" => ["event_name", "msg", "cmd", "unit", "material", "materials"],
 		}
 		argument_types_array.each do |argument_type, argument_names|
 			argument_names.each do |argument_name|

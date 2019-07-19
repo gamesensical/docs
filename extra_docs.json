@@ -150,7 +150,7 @@
 						"description": "The entity whos materials will be returned."
 					}
 				]
-			},
+			}
 		},
 		"ui": {
 			"new_listbox": {
