@@ -162,7 +162,12 @@ globals.each do |global, functions|
 	argtypes = ArgumentTypes.new()
 	rettypes = ReturnTypes.new()
 
-	functions.sort.each do |name, data|
+	# put object oriented functions last. ghetto shit lol
+	functions = functions.sort_by do |name, data|
+		(data.key?("name") && data["name"].start_with?(":")) ? "zzz-#{name}" : name
+	end.to_h
+
+	functions.each do |name, data|
 		arg_names = []
 		if data.key? "args"
 			data["args"].each do |arg|

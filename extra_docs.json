@@ -1,7 +1,5 @@
 {
-	"globals_patch": [
-		{"op": "add", "path": "/materialsystem", "value": {}}
-	],
+	"globals_patch": [],
 	"globals_merge": {
 		"cvar": {
 			"set_string": {
@@ -114,6 +112,22 @@
 				]
 			}
 		},
+		"materialsystem": {
+			"chams_material": {
+				"name": "materialsystem.chams_material",
+				"description": "Returns the player chams material as an object."
+			},
+			"alpha_modulate": {
+				"name": ":alpha_modulate",
+				"description": "Sets alpha of material object its called on",
+				"args": [
+					{
+						"name": "a",
+						"description": "New alpha value of the material"
+					}
+				]
+			}
+		},
 		"ui": {
 			"new_listbox": {
 				"name": "ui.new_listbox",
@@ -184,6 +198,16 @@
 					"",
 					"-- Mutes ambient volume by setting the mixer \"vol\" option to 0",
 					"snd_setmixer:invoke_callback(\"Ambient\", \"vol\", \"0\")",
+					"```"
+				]
+			}
+		],
+		"materialsystem": [
+			{
+				"title": "materialsystem-1.lua",
+				"contents": [
+					"```lua",
+					"-- materialsystem example here",
 					"```"
 				]
 			}
