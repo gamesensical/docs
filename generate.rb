@@ -297,7 +297,7 @@ end
 netprops_string = ""
 classes.each do |classname, props|
 	next if classname.nil?
-	(props_path + "#{classname}.md").write(props.join("\n"))
+	(props_path + "#{classname}.md").write("#{classname}\n\n" + props.join("\n\n"))
 
 	netprops_string += "  * [#{classname.capitalize}](netprops/#{classname}.md)\n"
 end
