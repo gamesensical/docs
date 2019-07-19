@@ -1,3 +1,3 @@
-CRagdollManager
+# CRagdollManager
 
-m_iCurrentMaxRagdollCount: integer
+* `m_iCurrentMaxRagdollCount` (integer)

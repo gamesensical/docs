@@ -1,5 +1,4 @@
-CWaterLODControl
+# CWaterLODControl
 
-m_flCheapWaterStartDistance: float
-
-m_flCheapWaterEndDistance: float
+* `m_flCheapWaterStartDistance` (float)
+* `m_flCheapWaterEndDistance` (float)

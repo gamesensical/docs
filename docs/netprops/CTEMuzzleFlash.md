@@ -1,9 +1,6 @@
-CTEMuzzleFlash
+# CTEMuzzleFlash
 
-m_vecOrigin: vector
-
-m_vecAngles: vector
-
-m_flScale: float
-
-m_nType: integer
+* `m_vecOrigin` (vector)
+* `m_vecAngles` (vector)
+* `m_flScale` (float)
+* `m_nType` (integer)

@@ -1,5 +1,4 @@
-CColorCorrectionVolume
+# CColorCorrectionVolume
 
-m_Weight: float
-
-m_lookupFilename: string
+* `m_Weight` (float)
+* `m_lookupFilename` (string)

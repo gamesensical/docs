@@ -279,14 +279,14 @@ File.open('props.txt', 'r').each do |line|
 			current_table_nums << prop.to_i
 			table_finished = false
 		else
-			classes[current_class] << "#{prop}: #{type}" unless number_regex.match? current_table
+			classes[current_class] << {"name" => prop, "type" => type} unless number_regex.match? current_table
 		end
 	elsif cleaned.start_with? "Table:"
 		current_table_new = line.split("Table: ")[1].split(" (offset ")[0]
 	end
 
 	if table_finished && !current_table.nil? && current_table_nums.length > 0
-		classes[current_class].insert(classes[current_class].length > 1 ? -2 : -1, "#{current_table}: #{current_table_type}[#{current_table_nums.min == current_table_nums.max ? current_table_nums.min.to_s : "#{current_table_nums.min}-#{current_table_nums.max}"}]")
+		classes[current_class].insert(classes[current_class].length > 1 ? -2 : -1, {"name" => current_table, "type" => "#{current_table_type}[#{current_table_nums.min == current_table_nums.max ? current_table_nums.min.to_s : "#{current_table_nums.min}-#{current_table_nums.max}"}]"})
 		current_table = nil
 		current_table_type = nil
 		current_table_nums = []
@@ -294,12 +294,50 @@ File.open('props.txt', 'r').each do |line|
 	current_table = current_table_new if !current_table_new.nil?
 end
 
-netprops_string = ""
+def get_group(classname)
+	weapon_classnames = ["CAK47", "CDEagle", "CFists", "CFlashbang", "CKnife", "CKnifeGG", "CMelee", "CC4", "CSCAR17", "CTablet", "CBreachCharge", "CBumpMine", "CSnowball", "CEconEntity"]
+	important_classnames = ["CCSPlayer", "CCSPlayerResource", "CCSGameRulesProxy"]
+
+	return "Important" if important_classnames.include? classname
+	return "Temp Entities" if classname.start_with? "CTE"
+	return "Projectiles" if classname.include?("Projectile")
+	return "Items" if weapon_classnames.include?(classname) || classname.start_with?("CWeapon") || classname.include?("Grenade") || classname.include?("CItem")
+	return "Base Entities" if classname.start_with?("CBase")
+	return "Environment" if classname.include?("CColorCorrection") || classname.include?("CSun") || classname.start_with?("CEnv")
+	return "Controllers" if classname.include?("Control") || classname.include?("CTeam")
+
+	return "Other"
+end
+
+netprops_groups = {
+	"Important" => [],
+	"Items" => [],
+	"Projectiles" => [],
+	"Environment" => [],
+	"Controllers" => [],
+	"Temp Entities" => [],
+	"Base Entities" => [],
+	"Other" => [],
+}
 classes.each do |classname, props|
 	next if classname.nil?
-	(props_path + "#{classname}.md").write("#{classname}\n\n" + props.join("\n\n"))
+	props_string = []
+	props.each do |prop|
+		props_string << "* `#{prop["name"]}` (#{prop["type"]})"
+	end
+	(props_path + "#{classname}.md").write("# #{classname}\n\n" + props_string.join("\n"))
 
-	netprops_string += "  * [#{classname.capitalize}](netprops/#{classname}.md)\n"
+	group = get_group(classname)
+	netprops_groups[group] ||= []
+	netprops_groups[group] << classname
+end
+
+netprops_string = ""
+netprops_groups.each do |group, classnames|
+	netprops_string += "  * [#{group}](netprops/#{classnames[0]}.md)\n"
+	classnames.each do |classname|
+		netprops_string += "    * [#{classname}](netprops/#{classname}.md)\n"
+	end
 end
 
 f = File.open("docs/SUMMARY.md", "w")

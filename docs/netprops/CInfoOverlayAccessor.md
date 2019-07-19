@@ -1,5 +1,4 @@
-CInfoOverlayAccessor
+# CInfoOverlayAccessor
 
-m_iTextureFrameIndex: integer
-
-m_iOverlayID: integer
+* `m_iTextureFrameIndex` (integer)
+* `m_iOverlayID` (integer)

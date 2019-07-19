@@ -1,9 +1,6 @@
-CTEFizz
+# CTEFizz
 
-m_nEntity: integer
-
-m_nModelIndex: integer
-
-m_nDensity: integer
-
-m_nCurrent: integer
+* `m_nEntity` (integer)
+* `m_nModelIndex` (integer)
+* `m_nDensity` (integer)
+* `m_nCurrent` (integer)

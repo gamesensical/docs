@@ -1,5 +1,4 @@
-CTEWorldDecal
+# CTEWorldDecal
 
-m_vecOrigin: vector
-
-m_nIndex: integer
+* `m_vecOrigin` (vector)
+* `m_nIndex` (integer)

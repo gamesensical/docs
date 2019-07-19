@@ -1,5 +1,4 @@
-CEnvDetailController
+# CEnvDetailController
 
-m_flFadeStartDist: float
-
-m_flFadeEndDist: float
+* `m_flFadeStartDist` (float)
+* `m_flFadeEndDist` (float)

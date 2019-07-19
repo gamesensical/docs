@@ -1,3 +1,3 @@
-CTEKillPlayerAttachments
+# CTEKillPlayerAttachments
 
-m_nPlayer: integer
+* `m_nPlayer` (integer)

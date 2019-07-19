@@ -1,3 +1,3 @@
-CTEFoundryHelpers
+# CTEFoundryHelpers
 
-m_iEntity: integer
+* `m_iEntity` (integer)

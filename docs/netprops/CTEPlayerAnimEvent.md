@@ -1,7 +1,5 @@
-CTEPlayerAnimEvent
+# CTEPlayerAnimEvent
 
-m_hPlayer: integer
-
-m_iEvent: integer
-
-m_nData: integer
+* `m_hPlayer` (integer)
+* `m_iEvent` (integer)
+* `m_nData` (integer)
