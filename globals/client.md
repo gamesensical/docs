@@ -127,6 +127,10 @@ Returns (width, height).
 
 ### visible
 
+{% hint style='danger' %}
+Deprecated.
+{% endhint %}
+
 `client.visible(x: number, y: number, z: number)`
 
 Argument | Description
