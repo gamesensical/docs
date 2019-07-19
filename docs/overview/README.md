@@ -6,5 +6,7 @@
 {% page-ref page="overview/using_lua_scripts.md" %}
 
 **Writing your own LUA Scripts**:
-{% page-ref page="overview/writing_lua_scripts.md" %}
-
+{% page-ref page="development/getting_started.md" %}
+{% page-ref page="development/getting-started.md" %}
+{% page-ref page="development/getting_started" %}
+{% page-ref page="development/getting-started" %}
