@@ -1,7 +1,5 @@
 # Using lua scripts
 
-## Getting started with LUA scripts
-
 ## Installing lua scripts
 
 1. Save the Lua script in the same folder as csgo.exe. The file extension should be ".lua".
@@ -13,7 +11,7 @@
 
 ### Common problems:
 
-#### A script doesn't show up in the Lua script manager:
+#### - A script doesn't show up in the Lua script manager:
 
 * Make sure "File name extensions" is enabled in the windows explorer settings
 
@@ -21,7 +19,7 @@
 
 If it's not, turn it on, then make sure all scripts actually end with .lua
 
-#### A script doesn't load \(error sound plays\):
+#### - A script doesn't load \(error sound plays\):
 
 This can have many reasons. The script could for example be outdated or a required dependency isn't installed.
 

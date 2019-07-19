@@ -27,6 +27,11 @@ globals_path.children.each do |child|
 	child.rmtree if child.basename.to_s.downcase == child.basename.to_s
 end
 
+props_path = Pathname.new("docs/netprops/")
+props_path.children.each do |child|
+	child.rmtree unless child.basename.to_s.downcase == "readme.md"
+end
+
 class ReturnTypes
 	def initialize()
 	end
@@ -239,9 +244,61 @@ end
 # Write finished docs.json
 File.write("docs/docs.json", globals.to_json)
 
-# Print out SUMMARY.md formatted list of globals
-puts ""
-puts "* [Globals](globals.md)"
+# Write formatted list of globals to SUMMARY.md
+globals_string = ""
 globals.keys.each do |global|
-	puts "  * [#{global.capitalize}](globals/#{global}.md)"
+	globals_string += "  * [#{global.capitalize}](globals/#{global}.md)\n"
 end
+
+# Write netprops
+classes = Hash.new
+current_class = nil
+current_table = nil
+current_table_type = nil
+current_table_nums = []
+number_regex = /^[0-9]*$/
+File.open('props.txt', 'r').each do |line|
+	next if line == "" || line.start_with?("//")
+	unless line.start_with? " "
+		current_class = line.split(" ")[0]
+		classes[current_class] = []
+		next
+	end
+
+	cleaned = line.gsub(" ", "")
+
+	current_table_new = nil
+	table_finished = true
+
+	if cleaned.start_with? "Member:"
+		prop = line.split("Member: ")[1].split(" (offset ")[0]
+		type = line.split("(type ")[1].split(")")[0]
+
+		if number_regex.match? prop
+			current_table_type = type if current_table_type.nil?
+			current_table_nums << prop.to_i
+			table_finished = false
+		else
+			classes[current_class] << "#{prop}: #{type}" unless number_regex.match? current_table
+		end
+	elsif cleaned.start_with? "Table:"
+		current_table_new = line.split("Table: ")[1].split(" (offset ")[0]
+	end
+
+	if table_finished && !current_table.nil? && current_table_nums.length > 0
+		classes[current_class].insert(classes[current_class].length > 1 ? -2 : -1, "#{current_table}: #{current_table_type}[#{current_table_nums.min == current_table_nums.max ? current_table_nums.min.to_s : "#{current_table_nums.min}-#{current_table_nums.max}"}]")
+		current_table = nil
+		current_table_type = nil
+		current_table_nums = []
+	end
+	current_table = current_table_new if !current_table_new.nil?
+end
+
+classes.each do |classname, props|
+	next if classname.nil?
+	(props_path + "#{classname}.md").write(props.join("\n"))
+end
+
+f = File.open("docs/SUMMARY.md", "w")
+f << File.read("docs/SUMMARY_template.md").gsub("{% globals %}", globals_string.chomp).gsub("{% netprops %}", netprops_string.chomp)
+f.close
