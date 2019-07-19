@@ -1,7 +1,5 @@
 # Ui
 
-**Functions:**
-
 ### new_checkbox
 
 `ui.new_checkbox(tab: string, container: string, name: string)`

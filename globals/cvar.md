@@ -1,7 +1,5 @@
 # Cvar
 
-**Functions:**
-
 ### set_string
 
 `cvar.set_string(value: string)`

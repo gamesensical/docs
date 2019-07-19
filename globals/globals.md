@@ -1,7 +1,5 @@
 # Globals
 
-**Functions:**
-
 ### realtime
 
 `globals.realtime()`

@@ -1,7 +1,5 @@
 # Entity
 
-**Functions:**
-
 ### get_local_player
 
 `entity.get_local_player()`

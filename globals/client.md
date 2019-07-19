@@ -1,7 +1,5 @@
 # Client
 
-General game- and cheat-related functions exposed by the API
-
 ### set_event_callback
 
 `client.set_event_callback(event_name: string, callback: function)`
