@@ -294,9 +294,12 @@ File.open('props.txt', 'r').each do |line|
 	current_table = current_table_new if !current_table_new.nil?
 end
 
+netprops_string = ""
 classes.each do |classname, props|
 	next if classname.nil?
 	(props_path + "#{classname}.md").write(props.join("\n"))
+
+	netprops_string += "  * [#{classname.capitalize}](netprops/#{classname}.md)\n"
 end
 
 f = File.open("docs/SUMMARY.md", "w")
