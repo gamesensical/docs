@@ -1,0 +1,192 @@
+{
+	"globals_patch": [
+		{"op": "add", "path": "/materialsystem", "value": {}}
+	],
+	"globals_merge": {
+		"cvar": {
+			"set_string": {
+				"name": ":set_string"
+			},
+			"get_string": {
+				"name": ":get_string"
+			},
+			"set_float": {
+				"name": ":set_float"
+			},
+			"set_raw_float": {
+				"name": ":set_raw_float"
+			},
+			"get_float": {
+				"name": ":get_float"
+			},
+			"set_int": {
+				"name": ":set_int"
+			},
+			"set_raw_int": {
+				"name": ":set_raw_int"
+			},
+			"get_int": {
+				"name": ":get_int"
+			},
+			"invoke_callback": {
+				"name": ":invoke_callback"
+			}
+		},
+		"client": {
+			"unset_event_callback": {
+				"name": "client.unset_event_callback",
+				"description": "Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.",
+				"args": [
+					{
+						"name": "event_name",
+						"description": "Name of the event."
+					},
+					{
+						"name": "callback",
+						"description": "Registered lua callback to remove."
+					}
+				]
+			},
+			"key_state": {
+				"name": "client.key_state",
+				"description": "Returns true if the key is pressed, or nil on failure",
+				"args": [
+					{
+						"name": "key",
+						"description": "Virtual key code of the key as integer. [List of virtual key codes](https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes)"
+					}
+				]
+			},
+			"update_player_list": {
+				"name": "client.update_player_list",
+				"description": "Updates the player list tab without having to open it.",
+				"args": []
+			},
+			"error_log": {
+				"name": "client.error_log",
+				"description": "Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)",
+				"args": [
+					{
+						"name": "msg",
+						"description": "The error message"
+					},
+					{
+						"name": "...",
+						"description": "Optional comma-separated arguments to concatenate with msg."
+					}
+				]
+			}
+		},
+		"globals": {
+			"chokedcommands": {
+				"name": "globals.chokedcommands",
+				"description": "Returns the current number of commands that are being held back.",
+				"args": []
+			},
+			"oldcommandack": {
+				"name": "globals.oldcommandack",
+				"description": "Returns the previous server acknowledged command number."
+			},
+			"commandack": {
+				"name": "globals.commandack",
+				"description": "Returns the number of the command the server last acknowledged."
+			}
+		},
+		"renderer": {
+			"load_png": {
+				"name": "renderer.load_png",
+				"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+				"args": [
+					{
+						"name": "contents",
+						"description": "Raw PNG file contents"
+					}
+				]
+			},
+			"load_jpg": {
+				"name": "renderer.load_jpg",
+				"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+				"args": [
+					{
+						"name": "contents",
+						"description": "Raw JPG file contents"
+					}
+				]
+			}
+		},
+		"ui": {
+			"new_listbox": {
+				"name": "ui.new_listbox",
+				"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+				"args": [
+					{
+						"name": "tab",
+						"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
+					},
+					{
+						"name": "container",
+						"description": "The name of the existing container to which this control will be added."
+					},
+					{
+						"name": "name",
+						"description": "The name of the listbox."
+					},
+					{
+						"name": "...",
+						"description": "One or more comma separated string values that will be added to the listbox. Alternatively, a table of strings that will be added."
+					}
+				]
+			},
+			"name": {
+				"name": "ui.name",
+				"description": "Returns the name of the menu item reference passed to it. Throws an error on failure.",
+				"args": [
+					{
+						"name": "item",
+						"description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference."
+					}
+				]
+			}
+		}
+	},
+	"globals_descriptions": {
+		"client": "General game- and cheat-related functions",
+		"ui": "Functions for interfacing with the gamesense menu",
+		"renderer": "Functions for drawing visuals. Usually won't work outside the `paint` event.",
+		"entity": "Functions for getting and setting entities and entity data.",
+		"cvar": "A table letting you get and set the value of cvars and invoke their callbacks. Uses Object-oriented format",
+		"globals": "Functions for getting game globals such as the server time and map name.",
+		"materialsystem": "Functions controlling the CS:GO Material System, letting you modulate, swap, remove materials and set their shader params / material vars"
+	},
+	"globals_examples": {
+		"cvar": [
+			{
+				"title": "cvar-1.lua",
+				"contents": [
+					"```lua",
+					"local bxor = bit.bxor",
+					"local cl_fullupdate = cvar.cl_fullupdate",
+					"local developer = cvar.developer",
+					"",
+					"-- invoking callback of ConCommand",
+					"cl_fullupdate.invoke_callback()",
+					"-- toggle ConVar",
+					"local oldval = developer.get_int()",
+					"developer.set_raw_int(bxor(oldval, 1))",
+					"```"
+				]
+			},
+			{
+				"title": "cvar-2.lua",
+				"contents": [
+					"```lua",
+					"local snd_setmixer = cvar.snd_setmixer",
+					"",
+					"-- Mutes ambient volume by setting the mixer \"vol\" option to 0",
+					"snd_setmixer:invoke_callback(\"Ambient\", \"vol\", \"0\")",
+					"```"
+				]
+			}
+		]
+	}
+}
