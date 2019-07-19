@@ -1,3 +1,4 @@
-# events
+# Event names
 
 Game events here
+

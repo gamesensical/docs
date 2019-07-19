@@ -1,3 +1,4 @@
-# Writing lua scripts
+# Getting started
 
 Basic guide here
+
