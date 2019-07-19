@@ -12,8 +12,8 @@
   Raises an error and prints a message in console upon failure.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.log(msg: string, ...)`
 
@@ -23,8 +23,8 @@
   **...** | comma-separated arguments to concatenate with msg.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.color_log(r: number, g: number, b: number, msg: string, ...)`
 
@@ -37,8 +37,8 @@
   **...** | comma-separated arguments to concatenate with msg.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.exec(cmd: string, ...)`
 
@@ -48,8 +48,8 @@
   **...** | comma-separated arguments to concatenate with cmd.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.userid_to_entindex(userid: number)`
 
@@ -60,8 +60,8 @@
   Returns the entity index, or 0 on failure.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.draw_debug_text(x: number, y: number, z: number, line_offset: number, duration: number, r: number, g: number, b: number, a: number, ...)`
 
@@ -81,8 +81,8 @@
   Avoid calling this during the paint event.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.draw_hitboxes(entindex: number, duration: number, hitboxes: number, r: number, g: number, b: number, a: number, tick: number)`
 
@@ -100,8 +100,8 @@
   Draws hitbox overlays. Avoid calling this during the paint event.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.random_int(minimum: number, maximum: number)`
 
@@ -113,8 +113,8 @@
   Returns a random integer between minimum and maximum.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.random_float(minimum: number, maximum: number)`
 
@@ -126,16 +126,16 @@
   Returns a random float between minimum and maximum.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.screen_size()`
 
   Returns (width, height).
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.visible(x: number, y: number, z: number)`
 
@@ -148,8 +148,8 @@
   Returns true if the position is visible. For example, you could use a player's origin to see if they are visible.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.trace_line(skip_entindex: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`
 
@@ -166,8 +166,8 @@
   Returns fraction, entindex. fraction is a percentage in the range [0.0, 1.0] that tells you how far the trace went before hitting something, so 1.0 means nothing was hit. entindex is the entity index that hit, or -1 if no entity was hit.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.trace_bullet(from_player: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`
 
@@ -184,8 +184,8 @@
   Returns entindex, damage. Entindex is nil when no player is hit.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.scale_damage(entindex: number, hitgroup: number, damage: number)`
 
@@ -198,8 +198,8 @@
   Returns adjusted damage for the specified hitgroup
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.delay_call(delay: number, callback: function, ...)`
 
@@ -210,16 +210,16 @@
   **...** | arguments that will be passed to the callback.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.latency()`
 
   Returns your latency in seconds.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.camera_angles(pitch: number, yaw: number)`
 
@@ -231,24 +231,24 @@
   Set camera angles
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.timestamp()`
 
   Returns high precision timestamp in milliseconds.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.eye_position()`
 
   Returns x, y, z world coordinates of the local player's eye position, or nil on failure.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.set_clan_tag(...)`
 
@@ -259,19 +259,19 @@
   The clan tag is removed if no argument is passed or if it is an empty string. Additional arguments will be concatenated similar to client.log.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.system_time()`
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `client.reload_active_scripts()`
 
   Reloads all scripts the following frame.
 
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>

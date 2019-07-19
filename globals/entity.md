@@ -7,8 +7,8 @@
   Returns the entity index for the local player, or nil on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_all(classname: string)`
   
@@ -19,8 +19,8 @@
   Returns an array of entity indices. Pass no arguments for all entities.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_players(enemies_only: boolean)`
   
@@ -31,24 +31,24 @@
   Returns an array of player entity indices. Dormant and dead players will not be added to the list.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_game_rules()`
   
   Returns entity index of CCSGameRulesProxy instance, or nil if none exists.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_player_resource()`
   
   Returns entity index of CCSPlayerResource instance, or nil if none exists.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_classname(ent: number)`
   
@@ -59,8 +59,8 @@
   Returns the name of the entity's class, or nil on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.set_prop(ent: number, propname: string, value: any, array_index: number)`
   
@@ -72,8 +72,8 @@
   **array_index** | Optional. If propname is an array, the value at this array index will be set.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_prop(ent: number, propname: string, array_index: number)`
   
@@ -86,8 +86,8 @@
   Returns the value of the property, or nil on failure. For vectors or angles, this returns three values.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.is_enemy(ent: number)`
   
@@ -98,8 +98,8 @@
   Returns true if the entity is on the other team.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.is_alive(ent: number)`
   
@@ -110,8 +110,8 @@
   Returns true if the player is not dead.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.is_dormant(ent: number)`
   
@@ -122,8 +122,8 @@
   Returns true if the player is not dormant.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_player_name(ent: number)`
   
@@ -134,8 +134,8 @@
   Returns the player's name, or the string "unknown" on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_player_weapon(ent: number)`
   
@@ -146,8 +146,8 @@
   Returns the entity index of the player's active weapon, or nil if the player is not alive, dormant, etc.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.hitbox_position(player: number, hitbox: number)`
   
@@ -159,8 +159,8 @@
   Returns world coordinates x, y, z, or nil on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_steam64(player: number)`
   
@@ -171,8 +171,8 @@
   Returns steamID3, or nil on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `entity.get_bounding_box(player: number)`
   
@@ -183,5 +183,5 @@
   Returns x1, y1, x2, y2, alpha_multiplier. The contents of x1, y1, x2, y2 must be ignored when alpha_multiplier is zero, which indicates that the bounding box is invalid and should not be drawn.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>

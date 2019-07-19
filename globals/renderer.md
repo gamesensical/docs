@@ -19,8 +19,8 @@
   This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.measure_text(flags: string, ...)`
   
@@ -32,8 +32,8 @@
   Returns width, height. This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.rectangle(x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number)`
   
@@ -51,8 +51,8 @@
   This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.line(xa: number, ya: number, xb: number, yb: number, r: number, g: number, b: number, a: number)`
   
@@ -70,8 +70,8 @@
   This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.gradient(x: number, y: number, w: number, h: number, r1: number, g1: number, b1: number, a1: number, r2: number, g2: number, b2: number, a2: number, ltr: boolean)`
   
@@ -94,8 +94,8 @@
   This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.circle(x: number, y: number, r: number, g: number, b: number, a: number, radius: number, start_degrees: number, percentage: number)`
   
@@ -114,8 +114,8 @@
   This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.circle_outline(x: number, y: number, r: number, g: number, b: number, a: number, radius: number, start_degrees: number, percentage: number, thickness: number)`
   
@@ -135,8 +135,8 @@
   This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.triangle(x0: number, y0: number, x1: number, y1: number, x2: number, y2: number, r: number, g: number, b: number, a: number)`
   
@@ -156,8 +156,8 @@
   This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.world_to_screen(x: number, y: number, z: number)`
   
@@ -170,8 +170,8 @@
   Returns two screen coordinates (x, y), or nil if the world position is not visible on your screen. This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.indicator(r: number, g: number, b: number, a: number, ...)`
   
@@ -186,8 +186,8 @@
   Returns the Y screen coordinate (vertical offset) of the drawn text, or nil on failure. This can only be called from the paint callback.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number)`
   
@@ -204,8 +204,8 @@
   **a** | Alpha (0-255)
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `renderer.load_svg(contents: string, width: number, height: number)`
   
@@ -218,5 +218,5 @@
   Returns a texture ID that can be used with renderer.texture, or nil on failure
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>

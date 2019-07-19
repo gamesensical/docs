@@ -13,8 +13,8 @@
   Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.new_slider(tab: string, container: string, name: string, min: number, max: number, init_value: number, show_tooltip: boolean, unit: string, scale: number, tooltips: table)`
   
@@ -34,8 +34,8 @@
   Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.new_combobox(tab: string, container: string, name: string, ...)`
   
@@ -49,8 +49,8 @@
   Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.new_multiselect(tab: string, container: string, name: string, ...)`
   
@@ -64,8 +64,8 @@
   Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.new_hotkey(tab: string, container: string, name: string, inline: boolean)`
   
@@ -79,8 +79,8 @@
   Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.new_button(tab: string, container: string, name: string, callback: function)`
   
@@ -94,8 +94,8 @@
   Throws an error on failure. The return value should not be used with ui.set or ui.get.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.new_color_picker(tab: string, container: string, name: string, r: number, g: number, b: number, a: number)`
   
@@ -112,8 +112,8 @@
   Throws an error on failure. The color picker is placed to the right of the previous menu item.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.new_textbox(tab: string, container: string)`
   
@@ -125,8 +125,8 @@
   Throws an error on failure. Returns a special value that can be used with ui.get
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.reference(tab: string, container: string, name: string)`
   
@@ -139,8 +139,8 @@
   Avoid calling this from inside a function. Returns a reference that can be passed to ui.get and ui.set, or throws an error on failure. This allows you to access a built-in pre-existing menu items. This function returns multiple values when the specified menu item is followed by unnamed menu items, for example a color picker or a hotkey.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.set(item: number, value: any, ...)`
   
@@ -153,8 +153,8 @@
   For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, param is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.get(item: number)`
   
@@ -165,8 +165,8 @@
   For a checkbox, returns true or false. For a slider, returns an integer. For a combobox, returns a string. For a multiselect combobox, returns an array of strings. For a hotkey, returns true if the hotkey is active. For a color picker, returns r, g, b, a. Throws an error on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.set_callback(item: number, callback: function)`
   
@@ -176,8 +176,8 @@
   **callback** | Lua function that will be called when the menu item changes values. For example, this will be called when the user checks or unchecks a checkbox.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.set_visible(item: number, visible: boolean)`
   
@@ -187,21 +187,21 @@
   **visible** | Boolean. Pass false to hide the control from the menu.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.is_menu_open()`
   
   Returns true if the menu is currently open.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `ui.mouse_position()`
   
   Returns current mouse coordinates x, y
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>

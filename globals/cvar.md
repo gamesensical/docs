@@ -9,16 +9,16 @@
   **value** | String value
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `cvar.get_string()`
   
   Returns nil on failure.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `cvar.set_float(value: number)`
   
@@ -27,8 +27,8 @@
   **value** | Float value
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `cvar.set_raw_float(value: number)`
   
@@ -39,16 +39,16 @@
   This sets the float value without changing the integer and string values.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `cvar.get_float()`
   
   Returns nil if called on a ConCommand.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `cvar.set_int(value: number)`
   
@@ -57,8 +57,8 @@
   **value** | Integer value
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `cvar.set_raw_int(value: number)`
   
@@ -69,19 +69,19 @@
   This sets the integer value without changing the float and string values.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `cvar.get_int()`
   
   Returns nil if called on a ConCommand.
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
 
 * `cvar.invoke_callback()`
   
 
-&nbsp;
-&nbsp;
+<br/>
+<br/>
