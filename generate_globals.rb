@@ -155,6 +155,8 @@ globals.each do |global, functions|
 
 		contents << "{% endcode-tabs %}"
 		contents << ""
+		contents << "---"
+		contents << ""
 	end
 
 	argtypes = ArgumentTypes.new()

@@ -32,6 +32,8 @@ snd_setmixer:invoke_callback("Ambient", "vol", "0")
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+---
+
 #### :get_float
 
 `cvar.get_float()`
