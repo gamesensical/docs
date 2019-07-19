@@ -192,3 +192,28 @@ Returns true if the menu is currently open.
 
 Returns current mouse coordinates x, y
 
+
+#### ui.new_listbox
+
+`ui.new_listbox(tab: string, container: string, name: string, ...)`
+
+Argument | Description
+-------- | -----------
+  **tab** | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS.
+  **container** | The name of the existing container to which this control will be added.
+  **name** | The name of the listbox.
+  **...** | One or more comma separated string values that will be added to the listbox. Alternatively, a table of strings that will be added.
+
+Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
+
+
+#### ui.name
+
+`ui.name(item: number)`
+
+Argument | Description
+-------- | -----------
+  **item** | The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.
+
+Returns the name of the menu item reference passed to it. Throws an error on failure.
+

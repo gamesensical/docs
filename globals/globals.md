@@ -69,3 +69,24 @@ Returns the name of the loaded map, or nil if you are not in game.
 
 Returns the command number of the last outgoing command.
 
+
+#### globals.chokedcommands
+
+`globals.chokedcommands()`
+
+Returns the current number of commands that are being held back.
+
+
+#### globals.oldcommandack
+
+`globals.oldcommandack()`
+
+Returns the previous server acknowledged command number.
+
+
+#### globals.commandack
+
+`globals.commandack()`
+
+Returns the number of the command the server last acknowledged.
+

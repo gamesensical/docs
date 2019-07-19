@@ -206,3 +206,25 @@ Argument | Description
 
 Returns a texture ID that can be used with renderer.texture, or nil on failure
 
+
+#### renderer.load_png
+
+`renderer.load_png(contents: string)`
+
+Argument | Description
+-------- | -----------
+  **contents** | Raw PNG file contents
+
+Returns a texture ID that can be used with renderer.texture, or nil on failure
+
+
+#### renderer.load_jpg
+
+`renderer.load_jpg(contents: string)`
+
+Argument | Description
+-------- | -----------
+  **contents** | Raw JPG file contents
+
+Returns a texture ID that can be used with renderer.texture, or nil on failure
+
