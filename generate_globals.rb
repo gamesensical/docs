@@ -118,12 +118,14 @@ class ArgumentTypes
 	end
 end
 
+deprecated_regex = /(draw_.{1,}|world_to_screen|get_cvar|set_cvar)/
+
 # Print out undocumented globals
 if File.file? "real_globals.json"
 	real_globals = JSON.parse(File.read("real_globals.json"))
 	real_globals.each do |global, children|
 		children.each do |child, _|
-			puts "#{global}.#{child} is undocumented" if (!globals.key?(global) || !globals[global].key?(child)) && (!child.start_with?("draw_"))
+			puts "Undocumented global: #{global}.#{child}" if (!globals.key?(global) || !globals[global].key?(child)) && (!child.match(deprecated_regex))
 		end
 	end
 end
@@ -164,7 +166,7 @@ globals.each do |global, functions|
 
 	# put object oriented functions last. ghetto shit lol
 	functions = functions.sort_by do |name, data|
-		(data.key?("name") && data["name"].start_with?(":")) ? "zzz-#{name}" : name
+		(data.key?("name") && data["name"].include?(":")) ? "\xFF#{name}" : name
 	end.to_h
 
 	functions.each do |name, data|
@@ -177,7 +179,7 @@ globals.each do |global, functions|
 					type_info = type_info.split(" ")[0] if SHORT_ARG_TYPES
 					arg_text += ": #{type_info}"
 				elsif arg["name"] != "..."
-					puts arg
+					puts "Type of arg #{arg.inspect} unknown"
 				end
 				arg_names << arg_text
 			end
