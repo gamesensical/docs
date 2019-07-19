@@ -2,10 +2,7 @@
 
 **Functions:**
 
-* **cvar.set_string**
-	```lua
-	cvar.set_string(value: string)
-	```
+* `cvar.set_string(value: string)`
 	
 	**Arguments:**
 	
@@ -14,18 +11,14 @@
 	**value** | String value
 
 
-* **cvar.get_string**
-	```lua
-	cvar.get_string()
-	```
+
+* `cvar.get_string()`
 	
 	Returns nil on failure.
 
 
-* **cvar.set_float**
-	```lua
-	cvar.set_float(value: number (float))
-	```
+
+* `cvar.set_float(value: number)`
 	
 	**Arguments:**
 	
@@ -34,10 +27,8 @@
 	**value** | Float value
 
 
-* **cvar.set_raw_float**
-	```lua
-	cvar.set_raw_float(value: number (float))
-	```
+
+* `cvar.set_raw_float(value: number)`
 	
 	**Arguments:**
 	
@@ -48,18 +39,14 @@
 	This sets the float value without changing the integer and string values.
 
 
-* **cvar.get_float**
-	```lua
-	cvar.get_float()
-	```
+
+* `cvar.get_float()`
 	
 	Returns nil if called on a ConCommand.
 
 
-* **cvar.set_int**
-	```lua
-	cvar.set_int(value: number (integer))
-	```
+
+* `cvar.set_int(value: number)`
 	
 	**Arguments:**
 	
@@ -68,10 +55,8 @@
 	**value** | Integer value
 
 
-* **cvar.set_raw_int**
-	```lua
-	cvar.set_raw_int(value: number (integer))
-	```
+
+* `cvar.set_raw_int(value: number)`
 	
 	**Arguments:**
 	
@@ -82,16 +67,13 @@
 	This sets the integer value without changing the float and string values.
 
 
-* **cvar.get_int**
-	```lua
-	cvar.get_int()
-	```
+
+* `cvar.get_int()`
 	
 	Returns nil if called on a ConCommand.
 
 
-* **cvar.invoke_callback**
-	```lua
-	cvar.invoke_callback()
-	```
+
+* `cvar.invoke_callback()`
+
 

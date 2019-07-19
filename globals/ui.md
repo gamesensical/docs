@@ -2,10 +2,7 @@
 
 **Functions:**
 
-* **ui.new_checkbox**
-	```lua
-	ui.new_checkbox(tab: string (menu tab), container: string (menu container), name: string (menu item))
-	```
+* `ui.new_checkbox(tab: string, container: string, name: string)`
 	
 	**Arguments:**
 	
@@ -18,10 +15,8 @@
 	Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 
 
-* **ui.new_slider**
-	```lua
-	ui.new_slider(tab: string (menu tab), container: string (menu container), name: string (menu item), min: number, max: number, init_value: number, show_tooltip: boolean, unit: string, scale: number, tooltips: table)
-	```
+
+* `ui.new_slider(tab: string, container: string, name: string, min: number, max: number, init_value: number, show_tooltip: boolean, unit: string, scale: number, tooltips: table)`
 	
 	**Arguments:**
 	
@@ -41,10 +36,8 @@
 	Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 
 
-* **ui.new_combobox**
-	```lua
-	ui.new_combobox(tab: string (menu tab), container: string (menu container), name: string (menu item), ...)
-	```
+
+* `ui.new_combobox(tab: string, container: string, name: string, ...)`
 	
 	**Arguments:**
 	
@@ -58,10 +51,8 @@
 	Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 
 
-* **ui.new_multiselect**
-	```lua
-	ui.new_multiselect(tab: string (menu tab), container: string (menu container), name: string (menu item), ...)
-	```
+
+* `ui.new_multiselect(tab: string, container: string, name: string, ...)`
 	
 	**Arguments:**
 	
@@ -75,10 +66,8 @@
 	Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 
 
-* **ui.new_hotkey**
-	```lua
-	ui.new_hotkey(tab: string (menu tab), container: string (menu container), name: string (menu item), inline: boolean)
-	```
+
+* `ui.new_hotkey(tab: string, container: string, name: string, inline: boolean)`
 	
 	**Arguments:**
 	
@@ -92,10 +81,8 @@
 	Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.
 
 
-* **ui.new_button**
-	```lua
-	ui.new_button(tab: string (menu tab), container: string (menu container), name: string (menu item), callback: function)
-	```
+
+* `ui.new_button(tab: string, container: string, name: string, callback: function)`
 	
 	**Arguments:**
 	
@@ -109,10 +96,8 @@
 	Throws an error on failure. The return value should not be used with ui.set or ui.get.
 
 
-* **ui.new_color_picker**
-	```lua
-	ui.new_color_picker(tab: string (menu tab), container: string (menu container), name: string (menu item), r: number, g: number, b: number, a: number)
-	```
+
+* `ui.new_color_picker(tab: string, container: string, name: string, r: number, g: number, b: number, a: number)`
 	
 	**Arguments:**
 	
@@ -129,10 +114,8 @@
 	Throws an error on failure. The color picker is placed to the right of the previous menu item.
 
 
-* **ui.new_textbox**
-	```lua
-	ui.new_textbox(tab: string (menu tab), container: string (menu container))
-	```
+
+* `ui.new_textbox(tab: string, container: string)`
 	
 	**Arguments:**
 	
@@ -144,10 +127,8 @@
 	Throws an error on failure. Returns a special value that can be used with ui.get
 
 
-* **ui.reference**
-	```lua
-	ui.reference(tab: string (menu tab), container: string (menu container), name: string (menu item))
-	```
+
+* `ui.reference(tab: string, container: string, name: string)`
 	
 	**Arguments:**
 	
@@ -160,10 +141,8 @@
 	Avoid calling this from inside a function. Returns a reference that can be passed to ui.get and ui.set, or throws an error on failure. This allows you to access a built-in pre-existing menu items. This function returns multiple values when the specified menu item is followed by unnamed menu items, for example a color picker or a hotkey.
 
 
-* **ui.set**
-	```lua
-	ui.set(item: number (menu reference), value: any, ...)
-	```
+
+* `ui.set(item: number, value: any, ...)`
 	
 	**Arguments:**
 	
@@ -176,10 +155,8 @@
 	For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, param is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.
 
 
-* **ui.get**
-	```lua
-	ui.get(item: number (menu reference))
-	```
+
+* `ui.get(item: number)`
 	
 	**Arguments:**
 	
@@ -190,10 +167,8 @@
 	For a checkbox, returns true or false. For a slider, returns an integer. For a combobox, returns a string. For a multiselect combobox, returns an array of strings. For a hotkey, returns true if the hotkey is active. For a color picker, returns r, g, b, a. Throws an error on failure.
 
 
-* **ui.set_callback**
-	```lua
-	ui.set_callback(item: number (custom menu reference), callback: function)
-	```
+
+* `ui.set_callback(item: number, callback: function)`
 	
 	**Arguments:**
 	
@@ -203,10 +178,8 @@
 	**callback** | Lua function that will be called when the menu item changes values. For example, this will be called when the user checks or unchecks a checkbox.
 
 
-* **ui.set_visible**
-	```lua
-	ui.set_visible(item: number (menu reference), visible: boolean)
-	```
+
+* `ui.set_visible(item: number, visible: boolean)`
 	
 	**Arguments:**
 	
@@ -216,18 +189,15 @@
 	**visible** | Boolean. Pass false to hide the control from the menu.
 
 
-* **ui.is_menu_open**
-	```lua
-	ui.is_menu_open()
-	```
+
+* `ui.is_menu_open()`
 	
 	Returns true if the menu is currently open.
 
 
-* **ui.mouse_position**
-	```lua
-	ui.mouse_position()
-	```
+
+* `ui.mouse_position()`
 	
 	Returns current mouse coordinates x, y
+
 

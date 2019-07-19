@@ -2,10 +2,7 @@
 
 **Functions:**
 
-* **renderer.text**
-	```lua
-	renderer.text(x: number (screen coordinate), y: number (screen coordinate), r: number, g: number, b: number, a: number, flags: string (text flags), max_width: number, ...)
-	```
+* `renderer.text(x: number, y: number, r: number, g: number, b: number, a: number, flags: string, max_width: number, ...)`
 	
 	**Arguments:**
 	
@@ -24,10 +21,8 @@
 	This can only be called from the paint callback.
 
 
-* **renderer.measure_text**
-	```lua
-	renderer.measure_text(flags: string (text flags), ...)
-	```
+
+* `renderer.measure_text(flags: string, ...)`
 	
 	**Arguments:**
 	
@@ -39,10 +34,8 @@
 	Returns width, height. This can only be called from the paint callback.
 
 
-* **renderer.rectangle**
-	```lua
-	renderer.rectangle(x: number (screen coordinate), y: number (screen coordinate), w: number (px), h: number (px), r: number, g: number, b: number, a: number)
-	```
+
+* `renderer.rectangle(x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number)`
 	
 	**Arguments:**
 	
@@ -60,10 +53,8 @@
 	This can only be called from the paint callback.
 
 
-* **renderer.line**
-	```lua
-	renderer.line(xa: number (screen coordinate), ya: number (screen coordinate), xb: number (screen coordinate), yb: number (screen coordinate), r: number, g: number, b: number, a: number)
-	```
+
+* `renderer.line(xa: number, ya: number, xb: number, yb: number, r: number, g: number, b: number, a: number)`
 	
 	**Arguments:**
 	
@@ -81,10 +72,8 @@
 	This can only be called from the paint callback.
 
 
-* **renderer.gradient**
-	```lua
-	renderer.gradient(x: number (screen coordinate), y: number (screen coordinate), w: number (px), h: number (px), r1: number, g1: number, b1: number, a1: number, r2: number, g2: number, b2: number, a2: number, ltr: boolean)
-	```
+
+* `renderer.gradient(x: number, y: number, w: number, h: number, r1: number, g1: number, b1: number, a1: number, r2: number, g2: number, b2: number, a2: number, ltr: boolean)`
 	
 	**Arguments:**
 	
@@ -107,10 +96,8 @@
 	This can only be called from the paint callback.
 
 
-* **renderer.circle**
-	```lua
-	renderer.circle(x: number (screen coordinate), y: number (screen coordinate), r: number, g: number, b: number, a: number, radius: number, start_degrees: number (0 - 360), percentage: number (0 - 1))
-	```
+
+* `renderer.circle(x: number, y: number, r: number, g: number, b: number, a: number, radius: number, start_degrees: number, percentage: number)`
 	
 	**Arguments:**
 	
@@ -129,10 +116,8 @@
 	This can only be called from the paint callback.
 
 
-* **renderer.circle_outline**
-	```lua
-	renderer.circle_outline(x: number (screen coordinate), y: number (screen coordinate), r: number, g: number, b: number, a: number, radius: number, start_degrees: number (0 - 360), percentage: number (0 - 1), thickness: number (px))
-	```
+
+* `renderer.circle_outline(x: number, y: number, r: number, g: number, b: number, a: number, radius: number, start_degrees: number, percentage: number, thickness: number)`
 	
 	**Arguments:**
 	
@@ -152,10 +137,8 @@
 	This can only be called from the paint callback.
 
 
-* **renderer.triangle**
-	```lua
-	renderer.triangle(x0: number (screen coordinate), y0: number (screen coordinate), x1: number (screen coordinate), y1: number (screen coordinate), x2: number (screen coordinate), y2: number (screen coordinate), r: number, g: number, b: number, a: number)
-	```
+
+* `renderer.triangle(x0: number, y0: number, x1: number, y1: number, x2: number, y2: number, r: number, g: number, b: number, a: number)`
 	
 	**Arguments:**
 	
@@ -175,10 +158,8 @@
 	This can only be called from the paint callback.
 
 
-* **renderer.world_to_screen**
-	```lua
-	renderer.world_to_screen(x: number (world coordinate), y: number (world coordinate), z: number (world coordinate))
-	```
+
+* `renderer.world_to_screen(x: number, y: number, z: number)`
 	
 	**Arguments:**
 	
@@ -191,10 +172,8 @@
 	Returns two screen coordinates (x, y), or nil if the world position is not visible on your screen. This can only be called from the paint callback.
 
 
-* **renderer.indicator**
-	```lua
-	renderer.indicator(r: number, g: number, b: number, a: number, ...)
-	```
+
+* `renderer.indicator(r: number, g: number, b: number, a: number, ...)`
 	
 	**Arguments:**
 	
@@ -209,10 +188,8 @@
 	Returns the Y screen coordinate (vertical offset) of the drawn text, or nil on failure. This can only be called from the paint callback.
 
 
-* **renderer.texture**
-	```lua
-	renderer.texture(id: number (texture id), x: number (screen coordinate), y: number (screen coordinate), w: number (px), h: number (px), r: number, g: number, b: number, a: number)
-	```
+
+* `renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number)`
 	
 	**Arguments:**
 	
@@ -229,10 +206,8 @@
 	**a** | Alpha (0-255)
 
 
-* **renderer.load_svg**
-	```lua
-	renderer.load_svg(contents: string, width: number (px), height: number (px))
-	```
+
+* `renderer.load_svg(contents: string, width: number, height: number)`
 	
 	**Arguments:**
 	
@@ -243,4 +218,5 @@
 	**height** | Height
 	
 	Returns a texture ID that can be used with renderer.texture, or nil on failure
+
 
