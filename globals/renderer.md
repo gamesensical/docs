@@ -1,6 +1,6 @@
 # Renderer
 
-### text
+#### renderer.text
 
 `renderer.text(x: number, y: number, r: number, g: number, b: number, a: number, flags: string, max_width: number, ...)`
 
@@ -19,7 +19,7 @@ Argument | Description
 This can only be called from the paint callback.
 
 
-### measure_text
+#### renderer.measure_text
 
 `renderer.measure_text(flags: string, ...)`
 
@@ -31,7 +31,7 @@ Argument | Description
 Returns width, height. This can only be called from the paint callback.
 
 
-### rectangle
+#### renderer.rectangle
 
 `renderer.rectangle(x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number)`
 
@@ -49,7 +49,7 @@ Argument | Description
 This can only be called from the paint callback.
 
 
-### line
+#### renderer.line
 
 `renderer.line(xa: number, ya: number, xb: number, yb: number, r: number, g: number, b: number, a: number)`
 
@@ -67,7 +67,7 @@ Argument | Description
 This can only be called from the paint callback.
 
 
-### gradient
+#### renderer.gradient
 
 `renderer.gradient(x: number, y: number, w: number, h: number, r1: number, g1: number, b1: number, a1: number, r2: number, g2: number, b2: number, a2: number, ltr: boolean)`
 
@@ -90,7 +90,7 @@ Argument | Description
 This can only be called from the paint callback.
 
 
-### circle
+#### renderer.circle
 
 `renderer.circle(x: number, y: number, r: number, g: number, b: number, a: number, radius: number, start_degrees: number, percentage: number)`
 
@@ -109,7 +109,7 @@ Argument | Description
 This can only be called from the paint callback.
 
 
-### circle_outline
+#### renderer.circle_outline
 
 `renderer.circle_outline(x: number, y: number, r: number, g: number, b: number, a: number, radius: number, start_degrees: number, percentage: number, thickness: number)`
 
@@ -129,7 +129,7 @@ Argument | Description
 This can only be called from the paint callback.
 
 
-### triangle
+#### renderer.triangle
 
 `renderer.triangle(x0: number, y0: number, x1: number, y1: number, x2: number, y2: number, r: number, g: number, b: number, a: number)`
 
@@ -149,7 +149,7 @@ Argument | Description
 This can only be called from the paint callback.
 
 
-### world_to_screen
+#### renderer.world_to_screen
 
 `renderer.world_to_screen(x: number, y: number, z: number)`
 
@@ -162,7 +162,7 @@ Argument | Description
 Returns two screen coordinates (x, y), or nil if the world position is not visible on your screen. This can only be called from the paint callback.
 
 
-### indicator
+#### renderer.indicator
 
 `renderer.indicator(r: number, g: number, b: number, a: number, ...)`
 
@@ -177,7 +177,7 @@ Argument | Description
 Returns the Y screen coordinate (vertical offset) of the drawn text, or nil on failure. This can only be called from the paint callback.
 
 
-### texture
+#### renderer.texture
 
 `renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number)`
 
@@ -194,7 +194,7 @@ Argument | Description
   **a** | Alpha (0-255)
 
 
-### load_svg
+#### renderer.load_svg
 
 `renderer.load_svg(contents: string, width: number, height: number)`
 

@@ -1,69 +1,69 @@
 # Globals
 
-### realtime
+#### globals.realtime
 
 `globals.realtime()`
 
 Returns the local time in seconds.
 
 
-### curtime
+#### globals.curtime
 
 `globals.curtime()`
 
 Returns the game time in seconds. This number is synchronized with the server.
 
 
-### frametime
+#### globals.frametime
 
 `globals.frametime()`
 
 Returns the number of seconds elapsed during the last game frame.
 
 
-### absoluteframetime
+#### globals.absoluteframetime
 
 `globals.absoluteframetime()`
 
 Returns the number of seconds elapsed during the last game frame.
 
 
-### maxplayers
+#### globals.maxplayers
 
 `globals.maxplayers()`
 
 Returns the maximum number of players in the server.
 
 
-### tickcount
+#### globals.tickcount
 
 `globals.tickcount()`
 
 Returns the number of ticks elapsed in the server.
 
 
-### tickinterval
+#### globals.tickinterval
 
 `globals.tickinterval()`
 
 Returns the time elapsed in one game tick in seconds.
 
 
-### framecount
+#### globals.framecount
 
 `globals.framecount()`
 
 Returns the number of frames since the game started
 
 
-### mapname
+#### globals.mapname
 
 `globals.mapname()`
 
 Returns the name of the loaded map, or nil if you are not in game.
 
 
-### lastoutgoingcommand
+#### globals.lastoutgoingcommand
 
 `globals.lastoutgoingcommand()`
 

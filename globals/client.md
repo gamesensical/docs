@@ -1,6 +1,10 @@
+---
+description: General game- and cheat-related functions
+---
+
 # Client
 
-### set_event_callback
+#### client.set_event_callback
 
 `client.set_event_callback(event_name: string, callback: function)`
 
@@ -12,7 +16,7 @@ Argument | Description
 Raises an error and prints a message in console upon failure.
 
 
-### log
+#### client.log
 
 `client.log(msg: string, ...)`
 
@@ -22,7 +26,7 @@ Argument | Description
   **...** | comma-separated arguments to concatenate with msg.
 
 
-### color_log
+#### client.color_log
 
 `client.color_log(r: number, g: number, b: number, msg: string, ...)`
 
@@ -35,7 +39,7 @@ Argument | Description
   **...** | comma-separated arguments to concatenate with msg.
 
 
-### exec
+#### client.exec
 
 `client.exec(cmd: string, ...)`
 
@@ -45,7 +49,7 @@ Argument | Description
   **...** | comma-separated arguments to concatenate with cmd.
 
 
-### userid_to_entindex
+#### client.userid_to_entindex
 
 `client.userid_to_entindex(userid: number)`
 
@@ -56,7 +60,7 @@ Argument | Description
 Returns the entity index, or 0 on failure.
 
 
-### draw_debug_text
+#### client.draw_debug_text
 
 `client.draw_debug_text(x: number, y: number, z: number, line_offset: number, duration: number, r: number, g: number, b: number, a: number, ...)`
 
@@ -76,7 +80,7 @@ Argument | Description
 Avoid calling this during the paint event.
 
 
-### draw_hitboxes
+#### client.draw_hitboxes
 
 `client.draw_hitboxes(entindex: number, duration: number, hitboxes: number, r: number, g: number, b: number, a: number, tick: number)`
 
@@ -94,7 +98,7 @@ Argument | Description
 Draws hitbox overlays. Avoid calling this during the paint event.
 
 
-### random_int
+#### client.random_int
 
 `client.random_int(minimum: number, maximum: number)`
 
@@ -106,7 +110,7 @@ Argument | Description
 Returns a random integer between minimum and maximum.
 
 
-### random_float
+#### client.random_float
 
 `client.random_float(minimum: number, maximum: number)`
 
@@ -118,18 +122,14 @@ Argument | Description
 Returns a random float between minimum and maximum.
 
 
-### screen_size
+#### client.screen_size
 
 `client.screen_size()`
 
 Returns (width, height).
 
 
-### visible
-
-{% hint style='danger' %}
-Deprecated.
-{% endhint %}
+#### client.visible
 
 `client.visible(x: number, y: number, z: number)`
 
@@ -142,7 +142,7 @@ Argument | Description
 Returns true if the position is visible. For example, you could use a player's origin to see if they are visible.
 
 
-### trace_line
+#### client.trace_line
 
 `client.trace_line(skip_entindex: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`
 
@@ -159,7 +159,7 @@ Argument | Description
 Returns fraction, entindex. fraction is a percentage in the range [0.0, 1.0] that tells you how far the trace went before hitting something, so 1.0 means nothing was hit. entindex is the entity index that hit, or -1 if no entity was hit.
 
 
-### trace_bullet
+#### client.trace_bullet
 
 `client.trace_bullet(from_player: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`
 
@@ -176,7 +176,7 @@ Argument | Description
 Returns entindex, damage. Entindex is nil when no player is hit.
 
 
-### scale_damage
+#### client.scale_damage
 
 `client.scale_damage(entindex: number, hitgroup: number, damage: number)`
 
@@ -189,7 +189,7 @@ Argument | Description
 Returns adjusted damage for the specified hitgroup
 
 
-### delay_call
+#### client.delay_call
 
 `client.delay_call(delay: number, callback: function, ...)`
 
@@ -200,14 +200,14 @@ Argument | Description
   **...** | arguments that will be passed to the callback.
 
 
-### latency
+#### client.latency
 
 `client.latency()`
 
 Returns your latency in seconds.
 
 
-### camera_angles
+#### client.camera_angles
 
 `client.camera_angles(pitch: number, yaw: number)`
 
@@ -219,21 +219,21 @@ Argument | Description
 Set camera angles
 
 
-### timestamp
+#### client.timestamp
 
 `client.timestamp()`
 
 Returns high precision timestamp in milliseconds.
 
 
-### eye_position
+#### client.eye_position
 
 `client.eye_position()`
 
 Returns x, y, z world coordinates of the local player's eye position, or nil on failure.
 
 
-### set_clan_tag
+#### client.set_clan_tag
 
 `client.set_clan_tag(...)`
 
@@ -244,12 +244,12 @@ Argument | Description
 The clan tag is removed if no argument is passed or if it is an empty string. Additional arguments will be concatenated similar to client.log.
 
 
-### system_time
+#### client.system_time
 
 `client.system_time()`
 
 
-### reload_active_scripts
+#### client.reload_active_scripts
 
 `client.reload_active_scripts()`
 

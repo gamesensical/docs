@@ -1,13 +1,13 @@
 # Entity
 
-### get_local_player
+#### entity.get_local_player
 
 `entity.get_local_player()`
 
 Returns the entity index for the local player, or nil on failure.
 
 
-### get_all
+#### entity.get_all
 
 `entity.get_all(classname: string)`
 
@@ -18,7 +18,7 @@ Argument | Description
 Returns an array of entity indices. Pass no arguments for all entities.
 
 
-### get_players
+#### entity.get_players
 
 `entity.get_players(enemies_only: boolean)`
 
@@ -29,21 +29,21 @@ Argument | Description
 Returns an array of player entity indices. Dormant and dead players will not be added to the list.
 
 
-### get_game_rules
+#### entity.get_game_rules
 
 `entity.get_game_rules()`
 
 Returns entity index of CCSGameRulesProxy instance, or nil if none exists.
 
 
-### get_player_resource
+#### entity.get_player_resource
 
 `entity.get_player_resource()`
 
 Returns entity index of CCSPlayerResource instance, or nil if none exists.
 
 
-### get_classname
+#### entity.get_classname
 
 `entity.get_classname(ent: number)`
 
@@ -54,7 +54,7 @@ Argument | Description
 Returns the name of the entity's class, or nil on failure.
 
 
-### set_prop
+#### entity.set_prop
 
 `entity.set_prop(ent: number, propname: string, value: any, array_index: number)`
 
@@ -66,7 +66,7 @@ Argument | Description
   **array_index** | Optional. If propname is an array, the value at this array index will be set.
 
 
-### get_prop
+#### entity.get_prop
 
 `entity.get_prop(ent: number, propname: string, array_index: number)`
 
@@ -79,7 +79,7 @@ Argument | Description
 Returns the value of the property, or nil on failure. For vectors or angles, this returns three values.
 
 
-### is_enemy
+#### entity.is_enemy
 
 `entity.is_enemy(ent: number)`
 
@@ -90,7 +90,7 @@ Argument | Description
 Returns true if the entity is on the other team.
 
 
-### is_alive
+#### entity.is_alive
 
 `entity.is_alive(ent: number)`
 
@@ -101,7 +101,7 @@ Argument | Description
 Returns true if the player is not dead.
 
 
-### is_dormant
+#### entity.is_dormant
 
 `entity.is_dormant(ent: number)`
 
@@ -112,7 +112,7 @@ Argument | Description
 Returns true if the player is not dormant.
 
 
-### get_player_name
+#### entity.get_player_name
 
 `entity.get_player_name(ent: number)`
 
@@ -123,7 +123,7 @@ Argument | Description
 Returns the player's name, or the string "unknown" on failure.
 
 
-### get_player_weapon
+#### entity.get_player_weapon
 
 `entity.get_player_weapon(ent: number)`
 
@@ -134,7 +134,7 @@ Argument | Description
 Returns the entity index of the player's active weapon, or nil if the player is not alive, dormant, etc.
 
 
-### hitbox_position
+#### entity.hitbox_position
 
 `entity.hitbox_position(player: number, hitbox: number)`
 
@@ -146,7 +146,7 @@ Argument | Description
 Returns world coordinates x, y, z, or nil on failure.
 
 
-### get_steam64
+#### entity.get_steam64
 
 `entity.get_steam64(player: number)`
 
@@ -157,7 +157,7 @@ Argument | Description
 Returns steamID3, or nil on failure.
 
 
-### get_bounding_box
+#### entity.get_bounding_box
 
 `entity.get_bounding_box(player: number)`
 
