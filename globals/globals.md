@@ -1,10 +1,28 @@
+---
+description: Functions for getting game globals such as the server time and map name.
+---
+
 # Globals
 
-#### globals.realtime
+#### globals.absoluteframetime
 
-`globals.realtime()`
+`globals.absoluteframetime()`
 
-Returns the local time in seconds.
+Returns the number of seconds elapsed during the last game frame.
+
+
+#### globals.chokedcommands
+
+`globals.chokedcommands()`
+
+Returns the current number of commands that are being held back.
+
+
+#### globals.commandack
+
+`globals.commandack()`
+
+Returns the number of the command the server last acknowledged.
 
 
 #### globals.curtime
@@ -14,6 +32,13 @@ Returns the local time in seconds.
 Returns the game time in seconds. This number is synchronized with the server.
 
 
+#### globals.framecount
+
+`globals.framecount()`
+
+Returns the number of frames since the game started
+
+
 #### globals.frametime
 
 `globals.frametime()`
@@ -21,11 +46,18 @@ Returns the game time in seconds. This number is synchronized with the server.
 Returns the number of seconds elapsed during the last game frame.
 
 
-#### globals.absoluteframetime
+#### globals.lastoutgoingcommand
 
-`globals.absoluteframetime()`
+`globals.lastoutgoingcommand()`
 
-Returns the number of seconds elapsed during the last game frame.
+Returns the command number of the last outgoing command.
+
+
+#### globals.mapname
+
+`globals.mapname()`
+
+Returns the name of the loaded map, or nil if you are not in game.
 
 
 #### globals.maxplayers
@@ -33,6 +65,20 @@ Returns the number of seconds elapsed during the last game frame.
 `globals.maxplayers()`
 
 Returns the maximum number of players in the server.
+
+
+#### globals.oldcommandack
+
+`globals.oldcommandack()`
+
+Returns the previous server acknowledged command number.
+
+
+#### globals.realtime
+
+`globals.realtime()`
+
+Returns the local time in seconds.
 
 
 #### globals.tickcount
@@ -47,46 +93,4 @@ Returns the number of ticks elapsed in the server.
 `globals.tickinterval()`
 
 Returns the time elapsed in one game tick in seconds.
-
-
-#### globals.framecount
-
-`globals.framecount()`
-
-Returns the number of frames since the game started
-
-
-#### globals.mapname
-
-`globals.mapname()`
-
-Returns the name of the loaded map, or nil if you are not in game.
-
-
-#### globals.lastoutgoingcommand
-
-`globals.lastoutgoingcommand()`
-
-Returns the command number of the last outgoing command.
-
-
-#### globals.chokedcommands
-
-`globals.chokedcommands()`
-
-Returns the current number of commands that are being held back.
-
-
-#### globals.oldcommandack
-
-`globals.oldcommandack()`
-
-Returns the previous server acknowledged command number.
-
-
-#### globals.commandack
-
-`globals.commandack()`
-
-Returns the number of the command the server last acknowledged.
 

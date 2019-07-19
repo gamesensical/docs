@@ -4,26 +4,16 @@ description: General game- and cheat-related functions
 
 # Client
 
-#### client.set_event_callback
+#### client.camera_angles
 
-`client.set_event_callback(event_name: string, callback: function)`
-
-Argument | Description
--------- | -----------
-  **event_name** | Name of the event.
-  **callback** | Lua function to call when this event occurs.
-
-Raises an error and prints a message in console upon failure.
-
-
-#### client.log
-
-`client.log(msg: string, ...)`
+`client.camera_angles(pitch: number, yaw: number)`
 
 Argument | Description
 -------- | -----------
-  **msg** | The message
-  **...** | comma-separated arguments to concatenate with msg.
+  **pitch** | Pitch
+  **yaw** | Yaw
+
+Set camera angles
 
 
 #### client.color_log
@@ -39,25 +29,15 @@ Argument | Description
   **...** | comma-separated arguments to concatenate with msg.
 
 
-#### client.exec
+#### client.delay_call
 
-`client.exec(cmd: string, ...)`
-
-Argument | Description
--------- | -----------
-  **cmd** | The console command(s) to execute.
-  **...** | comma-separated arguments to concatenate with cmd.
-
-
-#### client.userid_to_entindex
-
-`client.userid_to_entindex(userid: number)`
+`client.delay_call(delay: number, callback: function, ...)`
 
 Argument | Description
 -------- | -----------
-  **userid** | This is given by some game events.
-
-Returns the entity index, or 0 on failure.
+  **delay** | Time in seconds to wait before calling callback.
+  **callback** | The lua function that will be called after delay seconds.
+  **...** | arguments that will be passed to the callback.
 
 
 #### client.draw_debug_text
@@ -98,16 +78,61 @@ Argument | Description
 Draws hitbox overlays. Avoid calling this during the paint event.
 
 
-#### client.random_int
+#### client.error_log
 
-`client.random_int(minimum: number, maximum: number)`
+`client.error_log(msg: string, ...)`
 
 Argument | Description
 -------- | -----------
-  **minimum** | Lowest possible result
-  **maximum** | Highest possible result
+  **msg** | The error message
+  **...** | comma-separated arguments to concatenate with msg.
 
-Returns a random integer between minimum and maximum.
+Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)
+
+
+#### client.exec
+
+`client.exec(cmd: string, ...)`
+
+Argument | Description
+-------- | -----------
+  **cmd** | The console command(s) to execute.
+  **...** | comma-separated arguments to concatenate with cmd.
+
+
+#### client.eye_position
+
+`client.eye_position()`
+
+Returns x, y, z world coordinates of the local player's eye position, or nil on failure.
+
+
+#### client.key_state
+
+`client.key_state(key: number)`
+
+Argument | Description
+-------- | -----------
+  **key** | Virtual key code of the key as integer. [List of virtual key codes](https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes)
+
+Returns true if the key is pressed, or nil on failure
+
+
+#### client.latency
+
+`client.latency()`
+
+Returns your latency in seconds.
+
+
+#### client.log
+
+`client.log(msg: string, ...)`
+
+Argument | Description
+-------- | -----------
+  **msg** | The message
+  **...** | comma-separated arguments to concatenate with msg.
 
 
 #### client.random_float
@@ -122,6 +147,38 @@ Argument | Description
 Returns a random float between minimum and maximum.
 
 
+#### client.random_int
+
+`client.random_int(minimum: number, maximum: number)`
+
+Argument | Description
+-------- | -----------
+  **minimum** | Lowest possible result
+  **maximum** | Highest possible result
+
+Returns a random integer between minimum and maximum.
+
+
+#### client.reload_active_scripts
+
+`client.reload_active_scripts()`
+
+Reloads all scripts the following frame.
+
+
+#### client.scale_damage
+
+`client.scale_damage(entindex: number, hitgroup: number, damage: number)`
+
+Argument | Description
+-------- | -----------
+  **entindex** | Player entity index
+  **hitgroup** | Hit group index
+  **damage** | Damage
+
+Returns adjusted damage for the specified hitgroup
+
+
 #### client.screen_size
 
 `client.screen_size()`
@@ -129,34 +186,39 @@ Returns a random float between minimum and maximum.
 Returns (width, height).
 
 
-#### client.visible
+#### client.set_clan_tag
 
-`client.visible(x: number, y: number, z: number)`
-
-Argument | Description
--------- | -----------
-  **x** | Position in world space
-  **y** | Position in world space
-  **z** | Position in world space
-
-Returns true if the position is visible. For example, you could use a player's origin to see if they are visible.
-
-
-#### client.trace_line
-
-`client.trace_line(skip_entindex: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`
+`client.set_clan_tag(...)`
 
 Argument | Description
 -------- | -----------
-  **skip_entindex** | Ignore this entity while tracing
-  **from_x** | Position in world space
-  **from_y** | Position in world space
-  **from_z** | Position in world space
-  **to_x** | Position in world space
-  **to_y** | Position in world space
-  **to_z** | Position in world space
+  **...** | The text that will be drawn
 
-Returns fraction, entindex. fraction is a percentage in the range [0.0, 1.0] that tells you how far the trace went before hitting something, so 1.0 means nothing was hit. entindex is the entity index that hit, or -1 if no entity was hit.
+The clan tag is removed if no argument is passed or if it is an empty string. Additional arguments will be concatenated similar to client.log.
+
+
+#### client.set_event_callback
+
+`client.set_event_callback(event_name: string, callback: function)`
+
+Argument | Description
+-------- | -----------
+  **event_name** | Name of the event.
+  **callback** | Lua function to call when this event occurs.
+
+Raises an error and prints a message in console upon failure.
+
+
+#### client.system_time
+
+`client.system_time()`
+
+
+#### client.timestamp
+
+`client.timestamp()`
+
+Returns high precision timestamp in milliseconds.
 
 
 #### client.trace_bullet
@@ -176,82 +238,62 @@ Argument | Description
 Returns entindex, damage. Entindex is nil when no player is hit.
 
 
-#### client.scale_damage
+#### client.trace_line
 
-`client.scale_damage(entindex: number, hitgroup: number, damage: number)`
-
-Argument | Description
--------- | -----------
-  **entindex** | Player entity index
-  **hitgroup** | Hit group index
-  **damage** | Damage
-
-Returns adjusted damage for the specified hitgroup
-
-
-#### client.delay_call
-
-`client.delay_call(delay: number, callback: function, ...)`
+`client.trace_line(skip_entindex: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`
 
 Argument | Description
 -------- | -----------
-  **delay** | Time in seconds to wait before calling callback.
-  **callback** | The lua function that will be called after delay seconds.
-  **...** | arguments that will be passed to the callback.
+  **skip_entindex** | Ignore this entity while tracing
+  **from_x** | Position in world space
+  **from_y** | Position in world space
+  **from_z** | Position in world space
+  **to_x** | Position in world space
+  **to_y** | Position in world space
+  **to_z** | Position in world space
+
+Returns fraction, entindex. fraction is a percentage in the range [0.0, 1.0] that tells you how far the trace went before hitting something, so 1.0 means nothing was hit. entindex is the entity index that hit, or -1 if no entity was hit.
 
 
-#### client.latency
+#### client.unset_event_callback
 
-`client.latency()`
-
-Returns your latency in seconds.
-
-
-#### client.camera_angles
-
-`client.camera_angles(pitch: number, yaw: number)`
-
-Argument | Description
--------- | -----------
-  **pitch** | Pitch
-  **yaw** | Yaw
-
-Set camera angles
-
-
-#### client.timestamp
-
-`client.timestamp()`
-
-Returns high precision timestamp in milliseconds.
-
-
-#### client.eye_position
-
-`client.eye_position()`
-
-Returns x, y, z world coordinates of the local player's eye position, or nil on failure.
-
-
-#### client.set_clan_tag
-
-`client.set_clan_tag(...)`
+`client.unset_event_callback(event_name: string, callback: function)`
 
 Argument | Description
 -------- | -----------
-  **...** | The text that will be drawn
+  **event_name** | Name of the event.
+  **callback** | Registered lua callback to remove.
 
-The clan tag is removed if no argument is passed or if it is an empty string. Additional arguments will be concatenated similar to client.log.
-
-
-#### client.system_time
-
-`client.system_time()`
+Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.
 
 
-#### client.reload_active_scripts
+#### client.update_player_list
 
-`client.reload_active_scripts()`
+`client.update_player_list()`
 
-Reloads all scripts the following frame.
+Updates the player list tab without having to open it.
+
+
+#### client.userid_to_entindex
+
+`client.userid_to_entindex(userid: number)`
+
+Argument | Description
+-------- | -----------
+  **userid** | This is given by some game events.
+
+Returns the entity index, or 0 on failure.
+
+
+#### client.visible
+
+`client.visible(x: number, y: number, z: number)`
+
+Argument | Description
+-------- | -----------
+  **x** | Position in world space
+  **y** | Position in world space
+  **z** | Position in world space
+
+Returns true if the position is visible. For example, you could use a player's origin to see if they are visible.
 

@@ -1,22 +1,36 @@
+---
+description: A table letting you get and set the value of cvars and invoke their callbacks. Uses Object-oriented format
+---
+
 # Cvar
 
-#### cvar.set_string
+#### :get_float
 
-`cvar.set_string(value: string)`
+`cvar.get_float()`
 
-Argument | Description
--------- | -----------
-  **value** | String value
+Returns nil if called on a ConCommand.
 
 
-#### cvar.get_string
+#### :get_int
+
+`cvar.get_int()`
+
+Returns nil if called on a ConCommand.
+
+
+#### :get_string
 
 `cvar.get_string()`
 
 Returns nil on failure.
 
 
-#### cvar.set_float
+#### :invoke_callback
+
+`cvar.invoke_callback()`
+
+
+#### :set_float
 
 `cvar.set_float(value: number)`
 
@@ -25,7 +39,16 @@ Argument | Description
   **value** | Float value
 
 
-#### cvar.set_raw_float
+#### :set_int
+
+`cvar.set_int(value: number)`
+
+Argument | Description
+-------- | -----------
+  **value** | Integer value
+
+
+#### :set_raw_float
 
 `cvar.set_raw_float(value: number)`
 
@@ -36,23 +59,7 @@ Argument | Description
 This sets the float value without changing the integer and string values.
 
 
-#### cvar.get_float
-
-`cvar.get_float()`
-
-Returns nil if called on a ConCommand.
-
-
-#### cvar.set_int
-
-`cvar.set_int(value: number)`
-
-Argument | Description
--------- | -----------
-  **value** | Integer value
-
-
-#### cvar.set_raw_int
+#### :set_raw_int
 
 `cvar.set_raw_int(value: number)`
 
@@ -63,14 +70,11 @@ Argument | Description
 This sets the integer value without changing the float and string values.
 
 
-#### cvar.get_int
+#### :set_string
 
-`cvar.get_int()`
+`cvar.set_string(value: string)`
 
-Returns nil if called on a ConCommand.
-
-
-#### cvar.invoke_callback
-
-`cvar.invoke_callback()`
+Argument | Description
+-------- | -----------
+  **value** | String value
 
