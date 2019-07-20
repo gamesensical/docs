@@ -1,4 +1,9 @@
+---
+description: DT_TEGlowSprite - Last updated at 20.07.2019
+---
+
 # CTEGlowSprite
+
 
 * `m_vecOrigin` (vector)
 * `m_nModelIndex` (integer)

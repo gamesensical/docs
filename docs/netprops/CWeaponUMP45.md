@@ -1,4 +1,9 @@
+---
+description: DT_WeaponUMP45 - Last updated at 20.07.2019
+---
+
 # CWeaponUMP45
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_TEShatterSurface - Last updated at 20.07.2019
+---
+
 # CTEShatterSurface
+
 
 * `m_vecOrigin` (vector)
 * `m_vecAngles` (vector)

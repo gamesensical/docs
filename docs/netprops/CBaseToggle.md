@@ -1,4 +1,9 @@
+---
+description: DT_BaseToggle - Last updated at 20.07.2019
+---
+
 # CBaseToggle
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

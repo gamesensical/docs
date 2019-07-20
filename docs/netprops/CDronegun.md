@@ -1,4 +1,9 @@
+---
+description: DT_Dronegun - Last updated at 20.07.2019
+---
+
 # CDronegun
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

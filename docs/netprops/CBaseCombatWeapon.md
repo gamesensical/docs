@@ -1,4 +1,9 @@
+---
+description: DT_BaseCombatWeapon - Last updated at 20.07.2019
+---
+
 # CBaseCombatWeapon
+
 
 * `m_hMyWearables` (integer[0])
 * `m_flAnimTime` (integer)

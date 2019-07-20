@@ -1,4 +1,9 @@
+---
+description: DT_TeamplayRoundBasedRulesProxy - Last updated at 20.07.2019
+---
+
 # CTeamplayRoundBasedRulesProxy
+
 
 * `m_iRoundState` (integer)
 * `m_bInWaitingForPlayers` (integer)

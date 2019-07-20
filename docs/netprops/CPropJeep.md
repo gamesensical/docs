@@ -1,4 +1,9 @@
+---
+description: DT_PropJeep - Last updated at 20.07.2019
+---
+
 # CPropJeep
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

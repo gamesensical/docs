@@ -1,4 +1,9 @@
+---
+description: DT_TEBeamFollow - Last updated at 20.07.2019
+---
+
 # CTEBeamFollow
+
 
 * `m_nModelIndex` (integer)
 * `m_nHaloIndex` (integer)

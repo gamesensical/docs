@@ -1,4 +1,9 @@
+---
+description: DT_WeaponMP7 - Last updated at 20.07.2019
+---
+
 # CWeaponMP7
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

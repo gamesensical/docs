@@ -1,4 +1,9 @@
+---
+description: DT_BaseGrenade - Last updated at 20.07.2019
+---
+
 # CBaseGrenade
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

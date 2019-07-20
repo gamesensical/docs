@@ -1,4 +1,9 @@
+---
+description: DT_HEGrenade - Last updated at 20.07.2019
+---
+
 # CHEGrenade
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

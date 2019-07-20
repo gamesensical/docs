@@ -1,4 +1,9 @@
+---
+description: DT_FuncSmokeVolume - Last updated at 20.07.2019
+---
+
 # CFuncSmokeVolume
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

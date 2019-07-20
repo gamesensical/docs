@@ -1,4 +1,9 @@
+---
+description: DT_WeaponGalilAR - Last updated at 20.07.2019
+---
+
 # CWeaponGalilAR
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

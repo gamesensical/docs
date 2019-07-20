@@ -1,4 +1,9 @@
+---
+description: DT_TEFootprintDecal - Last updated at 20.07.2019
+---
+
 # CTEFootprintDecal
+
 
 * `m_vecOrigin` (vector)
 * `m_vecDirection` (vector)

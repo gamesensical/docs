@@ -1,4 +1,9 @@
+---
+description: DT_EntityDissolve - Last updated at 20.07.2019
+---
+
 # CEntityDissolve
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

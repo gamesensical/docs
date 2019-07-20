@@ -1,4 +1,9 @@
+---
+description: DT_TEExplosion - Last updated at 20.07.2019
+---
+
 # CTEExplosion
+
 
 * `m_vecOrigin[0]` (float)
 * `m_vecOrigin[1]` (float)

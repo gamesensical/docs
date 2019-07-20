@@ -1,4 +1,9 @@
+---
+description: DT_PhysMagnet - Last updated at 20.07.2019
+---
+
 # CPhysMagnet
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

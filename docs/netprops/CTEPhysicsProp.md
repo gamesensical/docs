@@ -1,4 +1,9 @@
+---
+description: DT_TEPhysicsProp - Last updated at 20.07.2019
+---
+
 # CTEPhysicsProp
+
 
 * `m_vecOrigin` (vector)
 * `m_angRotation[0]` (float)

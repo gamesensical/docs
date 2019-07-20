@@ -1,4 +1,9 @@
+---
+description: DT_WearableItem - Last updated at 20.07.2019
+---
+
 # CEconWearable
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

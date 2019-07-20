@@ -1,4 +1,9 @@
+---
+description: DT_WeaponCycler - Last updated at 20.07.2019
+---
+
 # CWeaponCycler
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

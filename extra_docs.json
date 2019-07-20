@@ -405,6 +405,31 @@
 						"description": "New boolean value of the material var flag"
 					}
 				]
+			},
+			"get_shader_param": {
+				"name": "material_object:get_shader_param",
+				"description": "Returns the value of the shader param or nil",
+				"args": [
+					{
+						"name": "shader_param",
+						"description": "Shader param name"
+					}
+				],
+				"return_type": "any"
+			},
+			"set_shader_param": {
+				"name": "material_object:set_shader_param",
+				"description": "Sets the value of the shader param of the material",
+				"args": [
+					{
+						"name": "shader_param",
+						"description": "Shader param name"
+					},
+					{
+						"name": "value",
+						"description": "New value of the shader param"
+					}
+				]
 			}
 		},
 		"ui": {

@@ -1,4 +1,9 @@
+---
+description: DT_WeaponNOVA - Last updated at 20.07.2019
+---
+
 # CWeaponNOVA
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

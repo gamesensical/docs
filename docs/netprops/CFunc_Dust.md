@@ -1,4 +1,9 @@
+---
+description: DT_Func_Dust - Last updated at 20.07.2019
+---
+
 # CFunc_Dust
+
 
 * `m_Color` (integer)
 * `m_SpawnRate` (integer)

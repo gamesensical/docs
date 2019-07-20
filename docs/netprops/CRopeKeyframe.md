@@ -1,4 +1,9 @@
+---
+description: DT_RopeKeyframe - Last updated at 20.07.2019
+---
+
 # CRopeKeyframe
+
 
 * `m_hStartPoint` (integer)
 * `m_hEndPoint` (integer)

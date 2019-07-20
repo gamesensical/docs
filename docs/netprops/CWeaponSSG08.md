@@ -1,4 +1,9 @@
+---
+description: DT_WeaponSSG08 - Last updated at 20.07.2019
+---
+
 # CWeaponSSG08
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_WeaponHKP2000 - Last updated at 20.07.2019
+---
+
 # CWeaponHKP2000
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

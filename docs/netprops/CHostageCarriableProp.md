@@ -1,4 +1,9 @@
+---
+description: DT_HostageCarriableProp - Last updated at 20.07.2019
+---
+
 # CHostageCarriableProp
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

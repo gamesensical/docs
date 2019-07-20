@@ -1,4 +1,9 @@
+---
+description: DT_BRC4Target - Last updated at 20.07.2019
+---
+
 # CBRC4Target
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

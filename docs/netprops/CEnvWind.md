@@ -1,4 +1,9 @@
+---
+description: DT_EnvWind - Last updated at 20.07.2019
+---
+
 # CEnvWind
+
 
 * `m_iMinWind` (integer)
 * `m_iMaxWind` (integer)

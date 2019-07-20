@@ -1,4 +1,9 @@
+---
+description: DT_CSTeam - Last updated at 20.07.2019
+---
+
 # CCSTeam
+
 
 * `m_iTeamNum` (integer)
 * `m_bSurrendered` (integer)

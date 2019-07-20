@@ -1,4 +1,9 @@
+---
+description: DT_TriggerSoundOperator - Last updated at 20.07.2019
+---
+
 # CTriggerSoundOperator
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

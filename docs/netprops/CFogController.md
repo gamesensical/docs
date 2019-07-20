@@ -1,4 +1,9 @@
+---
+description: DT_FogController - Last updated at 20.07.2019
+---
+
 # CFogController
+
 
 * `m_fog.enable` (integer)
 * `m_fog.blend` (integer)

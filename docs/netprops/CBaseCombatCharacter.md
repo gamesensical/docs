@@ -1,4 +1,9 @@
+---
+description: DT_BaseCombatCharacter - Last updated at 20.07.2019
+---
+
 # CBaseCombatCharacter
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_ParticlePerformanceMonitor - Last updated at 20.07.2019
+---
+
 # CParticlePerformanceMonitor
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

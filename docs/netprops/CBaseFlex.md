@@ -1,4 +1,9 @@
+---
+description: DT_BaseFlex - Last updated at 20.07.2019
+---
+
 # CBaseFlex
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

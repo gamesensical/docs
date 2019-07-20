@@ -1,4 +1,9 @@
+---
+description: DT_TEBeamRing - Last updated at 20.07.2019
+---
+
 # CTEBeamRing
+
 
 * `m_nModelIndex` (integer)
 * `m_nHaloIndex` (integer)

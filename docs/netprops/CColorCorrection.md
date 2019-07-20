@@ -1,4 +1,9 @@
+---
+description: DT_ColorCorrection - Last updated at 20.07.2019
+---
+
 # CColorCorrection
+
 
 * `m_vecOrigin` (vector)
 * `m_MinFalloff` (float)

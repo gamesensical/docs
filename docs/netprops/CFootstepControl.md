@@ -1,4 +1,9 @@
+---
+description: DT_FootstepControl - Last updated at 20.07.2019
+---
+
 # CFootstepControl
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

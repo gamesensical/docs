@@ -1,4 +1,9 @@
+---
+description: DT_Flashbang - Last updated at 20.07.2019
+---
+
 # CFlashbang
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

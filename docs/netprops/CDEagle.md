@@ -1,4 +1,9 @@
+---
+description: DT_WeaponDEagle - Last updated at 20.07.2019
+---
+
 # CDEagle
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

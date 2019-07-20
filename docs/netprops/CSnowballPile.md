@@ -1,4 +1,9 @@
+---
+description: DT_SnowballPile - Last updated at 20.07.2019
+---
+
 # CSnowballPile
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

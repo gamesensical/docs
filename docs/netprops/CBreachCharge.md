@@ -1,4 +1,9 @@
+---
+description: DT_WeaponBreachCharge - Last updated at 20.07.2019
+---
+
 # CBreachCharge
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_BaseCSGrenadeProjectile - Last updated at 20.07.2019
+---
+
 # CBaseCSGrenadeProjectile
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_WeaponSawedoff - Last updated at 20.07.2019
+---
+
 # CWeaponSawedoff
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

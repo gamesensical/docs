@@ -1,4 +1,9 @@
+---
+description: DT_FuncRotating - Last updated at 20.07.2019
+---
+
 # CFuncRotating
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_SmokeGrenade - Last updated at 20.07.2019
+---
+
 # CSmokeGrenade
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

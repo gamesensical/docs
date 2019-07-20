@@ -1,4 +1,9 @@
+---
+description: DT_WeaponGlock - Last updated at 20.07.2019
+---
+
 # CWeaponGlock
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

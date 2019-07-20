@@ -1,4 +1,9 @@
+---
+description: DT_WeaponBizon - Last updated at 20.07.2019
+---
+
 # CWeaponBizon
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

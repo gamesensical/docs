@@ -1,4 +1,9 @@
+---
+description: DT_TEBeamLaser - Last updated at 20.07.2019
+---
+
 # CTEBeamLaser
+
 
 * `m_nModelIndex` (integer)
 * `m_nHaloIndex` (integer)

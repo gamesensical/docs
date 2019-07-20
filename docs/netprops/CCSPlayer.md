@@ -1,4 +1,9 @@
+---
+description: DT_CSPlayer - Last updated at 20.07.2019
+---
+
 # CCSPlayer
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

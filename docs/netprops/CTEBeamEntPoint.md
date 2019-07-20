@@ -1,4 +1,9 @@
+---
+description: DT_TEBeamEntPoint - Last updated at 20.07.2019
+---
+
 # CTEBeamEntPoint
+
 
 * `m_nModelIndex` (integer)
 * `m_nHaloIndex` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_WeaponXM1014 - Last updated at 20.07.2019
+---
+
 # CWeaponXM1014
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

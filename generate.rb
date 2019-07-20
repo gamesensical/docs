@@ -5,6 +5,7 @@ gemfile do
 
 	require "json"
 	require "pathname"
+	require "date"
 
 	gem "pry"
 	gem "json-patch"
@@ -91,6 +92,7 @@ class ArgumentTypes
 			"number (hitbox id)" => ["hitbox", "hitboxes"],
 			"number (hitgroup id)" => ["hitgroup"],
 			"number (material var flag)" => ["material_var_flag"],
+			"number (shader param)" => ["shader_param"],
 			"number" => ["array_index", "duration", "line_offset", "tick", "minimum", "maximum", "damage", "delay", "min", "max", "init_value", "radius", "scale", "max_width", "r", "g", "b", "a", "r1", "g1", "b1", "a1", "r2", "g2", "b2", "a2", "key"],
 			"boolean" => ["enemies_only", "show_tooltip", "inline", "visible", "ltr"],
 			"string" => ["event_name", "msg", "cmd", "unit", "material", "materials"],
@@ -282,16 +284,20 @@ end
 
 # Write netprops
 classes = Hash.new
+classes_type = Hash.new
 current_class = nil
 current_table = nil
 current_table_type = nil
+first_line = nil
 current_table_nums = []
 number_regex = /^[0-9]*$/
 File.open('props.txt', 'r').each do |line|
+	first_line ||= line
 	next if line == "" || line.start_with?("//")
 	unless line.start_with? " "
 		current_class = line.split(" ")[0]
 		classes[current_class] = []
+		classes_type[current_class] = line.split("(type ")[1].split(")")[0] rescue nil
 		next
 	end
 
@@ -339,6 +345,8 @@ def get_group(classname)
 	return "Other"
 end
 
+date = Date.parse(first_line.split(" ").last).strftime("%d.%m.%Y")
+
 netprops_groups = {
 	"Important" => [],
 	"Items" => [],
@@ -355,7 +363,21 @@ classes.each do |classname, props|
 	props.each do |prop|
 		props_string << "* `#{prop["name"]}` (#{prop["type"]})"
 	end
-	(props_path + "#{classname}.md").write("# #{classname}\n\n" + props_string.join("\n"))
+
+	contents = []
+
+	# description
+	contents << "---"
+	contents << "description: #{classes_type[classname]} - Last updated at #{date}"
+	contents << "---"
+	contents << ""
+
+	contents << "# #{classname}"
+	contents << ""
+	contents << ""
+	contents << props_string.join("\n")
+
+	(props_path + "#{classname}.md").write(contents.join("\n"))
 
 	group = get_group(classname)
 	netprops_groups[group] ||= []

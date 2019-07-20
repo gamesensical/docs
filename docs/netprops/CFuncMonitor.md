@@ -1,4 +1,9 @@
+---
+description: DT_FuncMonitor - Last updated at 20.07.2019
+---
+
 # CFuncMonitor
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_SporeTrail - Last updated at 20.07.2019
+---
+
 # SporeTrail
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

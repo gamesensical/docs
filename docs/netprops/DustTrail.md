@@ -1,4 +1,9 @@
+---
+description: DT_DustTrail - Last updated at 20.07.2019
+---
+
 # DustTrail
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

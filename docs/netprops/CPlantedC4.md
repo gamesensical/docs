@@ -1,4 +1,9 @@
+---
+description: DT_PlantedC4 - Last updated at 20.07.2019
+---
+
 # CPlantedC4
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

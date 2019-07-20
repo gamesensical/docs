@@ -1,4 +1,9 @@
+---
+description: DT_FireCrackerBlast - Last updated at 20.07.2019
+---
+
 # CFireCrackerBlast
+
 
 * `m_ubSignature` (integer[0-127])
 * `m_flAnimTime` (integer)

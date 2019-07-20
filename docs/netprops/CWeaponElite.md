@@ -1,4 +1,9 @@
+---
+description: DT_WeaponElite - Last updated at 20.07.2019
+---
+
 # CWeaponElite
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

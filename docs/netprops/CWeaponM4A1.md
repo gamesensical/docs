@@ -1,4 +1,9 @@
+---
+description: DT_WeaponM4A1 - Last updated at 20.07.2019
+---
+
 # CWeaponM4A1
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

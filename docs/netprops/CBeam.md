@@ -1,4 +1,9 @@
+---
+description: DT_Beam - Last updated at 20.07.2019
+---
+
 # CBeam
+
 
 * `m_nBeamType` (integer)
 * `m_nBeamFlags` (integer)

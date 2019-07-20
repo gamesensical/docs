@@ -1,4 +1,9 @@
+---
+description: DT_SporeExplosion - Last updated at 20.07.2019
+---
+
 # SporeExplosion
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

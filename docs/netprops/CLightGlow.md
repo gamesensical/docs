@@ -1,4 +1,9 @@
+---
+description: DT_LightGlow - Last updated at 20.07.2019
+---
+
 # CLightGlow
+
 
 * `m_clrRender` (integer)
 * `m_nHorizontalSize` (integer)

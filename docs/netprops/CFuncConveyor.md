@@ -1,4 +1,9 @@
+---
+description: DT_FuncConveyor - Last updated at 20.07.2019
+---
+
 # CFuncConveyor
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

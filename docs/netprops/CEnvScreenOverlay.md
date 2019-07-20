@@ -1,4 +1,9 @@
+---
+description: DT_EnvScreenOverlay - Last updated at 20.07.2019
+---
+
 # CEnvScreenOverlay
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

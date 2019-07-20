@@ -1,4 +1,9 @@
+---
+description: DT_GrassBurn - Last updated at 20.07.2019
+---
+
 # CGrassBurn
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

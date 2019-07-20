@@ -1,4 +1,9 @@
+---
+description: DT_EntityFlame - Last updated at 20.07.2019
+---
+
 # CEntityFlame
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

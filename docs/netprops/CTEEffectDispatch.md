@@ -1,4 +1,9 @@
+---
+description: DT_TEEffectDispatch - Last updated at 20.07.2019
+---
+
 # CTEEffectDispatch
+
 
 * `m_vOrigin.x` (float)
 * `m_vOrigin.y` (float)

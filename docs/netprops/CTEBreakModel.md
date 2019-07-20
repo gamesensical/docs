@@ -1,4 +1,9 @@
+---
+description: DT_TEBreakModel - Last updated at 20.07.2019
+---
+
 # CTEBreakModel
+
 
 * `m_vecOrigin` (vector)
 * `m_angRotation[0]` (float)

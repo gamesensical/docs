@@ -1,4 +1,9 @@
+---
+description: DT_WORLD - Last updated at 20.07.2019
+---
+
 # CWorld
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_ParadropChopper - Last updated at 20.07.2019
+---
+
 # CParadropChopper
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

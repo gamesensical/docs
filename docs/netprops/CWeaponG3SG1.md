@@ -1,4 +1,9 @@
+---
+description: DT_WeaponG3SG1 - Last updated at 20.07.2019
+---
+
 # CWeaponG3SG1
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

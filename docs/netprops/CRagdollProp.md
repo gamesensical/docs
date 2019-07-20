@@ -1,4 +1,9 @@
+---
+description: DT_Ragdoll - Last updated at 20.07.2019
+---
+
 # CRagdollProp
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

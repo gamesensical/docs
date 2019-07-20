@@ -1,4 +1,9 @@
+---
+description: DT_DecoyProjectile - Last updated at 20.07.2019
+---
+
 # CDecoyProjectile
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

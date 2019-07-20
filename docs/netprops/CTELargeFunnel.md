@@ -1,4 +1,9 @@
+---
+description: DT_TELargeFunnel - Last updated at 20.07.2019
+---
+
 # CTELargeFunnel
+
 
 * `m_vecOrigin[0]` (float)
 * `m_vecOrigin[1]` (float)

@@ -1,4 +1,9 @@
+---
+description: DT_EntityParticleTrail - Last updated at 20.07.2019
+---
+
 # CEntityParticleTrail
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

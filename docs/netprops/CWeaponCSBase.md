@@ -1,4 +1,9 @@
+---
+description: DT_WeaponCSBase - Last updated at 20.07.2019
+---
+
 # CWeaponCSBase
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

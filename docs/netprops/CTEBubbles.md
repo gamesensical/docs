@@ -1,4 +1,9 @@
+---
+description: DT_TEBubbles - Last updated at 20.07.2019
+---
+
 # CTEBubbles
+
 
 * `m_vecMins` (vector)
 * `m_vecMaxs` (vector)

@@ -1,4 +1,9 @@
+---
+description: DT_BaseTrigger - Last updated at 20.07.2019
+---
+
 # CBaseTrigger
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

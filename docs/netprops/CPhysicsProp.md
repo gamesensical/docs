@@ -1,4 +1,9 @@
+---
+description: DT_PhysicsProp - Last updated at 20.07.2019
+---
+
 # CPhysicsProp
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

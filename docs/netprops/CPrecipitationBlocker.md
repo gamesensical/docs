@@ -1,4 +1,9 @@
+---
+description: DT_PrecipitationBlocker - Last updated at 20.07.2019
+---
+
 # CPrecipitationBlocker
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

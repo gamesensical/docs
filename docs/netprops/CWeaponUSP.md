@@ -1,4 +1,9 @@
+---
+description: DT_WeaponUSP - Last updated at 20.07.2019
+---
+
 # CWeaponUSP
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_PhysPropAmmoBox - Last updated at 20.07.2019
+---
+
 # CPhysPropAmmoBox
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_Team - Last updated at 20.07.2019
+---
+
 # CTeam
+
 
 * `m_iTeamNum` (integer)
 * `m_bSurrendered` (integer)

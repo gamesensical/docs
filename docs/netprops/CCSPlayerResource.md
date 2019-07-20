@@ -1,4 +1,9 @@
+---
+description: DT_CSPlayerResource - Last updated at 20.07.2019
+---
+
 # CCSPlayerResource
+
 
 * `m_iPing` (integer[0-64])
 * `m_iAssists` (integer[0-64])

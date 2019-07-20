@@ -1,4 +1,9 @@
+---
+description: DT_WeaponKnife - Last updated at 20.07.2019
+---
+
 # CKnife
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

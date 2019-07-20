@@ -1,4 +1,9 @@
+---
+description: DT_TEFireBullets - Last updated at 20.07.2019
+---
+
 # CTEFireBullets
+
 
 * `m_vecOrigin` (vector)
 * `m_vecAngles[0]` (float)

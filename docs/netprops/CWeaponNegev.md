@@ -1,4 +1,9 @@
+---
+description: DT_WeaponNegev - Last updated at 20.07.2019
+---
+
 # CWeaponNegev
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

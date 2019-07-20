@@ -1,4 +1,9 @@
+---
+description: DT_PhysBox - Last updated at 20.07.2019
+---
+
 # CPhysBox
+
 
 * `m_iControlPointParents` (integer[0-62])
 * `m_flAnimTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_WeaponBumpMine - Last updated at 20.07.2019
+---
+
 # CBumpMine
+
 
 * `m_RawPanelBitVec` (integer[0-255])
 * `m_flAnimTime` (integer)

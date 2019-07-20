@@ -1,4 +1,9 @@
+---
+description: DT_WeaponSG550 - Last updated at 20.07.2019
+---
+
 # CWeaponSG550
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_PredictedViewModel - Last updated at 20.07.2019
+---
+
 # CPredictedViewModel
+
 
 * `m_nModelIndex` (integer)
 * `m_hWeapon` (integer)

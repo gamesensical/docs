@@ -1,4 +1,9 @@
+---
+description: DT_FuncMoveLinear - Last updated at 20.07.2019
+---
+
 # CFuncMoveLinear
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

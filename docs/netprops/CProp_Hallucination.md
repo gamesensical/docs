@@ -1,4 +1,9 @@
+---
+description: DT_Prop_Hallucination - Last updated at 20.07.2019
+---
+
 # CProp_Hallucination
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_MovieExplosion - Last updated at 20.07.2019
+---
+
 # MovieExplosion
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_TEPlayerDecal - Last updated at 20.07.2019
+---
+
 # CTEPlayerDecal
+
 
 * `m_vecOrigin` (vector)
 * `m_vecStart` (vector)

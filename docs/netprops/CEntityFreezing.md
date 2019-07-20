@@ -1,4 +1,9 @@
+---
+description: DT_EntityFreezing - Last updated at 20.07.2019
+---
+
 # CEntityFreezing
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

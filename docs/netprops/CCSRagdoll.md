@@ -1,4 +1,9 @@
+---
+description: DT_CSRagdoll - Last updated at 20.07.2019
+---
+
 # CCSRagdoll
+
 
 * `m_vecOrigin` (vector)
 * `m_iMatchStats_EnemiesFlashed_Total` (integer[0-64])

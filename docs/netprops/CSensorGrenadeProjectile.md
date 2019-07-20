@@ -1,4 +1,9 @@
+---
+description: DT_SensorGrenadeProjectile - Last updated at 20.07.2019
+---
+
 # CSensorGrenadeProjectile
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

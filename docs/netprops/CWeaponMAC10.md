@@ -1,4 +1,9 @@
+---
+description: DT_WeaponMAC10 - Last updated at 20.07.2019
+---
+
 # CWeaponMAC10
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

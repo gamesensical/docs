@@ -1,4 +1,9 @@
+---
+description: DT_SunlightShadowControl - Last updated at 20.07.2019
+---
+
 # CSunlightShadowControl
+
 
 * `m_shadowDirection` (vector)
 * `m_bEnabled` (integer)

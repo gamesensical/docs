@@ -1,4 +1,9 @@
+---
+description: DT_AI_BaseNPC - Last updated at 20.07.2019
+---
+
 # CAI_BaseNPC
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

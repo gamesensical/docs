@@ -1,4 +1,9 @@
+---
+description: DT_CSGameRulesProxy - Last updated at 20.07.2019
+---
+
 # CCSGameRulesProxy
+
 
 * `m_bFreezePeriod` (integer)
 * `m_bMatchWaitingForResume` (integer)

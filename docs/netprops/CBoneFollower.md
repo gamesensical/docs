@@ -1,4 +1,9 @@
+---
+description: DT_BoneFollower - Last updated at 20.07.2019
+---
+
 # CBoneFollower
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

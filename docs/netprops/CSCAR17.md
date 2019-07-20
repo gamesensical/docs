@@ -1,4 +1,9 @@
+---
+description: DT_WeaponSCAR17 - Last updated at 20.07.2019
+---
+
 # CSCAR17
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

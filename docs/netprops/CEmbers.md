@@ -1,4 +1,9 @@
+---
+description: DT_Embers - Last updated at 20.07.2019
+---
+
 # CEmbers
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

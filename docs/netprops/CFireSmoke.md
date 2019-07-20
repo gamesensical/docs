@@ -1,4 +1,9 @@
+---
+description: DT_FireSmoke - Last updated at 20.07.2019
+---
+
 # CFireSmoke
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_MolotovProjectile - Last updated at 20.07.2019
+---
+
 # CMolotovProjectile
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

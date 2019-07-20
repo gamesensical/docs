@@ -1,4 +1,9 @@
+---
+description: DT_Plasma - Last updated at 20.07.2019
+---
+
 # CPlasma
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_BaseTeamObjectiveResource - Last updated at 20.07.2019
+---
+
 # CBaseTeamObjectiveResource
+
 
 * `m_iTimerToShowInHUD` (integer)
 * `m_iStopWatchTimer` (integer)

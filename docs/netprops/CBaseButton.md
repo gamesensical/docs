@@ -1,4 +1,9 @@
+---
+description: DT_BaseButton - Last updated at 20.07.2019
+---
+
 # CBaseButton
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

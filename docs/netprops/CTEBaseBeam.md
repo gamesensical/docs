@@ -1,4 +1,9 @@
+---
+description: DT_BaseBeam - Last updated at 20.07.2019
+---
+
 # CTEBaseBeam
+
 
 * `m_nModelIndex` (integer)
 * `m_nHaloIndex` (integer)

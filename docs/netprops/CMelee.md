@@ -1,4 +1,9 @@
+---
+description: DT_WeaponMelee - Last updated at 20.07.2019
+---
+
 # CMelee
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

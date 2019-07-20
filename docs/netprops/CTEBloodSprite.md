@@ -1,4 +1,9 @@
+---
+description: DT_TEBloodSprite - Last updated at 20.07.2019
+---
+
 # CTEBloodSprite
+
 
 * `m_vecOrigin` (vector)
 * `m_vecDirection` (vector)

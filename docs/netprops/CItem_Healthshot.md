@@ -1,4 +1,9 @@
+---
+description: DT_Item_Healthshot - Last updated at 20.07.2019
+---
+
 # CItem_Healthshot
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_SpotlightEnd - Last updated at 20.07.2019
+---
+
 # CSpotlightEnd
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

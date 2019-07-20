@@ -1,4 +1,9 @@
+---
+description: DT_ParticleSystem - Last updated at 20.07.2019
+---
+
 # CParticleSystem
+
 
 * `m_vecOrigin` (vector)
 * `m_fEffects` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_FuncBrush - Last updated at 20.07.2019
+---
+
 # CFuncBrush
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

@@ -1,4 +1,9 @@
+---
+description: DT_BaseVPhysicsTrigger - Last updated at 20.07.2019
+---
+
 # CBaseVPhysicsTrigger
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

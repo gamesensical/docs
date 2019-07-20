@@ -1,4 +1,9 @@
+---
+description: DT_WeaponP250 - Last updated at 20.07.2019
+---
+
 # CWeaponP250
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

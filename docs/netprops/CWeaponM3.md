@@ -1,4 +1,9 @@
+---
+description: DT_WeaponM3 - Last updated at 20.07.2019
+---
+
 # CWeaponM3
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

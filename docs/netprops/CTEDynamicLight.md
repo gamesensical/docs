@@ -1,4 +1,9 @@
+---
+description: DT_TEDynamicLight - Last updated at 20.07.2019
+---
+
 # CTEDynamicLight
+
 
 * `m_vecOrigin` (vector)
 * `r` (integer)

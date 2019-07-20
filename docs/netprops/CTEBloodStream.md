@@ -1,4 +1,9 @@
+---
+description: DT_TEBloodStream - Last updated at 20.07.2019
+---
+
 # CTEBloodStream
+
 
 * `m_vecOrigin[0]` (float)
 * `m_vecOrigin[1]` (float)

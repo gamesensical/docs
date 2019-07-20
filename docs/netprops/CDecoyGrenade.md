@@ -1,4 +1,9 @@
+---
+description: DT_DecoyGrenade - Last updated at 20.07.2019
+---
+
 # CDecoyGrenade
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

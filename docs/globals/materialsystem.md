@@ -120,6 +120,17 @@ Argument | Description
 Returns the boolean value of the material var flag
 
 
+#### :get_shader_param
+
+`material_object:get_shader_param(shader_param: number)`: any
+
+Argument | Description
+-------- | -----------
+  **shader_param** | Shader param name
+
+Returns the value of the shader param or nil
+
+
 #### :reload
 
 `material_object:reload()`
@@ -137,4 +148,16 @@ Argument | Description
   **value** | New boolean value of the material var flag
 
 Sets the value of the material var flag of the material
+
+
+#### :set_shader_param
+
+`material_object:set_shader_param(shader_param: number, value: any)`
+
+Argument | Description
+-------- | -----------
+  **shader_param** | Shader param name
+  **value** | New value of the shader param
+
+Sets the value of the shader param of the material
 

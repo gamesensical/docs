@@ -1,4 +1,9 @@
+---
+description: DT_WeaponP228 - Last updated at 20.07.2019
+---
+
 # CWeaponP228
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

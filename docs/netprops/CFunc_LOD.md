@@ -1,4 +1,9 @@
+---
+description: DT_Func_LOD - Last updated at 20.07.2019
+---
+
 # CFunc_LOD
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

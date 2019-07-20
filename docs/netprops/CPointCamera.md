@@ -1,4 +1,9 @@
+---
+description: DT_PointCamera - Last updated at 20.07.2019
+---
+
 # CPointCamera
+
 
 * `m_iCoachingTeam` (integer[0-64])
 * `m_flAnimTime` (integer)

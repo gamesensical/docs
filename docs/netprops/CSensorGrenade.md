@@ -1,4 +1,9 @@
+---
+description: DT_SensorGrenade - Last updated at 20.07.2019
+---
+
 # CSensorGrenade
+
 
 * `lengthproxy` (integer[0-15])
 * `m_flAnimTime` (integer)

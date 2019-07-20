@@ -1,4 +1,9 @@
+---
+description: DT_SurvivalSpawnChopper - Last updated at 20.07.2019
+---
+
 # CSurvivalSpawnChopper
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

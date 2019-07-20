@@ -1,4 +1,9 @@
+---
+description: DT_CFish - Last updated at 20.07.2019
+---
+
 # CFish
+
 
 * `m_poolOrigin` (vector)
 * `m_angle` (float)

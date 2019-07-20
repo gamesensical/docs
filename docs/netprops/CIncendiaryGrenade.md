@@ -1,4 +1,9 @@
+---
+description: DT_IncendiaryGrenade - Last updated at 20.07.2019
+---
+
 # CIncendiaryGrenade
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)

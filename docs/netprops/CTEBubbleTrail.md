@@ -1,4 +1,9 @@
+---
+description: DT_TEBubbleTrail - Last updated at 20.07.2019
+---
+
 # CTEBubbleTrail
+
 
 * `m_vecMins` (vector)
 * `m_vecMaxs` (vector)

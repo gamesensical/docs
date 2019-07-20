@@ -1,4 +1,9 @@
+---
+description: DT_PropVehicleDriveable - Last updated at 20.07.2019
+---
+
 # CPropVehicleDriveable
+
 
 * `m_flAnimTime` (integer)
 * `m_flSimulationTime` (integer)
