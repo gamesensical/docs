@@ -89,6 +89,7 @@ class ArgumentTypes
 	end
 
 	def get_argument_name(arg, data)
+		return arg["type"] if arg.key? "type"
 		if @argument_types.key? arg["name"]
 			return @argument_types[arg["name"]]
 		end

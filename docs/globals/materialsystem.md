@@ -52,6 +52,17 @@ Argument | Description
 Returns all material objects that contain the specified material.
 
 
+#### materialsystem.find_texture
+
+`materialsystem.find_texture(material: string)`
+
+Argument | Description
+-------- | -----------
+  **material** | The name of the material.
+
+Returns a texture object for the specified material.
+
+
 #### materialsystem.get_model_materials
 
 `materialsystem.get_model_materials(entindex: number)`
@@ -61,4 +72,15 @@ Argument | Description
   **entindex** | The entity whos materials will be returned.
 
 Returns all material objects for a specified entity.
+
+
+#### materialsystem.override_material
+
+`materialsystem.override_material(entindex: number)`
+
+Argument | Description
+-------- | -----------
+  **entindex** | The entity whos materials will be returned.
+
+Overrides all of a material properties with another material.
 

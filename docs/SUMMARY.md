@@ -7,6 +7,7 @@
   * [Compiling lua scripts](development/compiling.md)
   * [Event names](development/events.md)
 * [Globals](globals/README.md)
+  * [Bit](globals/bit.md)
   * [Client](globals/client.md)
   * [Cvar](globals/cvar.md)
   * [Entity](globals/entity.md)

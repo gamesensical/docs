@@ -1,6 +1,185 @@
 {
 	"globals_patch": [],
 	"globals_merge": {
+		"bit": {
+			"arshift": {
+				"name": "bit.arshift",
+				"description": "Returns the bitwise arithmetic right-shift of its first argument by the number of bits given by the second argument.\nArithmetic right-shift treats the most-significant bit as a sign bit and replicates it.\nOnly the lower 5 bits of the shift count are used (reduces to the range [0..31]).",
+				"args": [
+					{
+						"name": "x",
+						"description": "number",
+						"type": "number"
+					},
+					{
+						"name": "n",
+						"description": "number of bits",
+						"type": "number"
+					}
+				]
+			},
+			"band": {
+				"name": "bit.band",
+				"description": "Returns the bitwise and of all of its arguments. Note that more than two arguments are allowed.",
+				"args": [
+					{
+						"name": "x1",
+						"description": "number",
+						"type": "number"
+					},
+					{
+						"name": "[x2...]",
+						"description": "number(s)",
+						"type": "number"
+					}
+				]
+			},
+			"bnot": {
+				"name": "bit.bnot",
+				"description": "Returns the bitwise not of its argument.",
+				"args": [
+					{
+						"name": "x",
+						"description": "number",
+						"type": "number"
+					}
+				]
+			},
+			"bor": {
+				"name": "bit.bor",
+				"description": "Returns the bitwise or of all of its arguments. Note that more than two arguments are allowed.",
+				"args": [
+					{
+						"name": "x1",
+						"description": "number",
+						"type": "number"
+					},
+					{
+						"name": "[x2...]",
+						"description": "number(s)",
+						"type": "number"
+					}
+				]
+			},
+			"bswap": {
+				"name": "bit.bswap",
+				"description": "Swaps the bytes of its argument and returns it. This can be used to convert little-endian 32 bit numbers to big-endian 32 bit numbers or vice versa.",
+				"args": [
+					{
+						"name": "x",
+						"description": "number",
+						"type": "number"
+					}
+				]
+			},
+			"bxor": {
+				"name": "bit.bxor",
+				"description": "Returns the bitwise xor of all of its arguments. Note that more than two arguments are allowed.",
+				"args": [
+					{
+						"name": "x1",
+						"description": "number",
+						"type": "number"
+					},
+					{
+						"name": "[x2...]",
+						"description": "number(s)",
+						"type": "number"
+					}
+				]
+			},
+			"lshift": {
+				"name": "bit.lshift",
+				"description": "Returns the bitwise logical left-shift of its first argument by the number of bits given by the second argument.\nLogical shifts treat the first argument as an unsigned number and shift in 0-bits.\nOnly the lower 5 bits of the shift count are used (reduces to the range [0..31]).",
+				"args": [
+					{
+						"name": "x",
+						"description": "number",
+						"type": "number"
+					},
+					{
+						"name": "n",
+						"description": "number of bits",
+						"type": "number"
+					}
+				]
+			},
+			"rol": {
+				"name": "bit.rol",
+				"description": "Returns the bitwise left rotation of its first argument by the number of bits given by the second argument. Bits shifted out on one side are shifted back in on the other side.\nOnly the lower 5 bits of the rotate count are used (reduces to the range [0..31]).",
+				"args": [
+					{
+						"name": "x",
+						"description": "number",
+						"type": "number"
+					},
+					{
+						"name": "n",
+						"description": "number of bits",
+						"type": "number"
+					}
+				]
+			},
+			"ror": {
+				"name": "bit.ror",
+				"description": "Returns the bitwise right rotation of its first argument by the number of bits given by the second argument. Bits shifted out on one side are shifted back in on the other side.\nOnly the lower 5 bits of the rotate count are used (reduces to the range [0..31]).",
+				"args": [
+					{
+						"name": "x",
+						"description": "number",
+						"type": "number"
+					},
+					{
+						"name": "n",
+						"description": "number of bits",
+						"type": "number"
+					}
+				]
+			},
+			"rshift": {
+				"name": "bit.rshift",
+				"description": "Returns the bitwise logical right-shift of its first argument by the number of bits given by the second argument.\nLogical shifts treat the first argument as an unsigned number and shift in 0-bits.\nOnly the lower 5 bits of the shift count are used (reduces to the range [0..31]).",
+				"args": [
+					{
+						"name": "x",
+						"description": "number",
+						"type": "number"
+					},
+					{
+						"name": "n",
+						"description": "number of bits",
+						"type": "number"
+					}
+				]
+			},
+			"tobit": {
+				"name": "bit.tobit",
+				"description": "Normalizes a number to the numeric range for bit operations and returns it. This function is usually not needed since all bit operations already normalize all of their input arguments.",
+				"args": [
+					{
+						"name": "x",
+						"description": "number to normalize",
+						"type": "number"
+					}
+				]
+			},
+			"tohex": {
+				"name": "bit.tohex",
+				"description": "Converts its first argument to a hex string. The number of hex digits is given by the absolute value of the optional second argument. Positive numbers between 1 and 8 generate lowercase hex digits. Negative numbers generate uppercase hex digits. Only the least-significant 4*|n| bits are used. The default is to generate 8 lowercase hex digits.",
+				"args": [
+					{
+						"name": "x",
+						"description": "number to convert",
+						"type": "number"
+					},
+					{
+						"name": "n",
+						"description": "number of hex digits to return",
+						"type": "number"
+					}
+				]
+			}
+		},
 		"cvar": {
 			"set_string": {
 				"name": ":set_string"
@@ -160,7 +339,7 @@
 						"description": "The entity whos materials will be returned."
 					}
 				]
-			}
+			},
 			"override_material": {
 				"name": "materialsystem.override_material",
 				"description": "Overrides all of a material properties with another material.",
