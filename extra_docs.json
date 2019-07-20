@@ -141,9 +141,29 @@
 					}
 				]
 			},
+			"find_texture": {
+				"name": "materialsystem.find_texture",
+				"description": "Returns a texture object for the specified material.",
+				"args": [
+					{
+						"name": "material",
+						"description": "The name of the material."
+					}
+				]
+			},
 			"get_model_materials": {
 				"name": "materialsystem.get_model_materials",
 				"description": "Returns all material objects for a specified entity.",
+				"args": [
+					{
+						"name": "entindex",
+						"description": "The entity whos materials will be returned."
+					}
+				]
+			}
+			"override_material": {
+				"name": "materialsystem.override_material",
+				"description": "Overrides all of a material properties with another material.",
 				"args": [
 					{
 						"name": "entindex",
