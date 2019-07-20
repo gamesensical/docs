@@ -252,6 +252,10 @@
 						"description": "Optional comma-separated arguments to concatenate with msg."
 					}
 				]
+			},
+			"system_time": {
+				"description": "Returns windows time as (hours, minutes, seconds, milliseconds)",
+				"return_type": "number, number, number, number"
 			}
 		},
 		"globals": {

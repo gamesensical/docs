@@ -121,7 +121,7 @@ Returns true if the key is pressed, or nil on failure
 
 #### client.latency
 
-`client.latency()`
+`client.latency()`: number
 
 Returns your latency in seconds.
 
@@ -138,7 +138,7 @@ Argument | Description
 
 #### client.random_float
 
-`client.random_float(minimum: number, maximum: number)`
+`client.random_float(minimum: number, maximum: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -169,7 +169,7 @@ Reloads all scripts the following frame.
 
 #### client.scale_damage
 
-`client.scale_damage(entindex: number, hitgroup: number, damage: number)`
+`client.scale_damage(entindex: number, hitgroup: number, damage: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -182,7 +182,7 @@ Returns adjusted damage for the specified hitgroup
 
 #### client.screen_size
 
-`client.screen_size()`
+`client.screen_size()`: number, number
 
 Returns (width, height).
 
@@ -212,19 +212,21 @@ Raises an error and prints a message in console upon failure.
 
 #### client.system_time
 
-`client.system_time()`
+`client.system_time()`: number, number, number, number
+
+Returns windows time as (hours, minutes, seconds, milliseconds)
 
 
 #### client.timestamp
 
-`client.timestamp()`
+`client.timestamp()`: number
 
 Returns high precision timestamp in milliseconds.
 
 
 #### client.trace_bullet
 
-`client.trace_bullet(from_player: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`
+`client.trace_bullet(from_player: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`: number
 
 Argument | Description
 -------- | -----------

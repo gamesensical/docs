@@ -137,7 +137,7 @@ Returns a texture ID that can be used with renderer.texture, or nil on failure
 
 #### renderer.measure_text
 
-`renderer.measure_text(flags: string, ...)`
+`renderer.measure_text(flags: string, ...)`: number, number
 
 Argument | Description
 -------- | -----------

@@ -77,7 +77,7 @@ Returns the previous server acknowledged command number.
 
 #### globals.realtime
 
-`globals.realtime()`
+`globals.realtime()`: number
 
 Returns the local time in seconds.
 
@@ -91,7 +91,7 @@ Returns the number of ticks elapsed in the server.
 
 #### globals.tickinterval
 
-`globals.tickinterval()`
+`globals.tickinterval()`: number
 
 Returns the time elapsed in one game tick in seconds.
 

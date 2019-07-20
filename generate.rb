@@ -45,8 +45,12 @@ class ReturnTypes
 			"true" => "boolean",
 			"false" => "boolean",
 			"integer" => "number",
+			"float" => "number",
+			"damage" => "number",
 			"number" => "number",
-			"table" => "table"
+			"seconds" => "number",
+			"table" => "table",
+			"width, height" => "number, number"
 		}
 	end
 
@@ -56,6 +60,12 @@ class ReturnTypes
 		@regexes.each do |regex_name, regexes|
 			return regex_name if regexes.any? {|regex| regex.match? name}
 		end
+
+		# if data.key? "description"
+		# 	@regexes_desc.each do |regex_name, regexes|
+		# 		return regex_name if regexes.any? {|regex| regex.match? data["description"]}
+		# 	end
+		# end
 
 		types = []
 		@types.each do |type, type_str|
