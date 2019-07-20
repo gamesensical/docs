@@ -34,9 +34,27 @@ end
 
 class ReturnTypes
 	def initialize()
+		@number_regexes = [
+			/ui\.new_.*/,
+			"ui.reference"
+		]
+
+		@types = {
+			"boolean" => "boolean",
+			"integer" => "number",
+			"number" => "number",
+			"table" => "table"
+		}
 	end
 
 	def get_return_type(name, data)
+		return data["return_type"] if data.key? "return_type"
+		return "number (menu item)" if @number_regexes.any? {|regex| regex.match? name}
+
+		@types.each do |type, type_str|
+			return type_str if data.key?("description") && data["description"].include?(type) && data["description"].downcase.include?("returns")
+		end
+
 		return nil
 	end
 end
@@ -65,6 +83,7 @@ class ArgumentTypes
 			"number (entindex)" => ["ent", "entindex", "skip_player", "player", "from_player", "skip_entindex"],
 			"number (hitbox id)" => ["hitbox", "hitboxes"],
 			"number (hitgroup id)" => ["hitgroup"],
+			"number (material var flag)" => ["material_var_flag"],
 			"number" => ["array_index", "duration", "line_offset", "tick", "minimum", "maximum", "damage", "delay", "min", "max", "init_value", "radius", "scale", "max_width", "r", "g", "b", "a", "r1", "g1", "b1", "a1", "r2", "g2", "b2", "a2", "key"],
 			"boolean" => ["enemies_only", "show_tooltip", "inline", "visible", "ltr"],
 			"string" => ["event_name", "msg", "cmd", "unit", "material", "materials"],
@@ -191,8 +210,8 @@ globals.each do |global, functions|
 			end
 		end
 
-		func_text = "#{data["name"]}(#{arg_names.join(", ")})"
-		return_type = rettypes.get_return_type(name, data)
+		func_text = "`#{data["name"]}(#{arg_names.join(", ")})`"
+		return_type = rettypes.get_return_type(data["name"], data)
 
 		if !return_type.nil?
 			func_text += ": #{return_type}"
@@ -203,7 +222,7 @@ globals.each do |global, functions|
 
 		contents << "#### #{func_name}"
 		contents << ""
-		contents << "`#{func_text}`"
+		contents << func_text
 		contents << ""
 
 		if data.key? "hint"

@@ -381,6 +381,30 @@
 			"reload": {
 				"name": "material_object:reload",
 				"description": "Restores the original material properties of the material it's called on."
+			},
+			"get_material_var_flag": {
+				"name": "material_object:get_material_var_flag",
+				"description": "Returns the boolean value of the material var flag",
+				"args": [
+					{
+						"name": "material_var_flag",
+						"description": "Material var flag as number"
+					}
+				]
+			},
+			"set_material_var_flag": {
+				"name": "material_object:set_material_var_flag",
+				"description": "Sets the value of the material var flag of the material",
+				"args": [
+					{
+						"name": "material_var_flag",
+						"description": "Material var flag as number"
+					},
+					{
+						"name": "value",
+						"description": "New value of the material var flag"
+					}
+				]
 			}
 		},
 		"ui": {
@@ -419,6 +443,7 @@
 		}
 	},
 	"globals_descriptions": {
+		"bit": "LuaJIT library for bitwise operations",
 		"client": "General game- and cheat-related functions",
 		"ui": "Functions for interfacing with the gamesense menu",
 		"renderer": "Functions for drawing visuals. Usually won't work outside the `paint` event.",

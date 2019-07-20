@@ -109,9 +109,32 @@ Argument | Description
 Overrides the color of the material object it's called on. Doesn't work with some materials
 
 
+#### :get_material_var_flag
+
+`material_object:get_material_var_flag(material_var_flag: number)`: boolean
+
+Argument | Description
+-------- | -----------
+  **material_var_flag** | Material var flag as number
+
+Returns the boolean value of the material var flag
+
+
 #### :reload
 
 `material_object:reload()`
 
 Restores the original material properties of the material it's called on.
+
+
+#### :set_material_var_flag
+
+`material_object:set_material_var_flag(material_var_flag: number, value: any)`
+
+Argument | Description
+-------- | -----------
+  **material_var_flag** | Material var flag as number
+  **value** | New value of the material var flag
+
+Sets the value of the material var flag of the material
 

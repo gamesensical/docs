@@ -150,7 +150,7 @@ Returns a random float between minimum and maximum.
 
 #### client.random_int
 
-`client.random_int(minimum: number, maximum: number)`
+`client.random_int(minimum: number, maximum: number)`: number
 
 Argument | Description
 -------- | -----------

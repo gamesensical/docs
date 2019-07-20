@@ -1,9 +1,13 @@
+---
+description: LuaJIT library for bitwise operations
+---
+
 # Bit
 
 ### Functions:
 #### bit.arshift
 
-`bit.arshift(x: number, n: number)`
+`bit.arshift(x: number, n: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -52,7 +56,7 @@ Returns the bitwise or of all of its arguments. Note that more than two argument
 
 #### bit.bswap
 
-`bit.bswap(x: number)`
+`bit.bswap(x: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -75,7 +79,7 @@ Returns the bitwise xor of all of its arguments. Note that more than two argumen
 
 #### bit.lshift
 
-`bit.lshift(x: number, n: number)`
+`bit.lshift(x: number, n: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -89,7 +93,7 @@ Only the lower 5 bits of the shift count are used (reduces to the range [0..31])
 
 #### bit.rol
 
-`bit.rol(x: number, n: number)`
+`bit.rol(x: number, n: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -102,7 +106,7 @@ Only the lower 5 bits of the rotate count are used (reduces to the range [0..31]
 
 #### bit.ror
 
-`bit.ror(x: number, n: number)`
+`bit.ror(x: number, n: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -115,7 +119,7 @@ Only the lower 5 bits of the rotate count are used (reduces to the range [0..31]
 
 #### bit.rshift
 
-`bit.rshift(x: number, n: number)`
+`bit.rshift(x: number, n: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -129,7 +133,7 @@ Only the lower 5 bits of the shift count are used (reduces to the range [0..31])
 
 #### bit.tobit
 
-`bit.tobit(x: number)`
+`bit.tobit(x: number)`: number
 
 Argument | Description
 -------- | -----------

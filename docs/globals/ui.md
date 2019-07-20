@@ -7,7 +7,7 @@ description: Functions for interfacing with the gamesense menu
 ### Functions:
 #### ui.get
 
-`ui.get(item: number)`
+`ui.get(item: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -43,7 +43,7 @@ Returns the name of the menu item reference passed to it. Throws an error on fai
 
 #### ui.new_button
 
-`ui.new_button(tab: string, container: string, name: string, callback: function)`
+`ui.new_button(tab: string, container: string, name: string, callback: function)`: number (menu item)
 
 Argument | Description
 -------- | -----------
@@ -57,7 +57,7 @@ Throws an error on failure. The return value should not be used with ui.set or u
 
 #### ui.new_checkbox
 
-`ui.new_checkbox(tab: string, container: string, name: string)`
+`ui.new_checkbox(tab: string, container: string, name: string)`: number (menu item)
 
 Argument | Description
 -------- | -----------
@@ -70,7 +70,7 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 #### ui.new_color_picker
 
-`ui.new_color_picker(tab: string, container: string, name: string, r: number, g: number, b: number, a: number)`
+`ui.new_color_picker(tab: string, container: string, name: string, r: number, g: number, b: number, a: number)`: number (menu item)
 
 Argument | Description
 -------- | -----------
@@ -87,7 +87,7 @@ Throws an error on failure. The color picker is placed to the right of the previ
 
 #### ui.new_combobox
 
-`ui.new_combobox(tab: string, container: string, name: string, ...)`
+`ui.new_combobox(tab: string, container: string, name: string, ...)`: number (menu item)
 
 Argument | Description
 -------- | -----------
@@ -101,7 +101,7 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 #### ui.new_hotkey
 
-`ui.new_hotkey(tab: string, container: string, name: string, inline: boolean)`
+`ui.new_hotkey(tab: string, container: string, name: string, inline: boolean)`: number (menu item)
 
 Argument | Description
 -------- | -----------
@@ -115,7 +115,7 @@ Returns a special value that can be passed to ui.get to see if the hotkey is pre
 
 #### ui.new_listbox
 
-`ui.new_listbox(tab: string, container: string, name: string, ...)`
+`ui.new_listbox(tab: string, container: string, name: string, ...)`: number (menu item)
 
 Argument | Description
 -------- | -----------
@@ -129,7 +129,7 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 #### ui.new_multiselect
 
-`ui.new_multiselect(tab: string, container: string, name: string, ...)`
+`ui.new_multiselect(tab: string, container: string, name: string, ...)`: number (menu item)
 
 Argument | Description
 -------- | -----------
@@ -143,7 +143,7 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 #### ui.new_slider
 
-`ui.new_slider(tab: string, container: string, name: string, min: number, max: number, init_value: number, show_tooltip: boolean, unit: string, scale: number, tooltips: table)`
+`ui.new_slider(tab: string, container: string, name: string, min: number, max: number, init_value: number, show_tooltip: boolean, unit: string, scale: number, tooltips: table)`: number (menu item)
 
 Argument | Description
 -------- | -----------
@@ -163,7 +163,7 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 #### ui.new_textbox
 
-`ui.new_textbox(tab: string, container: string)`
+`ui.new_textbox(tab: string, container: string)`: number (menu item)
 
 Argument | Description
 -------- | -----------
@@ -175,7 +175,7 @@ Throws an error on failure. Returns a special value that can be used with ui.get
 
 #### ui.reference
 
-`ui.reference(tab: string, container: string, name: string)`
+`ui.reference(tab: string, container: string, name: string)`: number (menu item)
 
 Argument | Description
 -------- | -----------
