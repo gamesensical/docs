@@ -35,33 +35,33 @@ snd_setmixer:invoke_callback("Ambient", "vol", "0")
 ### Functions:
 #### :get_float
 
-`cvar.get_float()`
+`cvar_object:get_float()`
 
 Returns nil if called on a ConCommand.
 
 
 #### :get_int
 
-`cvar.get_int()`
+`cvar_object:get_int()`
 
 Returns nil if called on a ConCommand.
 
 
 #### :get_string
 
-`cvar.get_string()`
+`cvar_object:get_string()`
 
 Returns nil on failure.
 
 
 #### :invoke_callback
 
-`cvar.invoke_callback()`
+`cvar_object:invoke_callback()`
 
 
 #### :set_float
 
-`cvar.set_float(value: number)`
+`cvar_object:set_float(value: number)`
 
 Argument | Description
 -------- | -----------
@@ -70,7 +70,7 @@ Argument | Description
 
 #### :set_int
 
-`cvar.set_int(value: number)`
+`cvar_object:set_int(value: number)`
 
 Argument | Description
 -------- | -----------
@@ -79,7 +79,7 @@ Argument | Description
 
 #### :set_raw_float
 
-`cvar.set_raw_float(value: number)`
+`cvar_object:set_raw_float(value: number)`
 
 Argument | Description
 -------- | -----------
@@ -90,7 +90,7 @@ This sets the float value without changing the integer and string values.
 
 #### :set_raw_int
 
-`cvar.set_raw_int(value: number)`
+`cvar_object:set_raw_int(value: number)`
 
 Argument | Description
 -------- | -----------
@@ -101,7 +101,7 @@ This sets the integer value without changing the float and string values.
 
 #### :set_string
 
-`cvar.set_string(value: string)`
+`cvar_object:set_string(value: string)`
 
 Argument | Description
 -------- | -----------

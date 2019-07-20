@@ -84,3 +84,34 @@ Argument | Description
 
 Overrides all of a material properties with another material.
 
+
+#### :alpha_modulate
+
+`material_object:alpha_modulate(a: number)`
+
+Argument | Description
+-------- | -----------
+  **a** | New alpha value of the material (0-255)
+
+Overrides the alpha of the material object it's called on. Doesn't work with some materials
+
+
+#### :color_modulate
+
+`material_object:color_modulate(r: number, g: number, b: number)`
+
+Argument | Description
+-------- | -----------
+  **r** | New red value of the material (0-255)
+  **g** | New green value of the material (0-255)
+  **b** | New blue value of the material (0-255)
+
+Overrides the color of the material object it's called on. Doesn't work with some materials
+
+
+#### :reload
+
+`material_object:reload()`
+
+Restores the original material properties of the material it's called on.
+

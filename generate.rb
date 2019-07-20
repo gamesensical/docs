@@ -191,14 +191,17 @@ globals.each do |global, functions|
 			end
 		end
 
-		func_text = "#{global}.#{name}(#{arg_names.join(", ")})"
+		func_text = "#{data["name"]}(#{arg_names.join(", ")})"
 		return_type = rettypes.get_return_type(name, data)
 
 		if !return_type.nil?
 			func_text += ": #{return_type}"
 		end
 
-		contents << "#### #{data["name"] || "#{global}.#{name}"}"
+		func_name = data["name"] || "#{global}.#{name}"
+		func_name = func_name.include?(":") ? (":" + func_name.split(":").last) : func_name
+
+		contents << "#### #{func_name}"
 		contents << ""
 		contents << "`#{func_text}`"
 		contents << ""

@@ -182,31 +182,31 @@
 		},
 		"cvar": {
 			"set_string": {
-				"name": ":set_string"
+				"name": "cvar_object:set_string"
 			},
 			"get_string": {
-				"name": ":get_string"
+				"name": "cvar_object:get_string"
 			},
 			"set_float": {
-				"name": ":set_float"
+				"name": "cvar_object:set_float"
 			},
 			"set_raw_float": {
-				"name": ":set_raw_float"
+				"name": "cvar_object:set_raw_float"
 			},
 			"get_float": {
-				"name": ":get_float"
+				"name": "cvar_object:get_float"
 			},
 			"set_int": {
-				"name": ":set_int"
+				"name": "cvar_object:set_int"
 			},
 			"set_raw_int": {
-				"name": ":set_raw_int"
+				"name": "cvar_object:set_raw_int"
 			},
 			"get_int": {
-				"name": ":get_int"
+				"name": "cvar_object:get_int"
 			},
 			"invoke_callback": {
-				"name": ":invoke_callback"
+				"name": "cvar_object:invoke_callback"
 			}
 		},
 		"client": {
@@ -349,6 +349,38 @@
 						"description": "The entity whos materials will be returned."
 					}
 				]
+			},
+			"alpha_modulate": {
+				"name": "material_object:alpha_modulate",
+				"description": "Overrides the alpha of the material object it's called on. Doesn't work with some materials",
+				"args": [
+					{
+						"name": "a",
+						"description": "New alpha value of the material (0-255)"
+					}
+				]
+			},
+			"color_modulate": {
+				"name": "material_object:color_modulate",
+				"description": "Overrides the color of the material object it's called on. Doesn't work with some materials",
+				"args": [
+					{
+						"name": "r",
+						"description": "New red value of the material (0-255)"
+					},
+					{
+						"name": "g",
+						"description": "New green value of the material (0-255)"
+					},
+					{
+						"name": "b",
+						"description": "New blue value of the material (0-255)"
+					}
+				]
+			},
+			"reload": {
+				"name": "material_object:reload",
+				"description": "Restores the original material properties of the material it's called on."
 			}
 		},
 		"ui": {
