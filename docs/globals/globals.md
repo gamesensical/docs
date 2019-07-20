@@ -56,7 +56,7 @@ Returns the command number of the last outgoing command.
 
 #### globals.mapname
 
-`globals.mapname()`
+`globals.mapname()`: string
 
 Returns the name of the loaded map, or nil if you are not in game.
 

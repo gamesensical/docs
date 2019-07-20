@@ -37,7 +37,11 @@ class ReturnTypes
 	def initialize()
 		@regexes = {
 			"number (menu item)" => [/ui\.new_.*/, "ui.reference"],
-			"any" => ["ui.get"]
+			"number (texture id)" => [/renderer\.load_.*/],
+			"any" => ["ui.get"],
+			"number, number" => ["ui.mouse_position"],
+			"number" => [/.*get_(float|int)/, /bit\..*/],
+			"string" => [/.*name/, /.*get_string/]
 		}
 
 		@types = {
@@ -50,7 +54,9 @@ class ReturnTypes
 			"number" => "number",
 			"seconds" => "number",
 			"table" => "table",
-			"width, height" => "number, number"
+			"width, height" => "number, number",
+			"x, y, z" => "number, number, number",
+			"x1, y1, x2, y2, alpha_multiplier" => "number, number, number, number, number"
 		}
 	end
 
@@ -234,6 +240,8 @@ globals.each do |global, functions|
 
 		if !return_type.nil?
 			func_text += ": #{return_type}"
+		else
+			puts "#{data["name"]} has no return type"
 		end
 
 		func_name = data["name"] || "#{global}.#{name}"
@@ -271,6 +279,8 @@ globals.each do |global, functions|
 		if data.key?("description") && data["description"] != "None."
 			contents << "#{data["description"]}"
 			contents << ""
+		else
+			puts "#{global}.#{name} has no description"
 		end
 
 		if data.key? "page-ref"

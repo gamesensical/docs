@@ -35,28 +35,34 @@ snd_setmixer:invoke_callback("Ambient", "vol", "0")
 ### Functions:
 #### :get_float
 
-`cvar_object:get_float()`
+`cvar_object:get_float()`: number
 
 Returns nil if called on a ConCommand.
 
 
 #### :get_int
 
-`cvar_object:get_int()`
+`cvar_object:get_int()`: number
 
 Returns nil if called on a ConCommand.
 
 
 #### :get_string
 
-`cvar_object:get_string()`
+`cvar_object:get_string()`: string
 
 Returns nil on failure.
 
 
 #### :invoke_callback
 
-`cvar_object:invoke_callback()`
+`cvar_object:invoke_callback(...)`
+
+Argument | Description
+-------- | -----------
+  **...** | Arguments passed to the callback
+
+Executes a ConCommand or cvar callback, passing its arguments to it
 
 
 #### :set_float
@@ -67,6 +73,8 @@ Argument | Description
 -------- | -----------
   **value** | Float value
 
+Sets the int, float and string value to the passed float. Invokes the change callback
+
 
 #### :set_int
 
@@ -75,6 +83,8 @@ Argument | Description
 Argument | Description
 -------- | -----------
   **value** | Integer value
+
+Sets the int, float and string value to the passed float. Invokes the change callback
 
 
 #### :set_raw_float
@@ -106,4 +116,6 @@ This sets the integer value without changing the float and string values.
 Argument | Description
 -------- | -----------
   **value** | String value
+
+Sets the int, float and string value to the passed float. Invokes the change callback
 

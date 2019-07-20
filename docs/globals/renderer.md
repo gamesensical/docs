@@ -102,7 +102,7 @@ This can only be called from the paint callback.
 
 #### renderer.load_jpg
 
-`renderer.load_jpg(contents: string)`
+`renderer.load_jpg(contents: string)`: number (texture id)
 
 Argument | Description
 -------- | -----------
@@ -113,7 +113,7 @@ Returns a texture ID that can be used with renderer.texture, or nil on failure
 
 #### renderer.load_png
 
-`renderer.load_png(contents: string)`
+`renderer.load_png(contents: string)`: number (texture id)
 
 Argument | Description
 -------- | -----------
@@ -124,7 +124,7 @@ Returns a texture ID that can be used with renderer.texture, or nil on failure
 
 #### renderer.load_svg
 
-`renderer.load_svg(contents: string, width: number, height: number)`
+`renderer.load_svg(contents: string, width: number, height: number)`: number (texture id)
 
 Argument | Description
 -------- | -----------
@@ -199,6 +199,8 @@ Argument | Description
   **g** | Green (0-255)
   **b** | Blue (0-255)
   **a** | Alpha (0-255)
+
+Draws a texture from the texture id created from load_png, load_jpg or load_svg
 
 
 #### renderer.triangle

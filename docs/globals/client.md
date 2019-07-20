@@ -29,6 +29,8 @@ Argument | Description
   **msg** | The message
   **...** | comma-separated arguments to concatenate with msg.
 
+Logs a colored message to console. End the string with \0 to prevent it from adding a newline.
+
 
 #### client.delay_call
 
@@ -39,6 +41,8 @@ Argument | Description
   **delay** | Time in seconds to wait before calling callback.
   **callback** | The lua function that will be called after delay seconds.
   **...** | arguments that will be passed to the callback.
+
+Executes the callback after delay seconds, passing the arguments to it.
 
 
 #### client.draw_debug_text
@@ -100,10 +104,12 @@ Argument | Description
   **cmd** | The console command(s) to execute.
   **...** | comma-separated arguments to concatenate with cmd.
 
+Executes a console command. Multiple commands can be combined with ';'. Be careful when passing user input (including usernames) to it.
+
 
 #### client.eye_position
 
-`client.eye_position()`
+`client.eye_position()`: number, number, number
 
 Returns x, y, z world coordinates of the local player's eye position, or nil on failure.
 
@@ -134,6 +140,8 @@ Argument | Description
 -------- | -----------
   **msg** | The message
   **...** | comma-separated arguments to concatenate with msg.
+
+Logs a message to console in the [gamesense] format.
 
 
 #### client.random_float

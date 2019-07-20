@@ -18,7 +18,7 @@ Returns an array of entity indices. Pass no arguments for all entities.
 
 #### entity.get_bounding_box
 
-`entity.get_bounding_box(player: number)`
+`entity.get_bounding_box(player: number)`: number, number, number, number, number
 
 Argument | Description
 -------- | -----------
@@ -29,7 +29,7 @@ Returns x1, y1, x2, y2, alpha_multiplier. The contents of x1, y1, x2, y2 must be
 
 #### entity.get_classname
 
-`entity.get_classname(ent: number)`
+`entity.get_classname(ent: number)`: string
 
 Argument | Description
 -------- | -----------
@@ -54,7 +54,7 @@ Returns the entity index for the local player, or nil on failure.
 
 #### entity.get_player_name
 
-`entity.get_player_name(ent: number)`
+`entity.get_player_name(ent: number)`: string
 
 Argument | Description
 -------- | -----------
@@ -118,7 +118,7 @@ Returns steamID3, or nil on failure.
 
 #### entity.hitbox_position
 
-`entity.hitbox_position(player: number, hitbox: number)`
+`entity.hitbox_position(player: number, hitbox: number)`: number, number, number
 
 Argument | Description
 -------- | -----------
@@ -171,4 +171,6 @@ Argument | Description
   **propname** | Name of the networked property.
   **value** | The property will be set to this value. For vectors or angles, separate the components by commas.
   **array_index** | Optional. If propname is an array, the value at this array index will be set.
+
+Sets the value of the property. For vectors or angles, pass three values.
 

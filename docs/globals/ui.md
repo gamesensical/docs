@@ -25,14 +25,14 @@ Returns true if the menu is currently open.
 
 #### ui.mouse_position
 
-`ui.mouse_position()`
+`ui.mouse_position()`: number, number
 
 Returns current mouse coordinates x, y
 
 
 #### ui.name
 
-`ui.name(item: number)`
+`ui.name(item: number)`: string
 
 Argument | Description
 -------- | -----------
@@ -208,6 +208,8 @@ Argument | Description
   **item** | The special value returned by ui.new_*. Do not try passing a reference to an existing menu item.
   **callback** | Lua function that will be called when the menu item changes values. For example, this will be called when the user checks or unchecks a checkbox.
 
+Sets the change callback of a custom menu item. It will be executed on change and passed the reference
+
 
 #### ui.set_visible
 
@@ -217,4 +219,6 @@ Argument | Description
 -------- | -----------
   **item** | A menu item reference.
   **visible** | Boolean. Pass false to hide the control from the menu.
+
+Sets the visibility of the menu item
 

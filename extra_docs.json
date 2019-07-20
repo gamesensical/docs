@@ -182,13 +182,15 @@
 		},
 		"cvar": {
 			"set_string": {
-				"name": "cvar_object:set_string"
+				"name": "cvar_object:set_string",
+				"description": "Sets the int, float and string value to the passed float. Invokes the change callback"
 			},
 			"get_string": {
 				"name": "cvar_object:get_string"
 			},
 			"set_float": {
-				"name": "cvar_object:set_float"
+				"name": "cvar_object:set_float",
+				"description": "Sets the int, float and string value to the passed float. Invokes the change callback"
 			},
 			"set_raw_float": {
 				"name": "cvar_object:set_raw_float"
@@ -197,7 +199,8 @@
 				"name": "cvar_object:get_float"
 			},
 			"set_int": {
-				"name": "cvar_object:set_int"
+				"name": "cvar_object:set_int",
+				"description": "Sets the int, float and string value to the passed float. Invokes the change callback"
 			},
 			"set_raw_int": {
 				"name": "cvar_object:set_raw_int"
@@ -206,7 +209,14 @@
 				"name": "cvar_object:get_int"
 			},
 			"invoke_callback": {
-				"name": "cvar_object:invoke_callback"
+				"name": "cvar_object:invoke_callback",
+				"args": [
+					{
+						"name": "...",
+						"description": "Arguments passed to the callback"
+					}
+				],
+				"description": "Executes a ConCommand or cvar callback, passing its arguments to it"
 			}
 		},
 		"client": {
@@ -256,6 +266,18 @@
 			"system_time": {
 				"description": "Returns windows time as (hours, minutes, seconds, milliseconds)",
 				"return_type": "number, number, number, number"
+			},
+			"delay_call": {
+				"description": "Executes the callback after delay seconds, passing the arguments to it."
+			},
+			"color_log": {
+				"description": "Logs a colored message to console. End the string with \\0 to prevent it from adding a newline."
+			},
+			"log": {
+				"description": "Logs a message to console in the [gamesense] format."
+			},
+			"exec": {
+				"description": "Executes a console command. Multiple commands can be combined with ';'. Be careful when passing user input (including usernames) to it."
 			}
 		},
 		"globals": {
@@ -274,6 +296,9 @@
 			}
 		},
 		"renderer": {
+			"texture": {
+				"description": "Draws a texture from the texture id created from load_png, load_jpg or load_svg"
+			},
 			"load_png": {
 				"name": "renderer.load_png",
 				"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
@@ -468,6 +493,17 @@
 						"description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference."
 					}
 				]
+			},
+			"set_callback": {
+				"description": "Sets the change callback of a custom menu item. It will be executed on change and passed the reference"
+			},
+			"set_visible": {
+				"description": "Sets the visibility of the menu item"
+			}
+		},
+		"entity": {
+			"set_prop": {
+				"description": "Sets the value of the property. For vectors or angles, pass three values."
 			}
 		}
 	},

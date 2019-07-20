@@ -21,7 +21,7 @@ Only the lower 5 bits of the shift count are used (reduces to the range [0..31])
 
 #### bit.band
 
-`bit.band(x1: number, [x2...]: number)`
+`bit.band(x1: number, [x2...]: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -33,7 +33,7 @@ Returns the bitwise and of all of its arguments. Note that more than two argumen
 
 #### bit.bnot
 
-`bit.bnot(x: number)`
+`bit.bnot(x: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -44,7 +44,7 @@ Returns the bitwise not of its argument.
 
 #### bit.bor
 
-`bit.bor(x1: number, [x2...]: number)`
+`bit.bor(x1: number, [x2...]: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -67,7 +67,7 @@ Swaps the bytes of its argument and returns it. This can be used to convert litt
 
 #### bit.bxor
 
-`bit.bxor(x1: number, [x2...]: number)`
+`bit.bxor(x1: number, [x2...]: number)`: number
 
 Argument | Description
 -------- | -----------
@@ -144,7 +144,7 @@ Normalizes a number to the numeric range for bit operations and returns it. This
 
 #### bit.tohex
 
-`bit.tohex(x: number, n: number)`
+`bit.tohex(x: number, n: number)`: number
 
 Argument | Description
 -------- | -----------
