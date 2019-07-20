@@ -134,7 +134,7 @@ Restores the original material properties of the material it's called on.
 Argument | Description
 -------- | -----------
   **material_var_flag** | Material var flag as number
-  **value** | New value of the material var flag
+  **value** | New boolean value of the material var flag
 
 Sets the value of the material var flag of the material
 

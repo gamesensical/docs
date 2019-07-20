@@ -7,7 +7,7 @@ description: Functions for interfacing with the gamesense menu
 ### Functions:
 #### ui.get
 
-`ui.get(item: number)`: number
+`ui.get(item: number)`: any
 
 Argument | Description
 -------- | -----------
@@ -18,7 +18,7 @@ For a checkbox, returns true or false. For a slider, returns an integer. For a c
 
 #### ui.is_menu_open
 
-`ui.is_menu_open()`
+`ui.is_menu_open()`: boolean
 
 Returns true if the menu is currently open.
 

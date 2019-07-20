@@ -110,7 +110,7 @@ Returns x, y, z world coordinates of the local player's eye position, or nil on 
 
 #### client.key_state
 
-`client.key_state(key: number)`
+`client.key_state(key: number)`: boolean
 
 Argument | Description
 -------- | -----------
@@ -288,7 +288,7 @@ Returns the entity index, or 0 on failure.
 
 #### client.visible
 
-`client.visible(x: number, y: number, z: number)`
+`client.visible(x: number, y: number, z: number)`: boolean
 
 Argument | Description
 -------- | -----------

@@ -402,7 +402,7 @@
 					},
 					{
 						"name": "value",
-						"description": "New value of the material var flag"
+						"description": "New boolean value of the material var flag"
 					}
 				]
 			}

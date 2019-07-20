@@ -34,13 +34,15 @@ end
 
 class ReturnTypes
 	def initialize()
-		@number_regexes = [
-			/ui\.new_.*/,
-			"ui.reference"
-		]
+		@regexes = {
+			"number (menu item)" => [/ui\.new_.*/, "ui.reference"],
+			"any" => ["ui.get"]
+		}
 
 		@types = {
 			"boolean" => "boolean",
+			"true" => "boolean",
+			"false" => "boolean",
 			"integer" => "number",
 			"number" => "number",
 			"table" => "table"
@@ -49,11 +51,16 @@ class ReturnTypes
 
 	def get_return_type(name, data)
 		return data["return_type"] if data.key? "return_type"
-		return "number (menu item)" if @number_regexes.any? {|regex| regex.match? name}
 
-		@types.each do |type, type_str|
-			return type_str if data.key?("description") && data["description"].include?(type) && data["description"].downcase.include?("returns")
+		@regexes.each do |regex_name, regexes|
+			return regex_name if regexes.any? {|regex| regex.match? name}
 		end
+
+		types = []
+		@types.each do |type, type_str|
+			types << type_str if data.key?("description") && data["description"].include?(type) && data["description"].downcase.include?("returns")
+		end
+		return types[0] if types.uniq.length == 1
 
 		return nil
 	end

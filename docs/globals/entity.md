@@ -130,7 +130,7 @@ Returns world coordinates x, y, z, or nil on failure.
 
 #### entity.is_alive
 
-`entity.is_alive(ent: number)`
+`entity.is_alive(ent: number)`: boolean
 
 Argument | Description
 -------- | -----------
@@ -141,7 +141,7 @@ Returns true if the player is not dead.
 
 #### entity.is_dormant
 
-`entity.is_dormant(ent: number)`
+`entity.is_dormant(ent: number)`: boolean
 
 Argument | Description
 -------- | -----------
@@ -152,7 +152,7 @@ Returns true if the player is not dormant.
 
 #### entity.is_enemy
 
-`entity.is_enemy(ent: number)`
+`entity.is_enemy(ent: number)`: boolean
 
 Argument | Description
 -------- | -----------
