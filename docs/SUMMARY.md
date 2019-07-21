@@ -1,12 +1,12 @@
 # Table of contents
 
 * [Overview](overview/README.md)
-* [Using lua scripts](using_lua_scripts.md)
+	* [Using lua scripts](overview/using_lua_scripts.md)
 * [Writing lua scripts](development/README.md)
   * [Getting started](development/getting_started.md)
   * [Compiling lua scripts](development/compiling.md)
-  * [Event names](development/events.md)
-* [Globals](globals/README.md)
+  * [Events](development/events.md)
+* [API Documentation](globals/README.md)
   * [Bit](globals/bit.md)
   * [Client](globals/client.md)
   * [Cvar](globals/cvar.md)
