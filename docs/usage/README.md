@@ -1,6 +1,6 @@
-# Overview
+# Using lua scripts
 
-## This website documents the configuration options, usage and LUA API of [gamesense.pub](https://gamesense.pub).
+## This section explains how to use the cheat and especially the usage of LUA Scripts
 
 **Loading and using LUA Scripts written by other people**:
 {% page-ref page="../using\_lua\_scripts.md" %}

@@ -1,7 +1,10 @@
 # Table of contents
 
-* [Overview](overview/README.md)
-	* [Using lua scripts](overview/using_lua_scripts.md)
+* [Overview](README.md)
+* [Using the cheat](usage/README.md)
+  * [Using lua scripts](usage/using_lua_scripts.md)
+  * [Unlisted features](usage/unlisted_features.md)
+  * [Common issues](usage/common_issues.md)
 * [Writing lua scripts](development/README.md)
   * [Getting started](development/getting_started.md)
   * [Compiling lua scripts](development/compiling.md)
