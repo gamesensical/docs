@@ -8,7 +8,12 @@
 * [Writing lua scripts](development/README.md)
   * [Getting started](development/getting_started.md)
   * [Compiling lua scripts](development/compiling.md)
-  * [Events](development/events.md)
+  * [Editors](development/editors/README.md)
+  	* [VS Code](development/editors/vscode.md)
+  	* [Sublime Text](development/editors/sublime.md)
+  	* [Atom](development/editors/atom.md)
+  * [Examples](development/examples/README.md)
+  	* [Simple watermark](development/examples/watermark.md)
 * [API Documentation](globals/README.md)
 {% globals %}
 * [Netprops](netprops/README.md)
