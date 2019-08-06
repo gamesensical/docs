@@ -9,9 +9,9 @@ description: Functions for getting and setting entities and entity data.
 
 `entity.get_all(classname: string)`
 
-Argument | Description
--------- | -----------
-  **classname** | string that specifies the class name of entities that will be added to the list, for example "CCSPlayer".
+Argument | Description | Type
+-------- | ----------- | ----
+  **classname** | String that specifies the class name of entities that will be added to the list, for example "CCSPlayer". | string (entity classname)
 
 Returns an array of entity indices. Pass no arguments for all entities.
 
@@ -20,9 +20,9 @@ Returns an array of entity indices. Pass no arguments for all entities.
 
 `entity.get_bounding_box(player: number)`: number, number, number, number, number
 
-Argument | Description
--------- | -----------
-  **player** | Entity index of the player.
+Argument | Description | Type
+-------- | ----------- | ----
+  **player** | Entity index of the player. | number (entindex)
 
 Returns x1, y1, x2, y2, alpha_multiplier. The contents of x1, y1, x2, y2 must be ignored when alpha_multiplier is zero, which indicates that the bounding box is invalid and should not be drawn.
 
@@ -31,9 +31,9 @@ Returns x1, y1, x2, y2, alpha_multiplier. The contents of x1, y1, x2, y2 must be
 
 `entity.get_classname(ent: number)`: string
 
-Argument | Description
--------- | -----------
-  **ent** | Entity index.
+Argument | Description | Type
+-------- | ----------- | ----
+  **ent** | Entity index. | number (entindex)
 
 Returns the name of the entity's class, or nil on failure.
 
@@ -56,9 +56,9 @@ Returns the entity index for the local player, or nil on failure.
 
 `entity.get_player_name(ent: number)`: string
 
-Argument | Description
--------- | -----------
-  **ent** | Player entity index.
+Argument | Description | Type
+-------- | ----------- | ----
+  **ent** | Player entity index. | number (entindex)
 
 Returns the player's name, or the string "unknown" on failure.
 
@@ -74,9 +74,9 @@ Returns entity index of CCSPlayerResource instance, or nil if none exists.
 
 `entity.get_player_weapon(ent: number)`
 
-Argument | Description
--------- | -----------
-  **ent** | Player entity index.
+Argument | Description | Type
+-------- | ----------- | ----
+  **ent** | Player entity index. | number (entindex)
 
 Returns the entity index of the player's active weapon, or nil if the player is not alive, dormant, etc.
 
@@ -85,9 +85,9 @@ Returns the entity index of the player's active weapon, or nil if the player is 
 
 `entity.get_players(enemies_only: boolean)`
 
-Argument | Description
--------- | -----------
-  **enemies_only** | Optional. If true then you and the players on your team will not be added to the list.
+Argument | Description | Type
+-------- | ----------- | ----
+  **enemies_only** | Optional. If true then you and the players on your team will not be added to the list. | boolean
 
 Returns an array of player entity indices. Dormant and dead players will not be added to the list.
 
@@ -96,11 +96,11 @@ Returns an array of player entity indices. Dormant and dead players will not be 
 
 `entity.get_prop(ent: number, propname: string, array_index: number)`
 
-Argument | Description
--------- | -----------
-  **ent** | Entity index.
-  **propname** | Name of the networked property.
-  **array_index** | Optional. If propname is an array, the value at this array index will be returned.
+Argument | Description | Type
+-------- | ----------- | ----
+  **ent** | Entity index. | number (entindex)
+  **propname** | Name of the networked property. | string (netprop)
+  **array_index** | Optional. If propname is an array, the value at this array index will be returned. | number
 
 Returns the value of the property, or nil on failure. For vectors or angles, this returns three values.
 
@@ -109,9 +109,9 @@ Returns the value of the property, or nil on failure. For vectors or angles, thi
 
 `entity.get_steam64(player: number)`
 
-Argument | Description
--------- | -----------
-  **player** | Entity index of the player.
+Argument | Description | Type
+-------- | ----------- | ----
+  **player** | Entity index of the player. | number (entindex)
 
 Returns steamID3, or nil on failure.
 
@@ -120,10 +120,10 @@ Returns steamID3, or nil on failure.
 
 `entity.hitbox_position(player: number, hitbox: number)`: number, number, number
 
-Argument | Description
--------- | -----------
-  **player** | Entity index of the player.
-  **hitbox** | Either a string of the hitbox name, or an integer index of the hitbox.
+Argument | Description | Type
+-------- | ----------- | ----
+  **player** | Entity index of the player. | number (entindex)
+  **hitbox** | Either a string of the hitbox name, or an integer index of the hitbox. | number (hitbox id)
 
 Returns world coordinates x, y, z, or nil on failure.
 
@@ -132,9 +132,9 @@ Returns world coordinates x, y, z, or nil on failure.
 
 `entity.is_alive(ent: number)`: boolean
 
-Argument | Description
--------- | -----------
-  **ent** | Entity index.
+Argument | Description | Type
+-------- | ----------- | ----
+  **ent** | Entity index. | number (entindex)
 
 Returns true if the player is not dead.
 
@@ -143,9 +143,9 @@ Returns true if the player is not dead.
 
 `entity.is_dormant(ent: number)`: boolean
 
-Argument | Description
--------- | -----------
-  **ent** | Entity index.
+Argument | Description | Type
+-------- | ----------- | ----
+  **ent** | Entity index. | number (entindex)
 
 Returns true if the player is not dormant.
 
@@ -154,9 +154,9 @@ Returns true if the player is not dormant.
 
 `entity.is_enemy(ent: number)`: boolean
 
-Argument | Description
--------- | -----------
-  **ent** | Entity index.
+Argument | Description | Type
+-------- | ----------- | ----
+  **ent** | Entity index. | number (entindex)
 
 Returns true if the entity is on the other team.
 
@@ -165,12 +165,12 @@ Returns true if the entity is on the other team.
 
 `entity.set_prop(ent: number, propname: string, value: any, array_index: number)`
 
-Argument | Description
--------- | -----------
-  **ent** | Entity index.
-  **propname** | Name of the networked property.
-  **value** | The property will be set to this value. For vectors or angles, separate the components by commas.
-  **array_index** | Optional. If propname is an array, the value at this array index will be set.
+Argument | Description | Type
+-------- | ----------- | ----
+  **ent** | Entity index. | number (entindex)
+  **propname** | Name of the networked property. | string (netprop)
+  **value** | The property will be set to this value. For vectors or angles, separate the components by commas. | any
+  **array_index** | Optional. If propname is an array, the value at this array index will be set. | number
 
 Sets the value of the property. For vectors or angles, pass three values.
 

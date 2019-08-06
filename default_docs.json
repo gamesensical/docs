@@ -614,11 +614,11 @@
 			"args": [
 				{
 					"name": "pitch",
-					"description": "Pitch"
+					"description": "Optional. If set, pitch that your camera angles will be set to"
 				},
 				{
 					"name": "yaw",
-					"description": "Yaw"
+					"description": "Optional. If set, pitch that your camera angles will be set to"
 				}
 			]
 		},

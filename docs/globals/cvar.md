@@ -58,9 +58,9 @@ Returns nil on failure.
 
 `cvar_object:invoke_callback(...)`
 
-Argument | Description
--------- | -----------
-  **...** | Arguments passed to the callback
+Argument | Description | Type
+-------- | ----------- | ----
+  **...** | Arguments passed to the callback | 
 
 Executes a ConCommand or cvar callback, passing its arguments to it
 
@@ -69,9 +69,9 @@ Executes a ConCommand or cvar callback, passing its arguments to it
 
 `cvar_object:set_float(value: number)`
 
-Argument | Description
--------- | -----------
-  **value** | Float value
+Argument | Description | Type
+-------- | ----------- | ----
+  **value** | Float value | number (float)
 
 Sets the int, float and string value to the passed float. Invokes the change callback
 
@@ -80,9 +80,9 @@ Sets the int, float and string value to the passed float. Invokes the change cal
 
 `cvar_object:set_int(value: number)`
 
-Argument | Description
--------- | -----------
-  **value** | Integer value
+Argument | Description | Type
+-------- | ----------- | ----
+  **value** | Integer value | number (integer)
 
 Sets the int, float and string value to the passed float. Invokes the change callback
 
@@ -91,9 +91,9 @@ Sets the int, float and string value to the passed float. Invokes the change cal
 
 `cvar_object:set_raw_float(value: number)`
 
-Argument | Description
--------- | -----------
-  **value** | Float value
+Argument | Description | Type
+-------- | ----------- | ----
+  **value** | Float value | number (float)
 
 This sets the float value without changing the integer and string values.
 
@@ -102,9 +102,9 @@ This sets the float value without changing the integer and string values.
 
 `cvar_object:set_raw_int(value: number)`
 
-Argument | Description
--------- | -----------
-  **value** | Integer value
+Argument | Description | Type
+-------- | ----------- | ----
+  **value** | Integer value | number (integer)
 
 This sets the integer value without changing the float and string values.
 
@@ -113,9 +113,9 @@ This sets the integer value without changing the float and string values.
 
 `cvar_object:set_string(value: string)`
 
-Argument | Description
--------- | -----------
-  **value** | String value
+Argument | Description | Type
+-------- | ----------- | ----
+  **value** | String value | string
 
 Sets the int, float and string value to the passed float. Invokes the change callback
 

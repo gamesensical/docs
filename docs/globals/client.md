@@ -9,25 +9,25 @@ description: General game- and cheat-related functions
 
 `client.camera_angles(pitch: number, yaw: number)`
 
-Argument | Description
--------- | -----------
-  **pitch** | Pitch
-  **yaw** | Yaw
+Argument | Description | Type
+-------- | ----------- | ----
+  **pitch** | Pitch | number (-90 - 90)
+  **yaw** | Yaw | number (-180 - 180)
 
-Set camera angles
+Get or set camera angles
 
 
 #### client.color_log
 
 `client.color_log(r: number, g: number, b: number, msg: string, ...)`
 
-Argument | Description
--------- | -----------
-  **r** | Red (0-255)
-  **g** | Red (0-255)
-  **b** | Red (0-255)
-  **msg** | The message
-  **...** | comma-separated arguments to concatenate with msg.
+Argument | Description | Type
+-------- | ----------- | ----
+  **r** | Red (0-255) | number
+  **g** | Red (0-255) | number
+  **b** | Red (0-255) | number
+  **msg** | The message | string
+  **...** | Comma-separated arguments to concatenate with msg. | 
 
 Logs a colored message to console. End the string with \0 to prevent it from adding a newline.
 
@@ -36,11 +36,11 @@ Logs a colored message to console. End the string with \0 to prevent it from add
 
 `client.delay_call(delay: number, callback: function, ...)`
 
-Argument | Description
--------- | -----------
-  **delay** | Time in seconds to wait before calling callback.
-  **callback** | The lua function that will be called after delay seconds.
-  **...** | arguments that will be passed to the callback.
+Argument | Description | Type
+-------- | ----------- | ----
+  **delay** | Time in seconds to wait before calling callback. | number
+  **callback** | The lua function that will be called after delay seconds. | function
+  **...** | Arguments that will be passed to the callback. | 
 
 Executes the callback after delay seconds, passing the arguments to it.
 
@@ -49,18 +49,18 @@ Executes the callback after delay seconds, passing the arguments to it.
 
 `client.draw_debug_text(x: number, y: number, z: number, line_offset: number, duration: number, r: number, g: number, b: number, a: number, ...)`
 
-Argument | Description
--------- | -----------
-  **x** | Position in world space
-  **y** | Position in world space
-  **z** | Position in world space
-  **line_offset** | Used for vertical alignment, use 0 for the first line.
-  **duration** | Time in seconds that the text will remain on the screen.
-  **r** | Red (1-255)
-  **g** | Green (1-255)
-  **b** | Blue (1-255)
-  **a** | Alpha (1-255)
-  **...** | The text that will be drawn
+Argument | Description | Type
+-------- | ----------- | ----
+  **x** | Position in world space | number (world coordinate)
+  **y** | Position in world space | number (world coordinate)
+  **z** | Position in world space | number (world coordinate)
+  **line_offset** | Used for vertical alignment, use 0 for the first line. | number
+  **duration** | Time in seconds that the text will remain on the screen. | number
+  **r** | Red (1-255) | number
+  **g** | Green (1-255) | number
+  **b** | Blue (1-255) | number
+  **a** | Alpha (1-255) | number
+  **...** | The text that will be drawn | 
 
 Avoid calling this during the paint event.
 
@@ -69,16 +69,16 @@ Avoid calling this during the paint event.
 
 `client.draw_hitboxes(entindex: number, duration: number, hitboxes: number, r: number, g: number, b: number, a: number, tick: number)`
 
-Argument | Description
--------- | -----------
-  **entindex** | Entity index
-  **duration** | Time in seconds
-  **hitboxes** | Either the hitbox index, an array of hitbox indices, or 19 for all hitboxes
-  **r** | Red (1-255)
-  **g** | Green (1-255)
-  **b** | Blue (1-255)
-  **a** | Alpha (1-255)
-  **tick** | integer
+Argument | Description | Type
+-------- | ----------- | ----
+  **entindex** | Entity index | number (entindex)
+  **duration** | Time in seconds | number
+  **hitboxes** | Either the hitbox index, an array of hitbox indices, or 19 for all hitboxes | number (hitbox id)
+  **r** | Red (1-255) | number
+  **g** | Green (1-255) | number
+  **b** | Blue (1-255) | number
+  **a** | Alpha (1-255) | number
+  **tick** | Integer | number
 
 Draws hitbox overlays. Avoid calling this during the paint event.
 
@@ -87,10 +87,10 @@ Draws hitbox overlays. Avoid calling this during the paint event.
 
 `client.error_log(msg: string, ...)`
 
-Argument | Description
--------- | -----------
-  **msg** | The error message
-  **...** | comma-separated arguments to concatenate with msg.
+Argument | Description | Type
+-------- | ----------- | ----
+  **msg** | The error message | string
+  **...** | Comma-separated arguments to concatenate with msg. | 
 
 Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)
 
@@ -99,10 +99,10 @@ Logs a message to console in the error format and plays the sound (If Hide from 
 
 `client.exec(cmd: string, ...)`
 
-Argument | Description
--------- | -----------
-  **cmd** | The console command(s) to execute.
-  **...** | comma-separated arguments to concatenate with cmd.
+Argument | Description | Type
+-------- | ----------- | ----
+  **cmd** | The console command(s) to execute. | string
+  **...** | Comma-separated arguments to concatenate with cmd. | 
 
 Executes a console command. Multiple commands can be combined with ';'. Be careful when passing user input (including usernames) to it.
 
@@ -118,9 +118,9 @@ Returns x, y, z world coordinates of the local player's eye position, or nil on 
 
 `client.key_state(key: number)`: boolean
 
-Argument | Description
--------- | -----------
-  **key** | Virtual key code of the key as integer. [List of virtual key codes](https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes)
+Argument | Description | Type
+-------- | ----------- | ----
+  **key** | Virtual key code of the key as integer. [List of virtual key codes](https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes) | number
 
 Returns true if the key is pressed, or nil on failure
 
@@ -136,10 +136,10 @@ Returns your latency in seconds.
 
 `client.log(msg: string, ...)`
 
-Argument | Description
--------- | -----------
-  **msg** | The message
-  **...** | comma-separated arguments to concatenate with msg.
+Argument | Description | Type
+-------- | ----------- | ----
+  **msg** | The message | string
+  **...** | Comma-separated arguments to concatenate with msg. | 
 
 Logs a message to console in the [gamesense] format.
 
@@ -148,10 +148,10 @@ Logs a message to console in the [gamesense] format.
 
 `client.random_float(minimum: number, maximum: number)`: number
 
-Argument | Description
--------- | -----------
-  **minimum** | Lowest possible result
-  **maximum** | Highest possible result
+Argument | Description | Type
+-------- | ----------- | ----
+  **minimum** | Lowest possible result | number
+  **maximum** | Highest possible result | number
 
 Returns a random float between minimum and maximum.
 
@@ -160,10 +160,10 @@ Returns a random float between minimum and maximum.
 
 `client.random_int(minimum: number, maximum: number)`: number
 
-Argument | Description
--------- | -----------
-  **minimum** | Lowest possible result
-  **maximum** | Highest possible result
+Argument | Description | Type
+-------- | ----------- | ----
+  **minimum** | Lowest possible result | number
+  **maximum** | Highest possible result | number
 
 Returns a random integer between minimum and maximum.
 
@@ -179,11 +179,11 @@ Reloads all scripts the following frame.
 
 `client.scale_damage(entindex: number, hitgroup: number, damage: number)`: number
 
-Argument | Description
--------- | -----------
-  **entindex** | Player entity index
-  **hitgroup** | Hit group index
-  **damage** | Damage
+Argument | Description | Type
+-------- | ----------- | ----
+  **entindex** | Player entity index | number (entindex)
+  **hitgroup** | Hit group index | number (hitgroup id)
+  **damage** | Damage | number
 
 Returns adjusted damage for the specified hitgroup
 
@@ -199,9 +199,9 @@ Returns (width, height).
 
 `client.set_clan_tag(...)`
 
-Argument | Description
--------- | -----------
-  **...** | The text that will be drawn
+Argument | Description | Type
+-------- | ----------- | ----
+  **...** | The text that will be drawn | 
 
 The clan tag is removed if no argument is passed or if it is an empty string. Additional arguments will be concatenated similar to client.log.
 
@@ -210,10 +210,10 @@ The clan tag is removed if no argument is passed or if it is an empty string. Ad
 
 `client.set_event_callback(event_name: string, callback: function)`
 
-Argument | Description
--------- | -----------
-  **event_name** | Name of the event.
-  **callback** | Lua function to call when this event occurs.
+Argument | Description | Type
+-------- | ----------- | ----
+  **event_name** | Name of the event. | string
+  **callback** | Lua function to call when this event occurs. | function
 
 Raises an error and prints a message in console upon failure.
 
@@ -236,15 +236,15 @@ Returns high precision timestamp in milliseconds.
 
 `client.trace_bullet(from_player: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`: number
 
-Argument | Description
--------- | -----------
-  **from_player** | Entity index of the player whose weapon will be used for this trace
-  **from_x** | Position in world space
-  **from_y** | Position in world space
-  **from_z** | Position in world space
-  **to_x** | Position in world space
-  **to_y** | Position in world space
-  **to_z** | Position in world space
+Argument | Description | Type
+-------- | ----------- | ----
+  **from_player** | Entity index of the player whose weapon will be used for this trace | number (entindex)
+  **from_x** | Position in world space | number (world coordinate)
+  **from_y** | Position in world space | number (world coordinate)
+  **from_z** | Position in world space | number (world coordinate)
+  **to_x** | Position in world space | number (world coordinate)
+  **to_y** | Position in world space | number (world coordinate)
+  **to_z** | Position in world space | number (world coordinate)
 
 Returns entindex, damage. Entindex is nil when no player is hit.
 
@@ -253,15 +253,15 @@ Returns entindex, damage. Entindex is nil when no player is hit.
 
 `client.trace_line(skip_entindex: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`
 
-Argument | Description
--------- | -----------
-  **skip_entindex** | Ignore this entity while tracing
-  **from_x** | Position in world space
-  **from_y** | Position in world space
-  **from_z** | Position in world space
-  **to_x** | Position in world space
-  **to_y** | Position in world space
-  **to_z** | Position in world space
+Argument | Description | Type
+-------- | ----------- | ----
+  **skip_entindex** | Ignore this entity while tracing | number (entindex)
+  **from_x** | Position in world space | number (world coordinate)
+  **from_y** | Position in world space | number (world coordinate)
+  **from_z** | Position in world space | number (world coordinate)
+  **to_x** | Position in world space | number (world coordinate)
+  **to_y** | Position in world space | number (world coordinate)
+  **to_z** | Position in world space | number (world coordinate)
 
 Returns fraction, entindex. fraction is a percentage in the range [0.0, 1.0] that tells you how far the trace went before hitting something, so 1.0 means nothing was hit. entindex is the entity index that hit, or -1 if no entity was hit.
 
@@ -270,10 +270,10 @@ Returns fraction, entindex. fraction is a percentage in the range [0.0, 1.0] tha
 
 `client.unset_event_callback(event_name: string, callback: function)`
 
-Argument | Description
--------- | -----------
-  **event_name** | Name of the event.
-  **callback** | Registered lua callback to remove.
+Argument | Description | Type
+-------- | ----------- | ----
+  **event_name** | Name of the event. | string
+  **callback** | Registered lua callback to remove. | function
 
 Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.
 
@@ -289,9 +289,9 @@ Updates the player list tab without having to open it.
 
 `client.userid_to_entindex(userid: number)`
 
-Argument | Description
--------- | -----------
-  **userid** | This is given by some game events.
+Argument | Description | Type
+-------- | ----------- | ----
+  **userid** | This is given by some game events. | number (user id)
 
 Returns the entity index, or 0 on failure.
 
@@ -300,11 +300,11 @@ Returns the entity index, or 0 on failure.
 
 `client.visible(x: number, y: number, z: number)`: boolean
 
-Argument | Description
--------- | -----------
-  **x** | Position in world space
-  **y** | Position in world space
-  **z** | Position in world space
+Argument | Description | Type
+-------- | ----------- | ----
+  **x** | Position in world space | number (world coordinate)
+  **y** | Position in world space | number (world coordinate)
+  **z** | Position in world space | number (world coordinate)
 
 Returns true if the position is visible. For example, you could use a player's origin to see if they are visible.
 

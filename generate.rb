@@ -263,15 +263,24 @@ globals.each do |global, functions|
 			# contents << "  "
 
 			if ARGS_AS_TABLE
-				contents << "Argument | Description"
-				contents << "-------- | -----------"
+				contents << "Argument | Description | Type"
+				contents << "-------- | ----------- | ----"
 			end
 
 			data["args"].each do |argument|
 				description = argument["description"]
 				optional = description.downcase.start_with? "optional "
-				description = description.sub("Optional. ", "").sub("Optional ", "") if optional
-				contents << (ARGS_AS_TABLE ? "  **#{argument["name"]}** | #{description}" : "  - **#{argument["name"]}**: #{description}")
+				if optional
+					description = description.sub("Optional. ", "").sub("Optional ", "")
+					
+					parts = description.split(" ")
+					description = [parts[0].capitalize, *parts[1..-1]].join(" ")
+				end
+
+				type_info = argtypes.get_argument_name(argument, data)
+				type_text = type_info.nil? ? "" : type_info
+
+				contents << (ARGS_AS_TABLE ? "  **#{argument["name"]}** | #{description} | #{type_text}" : "  - **#{argument["name"]}**: #{description}")
 			end
 			contents << ""
 		end

@@ -220,6 +220,19 @@
 			}
 		},
 		"client": {
+			"camera_angles": {
+				"description": "Get or set camera angles",
+				"args": [
+					{
+						"name": "pitch",
+						"description": "Pitch"
+					},
+					{
+						"name": "yaw",
+						"description": "Yaw"
+					}
+				]
+			},
 			"unset_event_callback": {
 				"name": "client.unset_event_callback",
 				"description": "Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.",
@@ -557,5 +570,11 @@
 				]
 			}
 		]
+	},
+	"globals_replacements": {
+		"function_descriptions": [
+			["AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS", "AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA"]
+		],
+		"function_arg_descriptions": []
 	}
 }
