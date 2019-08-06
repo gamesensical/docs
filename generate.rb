@@ -18,6 +18,7 @@ SHORT_ARG_TYPES = true
 extra_docs = JSON.parse(File.read("extra_docs.json"))
 globals_descriptions = extra_docs["globals_descriptions"]
 globals_examples = extra_docs["globals_examples"]
+globals_replacements = extra_docs["globals_replacements"]
 
 globals = JSON.parse(File.read("default_docs.json"))
 globals.deep_merge!(extra_docs["globals_merge"])
@@ -38,10 +39,13 @@ class ReturnTypes
 		@regexes = {
 			"number (menu item)" => [/ui\.new_.*/, "ui.reference"],
 			"number (texture id)" => [/renderer\.load_.*/],
-			"any" => ["ui.get"],
-			"number, number" => ["ui.mouse_position"],
-			"number" => [/.*get_(float|int)/, /bit\..*/],
-			"string" => [/.*name/, /.*get_string/]
+			"any" => ["ui.get", "entity.get_prop"],
+			"number, number" => ["ui.mouse_position", "client.trace_line", "client.trace_bullet"],
+			"number, number, number" => ["renderer.world_to_screen"],
+			"number" => [/.*get_(float|int)/, /bit\..*/, "client.userid_to_entindex"],
+			"string" => [/.*name/, /.*get_string/, "entity.get_steam64"],
+			"number (entindex)" => [/entity.get_(game_rules|local_player|player_resource|player_weapon)/],
+			"table (entindex)" => [/entity.get_(all|players)/]
 		}
 
 		@types = {
@@ -263,12 +267,17 @@ globals.each do |global, functions|
 			# contents << "  "
 
 			if ARGS_AS_TABLE
-				contents << "Argument | Description | Type"
-				contents << "-------- | ----------- | ----"
+				contents << "Argument | Type | Description"
+				contents << "-------- | ---- | -----------"
 			end
 
 			data["args"].each do |argument|
 				description = argument["description"]
+
+				globals_replacements["function_arg_descriptions"].each do |orig, rep|
+					description.gsub!(orig, rep)
+				end
+
 				optional = description.downcase.start_with? "optional "
 				if optional
 					description = description.sub("Optional. ", "").sub("Optional ", "")
@@ -280,13 +289,19 @@ globals.each do |global, functions|
 				type_info = argtypes.get_argument_name(argument, data)
 				type_text = type_info.nil? ? "" : type_info
 
-				contents << (ARGS_AS_TABLE ? "  **#{argument["name"]}** | #{description} | #{type_text}" : "  - **#{argument["name"]}**: #{description}")
+				contents << (ARGS_AS_TABLE ? "  **#{argument["name"]}** | #{type_text} | #{description}" : "  - **#{argument["name"]}**: #{description}")
 			end
 			contents << ""
 		end
 
 		if data.key?("description") && data["description"] != "None."
-			contents << "#{data["description"]}"
+			description = data["description"]
+
+			globals_replacements["function_descriptions"].each do |orig, rep|
+				description.gsub!(orig, rep)
+			end
+
+			contents << "#{description}"
 			contents << ""
 		else
 			puts "#{global}.#{name} has no description"

@@ -572,9 +572,9 @@
 		]
 	},
 	"globals_replacements": {
-		"function_descriptions": [
+		"function_descriptions": [],
+		"function_arg_descriptions": [
 			["AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS", "AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA"]
-		],
-		"function_arg_descriptions": []
+		]
 	}
 }

@@ -34,9 +34,9 @@ Returns the players cham material as an object.
 
 `materialsystem.find_material(material: string)`
 
-Argument | Description | Type
--------- | ----------- | ----
-  **material** | The name of the material. | string
+Argument | Type | Description
+-------- | ---- | -----------
+  **material** | string | The name of the material.
 
 Returns a material object for the specified material.
 
@@ -45,9 +45,9 @@ Returns a material object for the specified material.
 
 `materialsystem.find_materials(materials: string)`
 
-Argument | Description | Type
--------- | ----------- | ----
-  **materials** | The substring that the material name must contain. | string
+Argument | Type | Description
+-------- | ---- | -----------
+  **materials** | string | The substring that the material name must contain.
 
 Returns all material objects that contain the specified material.
 
@@ -56,9 +56,9 @@ Returns all material objects that contain the specified material.
 
 `materialsystem.find_texture(material: string)`
 
-Argument | Description | Type
--------- | ----------- | ----
-  **material** | The name of the material. | string
+Argument | Type | Description
+-------- | ---- | -----------
+  **material** | string | The name of the material.
 
 Returns a texture object for the specified material.
 
@@ -67,9 +67,9 @@ Returns a texture object for the specified material.
 
 `materialsystem.get_model_materials(entindex: number)`
 
-Argument | Description | Type
--------- | ----------- | ----
-  **entindex** | The entity whos materials will be returned. | number (entindex)
+Argument | Type | Description
+-------- | ---- | -----------
+  **entindex** | number (entindex) | The entity whos materials will be returned.
 
 Returns all material objects for a specified entity.
 
@@ -78,9 +78,9 @@ Returns all material objects for a specified entity.
 
 `materialsystem.override_material(entindex: number)`
 
-Argument | Description | Type
--------- | ----------- | ----
-  **entindex** | The entity whos materials will be returned. | number (entindex)
+Argument | Type | Description
+-------- | ---- | -----------
+  **entindex** | number (entindex) | The entity whos materials will be returned.
 
 Overrides all of a material properties with another material.
 
@@ -89,9 +89,9 @@ Overrides all of a material properties with another material.
 
 `material_object:alpha_modulate(a: number)`
 
-Argument | Description | Type
--------- | ----------- | ----
-  **a** | New alpha value of the material (0-255) | number
+Argument | Type | Description
+-------- | ---- | -----------
+  **a** | number | New alpha value of the material (0-255)
 
 Overrides the alpha of the material object it's called on. Doesn't work with some materials
 
@@ -100,11 +100,11 @@ Overrides the alpha of the material object it's called on. Doesn't work with som
 
 `material_object:color_modulate(r: number, g: number, b: number)`
 
-Argument | Description | Type
--------- | ----------- | ----
-  **r** | New red value of the material (0-255) | number
-  **g** | New green value of the material (0-255) | number
-  **b** | New blue value of the material (0-255) | number
+Argument | Type | Description
+-------- | ---- | -----------
+  **r** | number | New red value of the material (0-255)
+  **g** | number | New green value of the material (0-255)
+  **b** | number | New blue value of the material (0-255)
 
 Overrides the color of the material object it's called on. Doesn't work with some materials
 
@@ -113,9 +113,9 @@ Overrides the color of the material object it's called on. Doesn't work with som
 
 `material_object:get_material_var_flag(material_var_flag: number)`: boolean
 
-Argument | Description | Type
--------- | ----------- | ----
-  **material_var_flag** | Material var flag as number | number (material var flag)
+Argument | Type | Description
+-------- | ---- | -----------
+  **material_var_flag** | number (material var flag) | Material var flag as number
 
 Returns the boolean value of the material var flag
 
@@ -124,9 +124,9 @@ Returns the boolean value of the material var flag
 
 `material_object:get_shader_param(shader_param: number)`: any
 
-Argument | Description | Type
--------- | ----------- | ----
-  **shader_param** | Shader param name | number (shader param)
+Argument | Type | Description
+-------- | ---- | -----------
+  **shader_param** | number (shader param) | Shader param name
 
 Returns the value of the shader param or nil
 
@@ -142,10 +142,10 @@ Restores the original material properties of the material it's called on.
 
 `material_object:set_material_var_flag(material_var_flag: number, value: any)`
 
-Argument | Description | Type
--------- | ----------- | ----
-  **material_var_flag** | Material var flag as number | number (material var flag)
-  **value** | New boolean value of the material var flag | any
+Argument | Type | Description
+-------- | ---- | -----------
+  **material_var_flag** | number (material var flag) | Material var flag as number
+  **value** | any | New boolean value of the material var flag
 
 Sets the value of the material var flag of the material
 
@@ -154,10 +154,10 @@ Sets the value of the material var flag of the material
 
 `material_object:set_shader_param(shader_param: number, value: any)`
 
-Argument | Description | Type
--------- | ----------- | ----
-  **shader_param** | Shader param name | number (shader param)
-  **value** | New value of the shader param | any
+Argument | Type | Description
+-------- | ---- | -----------
+  **shader_param** | number (shader param) | Shader param name
+  **value** | any | New value of the shader param
 
 Sets the value of the shader param of the material
 
