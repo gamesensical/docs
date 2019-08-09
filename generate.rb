@@ -440,7 +440,7 @@ netprops_groups.each do |group, classnames|
 	contents << ""
 
 	classnames.each do |classname|
-		contents << "{% page-ref page=\"../netprops/#{classname}.md\" %}"
+		contents << "{% page-ref page=\"#{classname}.md\" %}"
 	end
 
 	contents << ""

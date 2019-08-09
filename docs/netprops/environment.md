@@ -1,18 +1,18 @@
 # Environment
 
 
-{% page-ref page="../netprops/CColorCorrection.md" %}
-{% page-ref page="../netprops/CColorCorrectionVolume.md" %}
-{% page-ref page="../netprops/CEnvAmbientLight.md" %}
-{% page-ref page="../netprops/CEnvDetailController.md" %}
-{% page-ref page="../netprops/CEnvDOFController.md" %}
-{% page-ref page="../netprops/CEnvGasCanister.md" %}
-{% page-ref page="../netprops/CEnvParticleScript.md" %}
-{% page-ref page="../netprops/CEnvProjectedTexture.md" %}
-{% page-ref page="../netprops/CEnvQuadraticBeam.md" %}
-{% page-ref page="../netprops/CEnvScreenEffect.md" %}
-{% page-ref page="../netprops/CEnvScreenOverlay.md" %}
-{% page-ref page="../netprops/CEnvTonemapController.md" %}
-{% page-ref page="../netprops/CEnvWind.md" %}
-{% page-ref page="../netprops/CSun.md" %}
-{% page-ref page="../netprops/CSunlightShadowControl.md" %}
+{% page-ref page="CColorCorrection.md" %}
+{% page-ref page="CColorCorrectionVolume.md" %}
+{% page-ref page="CEnvAmbientLight.md" %}
+{% page-ref page="CEnvDetailController.md" %}
+{% page-ref page="CEnvDOFController.md" %}
+{% page-ref page="CEnvGasCanister.md" %}
+{% page-ref page="CEnvParticleScript.md" %}
+{% page-ref page="CEnvProjectedTexture.md" %}
+{% page-ref page="CEnvQuadraticBeam.md" %}
+{% page-ref page="CEnvScreenEffect.md" %}
+{% page-ref page="CEnvScreenOverlay.md" %}
+{% page-ref page="CEnvTonemapController.md" %}
+{% page-ref page="CEnvWind.md" %}
+{% page-ref page="CSun.md" %}
+{% page-ref page="CSunlightShadowControl.md" %}
