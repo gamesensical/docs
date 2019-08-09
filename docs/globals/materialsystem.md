@@ -18,21 +18,21 @@ description: Functions controlling the CS:GO Material System, letting you modula
 ### Functions:
 #### materialsystem.arms_material
 
-`materialsystem.arms_material()`
+`materialsystem.arms_material()`: table (material object)
 
 Returns the players hand cham material as an object.
 
 
 #### materialsystem.chams_material
 
-`materialsystem.chams_material()`
+`materialsystem.chams_material()`: table (material object)
 
 Returns the players cham material as an object.
 
 
 #### materialsystem.find_material
 
-`materialsystem.find_material(material: string)`
+`materialsystem.find_material(material: string)`: table (material object)
 
 Argument | Type | Description
 -------- | ---- | -----------
@@ -43,7 +43,7 @@ Returns a material object for the specified material.
 
 #### materialsystem.find_materials
 
-`materialsystem.find_materials(materials: string)`
+`materialsystem.find_materials(materials: string)`: table (material objects)
 
 Argument | Type | Description
 -------- | ---- | -----------
@@ -65,7 +65,7 @@ Returns a texture object for the specified material.
 
 #### materialsystem.get_model_materials
 
-`materialsystem.get_model_materials(entindex: number)`
+`materialsystem.get_model_materials(entindex: number)`: table (material objects)
 
 Argument | Type | Description
 -------- | ---- | -----------

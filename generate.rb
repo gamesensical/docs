@@ -9,7 +9,7 @@ gemfile do
 
 	gem "pry"
 	gem "json-patch"
-	gem "activesupport", :require => "active_support/core_ext/hash"
+	gem "activesupport", :require => ["active_support/core_ext/hash", "active_support/core_ext/string/inflections"]
 end
 
 ARGS_AS_TABLE = true
@@ -44,8 +44,10 @@ class ReturnTypes
 			"number, number, number" => ["renderer.world_to_screen"],
 			"number" => [/.*get_(float|int)/, /bit\..*/, "client.userid_to_entindex"],
 			"string" => [/.*name/, /.*get_string/, "entity.get_steam64"],
-			"number (entindex)" => [/entity.get_(game_rules|local_player|player_resource|player_weapon)/],
-			"table (entindex)" => [/entity.get_(all|players)/]
+			"number (entindex)" => [/entity\.get_(game_rules|local_player|player_resource|player_weapon)/],
+			"table (entindex)" => [/entity\.get_(all|players)/],
+			"table (material object)" => [/materialsystem((?!override).)+_material$/],
+			"table (material objects)" => [/materialsystem.+_materials/]
 		}
 
 		@types = {
@@ -281,7 +283,7 @@ globals.each do |global, functions|
 				optional = description.downcase.start_with? "optional "
 				if optional
 					description = description.sub("Optional. ", "").sub("Optional ", "")
-					
+
 					parts = description.split(" ")
 					description = [parts[0].capitalize, *parts[1..-1]].join(" ")
 				end
@@ -428,9 +430,27 @@ classes.each do |classname, props|
 	netprops_groups[group] << classname
 end
 
+group_filename = Hash[netprops_groups.map{|a, b| [a, a.parameterize.gsub("-", "")]}]
+
+netprops_groups.each do |group, classnames|
+	contents = []
+
+	contents << "# #{group}"
+	contents << ""
+	contents << ""
+
+	classnames.each do |classname|
+		contents << "{% page-ref page=\"../netprops/#{classname}.md\" %}"
+	end
+
+	contents << ""
+
+	(props_path + "#{group_filename[group]}.md").write(contents.join("\n"))
+end
+
 netprops_string = ""
 netprops_groups.each do |group, classnames|
-	netprops_string += "  * [#{group}](netprops/#{classnames[0]}.md)\n"
+	netprops_string += "  * [#{group}](netprops/#{group_filename[group]}.md)\n"
 	classnames.each do |classname|
 		netprops_string += "    * [#{classname}](netprops/#{classname}.md)\n"
 	end
