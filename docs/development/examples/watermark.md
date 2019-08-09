@@ -2,7 +2,9 @@
 
 This is a simple text watermark showing the ping, tickrate and windows time. Ingame it looks like this:
 
-![](https://i.imgur.com/fC6PiVc.png)
+![](https://i.imgur.com/73FUdvm.png)
+
+Modify the `flags`, `margin` and `padding` variables to change the appearance. Colors are hardcoded in the 2 drawing function calls, but can be easily modified too.
 
 {% code-tabs %}
 {% code-tabs-item title="watermark.lua" %}
