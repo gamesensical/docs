@@ -10,6 +10,7 @@
   * [Examples](development/examples/README.md)
     * [Simple watermark](development/examples/watermark.md)
     * [Head Dot ESP](development/examples/head_dot.md)
+    * [Talk shit](development/examples/talk_shit.md)
   * [Editors](development/editors/README.md)
     * [VS Code](development/editors/vscode.md)
     * [Sublime Text](development/editors/sublime.md)
