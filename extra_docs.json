@@ -532,7 +532,28 @@
 		"database": {
 			"read": {
 				"name": "database.read",
-				"description": "Gets a value from the database"
+				"description": "Gets a value from the database",
+				"return_type": "any",
+				"args": [
+					{
+						"name": "key_name",
+						"description": "String used as a name of the key. Make sure to write to the same key_name."
+					}
+				]
+			},
+			"write": {
+				"name": "database.write",
+				"description": "Writes a value to the database. Avoid calling this often. For example, call read at script load, then call write during the 'shutdown' event",
+				"args": [
+					{
+						"name": "key_name",
+						"description": "String used as a name of the key."
+					},
+					{
+						"name": "value",
+						"description": "Value the key should be set to. This can be anything that can be sanitized (no functions, userdata)"
+					}
+				]
 			}
 		}
 	},
