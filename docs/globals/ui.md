@@ -161,6 +161,17 @@ Argument | Type | Description
 Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 
 
+#### ui.new_string
+
+`ui.new_string(name: string)`: number (menu item)
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **name** | string (menu item) | The name of the string element, make sure this is unique.
+
+Creates a string UI element, can be used to store arbitrary data in configs. It's not displayed in the menu. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
+
+
 #### ui.new_textbox
 
 `ui.new_textbox(tab: string, container: string)`: number (menu item)

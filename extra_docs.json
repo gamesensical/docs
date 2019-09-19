@@ -497,6 +497,16 @@
 					}
 				]
 			},
+			"new_string": {
+				"name": "ui.new_string",
+				"description": "Creates a string UI element, can be used to store arbitrary data in configs. It's not displayed in the menu. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+				"args": [
+					{
+						"name": "name",
+						"description": "The name of the string element, make sure this is unique."
+					}
+				]
+			},
 			"name": {
 				"name": "ui.name",
 				"description": "Returns the name of the menu item reference passed to it. Throws an error on failure.",
@@ -518,6 +528,12 @@
 			"set_prop": {
 				"description": "Sets the value of the property. For vectors or angles, pass three values."
 			}
+		},
+		"database": {
+			"read": {
+				"name": "database.read",
+				"description": "Gets a value from the database"
+			}
 		}
 	},
 	"globals_descriptions": {
@@ -528,7 +544,8 @@
 		"entity": "Functions for getting and setting entities and entity data.",
 		"cvar": "A table letting you get and set the value of cvars and invoke their callbacks. Uses Object-oriented format",
 		"globals": "Functions for getting game globals such as the server time and map name.",
-		"materialsystem": "Functions controlling the CS:GO Material System, letting you modulate, swap, remove materials and set their shader params / material vars"
+		"materialsystem": "Functions controlling the CS:GO Material System, letting you modulate, swap, remove materials and set their shader params / material vars",
+		"database": "Persistent storage engine that lets you store tables between reloads / reinjects"
 	},
 	"globals_examples": {
 		"cvar": [

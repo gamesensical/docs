@@ -1,10 +1,16 @@
 # Table of contents
 
 * [Overview](README.md)
+
+## Using the cheat
+
 * [Using the cheat](usage/README.md)
-  * [Using lua scripts](usage/using_lua_scripts.md)
-  * [Unlisted features](usage/unlisted_features.md)
-  * [Common issues](usage/common_issues.md)
+* [Using lua scripts](usage/using_lua_scripts.md)
+* [Unlisted features](usage/unlisted_features.md)
+* [Common issues](usage/common_issues.md)
+
+## Developers
+
 * [Writing lua scripts](development/README.md)
   * [Getting started](development/getting_started.md)
   * [Examples](development/examples/README.md)
@@ -22,6 +28,7 @@
   * [Bit](globals/bit.md)
   * [Client](globals/client.md)
   * [Cvar](globals/cvar.md)
+  * [Database](globals/database.md)
   * [Entity](globals/entity.md)
   * [Globals](globals/globals.md)
   * [Materialsystem](globals/materialsystem.md)
