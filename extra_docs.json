@@ -566,7 +566,7 @@
 		"cvar": "A table letting you get and set the value of cvars and invoke their callbacks. Uses Object-oriented format",
 		"globals": "Functions for getting game globals such as the server time and map name.",
 		"materialsystem": "Functions controlling the CS:GO Material System, letting you modulate, swap, remove materials and set their shader params / material vars",
-		"database": "Persistent storage engine that lets you store tables between reloads / reinjects"
+		"database": "Persistent storage engine that lets you store values between reloads / reinjects"
 	},
 	"globals_examples": {
 		"cvar": [
@@ -579,10 +579,11 @@
 					"local developer = cvar.developer",
 					"",
 					"-- invoking callback of ConCommand",
-					"cl_fullupdate.invoke_callback()",
+					"cl_fullupdate:invoke_callback()",
+					"",
 					"-- toggle ConVar",
 					"local oldval = developer.get_int()",
-					"developer.set_raw_int(bxor(oldval, 1))",
+					"developer:set_raw_int(bxor(oldval, 1))",
 					"```"
 				]
 			},
@@ -604,6 +605,30 @@
 				"contents": [
 					"```lua",
 					"-- materialsystem example here",
+					"```"
+				]
+			}
+		],
+		"database": [
+			{
+				"title": "database-1.lua",
+				"contents": [
+					"```lua",
+					"local data = database.read(\"example-1\") or {}",
+					"data.load_count = (data.load_count or 0) + 1",
+					"",
+					"client.log(\"this is the \", data.load_count, \". time you've loaded this script!\")",
+					"",
+					"client.set_event_callback(\"player_death\", function(e)",
+					"\tif client.userid_to_entindex(e.attacker) == entity.get_local_player() then",
+					"\t\tdata.kill_count = (data.kill_count or 0) + 1",
+					"\t\tclient.log(\"this is your \", data.kill_count, \". kill!\")",
+					"\tend",
+					"end)",
+					"",
+					"client.set_event_callback(\"shutdown\", function()",
+					"\tdatabase.write(\"example-1\", data)",
+					"end)",
 					"```"
 				]
 			}

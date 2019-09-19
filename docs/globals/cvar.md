@@ -14,10 +14,11 @@ local cl_fullupdate = cvar.cl_fullupdate
 local developer = cvar.developer
 
 -- invoking callback of ConCommand
-cl_fullupdate.invoke_callback()
+cl_fullupdate:invoke_callback()
+
 -- toggle ConVar
 local oldval = developer.get_int()
-developer.set_raw_int(bxor(oldval, 1))
+developer:set_raw_int(bxor(oldval, 1))
 ```
 
 {% endcode-tabs-item %}

@@ -1,8 +1,33 @@
 ---
-description: Persistent storage engine that lets you store tables between reloads / reinjects
+description: Persistent storage engine that lets you store values between reloads / reinjects
 ---
 
 # Database
+
+### Example:
+
+{% code-tabs %}
+{% code-tabs-item  title="database-1.lua"%}
+```lua
+local data = database.read("example-1") or {}
+data.load_count = (data.load_count or 0) + 1
+
+client.log("this is the ", data.load_count, ". time you've loaded this script!")
+
+client.set_event_callback("player_death", function(e)
+	if client.userid_to_entindex(e.attacker) == entity.get_local_player() then
+		data.kill_count = (data.kill_count or 0) + 1
+		client.log("this is your ", data.kill_count, ". kill!")
+	end
+end)
+
+client.set_event_callback("shutdown", function()
+	database.write("example-1", data)
+end)
+```
+
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 ### Functions:
 #### database.read
