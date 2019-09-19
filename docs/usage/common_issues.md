@@ -4,35 +4,36 @@
 
 1. Your computer has been on for a very long time and physical memory has become fragmented, or
 2. A process or driver is using a large portion of physical memory.
+
 Try closing programs that are using a lot of memory, or just restart your computer.
-Error codes produced: D0001409, C000009A
 
 ### Antivirus
 
 Some antivirus vendors perform very intensive real-time monitoring/sandboxing that can interfere with the client. You don't need to disable Windows Defender. Whitelisting may not work. Make sure the antivirus is closed and its drivers are unloaded. You can re-open them after loading the cheat.
-Known incompatible vendors: Trend Micro, F-Secure, MalwareBytes
-Error codes produced: D0001600, D0002001, C0000022
+
+**Known incompatible vendors:** Trend Micro, F-Secure, MalwareBytes
 
 ### Unsupported version of Windows
 
 Windows 8.1 or newer is required. Some older versions of Windows 10 may not work. Update to the latest version of Windows 10. If you are on Windows 10.0.14393 or newer and you receive this error, restart your computer and try again.
-Error codes produced: C0000077, D0002103
 
 ### Anti-cheat
 
 Some anti-cheat drivers (particularly BattlEye) protect game/Steam processes which can lead to problems.
-Error codes produced: D0001418
 
 ### Overlays / third party tools
 
 Any program that interferes with the game rendering can cause issues.
-Known incompatible software: Fraps, SweetFX, discord overlay, NZXT CAM
-Error codes produced: none, your game will crash
+
+**Known incompatible software:**  Fraps, SweetFX, discord overlay, NZXT CAM
+
+**Error codes produced:** none, your game will crash
 
 ### "Virtual machine not supported"
 
 Some anti-virus vendors run programs in a virtual machine. If you aren't using an anti-virus, then make sure Hyper-V is disabled.
-Known incompatible vendors: HitmanPro.Alert
+
+**Known incompatible vendors:** HitmanPro.Alert
 
 ### Client not opening?
 
@@ -42,8 +43,10 @@ If nothing happens when you open the client, then try enabling UAC and restartin
 
 Go to CS:GO settings and enable "multi core rendering".
 
-Menu not displaying or flickering
+### Menu not displaying or flickering
+
 Remove 'nod3d9ex' from your launch options.
+
 Make sure the Steam overlay is enabled. Check it is enabled in both of these places:
     - Steam > Settings/Preferences > In-game tab. Check the box next to Enable the Steam Overlay while in-game.
     - Right-click CS:GO in your Library > Select Properties > Under the General tab, check the box next to Enable the Steam Overlay while in-game.
@@ -80,11 +83,11 @@ Make sure invitees understand that Windows 8.1 or newer is required.
 
 Codes | Description
 ----- | -----------
-  D0001434, C0000225 | Game is taking too long to load, use -novid or wait until the main menu to inject
-  D0001409, C000009A | Out of memory
-  D0001600, D0002001, C0000022 | Antivirus
-  C0000077, D0002103 | Unsupported version of Windows
-  D0001418, D000210A | Anti-cheat
+  D0001409, C000009A | [Out of memory](#out-of-memory)
+  D0001600, D0002001, C0000022 | [Antivirus](#antivirus)
+  C0000077, D0002103 | [Unsupported version of Windows](#unsupported-version-of-windows)
+  D0001418, D000210A | [Anti-cheat](#anti-cheat)
   D0002201 | Connection problem
-  D0001012 | "Virtual machine not supported"
+  D0001434, C0000225 | Game is taking too long to load, use -novid or wait until the main menu to inject
+  D0001012 | ["Virtual machine not supported"](#virtual-machine-not-supported)
   D0001442 | game crashed while loading
