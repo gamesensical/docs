@@ -83,11 +83,19 @@ Make sure invitees understand that Windows 8.1 or newer is required.
 
 Codes | Description
 ----- | -----------
-  D0001409, C000009A | [Out of memory](#out-of-memory)
-  D0001600, D0002001, C0000022 | [Antivirus](#antivirus)
-  C0000077, D0002103 | [Unsupported version of Windows](#unsupported-version-of-windows)
-  D0001418, D000210A | [Anti-cheat](#anti-cheat)
+  D0001409 | [Out of memory](#out-of-memory)
+  C000009A |
+  D0001600 | [Antivirus](#antivirus)
+  D0002001 |
+  C0000022 |
+  C00000F1 |
+  C0000043 |
+  C0000077 | [Unsupported version of Windows](#unsupported-version-of-windows)
+  D0002103 |
+  D0001418 | [Anti-cheat](#anti-cheat)
+  D000210A |
   D0002201 | Connection problem
-  D0001434, C0000225 | Game is taking too long to load, use -novid or wait until the main menu to inject
+  D0001434 | Game is taking too long to load, use -novid or wait until the main menu to inject
+  C0000225 |
+  D0001442 | Game crashed while loading
   D0001012 | ["Virtual machine not supported"](#virtual-machine-not-supported)
-  D0001442 | game crashed while loading
