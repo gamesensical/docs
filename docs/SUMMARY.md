@@ -4,7 +4,6 @@
 
 ## Using the cheat
 
-* [Using the cheat](usage/README.md)
 * [Using lua scripts](usage/using_lua_scripts.md)
 * [Unlisted features](usage/unlisted_features.md)
 * [Common issues](usage/common_issues.md)
