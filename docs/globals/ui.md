@@ -163,13 +163,14 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 #### ui.new_string
 
-`ui.new_string(name: string)`: number (menu item)
+`ui.new_string(name: string, default_value: string)`: number (menu item)
 
 Argument | Type | Description
 -------- | ---- | -----------
   **name** | string (menu item) | The name of the string element, make sure this is unique.
+  **default_value** | string | Default value of the element.
 
-Creates a string UI element, can be used to store arbitrary data in configs. It's not displayed in the menu. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
+Creates a string UI element, can be used to store arbitrary strings in configs. No menu item is created but it has the same semantics as other ui.new_* functions. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 
 
 #### ui.new_textbox
