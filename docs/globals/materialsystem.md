@@ -4,17 +4,6 @@ description: Functions controlling the CS:GO Material System, letting you modula
 
 # Materialsystem
 
-### Example:
-
-{% code-tabs %}
-{% code-tabs-item  title="materialsystem-1.lua"%}
-```lua
--- materialsystem example here
-```
-
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
 ### Functions:
 #### materialsystem.arms_material
 
@@ -161,3 +150,14 @@ Argument | Type | Description
 
 Sets the value of the shader param of the material
 
+
+### Example:
+
+{% code-tabs %}
+{% code-tabs-item  title="materialsystem-1.lua"%}
+```lua
+-- materialsystem example here
+```
+
+{% endcode-tabs-item %}
+{% endcode-tabs %}

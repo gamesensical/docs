@@ -4,35 +4,6 @@ description: A table letting you get and set the value of cvars and invoke their
 
 # Cvar
 
-### Examples:
-
-{% code-tabs %}
-{% code-tabs-item  title="cvar-1.lua"%}
-```lua
-local bxor = bit.bxor
-local cl_fullupdate = cvar.cl_fullupdate
-local developer = cvar.developer
-
--- invoking callback of ConCommand
-cl_fullupdate:invoke_callback()
-
--- toggle ConVar
-local oldval = developer.get_int()
-developer:set_raw_int(bxor(oldval, 1))
-```
-
-{% endcode-tabs-item %}
-{% code-tabs-item  title="cvar-2.lua"%}
-```lua
-local snd_setmixer = cvar.snd_setmixer
-
--- Mutes ambient volume by setting the mixer "vol" option to 0
-snd_setmixer:invoke_callback("Ambient", "vol", "0")
-```
-
-{% endcode-tabs-item %}
-{% endcode-tabs %}
-
 ### Functions:
 #### :get_float
 
@@ -120,3 +91,32 @@ Argument | Type | Description
 
 Sets the int, float and string value to the passed float. Invokes the change callback
 
+
+### Examples:
+
+{% code-tabs %}
+{% code-tabs-item  title="cvar-1.lua"%}
+```lua
+local bxor = bit.bxor
+local cl_fullupdate = cvar.cl_fullupdate
+local developer = cvar.developer
+
+-- invoking callback of ConCommand
+cl_fullupdate:invoke_callback()
+
+-- toggle ConVar
+local oldval = developer.get_int()
+developer:set_raw_int(bxor(oldval, 1))
+```
+
+{% endcode-tabs-item %}
+{% code-tabs-item  title="cvar-2.lua"%}
+```lua
+local snd_setmixer = cvar.snd_setmixer
+
+-- Mutes ambient volume by setting the mixer "vol" option to 0
+snd_setmixer:invoke_callback("Ambient", "vol", "0")
+```
+
+{% endcode-tabs-item %}
+{% endcode-tabs %}

@@ -199,22 +199,6 @@ globals.each do |global, functions|
 	contents << "# #{global.capitalize}"
 	contents << ""
 
-	if globals_examples.key? global
-		contents << "### Example#{globals_examples[global].length > 1 ? "s" : ""}:"
-		contents << ""
-		contents << "{% code-tabs %}"
-
-		globals_examples[global].each do |example|
-			contents << "{% code-tabs-item #{example.key?("title") ? " title=\"#{example["title"]}\"" : ""}%}"
-			contents << example["contents"].join("\n")
-			contents << ""
-			contents << "{% endcode-tabs-item %}"
-		end
-
-		contents << "{% endcode-tabs %}"
-		contents << ""
-	end
-
 	contents << "### Functions:"
 
 	argtypes = ArgumentTypes.new()
@@ -313,6 +297,22 @@ globals.each do |global, functions|
 			contents << "{% page-ref page=\"#{data["page-ref"]}\" %}"
 		end
 
+		contents << ""
+	end
+
+	if globals_examples.key? global
+		contents << "### Example#{globals_examples[global].length > 1 ? "s" : ""}:"
+		contents << ""
+		contents << "{% code-tabs %}"
+
+		globals_examples[global].each do |example|
+			contents << "{% code-tabs-item #{example.key?("title") ? " title=\"#{example["title"]}\"" : ""}%}"
+			contents << example["contents"].join("\n")
+			contents << ""
+			contents << "{% endcode-tabs-item %}"
+		end
+
+		contents << "{% endcode-tabs %}"
 		contents << ""
 	end
 
