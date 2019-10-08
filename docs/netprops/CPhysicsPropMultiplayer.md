@@ -1,5 +1,5 @@
 ---
-description: DT_PhysicsPropMultiplayer - Last updated at 06.08.2019
+description: DT_PhysicsPropMultiplayer
 ---
 
 # CPhysicsPropMultiplayer

@@ -1,5 +1,5 @@
 ---
-description: DT_WeaponM4A1 - Last updated at 06.08.2019
+description: DT_WeaponM4A1
 ---
 
 # CWeaponM4A1

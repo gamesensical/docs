@@ -1,5 +1,5 @@
 ---
-description: DT_EnvDOFController - Last updated at 06.08.2019
+description: DT_EnvDOFController
 ---
 
 # CEnvDOFController

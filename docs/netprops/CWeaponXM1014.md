@@ -1,5 +1,5 @@
 ---
-description: DT_WeaponXM1014 - Last updated at 06.08.2019
+description: DT_WeaponXM1014
 ---
 
 # CWeaponXM1014

@@ -1,5 +1,5 @@
 ---
-description: DT_Flashbang - Last updated at 06.08.2019
+description: DT_Flashbang
 ---
 
 # CFlashbang

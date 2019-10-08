@@ -1,4 +1,7 @@
 # Temp Entities
+---
+description: Last updated at 09.10.2019
+---
 
 
 {% page-ref page="CTEArmorRicochet.md" %}

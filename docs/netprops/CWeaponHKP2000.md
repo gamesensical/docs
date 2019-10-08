@@ -1,5 +1,5 @@
 ---
-description: DT_WeaponHKP2000 - Last updated at 06.08.2019
+description: DT_WeaponHKP2000
 ---
 
 # CWeaponHKP2000

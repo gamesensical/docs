@@ -1,5 +1,5 @@
 ---
-description: DT_WeaponP90 - Last updated at 06.08.2019
+description: DT_WeaponP90
 ---
 
 # CWeaponP90

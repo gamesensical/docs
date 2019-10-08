@@ -1,5 +1,5 @@
 ---
-description: DT_WeaponMag7 - Last updated at 06.08.2019
+description: DT_WeaponMag7
 ---
 
 # CWeaponMag7

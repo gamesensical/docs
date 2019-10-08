@@ -414,7 +414,7 @@ classes.each do |classname, props|
 
 	# description
 	contents << "---"
-	contents << "description: #{classes_type[classname]} - Last updated at #{date}"
+	contents << "description: #{classes_type[classname]}"
 	contents << "---"
 	contents << ""
 
@@ -436,6 +436,9 @@ netprops_groups.each do |group, classnames|
 	contents = []
 
 	contents << "# #{group}"
+	contents << "---"
+	contents << "description: Last updated at #{date}"
+	contents << "---"
 	contents << ""
 	contents << ""
 

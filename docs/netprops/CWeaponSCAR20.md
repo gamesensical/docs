@@ -1,5 +1,5 @@
 ---
-description: DT_WeaponSCAR20 - Last updated at 06.08.2019
+description: DT_WeaponSCAR20
 ---
 
 # CWeaponSCAR20

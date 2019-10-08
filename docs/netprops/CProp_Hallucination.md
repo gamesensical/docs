@@ -1,5 +1,5 @@
 ---
-description: DT_Prop_Hallucination - Last updated at 06.08.2019
+description: DT_Prop_Hallucination
 ---
 
 # CProp_Hallucination

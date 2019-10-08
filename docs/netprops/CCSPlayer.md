@@ -1,5 +1,5 @@
 ---
-description: DT_CSPlayer - Last updated at 06.08.2019
+description: DT_CSPlayer
 ---
 
 # CCSPlayer
@@ -223,6 +223,7 @@ description: DT_CSPlayer - Last updated at 06.08.2019
 * `m_bPlayerDominatingMe` (integer[0-64])
 * `m_flVelocityModifier` (float)
 * `m_iWeaponPurchasesThisRound` (integer[0-255])
+* `m_unActiveQuestId` (integer)
 * `m_nQuestProgressReason` (integer)
 * `m_vecOrigin` (3)
 * `m_iWeaponPurchasesThisMatch` (integer[0-255])

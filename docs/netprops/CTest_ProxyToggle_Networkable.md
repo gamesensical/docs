@@ -1,5 +1,5 @@
 ---
-description: DT_ProxyToggle - Last updated at 06.08.2019
+description: DT_ProxyToggle
 ---
 
 # CTest_ProxyToggle_Networkable

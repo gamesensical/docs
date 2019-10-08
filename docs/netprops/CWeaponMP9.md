@@ -1,5 +1,5 @@
 ---
-description: DT_WeaponMP9 - Last updated at 06.08.2019
+description: DT_WeaponMP9
 ---
 
 # CWeaponMP9

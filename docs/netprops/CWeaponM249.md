@@ -1,5 +1,5 @@
 ---
-description: DT_WeaponM249 - Last updated at 06.08.2019
+description: DT_WeaponM249
 ---
 
 # CWeaponM249

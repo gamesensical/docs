@@ -1,5 +1,5 @@
 ---
-description: DT_PhysPropWeaponUpgrade - Last updated at 06.08.2019
+description: DT_PhysPropWeaponUpgrade
 ---
 
 # CPhysPropWeaponUpgrade

@@ -1,5 +1,5 @@
 ---
-description: DT_WeaponG3SG1 - Last updated at 06.08.2019
+description: DT_WeaponG3SG1
 ---
 
 # CWeaponG3SG1

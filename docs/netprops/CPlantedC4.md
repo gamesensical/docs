@@ -1,5 +1,5 @@
 ---
-description: DT_PlantedC4 - Last updated at 06.08.2019
+description: DT_PlantedC4
 ---
 
 # CPlantedC4
