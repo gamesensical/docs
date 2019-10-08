@@ -2,7 +2,7 @@
 description: Functions for getting and setting entities and entity data.
 ---
 
-# Entity
+# entity
 
 ### Functions:
 #### entity.get_all

@@ -2,7 +2,7 @@
 description: LuaJIT library for bitwise operations
 ---
 
-# Bit
+# bit
 
 ### Functions:
 #### bit.arshift

@@ -2,7 +2,7 @@
 description: A table letting you get and set the value of cvars and invoke their callbacks. Uses Object-oriented format
 ---
 
-# Cvar
+# cvar
 
 ### Functions:
 #### :get_float

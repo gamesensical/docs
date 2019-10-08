@@ -196,7 +196,7 @@ globals.each do |global, functions|
 		contents << "---"
 		contents << ""
 	end
-	contents << "# #{global.capitalize}"
+	contents << "# #{global}"
 	contents << ""
 
 	contents << "### Functions:"
@@ -325,7 +325,7 @@ File.write("docs/docs.json", globals.to_json)
 # Write formatted list of globals to SUMMARY.md
 globals_string = ""
 globals.keys.each do |global|
-	globals_string += "  * [#{global.capitalize}](globals/#{global}.md)\n"
+	globals_string += "  * [#{global}](globals/#{global}.md)\n"
 end
 
 # Write netprops

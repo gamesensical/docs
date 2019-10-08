@@ -2,7 +2,7 @@
 description: General game- and cheat-related functions
 ---
 
-# Client
+# client
 
 ### Functions:
 #### client.camera_angles

@@ -2,7 +2,7 @@
 description: Persistent storage engine that lets you store values between reloads / reinjects
 ---
 
-# Database
+# database
 
 ### Functions:
 #### database.read

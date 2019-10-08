@@ -2,7 +2,7 @@
 description: Functions for drawing visuals. Usually won't work outside the `paint` event.
 ---
 
-# Renderer
+# renderer
 
 ### Functions:
 #### renderer.circle

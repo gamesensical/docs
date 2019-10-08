@@ -2,7 +2,7 @@
 description: Functions for interfacing with the gamesense menu
 ---
 
-# Ui
+# ui
 
 ### Functions:
 #### ui.get
