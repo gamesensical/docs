@@ -238,6 +238,36 @@
 				"description": "Returns x, y, z world coordinates of the game's camera position, or nil on failure.",
 				"args": []
 			},
+			"create_interface": {
+				"name": "client.create_interface",
+				"description": "Returns a pointer to the interface, or nil on failure.",
+				"return_type": "userdata (ffi pointer)",
+				"args": [
+					{
+						"name": "module_name",
+						"description": "Filename of the module that contains the interface"
+					},
+					{
+						"name": "interface_name",
+						"description": "Name of the interface"
+					}
+				]
+			},
+			"find_signature": {
+				"name": "client.find_signature",
+				"description": "Finds the specified pattern and returns a pointer to it, or nil if not found.",
+				"return_type": "userdata (ffi pointer)",
+				"args": [
+					{
+						"name": "module_name",
+						"description": "Filename of the module that contains the interface"
+					},
+					{
+						"name": "pattern",
+						"description": "String of the signature. Escape with \\x, replace wildcards with \\xCC"
+					}
+				]
+			},
 			"unset_event_callback": {
 				"name": "client.unset_event_callback",
 				"description": "Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.",

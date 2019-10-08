@@ -39,6 +39,18 @@ Argument | Type | Description
 Logs a colored message to console. End the string with \0 to prevent it from adding a newline.
 
 
+#### client.create_interface
+
+`client.create_interface(module_name: string, interface_name: string)`: userdata (ffi pointer)
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **module_name** | string | Filename of the module that contains the interface
+  **interface_name** | string | Name of the interface
+
+Returns a pointer to the interface, or nil on failure.
+
+
 #### client.delay_call
 
 `client.delay_call(delay: number, callback: function, ...)`
@@ -119,6 +131,18 @@ Executes a console command. Multiple commands can be combined with ';'. Be caref
 `client.eye_position()`: number, number, number
 
 Returns x, y, z world coordinates of the local player's eye position, or nil on failure.
+
+
+#### client.find_signature
+
+`client.find_signature(module_name: string, pattern: string)`: userdata (ffi pointer)
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **module_name** | string | Filename of the module that contains the interface
+  **pattern** | string | String of the signature. Escape with \x, replace wildcards with \xCC
+
+Finds the specified pattern and returns a pointer to it, or nil if not found.
 
 
 #### client.key_state

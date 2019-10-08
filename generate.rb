@@ -116,7 +116,7 @@ class ArgumentTypes
 			"number (material var flag)" => ["material_var_flag"],
 			"number" => ["array_index", "duration", "line_offset", "tick", "minimum", "maximum", "damage", "delay", "min", "max", "init_value", "radius", "scale", "max_width", "r", "g", "b", "a", "r1", "g1", "b1", "a1", "r2", "g2", "b2", "a2", "key"],
 			"boolean" => ["enemies_only", "show_tooltip", "inline", "visible", "ltr"],
-			"string" => ["event_name", "msg", "cmd", "unit", "material", "materials"],
+			"string" => ["event_name", "msg", "cmd", "unit", "material", "materials", "module_name", "interface_name"],
 			"string (shader param)" => ["shader_param"],
 		}
 		argument_types_array.each do |argument_type, argument_names|
