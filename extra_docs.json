@@ -233,6 +233,11 @@
 					}
 				]
 			},
+			"camera_position": {
+				"name": "client.camera_position",
+				"description": "Returns x, y, z world coordinates of the game's camera position, or nil on failure.",
+				"args": []
+			},
 			"unset_event_callback": {
 				"name": "client.unset_event_callback",
 				"description": "Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.",

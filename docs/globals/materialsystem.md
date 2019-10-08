@@ -111,11 +111,11 @@ Returns the boolean value of the material var flag
 
 #### :get_shader_param
 
-`material_object:get_shader_param(shader_param: number)`: any
+`material_object:get_shader_param(shader_param: string)`: any
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **shader_param** | number (shader param) | Shader param name
+  **shader_param** | string (shader param) | Shader param name
 
 Returns the value of the shader param or nil
 
@@ -141,11 +141,11 @@ Sets the value of the material var flag of the material
 
 #### :set_shader_param
 
-`material_object:set_shader_param(shader_param: number, value: any)`
+`material_object:set_shader_param(shader_param: string, value: any)`
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **shader_param** | number (shader param) | Shader param name
+  **shader_param** | string (shader param) | Shader param name
   **value** | any | New value of the shader param
 
 Sets the value of the shader param of the material

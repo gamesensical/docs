@@ -17,6 +17,13 @@ Argument | Type | Description
 Get or set camera angles
 
 
+#### client.camera_position
+
+`client.camera_position()`: number, number, number
+
+Returns x, y, z world coordinates of the game's camera position, or nil on failure.
+
+
 #### client.color_log
 
 `client.color_log(r: number, g: number, b: number, msg: string, ...)`
