@@ -219,7 +219,8 @@
 						"name": "yaw",
 						"description": "Yaw"
 					}
-				]
+				],
+				"all_optional": true
 			},
 			"camera_position": {
 				"description": "Returns x, y, z world coordinates of the game's camera position, or nil on failure.",

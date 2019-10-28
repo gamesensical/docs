@@ -7,7 +7,7 @@ description: General game- and cheat-related functions
 ### Functions:
 #### client.camera_angles
 
-`client.camera_angles(pitch: number, yaw: number)`
+`client.camera_angles([pitch: number, yaw: number])`
 
 Argument | Type | Description
 -------- | ---- | -----------

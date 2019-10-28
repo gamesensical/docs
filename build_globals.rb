@@ -219,7 +219,7 @@ globals.each do |global, functions|
 			puts "#{global}.#{name}: Missing description"
 		end
 
-		data.replace(Hash[data.sort_by{|k, _| SORT_ORDER.index(k) || k}])
+		data.replace(Hash[data.sort_by{|k, _| SORT_ORDER.index(k) || SORT_ORDER.length+k.length}])
 	end
 end
 

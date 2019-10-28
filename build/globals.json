@@ -597,7 +597,8 @@
           "description": "Yaw",
           "type": "number (-180 - 180)"
         }
-      ]
+      ],
+      "all_optional": true
     },
     "timestamp": {
       "name": "client.timestamp",

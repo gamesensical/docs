@@ -60,7 +60,7 @@ globals.sort.to_h.each do |global, functions|
 			end
 		end
 
-		func_text = "`#{data["name"]}(#{arg_names})`"
+		func_text = "`#{data["name"]}(#{data["all_optional"] ? "[#{arg_names}]" : arg_names})`"
 		func_text << ": #{data["return_type"]}" if data.key? "return_type"
 
 		func_name = data["name"] || "#{global}.#{name}"
