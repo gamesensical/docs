@@ -224,4 +224,5 @@ globals.each do |global, functions|
 end
 
 # Write finished globals.json
+BUILD_DIR.mkpath
 (BUILD_DIR + "globals.json").write(JSON.pretty_generate(globals))
