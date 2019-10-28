@@ -3,7 +3,6 @@
 	"globals_merge": {
 		"bit": {
 			"arshift": {
-				"name": "bit.arshift",
 				"description": "Returns the bitwise arithmetic right-shift of its first argument by the number of bits given by the second argument.\nArithmetic right-shift treats the most-significant bit as a sign bit and replicates it.\nOnly the lower 5 bits of the shift count are used (reduces to the range [0..31]).",
 				"args": [
 					{
@@ -19,7 +18,6 @@
 				]
 			},
 			"band": {
-				"name": "bit.band",
 				"description": "Returns the bitwise and of all of its arguments. Note that more than two arguments are allowed.",
 				"args": [
 					{
@@ -35,7 +33,6 @@
 				]
 			},
 			"bnot": {
-				"name": "bit.bnot",
 				"description": "Returns the bitwise not of its argument.",
 				"args": [
 					{
@@ -46,7 +43,6 @@
 				]
 			},
 			"bor": {
-				"name": "bit.bor",
 				"description": "Returns the bitwise or of all of its arguments. Note that more than two arguments are allowed.",
 				"args": [
 					{
@@ -62,7 +58,6 @@
 				]
 			},
 			"bswap": {
-				"name": "bit.bswap",
 				"description": "Swaps the bytes of its argument and returns it. This can be used to convert little-endian 32 bit numbers to big-endian 32 bit numbers or vice versa.",
 				"args": [
 					{
@@ -73,7 +68,6 @@
 				]
 			},
 			"bxor": {
-				"name": "bit.bxor",
 				"description": "Returns the bitwise xor of all of its arguments. Note that more than two arguments are allowed.",
 				"args": [
 					{
@@ -89,7 +83,6 @@
 				]
 			},
 			"lshift": {
-				"name": "bit.lshift",
 				"description": "Returns the bitwise logical left-shift of its first argument by the number of bits given by the second argument.\nLogical shifts treat the first argument as an unsigned number and shift in 0-bits.\nOnly the lower 5 bits of the shift count are used (reduces to the range [0..31]).",
 				"args": [
 					{
@@ -105,7 +98,6 @@
 				]
 			},
 			"rol": {
-				"name": "bit.rol",
 				"description": "Returns the bitwise left rotation of its first argument by the number of bits given by the second argument. Bits shifted out on one side are shifted back in on the other side.\nOnly the lower 5 bits of the rotate count are used (reduces to the range [0..31]).",
 				"args": [
 					{
@@ -121,7 +113,6 @@
 				]
 			},
 			"ror": {
-				"name": "bit.ror",
 				"description": "Returns the bitwise right rotation of its first argument by the number of bits given by the second argument. Bits shifted out on one side are shifted back in on the other side.\nOnly the lower 5 bits of the rotate count are used (reduces to the range [0..31]).",
 				"args": [
 					{
@@ -137,7 +128,6 @@
 				]
 			},
 			"rshift": {
-				"name": "bit.rshift",
 				"description": "Returns the bitwise logical right-shift of its first argument by the number of bits given by the second argument.\nLogical shifts treat the first argument as an unsigned number and shift in 0-bits.\nOnly the lower 5 bits of the shift count are used (reduces to the range [0..31]).",
 				"args": [
 					{
@@ -153,7 +143,6 @@
 				]
 			},
 			"tobit": {
-				"name": "bit.tobit",
 				"description": "Normalizes a number to the numeric range for bit operations and returns it. This function is usually not needed since all bit operations already normalize all of their input arguments.",
 				"args": [
 					{
@@ -164,7 +153,6 @@
 				]
 			},
 			"tohex": {
-				"name": "bit.tohex",
 				"description": "Converts its first argument to a hex string. The number of hex digits is given by the absolute value of the optional second argument. Positive numbers between 1 and 8 generate lowercase hex digits. Negative numbers generate uppercase hex digits. Only the least-significant 4*|n| bits are used. The default is to generate 8 lowercase hex digits.",
 				"args": [
 					{
@@ -234,12 +222,10 @@
 				]
 			},
 			"camera_position": {
-				"name": "client.camera_position",
 				"description": "Returns x, y, z world coordinates of the game's camera position, or nil on failure.",
 				"args": []
 			},
 			"create_interface": {
-				"name": "client.create_interface",
 				"description": "Returns a pointer to the interface, or nil on failure.",
 				"return_type": "userdata (ffi pointer)",
 				"args": [
@@ -254,7 +240,6 @@
 				]
 			},
 			"find_signature": {
-				"name": "client.find_signature",
 				"description": "Finds the specified pattern and returns a pointer to it, or nil if not found.",
 				"return_type": "userdata (ffi pointer)",
 				"args": [
@@ -269,7 +254,6 @@
 				]
 			},
 			"unset_event_callback": {
-				"name": "client.unset_event_callback",
 				"description": "Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.",
 				"args": [
 					{
@@ -282,8 +266,10 @@
 					}
 				]
 			},
+			"unix_time": {
+				"description": "Returns current windows time as [unix time / epoch time](https://en.wikipedia.org/wiki/Unix_time) (seconds since 1 January 1970 00:00:00)"
+			},
 			"key_state": {
-				"name": "client.key_state",
 				"description": "Returns true if the key is pressed, or nil on failure",
 				"args": [
 					{
@@ -293,12 +279,10 @@
 				]
 			},
 			"update_player_list": {
-				"name": "client.update_player_list",
 				"description": "Updates the player list tab without having to open it.",
 				"args": []
 			},
 			"error_log": {
-				"name": "client.error_log",
 				"description": "Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)",
 				"args": [
 					{
@@ -330,16 +314,13 @@
 		},
 		"globals": {
 			"chokedcommands": {
-				"name": "globals.chokedcommands",
 				"description": "Returns the current number of commands that are being held back.",
 				"args": []
 			},
 			"oldcommandack": {
-				"name": "globals.oldcommandack",
 				"description": "Returns the previous server acknowledged command number."
 			},
 			"commandack": {
-				"name": "globals.commandack",
 				"description": "Returns the number of the command the server last acknowledged."
 			}
 		},
@@ -348,7 +329,6 @@
 				"description": "Draws a texture from the texture id created from load_png, load_jpg or load_svg"
 			},
 			"load_png": {
-				"name": "renderer.load_png",
 				"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
 				"args": [
 					{
@@ -358,7 +338,6 @@
 				]
 			},
 			"load_jpg": {
-				"name": "renderer.load_jpg",
 				"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
 				"args": [
 					{
@@ -370,15 +349,12 @@
 		},
 		"materialsystem": {
 			"arms_material": {
-				"name": "materialsystem.arms_material",
 				"description": "Returns the players hand cham material as an object."
 			},
 			"chams_material": {
-				"name": "materialsystem.chams_material",
 				"description": "Returns the players cham material as an object."
 			},
 			"find_material": {
-				"name": "materialsystem.find_material",
 				"description": "Returns a material object for the specified material.",
 				"args": [
 					{
@@ -388,7 +364,6 @@
 				]
 			},
 			"find_materials": {
-				"name": "materialsystem.find_materials",
 				"description": "Returns all material objects that contain the specified material.",
 				"args": [
 					{
@@ -398,7 +373,6 @@
 				]
 			},
 			"find_texture": {
-				"name": "materialsystem.find_texture",
 				"description": "Returns a texture object for the specified material.",
 				"args": [
 					{
@@ -408,7 +382,6 @@
 				]
 			},
 			"get_model_materials": {
-				"name": "materialsystem.get_model_materials",
 				"description": "Returns all material objects for a specified entity.",
 				"args": [
 					{
@@ -418,7 +391,6 @@
 				]
 			},
 			"override_material": {
-				"name": "materialsystem.override_material",
 				"description": "Overrides all of a material properties with another material.",
 				"args": [
 					{
@@ -511,7 +483,6 @@
 		},
 		"ui": {
 			"new_listbox": {
-				"name": "ui.new_listbox",
 				"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
 				"args": [
 					{
@@ -533,7 +504,6 @@
 				]
 			},
 			"new_string": {
-				"name": "ui.new_string",
 				"description": "Creates a string UI element, can be used to store arbitrary strings in configs. No menu item is created but it has the same semantics as other ui.new_* functions. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
 				"args": [
 					{
@@ -548,7 +518,6 @@
 				]
 			},
 			"name": {
-				"name": "ui.name",
 				"description": "Returns the name of the menu item reference passed to it. Throws an error on failure.",
 				"args": [
 					{
@@ -571,7 +540,6 @@
 		},
 		"database": {
 			"read": {
-				"name": "database.read",
 				"description": "Gets a value from the database",
 				"return_type": "any",
 				"args": [
@@ -582,7 +550,6 @@
 				]
 			},
 			"write": {
-				"name": "database.write",
 				"description": "Writes a value to the database. Avoid calling this often. For example, call read at script load, then call write during the 'shutdown' event",
 				"args": [
 					{
@@ -679,5 +646,7 @@
 		"function_arg_descriptions": [
 			["AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS", "AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA"]
 		]
-	}
+	},
+	"globals_deprecated_regex": "^(draw_.{1,}|world_to_screen|get_cvar|set_cvar)$",
+	"globals_optional_regex": "^Optional[. ]"
 }
