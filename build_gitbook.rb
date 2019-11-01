@@ -61,7 +61,7 @@ globals.sort.to_h.each do |global, functions|
 		end
 
 		func_text = "`#{data["name"]}(#{data["all_optional"] ? "[#{arg_names}]" : arg_names})`"
-		func_text << ": #{data["return_type"]}" if data.key? "return_type"
+		func_text << ": #{data["return_type"]}#{data.key?("return_description") ? " (#{data["return_description"]})" : ""}" if data.key? "return_type"
 
 		func_name = data["name"] || "#{global}.#{name}"
 		func_name = func_name.include?(":") ? (":" + func_name.split(":").last) : func_name
@@ -93,7 +93,12 @@ globals.sort.to_h.each do |global, functions|
 					description.gsub!(orig, rep)
 				end
 
-				contents << (ARGS_AS_TABLE ? "  **#{argument["name"]}** | #{argument["type"] || ""} | #{description}" : "  - **#{argument["name"]}**: #{description}")
+				contents << if ARGS_AS_TABLE
+					"  **#{argument["name"]}** | #{"#{argument["type"]}#{argument.key?("type_description") ? " (#{argument["type_description"]})" : ""}" || ""} | #{description}"
+				else
+					"  - **#{argument["name"]}**: #{description}"
+				end
+
 			end
 			contents << ""
 		end

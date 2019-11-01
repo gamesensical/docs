@@ -12,7 +12,7 @@ gemfile do
 	gem "activesupport", :require => ["active_support/core_ext/hash", "active_support/core_ext/string/inflections"]
 end
 
-SORT_ORDER = %w[name description return_type deprecated args]
+SORT_ORDER = %w[name description return_type return_description deprecated args]
 
 BUILD_DIR = Pathname.new("build/")
 SRC_DIR = Pathname.new("src/")
@@ -25,6 +25,7 @@ globals.deep_merge!(extra_docs["globals_merge"])
 globals_replacements = extra_docs["globals_replacements"]
 globals_deprecated_regex = Regexp.new(extra_docs["globals_deprecated_regex"])
 globals_optional_regex = Regexp.new(extra_docs["globals_optional_regex"])
+globals_type_description_regex = Regexp.new(extra_docs["globals_type_description_regex"])
 
 class ReturnTypes
 	def initialize()
@@ -178,7 +179,12 @@ globals.each do |global, functions|
 			return_type = rettypes.get_return_type(data["name"], data)
 			data["return_type"] = return_type unless return_type.nil?
 		end
-		unless data.key? "return_type"
+		if data.key? "return_type"
+			if match = data["return_type"].match(globals_type_description_regex)
+				data["return_type"] = match[1]
+				data["return_description"] = match[2]
+			end
+		else
 			puts "#{global}.#{name}: No return type"
 		end
 		data["deprecated"] = true if !data.key?("deprecated") && data["name"].match?(globals_deprecated_regex)
@@ -201,6 +207,13 @@ globals.each do |global, functions|
 				type_info = argtypes.get_argument_type(argument, data)
 				unless type_info.nil?
 					argument["type"] ||= type_info
+				end
+
+				if argument.key? "type"
+					if match = argument["type"].match(globals_type_description_regex)
+						argument["type"] = match[1]
+						argument["type_description"] = match[2]
+					end
 				end
 
 				if !argument.key?("type") && argument["name"] != "..."
