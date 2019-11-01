@@ -28,7 +28,7 @@ globals.sort.each do |global, functions|
 		contents << "---"
 
 		if documentation.key? "description"
-			contents << "--- #{documentation["description"]}"
+			contents.push(documentation["description"].split("\n").map{|ln| "--- #{ln}"})
 			contents << "---"
 		end
 		documentation["args"].each do |arg|
@@ -44,4 +44,4 @@ globals.sort.each do |global, functions|
 	end
 end
 
-puts contents.join("\n")
+(BUILD_DIR + "emmylua.lua").write(contents.join("\n"))
