@@ -234,6 +234,7 @@ globals.each do |global, functions|
 
 		data.replace(Hash[data.sort_by{|k, _| SORT_ORDER.index(k) || SORT_ORDER.length+k.length}])
 	end
+	functions.replace(functions.sort.to_h)
 end
 
 # Write finished globals.json

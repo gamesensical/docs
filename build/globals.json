@@ -191,36 +191,31 @@
     }
   },
   "client": {
-    "set_event_callback": {
-      "name": "client.set_event_callback",
-      "description": "Raises an error and prints a message in console upon failure.",
+    "camera_angles": {
+      "name": "client.camera_angles",
+      "description": "Get or set camera angles",
       "args": [
         {
-          "name": "event_name",
-          "description": "Name of the event.",
-          "type": "string"
+          "name": "pitch",
+          "description": "Pitch",
+          "type": "number",
+          "type_description": "-90 - 90"
         },
         {
-          "name": "callback",
-          "description": "Lua function to call when this event occurs.",
-          "type": "function"
+          "name": "yaw",
+          "description": "Yaw",
+          "type": "number",
+          "type_description": "-180 - 180"
         }
-      ]
+      ],
+      "all_optional": true
     },
-    "log": {
-      "name": "client.log",
-      "description": "Logs a message to console in the [gamesense] format.",
+    "camera_position": {
+      "name": "client.camera_position",
+      "description": "Returns x, y, z world coordinates of the game's camera position, or nil on failure.",
+      "return_type": "number, number, number",
       "args": [
-        {
-          "name": "msg",
-          "description": "The message",
-          "type": "string"
-        },
-        {
-          "name": "...",
-          "description": "Comma-separated arguments to concatenate with msg.",
-          "optional": true
-        }
+
       ]
     },
     "color_log": {
@@ -254,32 +249,42 @@
         }
       ]
     },
-    "exec": {
-      "name": "client.exec",
-      "description": "Executes a console command. Multiple commands can be combined with ';'. Be careful when passing user input (including usernames) to it.",
+    "create_interface": {
+      "name": "client.create_interface",
+      "description": "Returns a pointer to the interface, or nil on failure.",
+      "return_type": "userdata",
+      "return_description": "ffi pointer",
       "args": [
         {
-          "name": "cmd",
-          "description": "The console command(s) to execute.",
+          "name": "module_name",
+          "description": "Filename of the module that contains the interface",
           "type": "string"
         },
         {
-          "name": "...",
-          "description": "Comma-separated arguments to concatenate with cmd.",
-          "optional": true
+          "name": "interface_name",
+          "description": "Name of the interface",
+          "type": "string"
         }
       ]
     },
-    "userid_to_entindex": {
-      "name": "client.userid_to_entindex",
-      "description": "Returns the entity index, or 0 on failure.",
-      "return_type": "number",
+    "delay_call": {
+      "name": "client.delay_call",
+      "description": "Executes the callback after delay seconds, passing the arguments to it.",
       "args": [
         {
-          "name": "userid",
-          "description": "This is given by some game events.",
-          "type": "number",
-          "type_description": "user id"
+          "name": "delay",
+          "description": "Time in seconds to wait before calling callback.",
+          "type": "number"
+        },
+        {
+          "name": "callback",
+          "description": "The lua function that will be called after delay seconds.",
+          "type": "function"
+        },
+        {
+          "name": "...",
+          "description": "Arguments that will be passed to the callback.",
+          "optional": true
         }
       ]
     },
@@ -390,20 +395,97 @@
         }
       ]
     },
-    "random_int": {
-      "name": "client.random_int",
-      "description": "Returns a random integer between minimum and maximum.",
-      "return_type": "number",
+    "error_log": {
+      "name": "client.error_log",
+      "description": "Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)",
       "args": [
         {
-          "name": "minimum",
-          "description": "Lowest possible result",
-          "type": "number"
+          "name": "msg",
+          "description": "The error message",
+          "type": "string"
         },
         {
-          "name": "maximum",
-          "description": "Highest possible result",
+          "name": "...",
+          "description": "Comma-separated arguments to concatenate with msg.",
+          "optional": true
+        }
+      ]
+    },
+    "exec": {
+      "name": "client.exec",
+      "description": "Executes a console command. Multiple commands can be combined with ';'. Be careful when passing user input (including usernames) to it.",
+      "args": [
+        {
+          "name": "cmd",
+          "description": "The console command(s) to execute.",
+          "type": "string"
+        },
+        {
+          "name": "...",
+          "description": "Comma-separated arguments to concatenate with cmd.",
+          "optional": true
+        }
+      ]
+    },
+    "eye_position": {
+      "name": "client.eye_position",
+      "description": "Returns x, y, z world coordinates of the local player's eye position, or nil on failure.",
+      "return_type": "number, number, number",
+      "args": [
+
+      ]
+    },
+    "find_signature": {
+      "name": "client.find_signature",
+      "description": "Finds the specified pattern and returns a pointer to it, or nil if not found.",
+      "return_type": "userdata",
+      "return_description": "ffi pointer",
+      "args": [
+        {
+          "name": "module_name",
+          "description": "Filename of the module that contains the interface",
+          "type": "string"
+        },
+        {
+          "name": "pattern",
+          "description": "String of the signature. Escape with \\x, replace wildcards with \\xCC",
+          "type": "string"
+        }
+      ]
+    },
+    "key_state": {
+      "name": "client.key_state",
+      "description": "Returns true if the key is pressed, or nil on failure",
+      "return_type": "boolean",
+      "args": [
+        {
+          "name": "key",
+          "description": "Virtual key code of the key as integer. [List of virtual key codes](https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes)",
           "type": "number"
+        }
+      ]
+    },
+    "latency": {
+      "name": "client.latency",
+      "description": "Returns your latency in seconds.",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "log": {
+      "name": "client.log",
+      "description": "Logs a message to console in the [gamesense] format.",
+      "args": [
+        {
+          "name": "msg",
+          "description": "The message",
+          "type": "string"
+        },
+        {
+          "name": "...",
+          "description": "Comma-separated arguments to concatenate with msg.",
+          "optional": true
         }
       ]
     },
@@ -424,6 +506,54 @@
         }
       ]
     },
+    "random_int": {
+      "name": "client.random_int",
+      "description": "Returns a random integer between minimum and maximum.",
+      "return_type": "number",
+      "args": [
+        {
+          "name": "minimum",
+          "description": "Lowest possible result",
+          "type": "number"
+        },
+        {
+          "name": "maximum",
+          "description": "Highest possible result",
+          "type": "number"
+        }
+      ]
+    },
+    "reload_active_scripts": {
+      "name": "client.reload_active_scripts",
+      "description": "Reloads all scripts the following frame.",
+      "args": [
+
+      ]
+    },
+    "scale_damage": {
+      "name": "client.scale_damage",
+      "description": "Returns adjusted damage for the specified hitgroup",
+      "return_type": "number",
+      "args": [
+        {
+          "name": "entindex",
+          "description": "Player entity index",
+          "type": "number",
+          "type_description": "entindex"
+        },
+        {
+          "name": "hitgroup",
+          "description": "Hit group index",
+          "type": "number",
+          "type_description": "hitgroup id"
+        },
+        {
+          "name": "damage",
+          "description": "Damage",
+          "type": "number"
+        }
+      ]
+    },
     "screen_size": {
       "name": "client.screen_size",
       "description": "Returns (width, height).",
@@ -432,25 +562,91 @@
 
       ]
     },
-    "visible": {
-      "name": "client.visible",
-      "description": "Returns true if the position is visible. For example, you could use a player's origin to see if they are visible.",
-      "return_type": "boolean",
+    "set_clan_tag": {
+      "name": "client.set_clan_tag",
+      "description": "The clan tag is removed if no argument is passed or if it is an empty string. Additional arguments will be concatenated similar to client.log.",
       "args": [
         {
-          "name": "x",
+          "name": "...",
+          "description": "The text that will be drawn"
+        }
+      ]
+    },
+    "set_event_callback": {
+      "name": "client.set_event_callback",
+      "description": "Raises an error and prints a message in console upon failure.",
+      "args": [
+        {
+          "name": "event_name",
+          "description": "Name of the event.",
+          "type": "string"
+        },
+        {
+          "name": "callback",
+          "description": "Lua function to call when this event occurs.",
+          "type": "function"
+        }
+      ]
+    },
+    "system_time": {
+      "name": "client.system_time",
+      "description": "Returns windows time as (hours, minutes, seconds, milliseconds)",
+      "return_type": "number, number, number, number",
+      "args": [
+
+      ]
+    },
+    "timestamp": {
+      "name": "client.timestamp",
+      "description": "Returns high precision timestamp in milliseconds.",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "trace_bullet": {
+      "name": "client.trace_bullet",
+      "description": "Returns entindex, damage. Entindex is nil when no player is hit.",
+      "return_type": "number, number",
+      "args": [
+        {
+          "name": "from_player",
+          "description": "Entity index of the player whose weapon will be used for this trace",
+          "type": "number",
+          "type_description": "entindex"
+        },
+        {
+          "name": "from_x",
           "description": "Position in world space",
           "type": "number",
           "type_description": "world coordinate"
         },
         {
-          "name": "y",
+          "name": "from_y",
           "description": "Position in world space",
           "type": "number",
           "type_description": "world coordinate"
         },
         {
-          "name": "z",
+          "name": "from_z",
+          "description": "Position in world space",
+          "type": "number",
+          "type_description": "world coordinate"
+        },
+        {
+          "name": "to_x",
+          "description": "Position in world space",
+          "type": "number",
+          "type_description": "world coordinate"
+        },
+        {
+          "name": "to_y",
+          "description": "Position in world space",
+          "type": "number",
+          "type_description": "world coordinate"
+        },
+        {
+          "name": "to_z",
           "description": "Position in world space",
           "type": "number",
           "type_description": "world coordinate"
@@ -506,210 +702,12 @@
         }
       ]
     },
-    "trace_bullet": {
-      "name": "client.trace_bullet",
-      "description": "Returns entindex, damage. Entindex is nil when no player is hit.",
-      "return_type": "number, number",
-      "args": [
-        {
-          "name": "from_player",
-          "description": "Entity index of the player whose weapon will be used for this trace",
-          "type": "number",
-          "type_description": "entindex"
-        },
-        {
-          "name": "from_x",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "from_y",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "from_z",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "to_x",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "to_y",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "to_z",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        }
-      ]
-    },
-    "scale_damage": {
-      "name": "client.scale_damage",
-      "description": "Returns adjusted damage for the specified hitgroup",
-      "return_type": "number",
-      "args": [
-        {
-          "name": "entindex",
-          "description": "Player entity index",
-          "type": "number",
-          "type_description": "entindex"
-        },
-        {
-          "name": "hitgroup",
-          "description": "Hit group index",
-          "type": "number",
-          "type_description": "hitgroup id"
-        },
-        {
-          "name": "damage",
-          "description": "Damage",
-          "type": "number"
-        }
-      ]
-    },
-    "delay_call": {
-      "name": "client.delay_call",
-      "description": "Executes the callback after delay seconds, passing the arguments to it.",
-      "args": [
-        {
-          "name": "delay",
-          "description": "Time in seconds to wait before calling callback.",
-          "type": "number"
-        },
-        {
-          "name": "callback",
-          "description": "The lua function that will be called after delay seconds.",
-          "type": "function"
-        },
-        {
-          "name": "...",
-          "description": "Arguments that will be passed to the callback.",
-          "optional": true
-        }
-      ]
-    },
-    "latency": {
-      "name": "client.latency",
-      "description": "Returns your latency in seconds.",
+    "unix_time": {
+      "name": "client.unix_time",
+      "description": "Returns current windows time as [unix time / epoch time](https://en.wikipedia.org/wiki/Unix_time) (seconds since 1 January 1970 00:00:00)",
       "return_type": "number",
       "args": [
 
-      ]
-    },
-    "camera_angles": {
-      "name": "client.camera_angles",
-      "description": "Get or set camera angles",
-      "args": [
-        {
-          "name": "pitch",
-          "description": "Pitch",
-          "type": "number",
-          "type_description": "-90 - 90"
-        },
-        {
-          "name": "yaw",
-          "description": "Yaw",
-          "type": "number",
-          "type_description": "-180 - 180"
-        }
-      ],
-      "all_optional": true
-    },
-    "timestamp": {
-      "name": "client.timestamp",
-      "description": "Returns high precision timestamp in milliseconds.",
-      "return_type": "number",
-      "args": [
-
-      ]
-    },
-    "eye_position": {
-      "name": "client.eye_position",
-      "description": "Returns x, y, z world coordinates of the local player's eye position, or nil on failure.",
-      "return_type": "number, number, number",
-      "args": [
-
-      ]
-    },
-    "set_clan_tag": {
-      "name": "client.set_clan_tag",
-      "description": "The clan tag is removed if no argument is passed or if it is an empty string. Additional arguments will be concatenated similar to client.log.",
-      "args": [
-        {
-          "name": "...",
-          "description": "The text that will be drawn"
-        }
-      ]
-    },
-    "system_time": {
-      "name": "client.system_time",
-      "description": "Returns windows time as (hours, minutes, seconds, milliseconds)",
-      "return_type": "number, number, number, number",
-      "args": [
-
-      ]
-    },
-    "reload_active_scripts": {
-      "name": "client.reload_active_scripts",
-      "description": "Reloads all scripts the following frame.",
-      "args": [
-
-      ]
-    },
-    "camera_position": {
-      "name": "client.camera_position",
-      "description": "Returns x, y, z world coordinates of the game's camera position, or nil on failure.",
-      "return_type": "number, number, number",
-      "args": [
-
-      ]
-    },
-    "create_interface": {
-      "name": "client.create_interface",
-      "description": "Returns a pointer to the interface, or nil on failure.",
-      "return_type": "userdata",
-      "return_description": "ffi pointer",
-      "args": [
-        {
-          "name": "module_name",
-          "description": "Filename of the module that contains the interface",
-          "type": "string"
-        },
-        {
-          "name": "interface_name",
-          "description": "Name of the interface",
-          "type": "string"
-        }
-      ]
-    },
-    "find_signature": {
-      "name": "client.find_signature",
-      "description": "Finds the specified pattern and returns a pointer to it, or nil if not found.",
-      "return_type": "userdata",
-      "return_description": "ffi pointer",
-      "args": [
-        {
-          "name": "module_name",
-          "description": "Filename of the module that contains the interface",
-          "type": "string"
-        },
-        {
-          "name": "pattern",
-          "description": "String of the signature. Escape with \\x, replace wildcards with \\xCC",
-          "type": "string"
-        }
       ]
     },
     "unset_event_callback": {
@@ -728,26 +726,6 @@
         }
       ]
     },
-    "unix_time": {
-      "name": "client.unix_time",
-      "description": "Returns current windows time as [unix time / epoch time](https://en.wikipedia.org/wiki/Unix_time) (seconds since 1 January 1970 00:00:00)",
-      "return_type": "number",
-      "args": [
-
-      ]
-    },
-    "key_state": {
-      "name": "client.key_state",
-      "description": "Returns true if the key is pressed, or nil on failure",
-      "return_type": "boolean",
-      "args": [
-        {
-          "name": "key",
-          "description": "Virtual key code of the key as integer. [List of virtual key codes](https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes)",
-          "type": "number"
-        }
-      ]
-    },
     "update_player_list": {
       "name": "client.update_player_list",
       "description": "Updates the player list tab without having to open it.",
@@ -755,33 +733,60 @@
 
       ]
     },
-    "error_log": {
-      "name": "client.error_log",
-      "description": "Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)",
+    "userid_to_entindex": {
+      "name": "client.userid_to_entindex",
+      "description": "Returns the entity index, or 0 on failure.",
+      "return_type": "number",
       "args": [
         {
-          "name": "msg",
-          "description": "The error message",
-          "type": "string"
+          "name": "userid",
+          "description": "This is given by some game events.",
+          "type": "number",
+          "type_description": "user id"
+        }
+      ]
+    },
+    "visible": {
+      "name": "client.visible",
+      "description": "Returns true if the position is visible. For example, you could use a player's origin to see if they are visible.",
+      "return_type": "boolean",
+      "args": [
+        {
+          "name": "x",
+          "description": "Position in world space",
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
-          "name": "...",
-          "description": "Comma-separated arguments to concatenate with msg.",
-          "optional": true
+          "name": "y",
+          "description": "Position in world space",
+          "type": "number",
+          "type_description": "world coordinate"
+        },
+        {
+          "name": "z",
+          "description": "Position in world space",
+          "type": "number",
+          "type_description": "world coordinate"
         }
       ]
     }
   },
   "cvar": {
-    "set_string": {
-      "name": "cvar_object:set_string",
-      "description": "Sets the int, float and string value to the passed float. Invokes the change callback",
+    "get_float": {
+      "name": "cvar_object:get_float",
+      "description": "Returns nil if called on a ConCommand.",
+      "return_type": "number",
       "args": [
-        {
-          "name": "value",
-          "description": "String value",
-          "type": "string"
-        }
+
+      ]
+    },
+    "get_int": {
+      "name": "cvar_object:get_int",
+      "description": "Returns nil if called on a ConCommand.",
+      "return_type": "number",
+      "args": [
+
       ]
     },
     "get_string": {
@@ -790,6 +795,16 @@
       "return_type": "string",
       "args": [
 
+      ]
+    },
+    "invoke_callback": {
+      "name": "cvar_object:invoke_callback",
+      "description": "Executes a ConCommand or cvar callback, passing its arguments to it",
+      "args": [
+        {
+          "name": "...",
+          "description": "Arguments passed to the callback"
+        }
       ]
     },
     "set_float": {
@@ -801,6 +816,18 @@
           "description": "Float value",
           "type": "number",
           "type_description": "float"
+        }
+      ]
+    },
+    "set_int": {
+      "name": "cvar_object:set_int",
+      "description": "Sets the int, float and string value to the passed float. Invokes the change callback",
+      "args": [
+        {
+          "name": "value",
+          "description": "Integer value",
+          "type": "number",
+          "type_description": "integer"
         }
       ]
     },
@@ -816,26 +843,6 @@
         }
       ]
     },
-    "get_float": {
-      "name": "cvar_object:get_float",
-      "description": "Returns nil if called on a ConCommand.",
-      "return_type": "number",
-      "args": [
-
-      ]
-    },
-    "set_int": {
-      "name": "cvar_object:set_int",
-      "description": "Sets the int, float and string value to the passed float. Invokes the change callback",
-      "args": [
-        {
-          "name": "value",
-          "description": "Integer value",
-          "type": "number",
-          "type_description": "integer"
-        }
-      ]
-    },
     "set_raw_int": {
       "name": "cvar_object:set_raw_int",
       "description": "This sets the integer value without changing the float and string values.",
@@ -848,21 +855,14 @@
         }
       ]
     },
-    "get_int": {
-      "name": "cvar_object:get_int",
-      "description": "Returns nil if called on a ConCommand.",
-      "return_type": "number",
-      "args": [
-
-      ]
-    },
-    "invoke_callback": {
-      "name": "cvar_object:invoke_callback",
-      "description": "Executes a ConCommand or cvar callback, passing its arguments to it",
+    "set_string": {
+      "name": "cvar_object:set_string",
+      "description": "Sets the int, float and string value to the passed float. Invokes the change callback",
       "args": [
         {
-          "name": "...",
-          "description": "Arguments passed to the callback"
+          "name": "value",
+          "description": "String value",
+          "type": "string"
         }
       ]
     }
@@ -898,15 +898,6 @@
     }
   },
   "entity": {
-    "get_local_player": {
-      "name": "entity.get_local_player",
-      "description": "Returns the entity index for the local player, or nil on failure.",
-      "return_type": "number",
-      "return_description": "entindex",
-      "args": [
-
-      ]
-    },
     "get_all": {
       "name": "entity.get_all",
       "description": "Returns an array of entity indices. Pass no arguments for all entities.",
@@ -919,6 +910,86 @@
           "optional": true,
           "type": "string",
           "type_description": "entity classname"
+        }
+      ]
+    },
+    "get_bounding_box": {
+      "name": "entity.get_bounding_box",
+      "description": "Returns x1, y1, x2, y2, alpha_multiplier. The contents of x1, y1, x2, y2 must be ignored when alpha_multiplier is zero, which indicates that the bounding box is invalid and should not be drawn.",
+      "return_type": "number, number, number, number, number",
+      "args": [
+        {
+          "name": "player",
+          "description": "Entity index of the player.",
+          "type": "number",
+          "type_description": "entindex"
+        }
+      ]
+    },
+    "get_classname": {
+      "name": "entity.get_classname",
+      "description": "Returns the name of the entity's class, or nil on failure.",
+      "return_type": "string",
+      "args": [
+        {
+          "name": "ent",
+          "description": "Entity index.",
+          "type": "number",
+          "type_description": "entindex"
+        }
+      ]
+    },
+    "get_game_rules": {
+      "name": "entity.get_game_rules",
+      "description": "Returns entity index of CCSGameRulesProxy instance, or nil if none exists.",
+      "return_type": "number",
+      "return_description": "entindex",
+      "args": [
+
+      ]
+    },
+    "get_local_player": {
+      "name": "entity.get_local_player",
+      "description": "Returns the entity index for the local player, or nil on failure.",
+      "return_type": "number",
+      "return_description": "entindex",
+      "args": [
+
+      ]
+    },
+    "get_player_name": {
+      "name": "entity.get_player_name",
+      "description": "Returns the player's name, or the string \"unknown\" on failure.",
+      "return_type": "string",
+      "args": [
+        {
+          "name": "ent",
+          "description": "Player entity index.",
+          "type": "number",
+          "type_description": "entindex"
+        }
+      ]
+    },
+    "get_player_resource": {
+      "name": "entity.get_player_resource",
+      "description": "Returns entity index of CCSPlayerResource instance, or nil if none exists.",
+      "return_type": "number",
+      "return_description": "entindex",
+      "args": [
+
+      ]
+    },
+    "get_player_weapon": {
+      "name": "entity.get_player_weapon",
+      "description": "Returns the entity index of the player's active weapon, or nil if the player is not alive, dormant, etc.",
+      "return_type": "number",
+      "return_description": "entindex",
+      "args": [
+        {
+          "name": "ent",
+          "description": "Player entity index.",
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
@@ -936,28 +1007,93 @@
         }
       ]
     },
-    "get_game_rules": {
-      "name": "entity.get_game_rules",
-      "description": "Returns entity index of CCSGameRulesProxy instance, or nil if none exists.",
-      "return_type": "number",
-      "return_description": "entindex",
+    "get_prop": {
+      "name": "entity.get_prop",
+      "description": "Returns the value of the property, or nil on failure. For vectors or angles, this returns three values.",
+      "return_type": "any",
       "args": [
-
+        {
+          "name": "ent",
+          "description": "Entity index.",
+          "type": "number",
+          "type_description": "entindex"
+        },
+        {
+          "name": "propname",
+          "description": "Name of the networked property.",
+          "type": "string",
+          "type_description": "netprop"
+        },
+        {
+          "name": "array_index",
+          "description": "If propname is an array, the value at this array index will be returned.",
+          "optional": true,
+          "type": "number"
+        }
       ]
     },
-    "get_player_resource": {
-      "name": "entity.get_player_resource",
-      "description": "Returns entity index of CCSPlayerResource instance, or nil if none exists.",
-      "return_type": "number",
-      "return_description": "entindex",
-      "args": [
-
-      ]
-    },
-    "get_classname": {
-      "name": "entity.get_classname",
-      "description": "Returns the name of the entity's class, or nil on failure.",
+    "get_steam64": {
+      "name": "entity.get_steam64",
+      "description": "Returns steamID3, or nil on failure.",
       "return_type": "string",
+      "args": [
+        {
+          "name": "player",
+          "description": "Entity index of the player.",
+          "type": "number",
+          "type_description": "entindex"
+        }
+      ]
+    },
+    "hitbox_position": {
+      "name": "entity.hitbox_position",
+      "description": "Returns world coordinates x, y, z, or nil on failure.",
+      "return_type": "number, number, number",
+      "args": [
+        {
+          "name": "player",
+          "description": "Entity index of the player.",
+          "type": "number",
+          "type_description": "entindex"
+        },
+        {
+          "name": "hitbox",
+          "description": "Either a string of the hitbox name, or an integer index of the hitbox.",
+          "type": "number",
+          "type_description": "hitbox id"
+        }
+      ]
+    },
+    "is_alive": {
+      "name": "entity.is_alive",
+      "description": "Returns true if the player is not dead.",
+      "return_type": "boolean",
+      "args": [
+        {
+          "name": "ent",
+          "description": "Entity index.",
+          "type": "number",
+          "type_description": "entindex"
+        }
+      ]
+    },
+    "is_dormant": {
+      "name": "entity.is_dormant",
+      "description": "Returns true if the player is dormant.",
+      "return_type": "boolean",
+      "args": [
+        {
+          "name": "ent",
+          "description": "Entity index.",
+          "type": "number",
+          "type_description": "entindex"
+        }
+      ]
+    },
+    "is_enemy": {
+      "name": "entity.is_enemy",
+      "description": "Returns true if the entity is on the other team.",
+      "return_type": "boolean",
       "args": [
         {
           "name": "ent",
@@ -995,148 +1131,28 @@
           "type": "number"
         }
       ]
-    },
-    "get_prop": {
-      "name": "entity.get_prop",
-      "description": "Returns the value of the property, or nil on failure. For vectors or angles, this returns three values.",
-      "return_type": "any",
-      "args": [
-        {
-          "name": "ent",
-          "description": "Entity index.",
-          "type": "number",
-          "type_description": "entindex"
-        },
-        {
-          "name": "propname",
-          "description": "Name of the networked property.",
-          "type": "string",
-          "type_description": "netprop"
-        },
-        {
-          "name": "array_index",
-          "description": "If propname is an array, the value at this array index will be returned.",
-          "optional": true,
-          "type": "number"
-        }
-      ]
-    },
-    "is_enemy": {
-      "name": "entity.is_enemy",
-      "description": "Returns true if the entity is on the other team.",
-      "return_type": "boolean",
-      "args": [
-        {
-          "name": "ent",
-          "description": "Entity index.",
-          "type": "number",
-          "type_description": "entindex"
-        }
-      ]
-    },
-    "is_alive": {
-      "name": "entity.is_alive",
-      "description": "Returns true if the player is not dead.",
-      "return_type": "boolean",
-      "args": [
-        {
-          "name": "ent",
-          "description": "Entity index.",
-          "type": "number",
-          "type_description": "entindex"
-        }
-      ]
-    },
-    "is_dormant": {
-      "name": "entity.is_dormant",
-      "description": "Returns true if the player is dormant.",
-      "return_type": "boolean",
-      "args": [
-        {
-          "name": "ent",
-          "description": "Entity index.",
-          "type": "number",
-          "type_description": "entindex"
-        }
-      ]
-    },
-    "get_player_name": {
-      "name": "entity.get_player_name",
-      "description": "Returns the player's name, or the string \"unknown\" on failure.",
-      "return_type": "string",
-      "args": [
-        {
-          "name": "ent",
-          "description": "Player entity index.",
-          "type": "number",
-          "type_description": "entindex"
-        }
-      ]
-    },
-    "get_player_weapon": {
-      "name": "entity.get_player_weapon",
-      "description": "Returns the entity index of the player's active weapon, or nil if the player is not alive, dormant, etc.",
-      "return_type": "number",
-      "return_description": "entindex",
-      "args": [
-        {
-          "name": "ent",
-          "description": "Player entity index.",
-          "type": "number",
-          "type_description": "entindex"
-        }
-      ]
-    },
-    "hitbox_position": {
-      "name": "entity.hitbox_position",
-      "description": "Returns world coordinates x, y, z, or nil on failure.",
-      "return_type": "number, number, number",
-      "args": [
-        {
-          "name": "player",
-          "description": "Entity index of the player.",
-          "type": "number",
-          "type_description": "entindex"
-        },
-        {
-          "name": "hitbox",
-          "description": "Either a string of the hitbox name, or an integer index of the hitbox.",
-          "type": "number",
-          "type_description": "hitbox id"
-        }
-      ]
-    },
-    "get_steam64": {
-      "name": "entity.get_steam64",
-      "description": "Returns steamID3, or nil on failure.",
-      "return_type": "string",
-      "args": [
-        {
-          "name": "player",
-          "description": "Entity index of the player.",
-          "type": "number",
-          "type_description": "entindex"
-        }
-      ]
-    },
-    "get_bounding_box": {
-      "name": "entity.get_bounding_box",
-      "description": "Returns x1, y1, x2, y2, alpha_multiplier. The contents of x1, y1, x2, y2 must be ignored when alpha_multiplier is zero, which indicates that the bounding box is invalid and should not be drawn.",
-      "return_type": "number, number, number, number, number",
-      "args": [
-        {
-          "name": "player",
-          "description": "Entity index of the player.",
-          "type": "number",
-          "type_description": "entindex"
-        }
-      ]
     }
   },
   "globals": {
-    "realtime": {
-      "name": "globals.realtime",
-      "description": "Returns the local time in seconds.",
+    "absoluteframetime": {
+      "name": "globals.absoluteframetime",
+      "description": "Returns the number of seconds elapsed during the last game frame.",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "chokedcommands": {
+      "name": "globals.chokedcommands",
+      "description": "Returns the current number of commands that are being held back.",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "commandack": {
+      "name": "globals.commandack",
+      "description": "Returns the number of the command the server last acknowledged.",
       "return_type": "number",
       "args": [
 
@@ -1150,6 +1166,14 @@
 
       ]
     },
+    "framecount": {
+      "name": "globals.framecount",
+      "description": "Returns the number of frames since the game started",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
     "frametime": {
       "name": "globals.frametime",
       "description": "Returns the number of seconds elapsed during the last game frame.",
@@ -1158,10 +1182,18 @@
 
       ]
     },
-    "absoluteframetime": {
-      "name": "globals.absoluteframetime",
-      "description": "Returns the number of seconds elapsed during the last game frame.",
+    "lastoutgoingcommand": {
+      "name": "globals.lastoutgoingcommand",
+      "description": "Returns the command number of the last outgoing command.",
       "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "mapname": {
+      "name": "globals.mapname",
+      "description": "Returns the name of the loaded map, or nil if you are not in game.",
+      "return_type": "string",
       "args": [
 
       ]
@@ -1169,6 +1201,22 @@
     "maxplayers": {
       "name": "globals.maxplayers",
       "description": "Returns the maximum number of players in the server.",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "oldcommandack": {
+      "name": "globals.oldcommandack",
+      "description": "Returns the previous server acknowledged command number.",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "realtime": {
+      "name": "globals.realtime",
+      "description": "Returns the local time in seconds.",
       "return_type": "number",
       "args": [
 
@@ -1189,57 +1237,20 @@
       "args": [
 
       ]
-    },
-    "framecount": {
-      "name": "globals.framecount",
-      "description": "Returns the number of frames since the game started",
-      "return_type": "number",
-      "args": [
-
-      ]
-    },
-    "mapname": {
-      "name": "globals.mapname",
-      "description": "Returns the name of the loaded map, or nil if you are not in game.",
-      "return_type": "string",
-      "args": [
-
-      ]
-    },
-    "lastoutgoingcommand": {
-      "name": "globals.lastoutgoingcommand",
-      "description": "Returns the command number of the last outgoing command.",
-      "return_type": "number",
-      "args": [
-
-      ]
-    },
-    "chokedcommands": {
-      "name": "globals.chokedcommands",
-      "description": "Returns the current number of commands that are being held back.",
-      "return_type": "number",
-      "args": [
-
-      ]
-    },
-    "oldcommandack": {
-      "name": "globals.oldcommandack",
-      "description": "Returns the previous server acknowledged command number.",
-      "return_type": "number",
-      "args": [
-
-      ]
-    },
-    "commandack": {
-      "name": "globals.commandack",
-      "description": "Returns the number of the command the server last acknowledged.",
-      "return_type": "number",
-      "args": [
-
-      ]
     }
   },
   "materialsystem": {
+    "alpha_modulate": {
+      "name": "material_object:alpha_modulate",
+      "description": "Overrides the alpha of the material object it's called on. Doesn't work with some materials",
+      "args": [
+        {
+          "name": "a",
+          "description": "New alpha value of the material (0-255)",
+          "type": "number"
+        }
+      ]
+    },
     "arms_material": {
       "name": "materialsystem.arms_material",
       "description": "Returns the players hand cham material as an object.",
@@ -1256,6 +1267,27 @@
       "return_description": "material object",
       "args": [
 
+      ]
+    },
+    "color_modulate": {
+      "name": "material_object:color_modulate",
+      "description": "Overrides the color of the material object it's called on. Doesn't work with some materials",
+      "args": [
+        {
+          "name": "r",
+          "description": "New red value of the material (0-255)",
+          "type": "number"
+        },
+        {
+          "name": "g",
+          "description": "New green value of the material (0-255)",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "description": "New blue value of the material (0-255)",
+          "type": "number"
+        }
       ]
     },
     "find_material": {
@@ -1295,6 +1327,19 @@
         }
       ]
     },
+    "get_material_var_flag": {
+      "name": "material_object:get_material_var_flag",
+      "description": "Returns the boolean value of the material var flag",
+      "return_type": "boolean",
+      "args": [
+        {
+          "name": "material_var_flag",
+          "description": "Material var flag as number",
+          "type": "number",
+          "type_description": "material var flag"
+        }
+      ]
+    },
     "get_model_materials": {
       "name": "materialsystem.get_model_materials",
       "description": "Returns all material objects for a specified entity.",
@@ -1306,6 +1351,19 @@
           "description": "The entity whos materials will be returned.",
           "type": "number",
           "type_description": "entindex"
+        }
+      ]
+    },
+    "get_shader_param": {
+      "name": "material_object:get_shader_param",
+      "description": "Returns the value of the shader param or nil",
+      "return_type": "any",
+      "args": [
+        {
+          "name": "shader_param",
+          "description": "Shader param name",
+          "type": "string",
+          "type_description": "shader param"
         }
       ]
     },
@@ -1321,56 +1379,11 @@
         }
       ]
     },
-    "alpha_modulate": {
-      "name": "material_object:alpha_modulate",
-      "description": "Overrides the alpha of the material object it's called on. Doesn't work with some materials",
-      "args": [
-        {
-          "name": "a",
-          "description": "New alpha value of the material (0-255)",
-          "type": "number"
-        }
-      ]
-    },
-    "color_modulate": {
-      "name": "material_object:color_modulate",
-      "description": "Overrides the color of the material object it's called on. Doesn't work with some materials",
-      "args": [
-        {
-          "name": "r",
-          "description": "New red value of the material (0-255)",
-          "type": "number"
-        },
-        {
-          "name": "g",
-          "description": "New green value of the material (0-255)",
-          "type": "number"
-        },
-        {
-          "name": "b",
-          "description": "New blue value of the material (0-255)",
-          "type": "number"
-        }
-      ]
-    },
     "reload": {
       "name": "material_object:reload",
       "description": "Restores the original material properties of the material it's called on.",
       "args": [
 
-      ]
-    },
-    "get_material_var_flag": {
-      "name": "material_object:get_material_var_flag",
-      "description": "Returns the boolean value of the material var flag",
-      "return_type": "boolean",
-      "args": [
-        {
-          "name": "material_var_flag",
-          "description": "Material var flag as number",
-          "type": "number",
-          "type_description": "material var flag"
-        }
       ]
     },
     "set_material_var_flag": {
@@ -1387,19 +1400,6 @@
           "name": "value",
           "description": "New boolean value of the material var flag",
           "type": "any"
-        }
-      ]
-    },
-    "get_shader_param": {
-      "name": "material_object:get_shader_param",
-      "description": "Returns the value of the shader param or nil",
-      "return_type": "any",
-      "args": [
-        {
-          "name": "shader_param",
-          "description": "Shader param name",
-          "type": "string",
-          "type_description": "shader param"
         }
       ]
     },
@@ -1422,251 +1422,6 @@
     }
   },
   "renderer": {
-    "text": {
-      "name": "renderer.text",
-      "description": "This can only be called from the paint callback.",
-      "args": [
-        {
-          "name": "x",
-          "description": "Screen coordinate",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "y",
-          "description": "Screen coordinate",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "r",
-          "description": "Red (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "g",
-          "description": "Green (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "b",
-          "description": "Blue (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "a",
-          "description": "Alpha (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "flags",
-          "description": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text. \"c\" can be combined with other flags. nil can be specified for normal sized uncentered text.",
-          "type": "string",
-          "type_description": "text flags"
-        },
-        {
-          "name": "max_width",
-          "description": "Text will be clipped if it exceeds this width in pixels. Use 0 for no limit.",
-          "type": "number"
-        },
-        {
-          "name": "...",
-          "description": "Text that will be drawn"
-        }
-      ]
-    },
-    "measure_text": {
-      "name": "renderer.measure_text",
-      "description": "Returns width, height. This can only be called from the paint callback.",
-      "return_type": "number, number",
-      "args": [
-        {
-          "name": "flags",
-          "description": "\"+\" for large text, \"-\" for small text, or nil for normal sized text.",
-          "type": "string",
-          "type_description": "text flags"
-        },
-        {
-          "name": "...",
-          "description": "Text that will be measured"
-        }
-      ]
-    },
-    "rectangle": {
-      "name": "renderer.rectangle",
-      "description": "This can only be called from the paint callback.",
-      "args": [
-        {
-          "name": "x",
-          "description": "Screen coordinate",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "y",
-          "description": "Screen coordinate",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "w",
-          "description": "Width in pixels",
-          "type": "number",
-          "type_description": "px"
-        },
-        {
-          "name": "h",
-          "description": "Height in pixels",
-          "type": "number",
-          "type_description": "px"
-        },
-        {
-          "name": "r",
-          "description": "Red (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "g",
-          "description": "Green (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "b",
-          "description": "Blue (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "a",
-          "description": "Alpha (1-255)",
-          "type": "number"
-        }
-      ]
-    },
-    "line": {
-      "name": "renderer.line",
-      "description": "This can only be called from the paint callback.",
-      "args": [
-        {
-          "name": "xa",
-          "description": "Screen coordinate of point A",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "ya",
-          "description": "Screen coordinate of point A",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "xb",
-          "description": "Screen coordinate of point B",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "yb",
-          "description": "Screen coordinate of point B",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "r",
-          "description": "Red (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "g",
-          "description": "Green (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "b",
-          "description": "Blue (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "a",
-          "description": "Alpha (1-255)",
-          "type": "number"
-        }
-      ]
-    },
-    "gradient": {
-      "name": "renderer.gradient",
-      "description": "This can only be called from the paint callback.",
-      "args": [
-        {
-          "name": "x",
-          "description": "Screen coordinate",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "y",
-          "description": "Screen coordinate",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "w",
-          "description": "Width in pixels",
-          "type": "number",
-          "type_description": "px"
-        },
-        {
-          "name": "h",
-          "description": "Height in pixels",
-          "type": "number",
-          "type_description": "px"
-        },
-        {
-          "name": "r1",
-          "description": "Red (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "g1",
-          "description": "Green (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "b1",
-          "description": "Blue (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "a1",
-          "description": "Alpha (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "r2",
-          "description": "Red (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "g2",
-          "description": "Green (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "b2",
-          "description": "Blue (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "a2",
-          "description": "Alpha (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "ltr",
-          "description": "Left to right. Pass true for horizontal gradient, or false for vertical.",
-          "type": "boolean"
-        }
-      ]
-    },
     "circle": {
       "name": "renderer.circle",
       "description": "This can only be called from the paint callback.",
@@ -1783,6 +1538,388 @@
         }
       ]
     },
+    "gradient": {
+      "name": "renderer.gradient",
+      "description": "This can only be called from the paint callback.",
+      "args": [
+        {
+          "name": "x",
+          "description": "Screen coordinate",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "y",
+          "description": "Screen coordinate",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "w",
+          "description": "Width in pixels",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "h",
+          "description": "Height in pixels",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "r1",
+          "description": "Red (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "g1",
+          "description": "Green (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "b1",
+          "description": "Blue (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "a1",
+          "description": "Alpha (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "r2",
+          "description": "Red (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "g2",
+          "description": "Green (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "b2",
+          "description": "Blue (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "a2",
+          "description": "Alpha (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "ltr",
+          "description": "Left to right. Pass true for horizontal gradient, or false for vertical.",
+          "type": "boolean"
+        }
+      ]
+    },
+    "indicator": {
+      "name": "renderer.indicator",
+      "description": "Returns the Y screen coordinate (vertical offset) of the drawn text, or nil on failure. This can only be called from the paint callback.",
+      "args": [
+        {
+          "name": "r",
+          "description": "Red (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "g",
+          "description": "Green (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "description": "Blue (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "a",
+          "description": "Alpha (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "...",
+          "description": "The text that will be drawn"
+        }
+      ]
+    },
+    "line": {
+      "name": "renderer.line",
+      "description": "This can only be called from the paint callback.",
+      "args": [
+        {
+          "name": "xa",
+          "description": "Screen coordinate of point A",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "ya",
+          "description": "Screen coordinate of point A",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "xb",
+          "description": "Screen coordinate of point B",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "yb",
+          "description": "Screen coordinate of point B",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "r",
+          "description": "Red (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "g",
+          "description": "Green (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "description": "Blue (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "a",
+          "description": "Alpha (1-255)",
+          "type": "number"
+        }
+      ]
+    },
+    "load_jpg": {
+      "name": "renderer.load_jpg",
+      "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+      "return_type": "number",
+      "return_description": "texture id",
+      "args": [
+        {
+          "name": "contents",
+          "description": "Raw JPG file contents",
+          "type": "string"
+        }
+      ]
+    },
+    "load_png": {
+      "name": "renderer.load_png",
+      "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+      "return_type": "number",
+      "return_description": "texture id",
+      "args": [
+        {
+          "name": "contents",
+          "description": "Raw PNG file contents",
+          "type": "string"
+        }
+      ]
+    },
+    "load_svg": {
+      "name": "renderer.load_svg",
+      "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+      "return_type": "number",
+      "return_description": "texture id",
+      "args": [
+        {
+          "name": "contents",
+          "description": "SVG file contents",
+          "type": "string"
+        },
+        {
+          "name": "width",
+          "description": "Width",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "height",
+          "description": "Height",
+          "type": "number",
+          "type_description": "px"
+        }
+      ]
+    },
+    "measure_text": {
+      "name": "renderer.measure_text",
+      "description": "Returns width, height. This can only be called from the paint callback.",
+      "return_type": "number, number",
+      "args": [
+        {
+          "name": "flags",
+          "description": "\"+\" for large text, \"-\" for small text, or nil for normal sized text.",
+          "type": "string",
+          "type_description": "text flags"
+        },
+        {
+          "name": "...",
+          "description": "Text that will be measured"
+        }
+      ]
+    },
+    "rectangle": {
+      "name": "renderer.rectangle",
+      "description": "This can only be called from the paint callback.",
+      "args": [
+        {
+          "name": "x",
+          "description": "Screen coordinate",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "y",
+          "description": "Screen coordinate",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "w",
+          "description": "Width in pixels",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "h",
+          "description": "Height in pixels",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "r",
+          "description": "Red (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "g",
+          "description": "Green (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "description": "Blue (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "a",
+          "description": "Alpha (1-255)",
+          "type": "number"
+        }
+      ]
+    },
+    "text": {
+      "name": "renderer.text",
+      "description": "This can only be called from the paint callback.",
+      "args": [
+        {
+          "name": "x",
+          "description": "Screen coordinate",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "y",
+          "description": "Screen coordinate",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "r",
+          "description": "Red (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "g",
+          "description": "Green (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "description": "Blue (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "a",
+          "description": "Alpha (1-255)",
+          "type": "number"
+        },
+        {
+          "name": "flags",
+          "description": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text. \"c\" can be combined with other flags. nil can be specified for normal sized uncentered text.",
+          "type": "string",
+          "type_description": "text flags"
+        },
+        {
+          "name": "max_width",
+          "description": "Text will be clipped if it exceeds this width in pixels. Use 0 for no limit.",
+          "type": "number"
+        },
+        {
+          "name": "...",
+          "description": "Text that will be drawn"
+        }
+      ]
+    },
+    "texture": {
+      "name": "renderer.texture",
+      "description": "Draws a texture from the texture id created from load_png, load_jpg or load_svg",
+      "args": [
+        {
+          "name": "id",
+          "description": "Texture ID",
+          "type": "number",
+          "type_description": "texture id"
+        },
+        {
+          "name": "x",
+          "description": "X screen coordinate",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "y",
+          "description": "Y screen coordinate",
+          "type": "number",
+          "type_description": "screen coordinate"
+        },
+        {
+          "name": "w",
+          "description": "Width",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "h",
+          "description": "Height",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "r",
+          "description": "Red (0-255)",
+          "type": "number"
+        },
+        {
+          "name": "g",
+          "description": "Green (0-255)",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "description": "Blue (0-255)",
+          "type": "number"
+        },
+        {
+          "name": "a",
+          "description": "Alpha (0-255)",
+          "type": "number"
+        }
+      ]
+    },
     "triangle": {
       "name": "renderer.triangle",
       "description": "This can only be called from the paint callback.",
@@ -1869,146 +2006,82 @@
           "type_description": "world coordinate"
         }
       ]
-    },
-    "indicator": {
-      "name": "renderer.indicator",
-      "description": "Returns the Y screen coordinate (vertical offset) of the drawn text, or nil on failure. This can only be called from the paint callback.",
-      "args": [
-        {
-          "name": "r",
-          "description": "Red (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "g",
-          "description": "Green (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "b",
-          "description": "Blue (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "a",
-          "description": "Alpha (1-255)",
-          "type": "number"
-        },
-        {
-          "name": "...",
-          "description": "The text that will be drawn"
-        }
-      ]
-    },
-    "texture": {
-      "name": "renderer.texture",
-      "description": "Draws a texture from the texture id created from load_png, load_jpg or load_svg",
-      "args": [
-        {
-          "name": "id",
-          "description": "Texture ID",
-          "type": "number",
-          "type_description": "texture id"
-        },
-        {
-          "name": "x",
-          "description": "X screen coordinate",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "y",
-          "description": "Y screen coordinate",
-          "type": "number",
-          "type_description": "screen coordinate"
-        },
-        {
-          "name": "w",
-          "description": "Width",
-          "type": "number",
-          "type_description": "px"
-        },
-        {
-          "name": "h",
-          "description": "Height",
-          "type": "number",
-          "type_description": "px"
-        },
-        {
-          "name": "r",
-          "description": "Red (0-255)",
-          "type": "number"
-        },
-        {
-          "name": "g",
-          "description": "Green (0-255)",
-          "type": "number"
-        },
-        {
-          "name": "b",
-          "description": "Blue (0-255)",
-          "type": "number"
-        },
-        {
-          "name": "a",
-          "description": "Alpha (0-255)",
-          "type": "number"
-        }
-      ]
-    },
-    "load_svg": {
-      "name": "renderer.load_svg",
-      "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
-      "return_type": "number",
-      "return_description": "texture id",
-      "args": [
-        {
-          "name": "contents",
-          "description": "SVG file contents",
-          "type": "string"
-        },
-        {
-          "name": "width",
-          "description": "Width",
-          "type": "number",
-          "type_description": "px"
-        },
-        {
-          "name": "height",
-          "description": "Height",
-          "type": "number",
-          "type_description": "px"
-        }
-      ]
-    },
-    "load_png": {
-      "name": "renderer.load_png",
-      "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
-      "return_type": "number",
-      "return_description": "texture id",
-      "args": [
-        {
-          "name": "contents",
-          "description": "Raw PNG file contents",
-          "type": "string"
-        }
-      ]
-    },
-    "load_jpg": {
-      "name": "renderer.load_jpg",
-      "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
-      "return_type": "number",
-      "return_description": "texture id",
-      "args": [
-        {
-          "name": "contents",
-          "description": "Raw JPG file contents",
-          "type": "string"
-        }
-      ]
     }
   },
   "ui": {
+    "get": {
+      "name": "ui.get",
+      "description": "For a checkbox, returns true or false. For a slider, returns an integer. For a combobox, returns a string. For a multiselect combobox, returns an array of strings. For a hotkey, returns true if the hotkey is active. For a color picker, returns r, g, b, a. Throws an error on failure.",
+      "return_type": "any",
+      "args": [
+        {
+          "name": "item",
+          "description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.",
+          "type": "number",
+          "type_description": "menu reference"
+        }
+      ]
+    },
+    "is_menu_open": {
+      "name": "ui.is_menu_open",
+      "description": "Returns true if the menu is currently open.",
+      "return_type": "boolean",
+      "args": [
+
+      ]
+    },
+    "mouse_position": {
+      "name": "ui.mouse_position",
+      "description": "Returns current mouse coordinates x, y",
+      "return_type": "number, number",
+      "args": [
+
+      ]
+    },
+    "name": {
+      "name": "ui.name",
+      "description": "Returns the name of the menu item reference passed to it. Throws an error on failure.",
+      "return_type": "string",
+      "args": [
+        {
+          "name": "item",
+          "description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.",
+          "type": "number",
+          "type_description": "menu reference"
+        }
+      ]
+    },
+    "new_button": {
+      "name": "ui.new_button",
+      "description": "Throws an error on failure. The return value should not be used with ui.set or ui.get.",
+      "return_type": "number",
+      "return_description": "menu item",
+      "args": [
+        {
+          "name": "tab",
+          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "type": "string",
+          "type_description": "menu tab"
+        },
+        {
+          "name": "container",
+          "description": "The name of the existing container to which this checkbox will be added.",
+          "type": "string",
+          "type_description": "menu container"
+        },
+        {
+          "name": "name",
+          "description": "The name of the button.",
+          "type": "string",
+          "type_description": "menu item"
+        },
+        {
+          "name": "callback",
+          "description": "The lua function that will be called when the button is pressed.",
+          "type": "function"
+        }
+      ]
+    },
     "new_checkbox": {
       "name": "ui.new_checkbox",
       "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
@@ -2032,6 +2105,178 @@
           "description": "The name of the checkbox.",
           "type": "string",
           "type_description": "menu item"
+        }
+      ]
+    },
+    "new_color_picker": {
+      "name": "ui.new_color_picker",
+      "description": "Throws an error on failure. The color picker is placed to the right of the previous menu item.",
+      "return_type": "number",
+      "return_description": "menu item",
+      "args": [
+        {
+          "name": "tab",
+          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "type": "string",
+          "type_description": "menu tab"
+        },
+        {
+          "name": "container",
+          "description": "The name of the existing container to which this checkbox will be added.",
+          "type": "string",
+          "type_description": "menu container"
+        },
+        {
+          "name": "name",
+          "description": "The name of the color picker. This will not be shown, it is only used to identify this item in saved configs.",
+          "type": "string",
+          "type_description": "menu item"
+        },
+        {
+          "name": "r",
+          "description": "Initial red value (0-255)",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "name": "g",
+          "description": "Initial green value (0-255)",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "description": "Initial blue value (0-255)",
+          "optional": true,
+          "type": "number"
+        },
+        {
+          "name": "a",
+          "description": "Initial alpha value (0-255)",
+          "optional": true,
+          "type": "number"
+        }
+      ]
+    },
+    "new_combobox": {
+      "name": "ui.new_combobox",
+      "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+      "return_type": "number",
+      "return_description": "menu item",
+      "args": [
+        {
+          "name": "tab",
+          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "type": "string",
+          "type_description": "menu tab"
+        },
+        {
+          "name": "container",
+          "description": "The name of the existing container to which this control will be added.",
+          "type": "string",
+          "type_description": "menu container"
+        },
+        {
+          "name": "name",
+          "description": "The name of the combobox.",
+          "type": "string",
+          "type_description": "menu item"
+        },
+        {
+          "name": "...",
+          "description": "One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added."
+        }
+      ]
+    },
+    "new_hotkey": {
+      "name": "ui.new_hotkey",
+      "description": "Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.",
+      "return_type": "number",
+      "return_description": "menu item",
+      "args": [
+        {
+          "name": "tab",
+          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "type": "string",
+          "type_description": "menu tab"
+        },
+        {
+          "name": "container",
+          "description": "The name of the existing container to which this control will be added.",
+          "type": "string",
+          "type_description": "menu container"
+        },
+        {
+          "name": "name",
+          "description": "The name of the hotkey.",
+          "type": "string",
+          "type_description": "menu item"
+        },
+        {
+          "name": "inline",
+          "description": "Boolean. If set to true, the hotkey will be placed to the right of the preceding menu item.",
+          "optional": true,
+          "type": "boolean"
+        }
+      ]
+    },
+    "new_listbox": {
+      "name": "ui.new_listbox",
+      "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+      "return_type": "number",
+      "return_description": "menu item",
+      "args": [
+        {
+          "name": "tab",
+          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "type": "string",
+          "type_description": "menu tab"
+        },
+        {
+          "name": "container",
+          "description": "The name of the existing container to which this control will be added.",
+          "type": "string",
+          "type_description": "menu container"
+        },
+        {
+          "name": "name",
+          "description": "The name of the listbox.",
+          "type": "string",
+          "type_description": "menu item"
+        },
+        {
+          "name": "...",
+          "description": "One or more comma separated string values that will be added to the listbox. Alternatively, a table of strings that will be added."
+        }
+      ]
+    },
+    "new_multiselect": {
+      "name": "ui.new_multiselect",
+      "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+      "return_type": "number",
+      "return_description": "menu item",
+      "args": [
+        {
+          "name": "tab",
+          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "type": "string",
+          "type_description": "menu tab"
+        },
+        {
+          "name": "container",
+          "description": "The name of the existing container to which this control will be added.",
+          "type": "string",
+          "type_description": "menu container"
+        },
+        {
+          "name": "name",
+          "description": "The name of the multiselect.",
+          "type": "string",
+          "type_description": "menu item"
+        },
+        {
+          "name": "...",
+          "description": "One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added."
         }
       ]
     },
@@ -2101,176 +2346,23 @@
         }
       ]
     },
-    "new_combobox": {
-      "name": "ui.new_combobox",
-      "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+    "new_string": {
+      "name": "ui.new_string",
+      "description": "Creates a string UI element, can be used to store arbitrary strings in configs. No menu item is created but it has the same semantics as other ui.new_* functions. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
       "return_type": "number",
       "return_description": "menu item",
       "args": [
         {
-          "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string",
-          "type_description": "menu tab"
-        },
-        {
-          "name": "container",
-          "description": "The name of the existing container to which this control will be added.",
-          "type": "string",
-          "type_description": "menu container"
-        },
-        {
           "name": "name",
-          "description": "The name of the combobox.",
+          "description": "The name of the string element, make sure this is unique.",
           "type": "string",
           "type_description": "menu item"
         },
         {
-          "name": "...",
-          "description": "One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added."
-        }
-      ]
-    },
-    "new_multiselect": {
-      "name": "ui.new_multiselect",
-      "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-      "return_type": "number",
-      "return_description": "menu item",
-      "args": [
-        {
-          "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "name": "default_value",
+          "description": "Default value of the element.",
           "type": "string",
-          "type_description": "menu tab"
-        },
-        {
-          "name": "container",
-          "description": "The name of the existing container to which this control will be added.",
-          "type": "string",
-          "type_description": "menu container"
-        },
-        {
-          "name": "name",
-          "description": "The name of the multiselect.",
-          "type": "string",
-          "type_description": "menu item"
-        },
-        {
-          "name": "...",
-          "description": "One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added."
-        }
-      ]
-    },
-    "new_hotkey": {
-      "name": "ui.new_hotkey",
-      "description": "Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.",
-      "return_type": "number",
-      "return_description": "menu item",
-      "args": [
-        {
-          "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string",
-          "type_description": "menu tab"
-        },
-        {
-          "name": "container",
-          "description": "The name of the existing container to which this control will be added.",
-          "type": "string",
-          "type_description": "menu container"
-        },
-        {
-          "name": "name",
-          "description": "The name of the hotkey.",
-          "type": "string",
-          "type_description": "menu item"
-        },
-        {
-          "name": "inline",
-          "description": "Boolean. If set to true, the hotkey will be placed to the right of the preceding menu item.",
-          "optional": true,
-          "type": "boolean"
-        }
-      ]
-    },
-    "new_button": {
-      "name": "ui.new_button",
-      "description": "Throws an error on failure. The return value should not be used with ui.set or ui.get.",
-      "return_type": "number",
-      "return_description": "menu item",
-      "args": [
-        {
-          "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string",
-          "type_description": "menu tab"
-        },
-        {
-          "name": "container",
-          "description": "The name of the existing container to which this checkbox will be added.",
-          "type": "string",
-          "type_description": "menu container"
-        },
-        {
-          "name": "name",
-          "description": "The name of the button.",
-          "type": "string",
-          "type_description": "menu item"
-        },
-        {
-          "name": "callback",
-          "description": "The lua function that will be called when the button is pressed.",
-          "type": "function"
-        }
-      ]
-    },
-    "new_color_picker": {
-      "name": "ui.new_color_picker",
-      "description": "Throws an error on failure. The color picker is placed to the right of the previous menu item.",
-      "return_type": "number",
-      "return_description": "menu item",
-      "args": [
-        {
-          "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string",
-          "type_description": "menu tab"
-        },
-        {
-          "name": "container",
-          "description": "The name of the existing container to which this checkbox will be added.",
-          "type": "string",
-          "type_description": "menu container"
-        },
-        {
-          "name": "name",
-          "description": "The name of the color picker. This will not be shown, it is only used to identify this item in saved configs.",
-          "type": "string",
-          "type_description": "menu item"
-        },
-        {
-          "name": "r",
-          "description": "Initial red value (0-255)",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "name": "g",
-          "description": "Initial green value (0-255)",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "name": "b",
-          "description": "Initial blue value (0-255)",
-          "optional": true,
-          "type": "number"
-        },
-        {
-          "name": "a",
-          "description": "Initial alpha value (0-255)",
-          "optional": true,
-          "type": "number"
+          "optional": true
         }
       ]
     },
@@ -2342,19 +2434,6 @@
         }
       ]
     },
-    "get": {
-      "name": "ui.get",
-      "description": "For a checkbox, returns true or false. For a slider, returns an integer. For a combobox, returns a string. For a multiselect combobox, returns an array of strings. For a hotkey, returns true if the hotkey is active. For a color picker, returns r, g, b, a. Throws an error on failure.",
-      "return_type": "any",
-      "args": [
-        {
-          "name": "item",
-          "description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.",
-          "type": "number",
-          "type_description": "menu reference"
-        }
-      ]
-    },
     "set_callback": {
       "name": "ui.set_callback",
       "description": "Sets the change callback of a custom menu item. It will be executed on change and passed the reference",
@@ -2386,85 +2465,6 @@
           "name": "visible",
           "description": "Boolean. Pass false to hide the control from the menu.",
           "type": "boolean"
-        }
-      ]
-    },
-    "is_menu_open": {
-      "name": "ui.is_menu_open",
-      "description": "Returns true if the menu is currently open.",
-      "return_type": "boolean",
-      "args": [
-
-      ]
-    },
-    "mouse_position": {
-      "name": "ui.mouse_position",
-      "description": "Returns current mouse coordinates x, y",
-      "return_type": "number, number",
-      "args": [
-
-      ]
-    },
-    "new_listbox": {
-      "name": "ui.new_listbox",
-      "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-      "return_type": "number",
-      "return_description": "menu item",
-      "args": [
-        {
-          "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string",
-          "type_description": "menu tab"
-        },
-        {
-          "name": "container",
-          "description": "The name of the existing container to which this control will be added.",
-          "type": "string",
-          "type_description": "menu container"
-        },
-        {
-          "name": "name",
-          "description": "The name of the listbox.",
-          "type": "string",
-          "type_description": "menu item"
-        },
-        {
-          "name": "...",
-          "description": "One or more comma separated string values that will be added to the listbox. Alternatively, a table of strings that will be added."
-        }
-      ]
-    },
-    "new_string": {
-      "name": "ui.new_string",
-      "description": "Creates a string UI element, can be used to store arbitrary strings in configs. No menu item is created but it has the same semantics as other ui.new_* functions. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-      "return_type": "number",
-      "return_description": "menu item",
-      "args": [
-        {
-          "name": "name",
-          "description": "The name of the string element, make sure this is unique.",
-          "type": "string",
-          "type_description": "menu item"
-        },
-        {
-          "name": "default_value",
-          "description": "Default value of the element.",
-          "type": "string",
-          "optional": true
-        }
-      ]
-    },
-    "name": {
-      "name": "ui.name",
-      "description": "Returns the name of the menu item reference passed to it. Throws an error on failure.",
-      "return_type": "string",
-      "args": [
-        {
-          "name": "item",
-          "description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.",
-          "type": "number",
-          "type_description": "menu reference"
         }
       ]
     }
