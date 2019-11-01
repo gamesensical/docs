@@ -278,7 +278,8 @@
         {
           "name": "userid",
           "description": "This is given by some game events.",
-          "type": "number (user id)"
+          "type": "number",
+          "type_description": "user id"
         }
       ]
     },
@@ -289,17 +290,20 @@
         {
           "name": "x",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "y",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "z",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "line_offset",
@@ -344,7 +348,8 @@
         {
           "name": "entindex",
           "description": "Entity index",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         },
         {
           "name": "duration",
@@ -354,7 +359,8 @@
         {
           "name": "hitboxes",
           "description": "Either the hitbox index, an array of hitbox indices, or 19 for all hitboxes",
-          "type": "number (hitbox id)"
+          "type": "number",
+          "type_description": "hitbox id"
         },
         {
           "name": "r",
@@ -434,17 +440,20 @@
         {
           "name": "x",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "y",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "z",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         }
       ]
     },
@@ -456,37 +465,44 @@
         {
           "name": "skip_entindex",
           "description": "Ignore this entity while tracing",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         },
         {
           "name": "from_x",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "from_y",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "from_z",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "to_x",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "to_y",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "to_z",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         }
       ]
     },
@@ -498,37 +514,44 @@
         {
           "name": "from_player",
           "description": "Entity index of the player whose weapon will be used for this trace",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         },
         {
           "name": "from_x",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "from_y",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "from_z",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "to_x",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "to_y",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "to_z",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         }
       ]
     },
@@ -540,12 +563,14 @@
         {
           "name": "entindex",
           "description": "Player entity index",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         },
         {
           "name": "hitgroup",
           "description": "Hit group index",
-          "type": "number (hitgroup id)"
+          "type": "number",
+          "type_description": "hitgroup id"
         },
         {
           "name": "damage",
@@ -590,12 +615,14 @@
         {
           "name": "pitch",
           "description": "Pitch",
-          "type": "number (-90 - 90)"
+          "type": "number",
+          "type_description": "-90 - 90"
         },
         {
           "name": "yaw",
           "description": "Yaw",
-          "type": "number (-180 - 180)"
+          "type": "number",
+          "type_description": "-180 - 180"
         }
       ],
       "all_optional": true
@@ -652,7 +679,8 @@
     "create_interface": {
       "name": "client.create_interface",
       "description": "Returns a pointer to the interface, or nil on failure.",
-      "return_type": "userdata (ffi pointer)",
+      "return_type": "userdata",
+      "return_description": "ffi pointer",
       "args": [
         {
           "name": "module_name",
@@ -669,7 +697,8 @@
     "find_signature": {
       "name": "client.find_signature",
       "description": "Finds the specified pattern and returns a pointer to it, or nil if not found.",
-      "return_type": "userdata (ffi pointer)",
+      "return_type": "userdata",
+      "return_description": "ffi pointer",
       "args": [
         {
           "name": "module_name",
@@ -770,7 +799,8 @@
         {
           "name": "value",
           "description": "Float value",
-          "type": "number (float)"
+          "type": "number",
+          "type_description": "float"
         }
       ]
     },
@@ -781,7 +811,8 @@
         {
           "name": "value",
           "description": "Float value",
-          "type": "number (float)"
+          "type": "number",
+          "type_description": "float"
         }
       ]
     },
@@ -800,7 +831,8 @@
         {
           "name": "value",
           "description": "Integer value",
-          "type": "number (integer)"
+          "type": "number",
+          "type_description": "integer"
         }
       ]
     },
@@ -811,7 +843,8 @@
         {
           "name": "value",
           "description": "Integer value",
-          "type": "number (integer)"
+          "type": "number",
+          "type_description": "integer"
         }
       ]
     },
@@ -868,7 +901,8 @@
     "get_local_player": {
       "name": "entity.get_local_player",
       "description": "Returns the entity index for the local player, or nil on failure.",
-      "return_type": "number (entindex)",
+      "return_type": "number",
+      "return_description": "entindex",
       "args": [
 
       ]
@@ -876,20 +910,23 @@
     "get_all": {
       "name": "entity.get_all",
       "description": "Returns an array of entity indices. Pass no arguments for all entities.",
-      "return_type": "table (entindex)",
+      "return_type": "table",
+      "return_description": "entindex",
       "args": [
         {
           "name": "classname",
           "description": "String that specifies the class name of entities that will be added to the list, for example \"CCSPlayer\".",
           "optional": true,
-          "type": "string (entity classname)"
+          "type": "string",
+          "type_description": "entity classname"
         }
       ]
     },
     "get_players": {
       "name": "entity.get_players",
       "description": "Returns an array of player entity indices. Dormant and dead players will not be added to the list.",
-      "return_type": "table (entindex)",
+      "return_type": "table",
+      "return_description": "entindex",
       "args": [
         {
           "name": "enemies_only",
@@ -902,7 +939,8 @@
     "get_game_rules": {
       "name": "entity.get_game_rules",
       "description": "Returns entity index of CCSGameRulesProxy instance, or nil if none exists.",
-      "return_type": "number (entindex)",
+      "return_type": "number",
+      "return_description": "entindex",
       "args": [
 
       ]
@@ -910,7 +948,8 @@
     "get_player_resource": {
       "name": "entity.get_player_resource",
       "description": "Returns entity index of CCSPlayerResource instance, or nil if none exists.",
-      "return_type": "number (entindex)",
+      "return_type": "number",
+      "return_description": "entindex",
       "args": [
 
       ]
@@ -923,7 +962,8 @@
         {
           "name": "ent",
           "description": "Entity index.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
@@ -934,12 +974,14 @@
         {
           "name": "ent",
           "description": "Entity index.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         },
         {
           "name": "propname",
           "description": "Name of the networked property.",
-          "type": "string (netprop)"
+          "type": "string",
+          "type_description": "netprop"
         },
         {
           "name": "value",
@@ -962,12 +1004,14 @@
         {
           "name": "ent",
           "description": "Entity index.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         },
         {
           "name": "propname",
           "description": "Name of the networked property.",
-          "type": "string (netprop)"
+          "type": "string",
+          "type_description": "netprop"
         },
         {
           "name": "array_index",
@@ -985,7 +1029,8 @@
         {
           "name": "ent",
           "description": "Entity index.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
@@ -997,19 +1042,21 @@
         {
           "name": "ent",
           "description": "Entity index.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
     "is_dormant": {
       "name": "entity.is_dormant",
-      "description": "Returns true if the player is not dormant.",
+      "description": "Returns true if the player is dormant.",
       "return_type": "boolean",
       "args": [
         {
           "name": "ent",
           "description": "Entity index.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
@@ -1021,19 +1068,22 @@
         {
           "name": "ent",
           "description": "Player entity index.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
     "get_player_weapon": {
       "name": "entity.get_player_weapon",
       "description": "Returns the entity index of the player's active weapon, or nil if the player is not alive, dormant, etc.",
-      "return_type": "number (entindex)",
+      "return_type": "number",
+      "return_description": "entindex",
       "args": [
         {
           "name": "ent",
           "description": "Player entity index.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
@@ -1045,12 +1095,14 @@
         {
           "name": "player",
           "description": "Entity index of the player.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         },
         {
           "name": "hitbox",
           "description": "Either a string of the hitbox name, or an integer index of the hitbox.",
-          "type": "number (hitbox id)"
+          "type": "number",
+          "type_description": "hitbox id"
         }
       ]
     },
@@ -1062,7 +1114,8 @@
         {
           "name": "player",
           "description": "Entity index of the player.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
@@ -1074,7 +1127,8 @@
         {
           "name": "player",
           "description": "Entity index of the player.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     }
@@ -1189,7 +1243,8 @@
     "arms_material": {
       "name": "materialsystem.arms_material",
       "description": "Returns the players hand cham material as an object.",
-      "return_type": "table (material object)",
+      "return_type": "table",
+      "return_description": "material object",
       "args": [
 
       ]
@@ -1197,7 +1252,8 @@
     "chams_material": {
       "name": "materialsystem.chams_material",
       "description": "Returns the players cham material as an object.",
-      "return_type": "table (material object)",
+      "return_type": "table",
+      "return_description": "material object",
       "args": [
 
       ]
@@ -1205,7 +1261,8 @@
     "find_material": {
       "name": "materialsystem.find_material",
       "description": "Returns a material object for the specified material.",
-      "return_type": "table (material object)",
+      "return_type": "table",
+      "return_description": "material object",
       "args": [
         {
           "name": "material",
@@ -1217,7 +1274,8 @@
     "find_materials": {
       "name": "materialsystem.find_materials",
       "description": "Returns all material objects that contain the specified material.",
-      "return_type": "table (material objects)",
+      "return_type": "table",
+      "return_description": "material objects",
       "args": [
         {
           "name": "materials",
@@ -1240,12 +1298,14 @@
     "get_model_materials": {
       "name": "materialsystem.get_model_materials",
       "description": "Returns all material objects for a specified entity.",
-      "return_type": "table (material objects)",
+      "return_type": "table",
+      "return_description": "material objects",
       "args": [
         {
           "name": "entindex",
           "description": "The entity whos materials will be returned.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
@@ -1256,7 +1316,8 @@
         {
           "name": "entindex",
           "description": "The entity whos materials will be returned.",
-          "type": "number (entindex)"
+          "type": "number",
+          "type_description": "entindex"
         }
       ]
     },
@@ -1307,7 +1368,8 @@
         {
           "name": "material_var_flag",
           "description": "Material var flag as number",
-          "type": "number (material var flag)"
+          "type": "number",
+          "type_description": "material var flag"
         }
       ]
     },
@@ -1318,7 +1380,8 @@
         {
           "name": "material_var_flag",
           "description": "Material var flag as number",
-          "type": "number (material var flag)"
+          "type": "number",
+          "type_description": "material var flag"
         },
         {
           "name": "value",
@@ -1335,7 +1398,8 @@
         {
           "name": "shader_param",
           "description": "Shader param name",
-          "type": "string (shader param)"
+          "type": "string",
+          "type_description": "shader param"
         }
       ]
     },
@@ -1346,7 +1410,8 @@
         {
           "name": "shader_param",
           "description": "Shader param name",
-          "type": "string (shader param)"
+          "type": "string",
+          "type_description": "shader param"
         },
         {
           "name": "value",
@@ -1364,12 +1429,14 @@
         {
           "name": "x",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "y",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "r",
@@ -1394,7 +1461,8 @@
         {
           "name": "flags",
           "description": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text. \"c\" can be combined with other flags. nil can be specified for normal sized uncentered text.",
-          "type": "string (text flags)"
+          "type": "string",
+          "type_description": "text flags"
         },
         {
           "name": "max_width",
@@ -1415,7 +1483,8 @@
         {
           "name": "flags",
           "description": "\"+\" for large text, \"-\" for small text, or nil for normal sized text.",
-          "type": "string (text flags)"
+          "type": "string",
+          "type_description": "text flags"
         },
         {
           "name": "...",
@@ -1430,22 +1499,26 @@
         {
           "name": "x",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "y",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "w",
           "description": "Width in pixels",
-          "type": "number (px)"
+          "type": "number",
+          "type_description": "px"
         },
         {
           "name": "h",
           "description": "Height in pixels",
-          "type": "number (px)"
+          "type": "number",
+          "type_description": "px"
         },
         {
           "name": "r",
@@ -1476,22 +1549,26 @@
         {
           "name": "xa",
           "description": "Screen coordinate of point A",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "ya",
           "description": "Screen coordinate of point A",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "xb",
           "description": "Screen coordinate of point B",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "yb",
           "description": "Screen coordinate of point B",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "r",
@@ -1522,22 +1599,26 @@
         {
           "name": "x",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "y",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "w",
           "description": "Width in pixels",
-          "type": "number (px)"
+          "type": "number",
+          "type_description": "px"
         },
         {
           "name": "h",
           "description": "Height in pixels",
-          "type": "number (px)"
+          "type": "number",
+          "type_description": "px"
         },
         {
           "name": "r1",
@@ -1593,12 +1674,14 @@
         {
           "name": "x",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "y",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "r",
@@ -1628,12 +1711,14 @@
         {
           "name": "start_degrees",
           "description": "0 is the right side, 90 is the bottom, 180 is the left, 270 is the top.",
-          "type": "number (0 - 360)"
+          "type": "number",
+          "type_description": "0 - 360"
         },
         {
           "name": "percentage",
           "description": "Must be within [0.0-1.0]. 1.0 is a full circle, 0.5 is a half circle, etc.",
-          "type": "number (0 - 1)"
+          "type": "number",
+          "type_description": "0 - 1"
         }
       ]
     },
@@ -1644,12 +1729,14 @@
         {
           "name": "x",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "y",
           "description": "Screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "r",
@@ -1679,17 +1766,20 @@
         {
           "name": "start_degrees",
           "description": "0 is the right side, 90 is the bottom, 180 is the left, 270 is the top.",
-          "type": "number (0 - 360)"
+          "type": "number",
+          "type_description": "0 - 360"
         },
         {
           "name": "percentage",
           "description": "Must be within [0.0-1.0]. 1.0 is a full circle, 0.5 is a half circle, etc.",
-          "type": "number (0 - 1)"
+          "type": "number",
+          "type_description": "0 - 1"
         },
         {
           "name": "thickness",
           "description": "Thickness of the outline in pixels.",
-          "type": "number (px)"
+          "type": "number",
+          "type_description": "px"
         }
       ]
     },
@@ -1700,32 +1790,38 @@
         {
           "name": "x0",
           "description": "Screen coordinate X for point A",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "y0",
           "description": "Screen coordinate Y for point A",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "x1",
           "description": "Screen coordinate X for point B",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "y1",
           "description": "Screen coordinate Y for point B",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "x2",
           "description": "Screen coordinate X for point C",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "y2",
           "description": "Screen coordinate Y for point C",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "r",
@@ -1757,17 +1853,20 @@
         {
           "name": "x",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "y",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         },
         {
           "name": "z",
           "description": "Position in world space",
-          "type": "number (world coordinate)"
+          "type": "number",
+          "type_description": "world coordinate"
         }
       ]
     },
@@ -1808,27 +1907,32 @@
         {
           "name": "id",
           "description": "Texture ID",
-          "type": "number (texture id)"
+          "type": "number",
+          "type_description": "texture id"
         },
         {
           "name": "x",
           "description": "X screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "y",
           "description": "Y screen coordinate",
-          "type": "number (screen coordinate)"
+          "type": "number",
+          "type_description": "screen coordinate"
         },
         {
           "name": "w",
           "description": "Width",
-          "type": "number (px)"
+          "type": "number",
+          "type_description": "px"
         },
         {
           "name": "h",
           "description": "Height",
-          "type": "number (px)"
+          "type": "number",
+          "type_description": "px"
         },
         {
           "name": "r",
@@ -1855,7 +1959,8 @@
     "load_svg": {
       "name": "renderer.load_svg",
       "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
-      "return_type": "number (texture id)",
+      "return_type": "number",
+      "return_description": "texture id",
       "args": [
         {
           "name": "contents",
@@ -1865,19 +1970,22 @@
         {
           "name": "width",
           "description": "Width",
-          "type": "number (px)"
+          "type": "number",
+          "type_description": "px"
         },
         {
           "name": "height",
           "description": "Height",
-          "type": "number (px)"
+          "type": "number",
+          "type_description": "px"
         }
       ]
     },
     "load_png": {
       "name": "renderer.load_png",
       "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
-      "return_type": "number (texture id)",
+      "return_type": "number",
+      "return_description": "texture id",
       "args": [
         {
           "name": "contents",
@@ -1889,7 +1997,8 @@
     "load_jpg": {
       "name": "renderer.load_jpg",
       "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
-      "return_type": "number (texture id)",
+      "return_type": "number",
+      "return_description": "texture id",
       "args": [
         {
           "name": "contents",
@@ -1903,44 +2012,52 @@
     "new_checkbox": {
       "name": "ui.new_checkbox",
       "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this control will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         },
         {
           "name": "name",
           "description": "The name of the checkbox.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         }
       ]
     },
     "new_slider": {
       "name": "ui.new_slider",
       "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this control will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         },
         {
           "name": "name",
           "description": "The name of the slider.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         },
         {
           "name": "min",
@@ -1987,22 +2104,26 @@
     "new_combobox": {
       "name": "ui.new_combobox",
       "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this control will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         },
         {
           "name": "name",
           "description": "The name of the combobox.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         },
         {
           "name": "...",
@@ -2013,22 +2134,26 @@
     "new_multiselect": {
       "name": "ui.new_multiselect",
       "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this control will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         },
         {
           "name": "name",
           "description": "The name of the multiselect.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         },
         {
           "name": "...",
@@ -2039,22 +2164,26 @@
     "new_hotkey": {
       "name": "ui.new_hotkey",
       "description": "Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this control will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         },
         {
           "name": "name",
           "description": "The name of the hotkey.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         },
         {
           "name": "inline",
@@ -2067,22 +2196,26 @@
     "new_button": {
       "name": "ui.new_button",
       "description": "Throws an error on failure. The return value should not be used with ui.set or ui.get.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this checkbox will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         },
         {
           "name": "name",
           "description": "The name of the button.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         },
         {
           "name": "callback",
@@ -2094,22 +2227,26 @@
     "new_color_picker": {
       "name": "ui.new_color_picker",
       "description": "Throws an error on failure. The color picker is placed to the right of the previous menu item.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this checkbox will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         },
         {
           "name": "name",
           "description": "The name of the color picker. This will not be shown, it is only used to identify this item in saved configs.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         },
         {
           "name": "r",
@@ -2140,39 +2277,46 @@
     "new_textbox": {
       "name": "ui.new_textbox",
       "description": "Throws an error on failure. Returns a special value that can be used with ui.get",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this textbox will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         }
       ]
     },
     "reference": {
       "name": "ui.reference",
       "description": "Avoid calling this from inside a function. Returns a reference that can be passed to ui.get and ui.set, or throws an error on failure. This allows you to access a built-in pre-existing menu items. This function returns multiple values when the specified menu item is followed by unnamed menu items, for example a color picker or a hotkey.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this checkbox will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         },
         {
           "name": "name",
           "description": "The name of the menu item.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         }
       ]
     },
@@ -2183,7 +2327,8 @@
         {
           "name": "item",
           "description": "The result of either ui.new_checkbox, ui.new_slider, or ui.reference.",
-          "type": "number (menu reference)"
+          "type": "number",
+          "type_description": "menu reference"
         },
         {
           "name": "value",
@@ -2205,7 +2350,8 @@
         {
           "name": "item",
           "description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.",
-          "type": "number (menu reference)"
+          "type": "number",
+          "type_description": "menu reference"
         }
       ]
     },
@@ -2216,7 +2362,8 @@
         {
           "name": "item",
           "description": "The special value returned by ui.new_*. Do not try passing a reference to an existing menu item.",
-          "type": "number (custom menu reference)"
+          "type": "number",
+          "type_description": "custom menu reference"
         },
         {
           "name": "callback",
@@ -2232,7 +2379,8 @@
         {
           "name": "item",
           "description": "A menu item reference.",
-          "type": "number (menu reference)"
+          "type": "number",
+          "type_description": "menu reference"
         },
         {
           "name": "visible",
@@ -2260,22 +2408,26 @@
     "new_listbox": {
       "name": "ui.new_listbox",
       "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "tab",
           "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
-          "type": "string (menu tab)"
+          "type": "string",
+          "type_description": "menu tab"
         },
         {
           "name": "container",
           "description": "The name of the existing container to which this control will be added.",
-          "type": "string (menu container)"
+          "type": "string",
+          "type_description": "menu container"
         },
         {
           "name": "name",
           "description": "The name of the listbox.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         },
         {
           "name": "...",
@@ -2286,12 +2438,14 @@
     "new_string": {
       "name": "ui.new_string",
       "description": "Creates a string UI element, can be used to store arbitrary strings in configs. No menu item is created but it has the same semantics as other ui.new_* functions. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-      "return_type": "number (menu item)",
+      "return_type": "number",
+      "return_description": "menu item",
       "args": [
         {
           "name": "name",
           "description": "The name of the string element, make sure this is unique.",
-          "type": "string (menu item)"
+          "type": "string",
+          "type_description": "menu item"
         },
         {
           "name": "default_value",
@@ -2309,7 +2463,8 @@
         {
           "name": "item",
           "description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.",
-          "type": "number (menu reference)"
+          "type": "number",
+          "type_description": "menu reference"
         }
       ]
     }

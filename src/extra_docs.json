@@ -537,6 +537,9 @@
 		"entity": {
 			"set_prop": {
 				"description": "Sets the value of the property. For vectors or angles, pass three values."
+			},
+			"is_dormant": {
+				"description": "Returns true if the player is dormant."
 			}
 		},
 		"database": {
@@ -649,5 +652,6 @@
 		]
 	},
 	"globals_deprecated_regex": "^(draw_.{1,}|world_to_screen|get_cvar|set_cvar)$",
-	"globals_optional_regex": "^Optional[. ]"
+	"globals_optional_regex": "^Optional[. ]",
+	"globals_type_description_regex": "^(.+) \\((.+)\\)$"
 }

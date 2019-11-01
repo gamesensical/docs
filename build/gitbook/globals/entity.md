@@ -147,7 +147,7 @@ Argument | Type | Description
 -------- | ---- | -----------
   **ent** | number (entindex) | Entity index.
 
-Returns true if the player is not dormant.
+Returns true if the player is dormant.
 
 
 #### entity.is_enemy
