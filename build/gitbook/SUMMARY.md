@@ -27,6 +27,7 @@
 * [API Documentation](globals/README.md)
   * [bit](globals/bit.md)
   * [client](globals/client.md)
+  * [config](globals/config.md)
   * [cvar](globals/cvar.md)
   * [database](globals/database.md)
   * [entity](globals/entity.md)

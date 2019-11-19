@@ -518,6 +518,23 @@
 					}
 				]
 			},
+			"new_label": {
+				"description": "Creates a new label, this can be used to make otherwise attached menu items standalone or have interactive menus. Returns a special value that can be passed to ui.set, or throws an error on failure.",
+				"args": [
+					{
+						"name": "tab",
+						"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
+					},
+					{
+						"name": "container",
+						"description": "The name of the existing container to which this control will be added."
+					},
+					{
+						"name": "name",
+						"description": "The name of the label. This can later be changed using ui.set."
+					}
+				]
+			},
 			"name": {
 				"description": "Returns the name of the menu item reference passed to it. Throws an error on failure.",
 				"args": [
@@ -566,6 +583,17 @@
 					}
 				]
 			}
+		},
+		"config": {
+			"load": {
+				"description": "Loads a configuration preset.",
+				"args": [
+					{
+						"name": "name",
+						"description": "Name of the configuration preset"
+					}
+				]
+			}
 		}
 	},
 	"globals_descriptions": {
@@ -577,7 +605,8 @@
 		"cvar": "A table letting you get and set the value of cvars and invoke their callbacks. Uses Object-oriented format",
 		"globals": "Functions for getting game globals such as the server time and map name.",
 		"materialsystem": "Functions controlling the CS:GO Material System, letting you modulate, swap, remove materials and set their shader params / material vars",
-		"database": "Persistent storage engine that lets you store values between reloads / reinjects"
+		"database": "Persistent storage engine that lets you store values between reloads / reinjects",
+		"config": "Configuration related lua functions"
 	},
 	"globals_examples": {
 		"cvar": [

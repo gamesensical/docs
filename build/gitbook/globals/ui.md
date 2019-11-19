@@ -113,6 +113,19 @@ Argument | Type | Description
 Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.
 
 
+#### ui.new_label
+
+`ui.new_label(tab: string, container: string, name: string)`: number (menu item)
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **container** | string (menu container) | The name of the existing container to which this control will be added.
+  **name** | string (menu item) | The name of the label. This can later be changed using ui.set.
+
+Creates a new label, this can be used to make otherwise attached menu items standalone or have interactive menus. Returns a special value that can be passed to ui.set, or throws an error on failure.
+
+
 #### ui.new_listbox
 
 `ui.new_listbox(tab: string, container: string, name: string, ...)`: number (menu item)
