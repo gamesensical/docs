@@ -13,6 +13,14 @@ gemfile do
 	gem "mustache"
 end
 
+class Template < Mustache
+	self.template_extension = "md"
+
+	def initialize(name)
+		self.template_name = name
+	end
+end
+
 SHORT_ARG_TYPES = true
 ARGS_AS_TABLE = true
 
@@ -23,10 +31,13 @@ input_dir = SRC_DIR + "gitbook"
 output_dir = BUILD_DIR + "gitbook"
 globals_dir = output_dir + "globals"
 props_dir = output_dir + "netprops"
+template_dir = input_dir + ".templates"
 
 FileUtils.rm_r(output_dir) if output_dir.directory?
 output_dir.mkpath
 FileUtils.cp_r(input_dir, BUILD_DIR)
+FileUtils.rm_r(output_dir + ".templates")
+Template.template_path = template_dir.to_s
 
 globals = JSON.parse((BUILD_DIR + "globals.json").read)
 extra_docs = JSON.parse((SRC_DIR + "extra_docs.json").read)
@@ -210,8 +221,6 @@ def get_group(classname)
 	return "Other"
 end
 
-date = Date.parse(first_line.split(" ").last).strftime("%d.%m.%Y")
-
 netprops_groups = {
 	"Important" => [],
 	"Items" => [],
@@ -222,27 +231,16 @@ netprops_groups = {
 	"Base Entities" => [],
 	"Other" => [],
 }
+netprops_class_template = Template.new("netprops_class")
 classes.each do |classname, props|
 	next if classname.nil?
-	props_string = []
-	props.each do |prop|
-		props_string << "* `#{prop["name"]}` (#{prop["type"]})"
-	end
 
-	contents = []
-
-	# description
-	contents << "---"
-	contents << "description: #{classes_type[classname]}"
-	contents << "---"
-	contents << ""
-
-	contents << "# #{classname}"
-	contents << ""
-	contents << ""
-	contents << props_string.join("\n")
-
-	(props_dir + "#{classname}.md").write(contents.join("\n"))
+	netprops_class_template
+	(props_dir + "#{classname}.md").write(netprops_class_template.render({
+		type: classes_type[classname],
+		classname: classname,
+		props: props
+	}))
 
 	group = get_group(classname)
 	netprops_groups[group] ||= []
@@ -251,23 +249,14 @@ end
 
 group_filename = Hash[netprops_groups.map{|a, b| [a, a.parameterize.gsub("-", "")]}]
 
+date = Date.parse(first_line.split(" ").last).strftime("%d.%m.%Y")
+netprops_group_template = Template.new("netprops_group")
 netprops_groups.each do |group, classnames|
-	contents = []
-
-	contents << "# #{group}"
-	contents << "---"
-	contents << "description: Last updated at #{date}"
-	contents << "---"
-	contents << ""
-	contents << ""
-
-	classnames.each do |classname|
-		contents << "{% page-ref page=\"#{classname}.md\" %}"
-	end
-
-	contents << ""
-
-	(props_dir + "#{group_filename[group]}.md").write(contents.join("\n"))
+	(props_dir + "#{group_filename[group]}.md").write(netprops_group_template.render({
+		group: group,
+		last_updated: date,
+		classnames: classnames
+	}))
 end
 
 # Write formatted list of globals and netprops to SUMMARY.md
@@ -275,4 +264,4 @@ summary = {
 	globals: globals.keys,
 	netprops: netprops_groups.map{|group, classnames| {group: group, group_filename: group_filename[group], classnames: classnames}}
 }
-(output_dir + "SUMMARY.md").write(Mustache.render((input_dir + "SUMMARY.md").read, summary))
+(output_dir + "SUMMARY.md").write(Template.new("SUMMARY").render(summary))

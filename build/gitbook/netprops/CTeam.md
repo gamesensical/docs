@@ -21,4 +21,4 @@ description: DT_Team
 * `m_nGGLeaderEntIndex_T` (integer)
 * `m_numMapVictories` (integer)
 * `player_array_element` (integer)
-* `"player_array"` (array)
+* `&quot;player_array&quot;` (array)
