@@ -25,6 +25,13 @@
   * [Snippets](development/snippets/README.md)
   * [Compiling lua scripts](development/compiling.md)
 * [API Documentation](globals/README.md)
-{% globals %}
+{{#globals}}
+  * [{{.}}](globals/{{.}}.md)
+{{/globals}}
 * [Netprops](netprops/README.md)
-{% netprops %}
+{{#netprops}}
+  * [{{group}}](netprops/{{group_filename}}.md)
+  {{#classnames}}
+    * [{{.}}](netprops/{{.}}.md)
+  {{/classnames}}
+{{/netprops}}

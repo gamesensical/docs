@@ -10,6 +10,7 @@ gemfile do
 
 	gem "pry"
 	gem "activesupport", :require => ["active_support/core_ext/hash", "active_support/core_ext/string/inflections"]
+	gem "mustache"
 end
 
 SHORT_ARG_TYPES = true
@@ -268,16 +269,9 @@ netprops_groups.each do |group, classnames|
 	(props_dir + "#{group_filename[group]}.md").write(contents.join("\n"))
 end
 
-netprops_string = ""
-netprops_groups.each do |group, classnames|
-	netprops_string += "  * [#{group}](netprops/#{group_filename[group]}.md)\n"
-	classnames.each do |classname|
-		netprops_string += "    * [#{classname}](netprops/#{classname}.md)\n"
-	end
-end
-
-
 # Write formatted list of globals and netprops to SUMMARY.md
-globals_string = globals.keys.map{|global, _| "  * [#{global}](globals/#{global}.md)"}.join("\n")
-
-(output_dir + "SUMMARY.md").write((SRC_DIR + "gitbook/SUMMARY.md").read.gsub("{% globals %}", globals_string).gsub("{% netprops %}", netprops_string.chomp))
+summary = {
+	globals: globals.keys,
+	netprops: netprops_groups.map{|group, classnames| {group: group, group_filename: group_filename[group], classnames: classnames}}
+}
+(output_dir + "SUMMARY.md").write(Mustache.render((SRC_DIR + "gitbook/SUMMARY.md").read, summary))
