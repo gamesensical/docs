@@ -8,9 +8,9 @@ description: {{{description}}}
 
 ### Functions:
 {{#functions}}
-#### {{name}}
+#### {{display_name}}
 
-{{{text}}}
+`{{{name}}}({{#all_optional}}[{{/all_optional}}{{{args_text}}}{{#all_optional}}]{{/all_optional}})`{{#return_type}}: {{{return_type}}}{{#return_description}} ({{{return_description}}}){{/return_description}}{{/return_type}}
 
 {{#hint}}
 {% hint style="{{style}}" %}
@@ -18,14 +18,14 @@ description: {{{description}}}
 {% endhint %}
 
 {{/hint}}
-{{#arguments}}
+{{#args}}
 Argument | Type | Description
 -------- | ---- | -----------
 {{#list}}
   **{{{name}}}** | {{type}}{{#type_description}} ({{{type_description}}}){{/type_description}} | {{{description}}}
 {{/list}}
 
-{{/arguments}}
+{{/args}}
 {{#description}}
 {{{description}}}
 {{/description}}

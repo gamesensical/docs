@@ -50,65 +50,28 @@ globals.sort.to_h.each do |global, functions|
 	functions = functions.sort_by do |name, data|
 		(data.key?("name") && data["name"].include?(":")) ? "\xFF#{name}" : name
 	end.to_h
-	
-	functions_list = []
 
-	functions.each do |name, data|
-		function = {}
-
+	functions_list = functions.map do |name, function|
 		# name
-		func_name = data["name"] || "#{global}.#{name}"
-		func_name = func_name.include?(":") ? (":" + func_name.split(":").last) : func_name
-		function[:name] = func_name
+		function["name"] ||= "#{global}.#{name}"
+		function["display_name"] = function["name"].include?(":") ? (":" + function["name"].split(":").last) : function["name"]
 
-		# text
+		# args text
 		arg_names = ""
-		if data.key? "args"
-			data["args"].each_with_index do |arg, i|
+		if function.key? "args"
+			function["args"].each_with_index do |arg, i|
 				arg_text = arg["name"]
 				arg_text += ": #{SHORT_ARG_TYPES ? arg["type"].split(" ")[0] : arg["type"]}" if arg.key? "type"
 				arg_text = i == 0 ? "#{arg_text}" : ", #{arg_text}"
-				arg_names << (arg["optional"] ? ("[#{arg_text}]#{(i == data["args"].length-1) ? "" : " "}") : arg_text)
+				arg_names << (arg["optional"] ? ("[#{arg_text}]#{(i == function["args"].length-1) ? "" : " "}") : arg_text)
 			end
 		end
-
-		func_text = "`#{data["name"]}(#{data["all_optional"] ? "[#{arg_names}]" : arg_names})`"
-		func_text << ": #{data["return_type"]}#{data.key?("return_description") ? " (#{data["return_description"]})" : ""}" if data.key? "return_type"
-		function[:text] = func_text
-
-		# hint
-		function[:hint] = data["hint"]
+		function["args_text"] = arg_names
 
 		# args
-		if data.key?("args") && data["args"].length > 0
-			arguments = []
-			data["args"].each do |argument|
-				globals_replacements["function_arg_descriptions"].each do |orig, rep|
-					argument["description"].gsub!(orig, rep)
-				end
+		function["args"] = {list: function["args"]} unless function["args"].empty?
 
-				arguments << argument
-			end
-			function[:arguments] = {list: arguments}
-		end
-
-		# description
-		if data.key?("description")
-			description = data["description"]
-
-			globals_replacements["function_descriptions"].each do |orig, rep|
-				description.gsub!(orig, rep)
-			end
-
-			function[:description] = description
-		else
-			puts "#{global}.#{name} has no description"
-		end
-
-		# page-ref
-		data[:"page-ref"] = data["page-ref"]
-
-		functions_list << function
+		function
 	end
 
 	(globals_dir + "#{global}.md").write(globals_template.render({
