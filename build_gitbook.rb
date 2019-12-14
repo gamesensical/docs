@@ -22,7 +22,6 @@ class Template < Mustache
 end
 
 SHORT_ARG_TYPES = true
-ARGS_AS_TABLE = true
 
 BUILD_DIR = Pathname.new("build/")
 SRC_DIR = Pathname.new("src/")
@@ -43,15 +42,10 @@ globals = JSON.parse((BUILD_DIR + "globals.json").read)
 extra_docs = JSON.parse((SRC_DIR + "extra_docs.json").read)
 globals_descriptions = extra_docs["globals_descriptions"]
 globals_examples = extra_docs["globals_examples"]
-globals_replacements = extra_docs["globals_replacements"]
 
 globals_template = Template.new("globals")
 globals.sort.to_h.each do |global, functions|
-	functions = functions.sort_by do |name, data|
-		(data.key?("name") && data["name"].include?(":")) ? "\xFF#{name}" : name
-	end.to_h
-
-	functions_list = functions.map do |name, function|
+	functions_list = functions.sort_by{|name, data| (data.key?("name") && data["name"].include?(":")) ? "\xFF#{name}" : name}.map do |name, function|
 		# name
 		function["name"] ||= "#{global}.#{name}"
 		function["display_name"] = function["name"].include?(":") ? (":" + function["name"].split(":").last) : function["name"]
@@ -187,8 +181,11 @@ netprops_groups.each do |group, classnames|
 end
 
 # Write formatted list of globals and netprops to SUMMARY.md
-summary = {
+(output_dir + "SUMMARY.md").write(Template.new("SUMMARY").render({
 	globals: globals.keys,
-	netprops: netprops_groups.map{|group, classnames| {group: group, group_filename: group_filename[group], classnames: classnames}}
-}
-(output_dir + "SUMMARY.md").write(Template.new("SUMMARY").render(summary))
+	netprops: netprops_groups.map{|group, classnames| {
+		group: group,
+		group_filename: group_filename[group],
+		classnames: classnames
+	}}
+}))
