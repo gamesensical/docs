@@ -19,13 +19,14 @@ ARGS_AS_TABLE = true
 BUILD_DIR = Pathname.new("build/")
 SRC_DIR = Pathname.new("src/")
 
+input_dir = SRC_DIR + "gitbook"
 output_dir = BUILD_DIR + "gitbook"
 globals_dir = output_dir + "globals"
 props_dir = output_dir + "netprops"
 
 FileUtils.rm_r(output_dir) if output_dir.directory?
 output_dir.mkpath
-FileUtils.cp_r(SRC_DIR + "gitbook", BUILD_DIR)
+FileUtils.cp_r(input_dir, BUILD_DIR)
 
 globals = JSON.parse((BUILD_DIR + "globals.json").read)
 extra_docs = JSON.parse((SRC_DIR + "extra_docs.json").read)
@@ -274,4 +275,4 @@ summary = {
 	globals: globals.keys,
 	netprops: netprops_groups.map{|group, classnames| {group: group, group_filename: group_filename[group], classnames: classnames}}
 }
-(output_dir + "SUMMARY.md").write(Mustache.render((SRC_DIR + "gitbook/SUMMARY.md").read, summary))
+(output_dir + "SUMMARY.md").write(Mustache.render((input_dir + "SUMMARY.md").read, summary))
