@@ -151,13 +151,12 @@ Argument | Type | Description
 Sets the value of the shader param of the material
 
 
-### Example:
+### Examples:
 
 {% code-tabs %}
-{% code-tabs-item  title="materialsystem-1.lua"%}
+{% code-tabs-item title="materialsystem-1.lua" %}
 ```lua
 -- materialsystem example here
 ```
-
 {% endcode-tabs-item %}
 {% endcode-tabs %}

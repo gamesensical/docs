@@ -95,7 +95,7 @@ Sets the int, float and string value to the passed float. Invokes the change cal
 ### Examples:
 
 {% code-tabs %}
-{% code-tabs-item  title="cvar-1.lua"%}
+{% code-tabs-item title="cvar-1.lua" %}
 ```lua
 local bxor = bit.bxor
 local cl_fullupdate = cvar.cl_fullupdate
@@ -108,15 +108,13 @@ cl_fullupdate:invoke_callback()
 local oldval = developer.get_int()
 developer:set_raw_int(bxor(oldval, 1))
 ```
-
 {% endcode-tabs-item %}
-{% code-tabs-item  title="cvar-2.lua"%}
+{% code-tabs-item title="cvar-2.lua" %}
 ```lua
 local snd_setmixer = cvar.snd_setmixer
 
 -- Mutes ambient volume by setting the mixer "vol" option to 0
 snd_setmixer:invoke_callback("Ambient", "vol", "0")
 ```
-
 {% endcode-tabs-item %}
 {% endcode-tabs %}

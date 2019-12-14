@@ -45,24 +45,23 @@ globals_descriptions = extra_docs["globals_descriptions"]
 globals_examples = extra_docs["globals_examples"]
 globals_replacements = extra_docs["globals_replacements"]
 
+globals_template = Template.new("globals")
 globals.sort.to_h.each do |global, functions|
-	contents = []
-	if globals_descriptions.key? global
-		contents << "---"
-		contents << "description: #{globals_descriptions[global]}"
-		contents << "---"
-		contents << ""
-	end
-	contents << "# #{global}"
-	contents << ""
-
-	contents << "### Functions:"
-
 	functions = functions.sort_by do |name, data|
 		(data.key?("name") && data["name"].include?(":")) ? "\xFF#{name}" : name
 	end.to_h
+	
+	functions_list = []
 
 	functions.each do |name, data|
+		function = {}
+
+		# name
+		func_name = data["name"] || "#{global}.#{name}"
+		func_name = func_name.include?(":") ? (":" + func_name.split(":").last) : func_name
+		function[:name] = func_name
+
+		# text
 		arg_names = ""
 		if data.key? "args"
 			data["args"].each_with_index do |arg, i|
@@ -75,84 +74,49 @@ globals.sort.to_h.each do |global, functions|
 
 		func_text = "`#{data["name"]}(#{data["all_optional"] ? "[#{arg_names}]" : arg_names})`"
 		func_text << ": #{data["return_type"]}#{data.key?("return_description") ? " (#{data["return_description"]})" : ""}" if data.key? "return_type"
+		function[:text] = func_text
 
-		func_name = data["name"] || "#{global}.#{name}"
-		func_name = func_name.include?(":") ? (":" + func_name.split(":").last) : func_name
+		# hint
+		function[:hint] = data["hint"]
 
-		contents << "#### #{func_name}"
-		contents << ""
-		contents << func_text
-		contents << ""
-
-		if data.key? "hint"
-			contents << "{% hint style=\"#{data["hint"]["style"]}\" %}"
-			contents << "#{data["hint"]["text"]}"
-			contents << "{% endhint %}"
-		end
-
+		# args
 		if data.key?("args") && data["args"].length > 0
-			if ARGS_AS_TABLE
-				contents << "Argument | Type | Description"
-				contents << "-------- | ---- | -----------"
-			else
-				contents << "  * **Arguments:**"
-				contents << "  "
-			end
-
+			arguments = []
 			data["args"].each do |argument|
-				description = argument["description"]
-
 				globals_replacements["function_arg_descriptions"].each do |orig, rep|
-					description.gsub!(orig, rep)
+					argument["description"].gsub!(orig, rep)
 				end
 
-				contents << if ARGS_AS_TABLE
-					"  **#{argument["name"]}** | #{"#{argument["type"]}#{argument.key?("type_description") ? " (#{argument["type_description"]})" : ""}" || ""} | #{description}"
-				else
-					"  - **#{argument["name"]}**: #{description}"
-				end
-
+				arguments << argument
 			end
-			contents << ""
+			function[:arguments] = {list: arguments}
 		end
 
-		if data.key?("description") && data["description"] != "None."
+		# description
+		if data.key?("description")
 			description = data["description"]
 
 			globals_replacements["function_descriptions"].each do |orig, rep|
 				description.gsub!(orig, rep)
 			end
 
-			contents << "#{description}"
-			contents << ""
+			function[:description] = description
 		else
 			puts "#{global}.#{name} has no description"
 		end
 
-		if data.key? "page-ref"
-			contents << "{% page-ref page=\"#{data["page-ref"]}\" %}"
-		end
+		# page-ref
+		data[:"page-ref"] = data["page-ref"]
 
-		contents << ""
+		functions_list << function
 	end
 
-	if globals_examples.key? global
-		contents << "### Example#{globals_examples[global].length > 1 ? "s" : ""}:"
-		contents << ""
-		contents << "{% code-tabs %}"
-
-		globals_examples[global].each do |example|
-			contents << "{% code-tabs-item #{example.key?("title") ? " title=\"#{example["title"]}\"" : ""}%}"
-			contents << example["contents"].join("\n")
-			contents << ""
-			contents << "{% endcode-tabs-item %}"
-		end
-
-		contents << "{% endcode-tabs %}"
-		contents << ""
-	end
-
-	(globals_dir + "#{global}.md").write(contents.join("\n"))
+	(globals_dir + "#{global}.md").write(globals_template.render({
+		description: globals_descriptions[global],
+		functions: functions_list,
+		global: global,
+		examples: globals_examples.key?(global) ? {list: globals_examples[global]} : nil
+	}).chomp)
 end
 
 # Generate netprops docs
