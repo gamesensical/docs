@@ -13,10 +13,10 @@ description: List of events that you can listen to using client.set_event_callba
 {{/description}}
 
 {{#has_string_properties}}
- #  | Property
---- | --------
+|| Property
+------ | --------
 {{#string_properties}}
-{{index}} | {{{prop}}}
+ {{index}} | {{{prop}}}
 {{/string_properties}}
 
 {{/has_string_properties}}
@@ -25,7 +25,7 @@ description: List of events that you can listen to using client.set_event_callba
 Key | Description
 --- | -----------
 {{#.}}
-**{{{key}}}** | {{{description}}}
+ **{{{key}}}** | {{{description}}}
 {{/.}}
 
 {{/table_properties}}

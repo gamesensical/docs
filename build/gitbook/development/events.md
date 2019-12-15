@@ -17,8 +17,8 @@ Fired every time the game runs a command (usually 64 times a second, equal to ti
 
 Key | Description
 --- | -----------
-**chokedcommands** | Amount of commands that the client has choked
-**command_number** | Current command number
+ **chokedcommands** | Amount of commands that the client has choked
+ **command_number** | Current command number
 
 
 
@@ -28,42 +28,42 @@ Fired every time the game prepares a move command that's sent to the server. Thi
 
 Key | Description
 --- | -----------
-**chokedcommands** | Amount of commands that the client has choked
-**command_number** | Current command number
-**pitch** | Pitch view angle
-**yaw** | Yaw view angle
-**forwardmove** | Forward / backward speed (-450 to 450)
-**sidemove** | Left / right speed (-450 to 450)
-**move_yaw** | Yaw angle that's used for movement. If not set, view yaw is used
-**allow_send_packet** | Set to false to make the cheat choke the current command (when possible)
-**in_attack** | IN_ATTACK Button
-**in_jump** | IN_JUMP Button
-**in_duck** | IN_DUCK Button
-**in_forward** | IN_FORWARD Button
-**in_back** | IN_BACK Button
-**in_use** | IN_USE Button
-**in_cancel** | IN_CANCEL Button
-**in_left** | IN_LEFT Button
-**in_right** | IN_RIGHT Button
-**in_moveleft** | IN_MOVELEFT Button
-**in_moveright** | IN_MOVERIGHT Button
-**in_attack2** | IN_ATTACK2 Button
-**in_run** | IN_RUN Button
-**in_reload** | IN_RELOAD Button
-**in_alt1** | IN_ALT1 Button
-**in_alt2** | IN_ALT2 Button
-**in_score** | IN_SCORE Button
-**in_speed** | IN_SPEED Button
-**in_walk** | IN_WALK Button
-**in_zoom** | IN_ZOOM Button
-**in_weapon1** | IN_WEAPON1 Button
-**in_weapon2** | IN_WEAPON2 Button
-**in_bullrush** | IN_BULLRUSH Button
-**in_grenade1** | IN_GRENADE1 Button
-**in_grenade2** | IN_GRENADE2 Button
-**in_attack3** | IN_ATTACK3 Button
-**weaponselect** | 
-**weaponsubtype** | 
+ **chokedcommands** | Amount of commands that the client has choked
+ **command_number** | Current command number
+ **pitch** | Pitch view angle
+ **yaw** | Yaw view angle
+ **forwardmove** | Forward / backward speed (-450 to 450)
+ **sidemove** | Left / right speed (-450 to 450)
+ **move_yaw** | Yaw angle that's used for movement. If not set, view yaw is used
+ **allow_send_packet** | Set to false to make the cheat choke the current command (when possible)
+ **in_attack** | IN_ATTACK Button
+ **in_jump** | IN_JUMP Button
+ **in_duck** | IN_DUCK Button
+ **in_forward** | IN_FORWARD Button
+ **in_back** | IN_BACK Button
+ **in_use** | IN_USE Button
+ **in_cancel** | IN_CANCEL Button
+ **in_left** | IN_LEFT Button
+ **in_right** | IN_RIGHT Button
+ **in_moveleft** | IN_MOVELEFT Button
+ **in_moveright** | IN_MOVERIGHT Button
+ **in_attack2** | IN_ATTACK2 Button
+ **in_run** | IN_RUN Button
+ **in_reload** | IN_RELOAD Button
+ **in_alt1** | IN_ALT1 Button
+ **in_alt2** | IN_ALT2 Button
+ **in_score** | IN_SCORE Button
+ **in_speed** | IN_SPEED Button
+ **in_walk** | IN_WALK Button
+ **in_zoom** | IN_ZOOM Button
+ **in_weapon1** | IN_WEAPON1 Button
+ **in_weapon2** | IN_WEAPON2 Button
+ **in_bullrush** | IN_BULLRUSH Button
+ **in_grenade1** | IN_GRENADE1 Button
+ **in_grenade2** | IN_GRENADE2 Button
+ **in_attack3** | IN_ATTACK3 Button
+ **weaponselect** | 
+ **weaponsubtype** | 
 
 
 
@@ -71,9 +71,9 @@ Key | Description
 
 Fired every time the user types something in the game console and presses enter. Return false from the event handler to make the game not process the input
 
- #  | Property
---- | --------
-1 | console input text
+|| Property
+------ | --------
+ 1 | console input text
 
 
 
@@ -95,21 +95,21 @@ Fired when the rage aimbot shoots at a player
 
 Key | Description
 --- | -----------
-**backtrack** | Amount of ticks the player was backtracked
-**boosted** | True if accuracy boost was used to increase the accuracy of the shot
-**damage** | Predicted damage the shot will do
-**high_priority** | True if the shot was at a high priority record, like on shot backtrack
-**hit_chance** | Chance the shot will hit, depends on spread
-**hitgroup** | Targeted hit group, this is not the same thing as a hitbox
-**id** | Shot ID, this can be used to find the corresponding aim_hit / aim_miss event
-**interpolated** | Player was interpolated
-**extrapolated** | Player was extrapolated
-**target** | Target player entindex
-**teleported** | Target player was teleporting (breaking lag compensation)
-**tick** | Tick the shot was fired at. This can be used to draw the hitboxes using client.draw_hitboxes
-**x** | X world coordinate of the aim point
-**y** | X world coordinate of the aim point
-**z** | Z world coordinate of the aim point
+ **backtrack** | Amount of ticks the player was backtracked
+ **boosted** | True if accuracy boost was used to increase the accuracy of the shot
+ **damage** | Predicted damage the shot will do
+ **high_priority** | True if the shot was at a high priority record, like on shot backtrack
+ **hit_chance** | Chance the shot will hit, depends on spread
+ **hitgroup** | Targeted hit group, this is not the same thing as a hitbox
+ **id** | Shot ID, this can be used to find the corresponding aim_hit / aim_miss event
+ **interpolated** | Player was interpolated
+ **extrapolated** | Player was extrapolated
+ **target** | Target player entindex
+ **teleported** | Target player was teleporting (breaking lag compensation)
+ **tick** | Tick the shot was fired at. This can be used to draw the hitboxes using client.draw_hitboxes
+ **x** | X world coordinate of the aim point
+ **y** | X world coordinate of the aim point
+ **z** | Z world coordinate of the aim point
 
 
 
@@ -119,11 +119,11 @@ Fired when the rage aimbot hit a shot at a player
 
 Key | Description
 --- | -----------
-**damage** | Actual damage the shot did
-**hit_chance** | Actual hit chance the shot had
-**hitgroup** | Hit group that was hit. This is not the same thing as a hitbox
-**id** | Shot ID, the corresponding aim_fire event has the same ID
-**target** | Target player entindex
+ **damage** | Actual damage the shot did
+ **hit_chance** | Actual hit chance the shot had
+ **hitgroup** | Hit group that was hit. This is not the same thing as a hitbox
+ **id** | Shot ID, the corresponding aim_fire event has the same ID
+ **target** | Target player entindex
 
 
 
@@ -133,11 +133,11 @@ Fired when the rage aimbot missed a shot at a player
 
 Key | Description
 --- | -----------
-**hit_chance** | Actual hit chance the shot had
-**hitgroup** | Hit group that was missed. This is not the same thing as a hitbox
-**id** | Shot ID, the corresponding aim_fire event has the same ID
-**reason** | Reason the shot was missed. This can be 'spread', 'prediction error', 'death' or '?' (unknown / resolver)
-**target** | Target player entindex
+ **hit_chance** | Actual hit chance the shot had
+ **hitgroup** | Hit group that was missed. This is not the same thing as a hitbox
+ **id** | Shot ID, the corresponding aim_fire event has the same ID
+ **reason** | Reason the shot was missed. This can be 'spread', 'prediction error', 'death' or '?' (unknown / resolver)
+ **target** | Target player entindex
 
 
 
