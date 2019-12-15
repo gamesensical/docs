@@ -612,65 +612,23 @@
 		"cvar": [
 			{
 				"title": "cvar-1.lua",
-				"contents": [
-					"```lua",
-					"local bxor = bit.bxor",
-					"local cl_fullupdate = cvar.cl_fullupdate",
-					"local developer = cvar.developer",
-					"",
-					"-- invoking callback of ConCommand",
-					"cl_fullupdate:invoke_callback()",
-					"",
-					"-- toggle ConVar",
-					"local oldval = developer.get_int()",
-					"developer:set_raw_int(bxor(oldval, 1))",
-					"```"
-				]
+				"contents": "```lua\nlocal bxor = bit.bxor\nlocal cl_fullupdate = cvar.cl_fullupdate\nlocal developer = cvar.developer\n\n-- invoking callback of ConCommand\ncl_fullupdate:invoke_callback()\n\n-- toggle ConVar\nlocal oldval = developer.get_int()\ndeveloper:set_raw_int(bxor(oldval, 1))\n```"
 			},
 			{
 				"title": "cvar-2.lua",
-				"contents": [
-					"```lua",
-					"local snd_setmixer = cvar.snd_setmixer",
-					"",
-					"-- Mutes ambient volume by setting the mixer \"vol\" option to 0",
-					"snd_setmixer:invoke_callback(\"Ambient\", \"vol\", \"0\")",
-					"```"
-				]
+				"contents": "```lua\nlocal snd_setmixer = cvar.snd_setmixer\n\n-- Mutes ambient volume by setting the mixer \"vol\" option to 0\nsnd_setmixer:invoke_callback(\"Ambient\", \"vol\", \"0\")\n```"
 			}
 		],
 		"materialsystem": [
 			{
 				"title": "materialsystem-1.lua",
-				"contents": [
-					"```lua",
-					"-- materialsystem example here",
-					"```"
-				]
+				"contents": "```lua\n-- materialsystem example here\n```"
 			}
 		],
 		"database": [
 			{
 				"title": "database-1.lua",
-				"contents": [
-					"```lua",
-					"local data = database.read(\"example-1\") or {}",
-					"data.load_count = (data.load_count or 0) + 1",
-					"",
-					"client.log(\"this is the \", data.load_count, \". time you've loaded this script!\")",
-					"",
-					"client.set_event_callback(\"player_death\", function(e)",
-					"\tif client.userid_to_entindex(e.attacker) == entity.get_local_player() then",
-					"\t\tdata.kill_count = (data.kill_count or 0) + 1",
-					"\t\tclient.log(\"this is your \", data.kill_count, \". kill!\")",
-					"\tend",
-					"end)",
-					"",
-					"client.set_event_callback(\"shutdown\", function()",
-					"\tdatabase.write(\"example-1\", data)",
-					"end)",
-					"```"
-				]
+				"contents": "```lua\nlocal data = database.read(\"example-1\") or {}\ndata.load_count = (data.load_count or 0) + 1\n\nclient.log(\"this is the \", data.load_count, \". time you've loaded this script!\")\n\nclient.set_event_callback(\"player_death\", function(e)\n\tif client.userid_to_entindex(e.attacker) == entity.get_local_player() then\n\t\tdata.kill_count = (data.kill_count or 0) + 1\n\t\tclient.log(\"this is your \", data.kill_count, \". kill!\")\n\tend\nend)\n\nclient.set_event_callback(\"shutdown\", function()\n\tdatabase.write(\"example-1\", data)\nend)\n```"
 			}
 		]
 	},
