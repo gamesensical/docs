@@ -13,8 +13,8 @@ description: List of events that you can listen to using client.set_event_callba
 {{/description}}
 
 {{#has_string_properties}}
-# | Property
-- | --------
+ #  | Property
+--- | --------
 {{#string_properties}}
 {{index}} | {{{prop}}}
 {{/string_properties}}

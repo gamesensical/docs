@@ -71,8 +71,8 @@ Key | Description
 
 Fired every time the user types something in the game console and presses enter. Return false from the event handler to make the game not process the input
 
-# | Property
-- | --------
+ #  | Property
+--- | --------
 1 | console input text
 
 
