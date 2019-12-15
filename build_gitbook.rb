@@ -183,7 +183,19 @@ end
 
 # Write event list
 (output_dir + "development" + "events.md").write(Template.new("events").render({
-	events: events["events"].map{|name, data| data[:name] = name; data}
+	events: events["events"].map do |name, data|
+		data["name"] = name
+
+		if data.dig("properties", 0).is_a? String
+			data["string_properties"] = data["properties"].map.with_index {|prop, i| {index: i+1, prop: prop}}
+			data["has_string_properties"] = true
+		elsif data.key? "properties"
+			data["table_properties"] = data["properties"].map{|table| table.map{|key, description| {key: key, description: description}}}
+			data["has_table_properties"] = true
+		end
+
+		data
+	end
 }))
 
 # Write formatted list of globals and netprops to SUMMARY.md
