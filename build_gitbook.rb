@@ -40,6 +40,7 @@ Template.template_path = template_dir.to_s
 
 globals = JSON.parse((BUILD_DIR + "globals.json").read)
 extra_docs = JSON.parse((SRC_DIR + "extra_docs.json").read)
+events = JSON.parse((SRC_DIR + "events.json").read)
 globals_descriptions = extra_docs["globals_descriptions"]
 globals_examples = extra_docs["globals_examples"]
 
@@ -179,6 +180,11 @@ netprops_groups.each do |group, classnames|
 		classnames: classnames
 	}))
 end
+
+# Write event list
+(output_dir + "development" + "events.md").write(Template.new("events").render({
+	events: events["events"].map{|name, data| data[:name] = name; data}
+}))
 
 # Write formatted list of globals and netprops to SUMMARY.md
 (output_dir + "SUMMARY.md").write(Template.new("SUMMARY").render({

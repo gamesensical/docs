@@ -24,6 +24,7 @@
     * [Atom](development/editors/atom.md)
   * [Snippets](development/snippets/README.md)
   * [Compiling lua scripts](development/compiling.md)
+  * [Events](development/events.md)
 * [API Documentation](globals/README.md)
   * [bit](globals/bit.md)
   * [client](globals/client.md)
