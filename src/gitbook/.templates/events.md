@@ -31,5 +31,20 @@ Key | Description
 {{/table_properties}}
 {{/has_table_properties}}
 
+{{#page-ref}}
+{% page-ref page="{{{page-ref}}}" %}
+
+{{/page-ref}}
+{{#has_examples}}
+**Examples:**
+
+{% code-tabs %}
+{{#examples}}
+{% code-tabs-item %}
+{{{.}}}
+{% endcode-tabs-item %}
+{{/examples}}
+{% endcode-tabs %}
+{{/has_examples}}
 
 {{/events}}

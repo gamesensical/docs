@@ -22,9 +22,9 @@
     * [VS Code](development/editors/vscode.md)
     * [Sublime Text](development/editors/sublime.md)
     * [Atom](development/editors/atom.md)
+  * [Events](development/events.md)
   * [Snippets](development/snippets/README.md)
   * [Compiling lua scripts](development/compiling.md)
-  * [Events](development/events.md)
 * [API Documentation](globals/README.md)
 {{#globals}}
   * [{{.}}](globals/{{.}}.md)

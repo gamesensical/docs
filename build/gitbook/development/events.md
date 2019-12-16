@@ -7,8 +7,10 @@ description: List of events that you can listen to using client.set_event_callba
 
 #### paint
 
-Fired every time the game renders a frame while being connected to a server. Can be used to draw to the screen using the renderer.* functions.
+Fired every time the game renders a frame while being connected to a server. Can be used to draw to the screen using the renderer.* functions
 
+
+{% page-ref page="/developers/globals/renderer" %}
 
 
 #### run_command
@@ -24,7 +26,7 @@ Key | Description
 
 #### setup_command
 
-Fired every time the game prepares a move command that's sent to the server. This is ran before cheat features like antiaim and can be used to modify user input (view angles, pressed keys, movement) how it's seen by the cheat. For example, setting `in_use = 1` will disable antiaim the same way pressing use key ingame does. This is the preferred method of setting user input and should be used instead of `client.exec` whenever possible.
+Fired every time the game prepares a move command that's sent to the server. This is ran before cheat features like antiaim and can be used to modify user input (view angles, pressed keys, movement) how it's seen by the cheat. For example, setting `in_use = 1` will disable antiaim the same way pressing use key ingame does. This is the preferred method of setting user input and should be used instead of `client.exec` whenever possible
 
 Key | Description
 --- | -----------
@@ -76,16 +78,37 @@ Fired every time the user types something in the game console and presses enter.
  1 | console input text
 
 
+**Examples:**
+
+{% code-tabs %}
+{% code-tabs-item %}
+```lua
+client.set_event_callback("console_input", function(text)
+	client.log("entered: '", text, "'")
+end)
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 #### net_update_start
 
-Fired before the game processes entity updates from the server. (`FrameStageNotify FRAME_NET_UPDATE_START`) Be careful when using this event to modify entity data, some things have to be restored manually as not even a full update will update them.
+Fired before the game processes entity updates from the server. (`FrameStageNotify FRAME_NET_UPDATE_START`) Be careful when using this event to modify entity data, some things have to be restored manually as not even a full update will update them
 
 
 
 #### net_update_end
 
 Fired after an entity update packet is received from the server. (`FrameStageNotify FRAME_NET_UPDATE_END`)
+
+
+
+#### predict_command
+
+Fired when the game prediction is ran
+
+Key | Description
+--- | -----------
+ **command_number** | Command number of the predicted command
 
 
 

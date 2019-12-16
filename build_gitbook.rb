@@ -194,6 +194,8 @@ end
 			data["has_table_properties"] = true
 		end
 
+		data["has_examples"] = !data.dig("examples", 0).nil?
+
 		data
 	end
 }))
