@@ -139,6 +139,7 @@ Key | Description
 
 {% code-tabs %}
 {% code-tabs-item %}
+```lua
 local function time_to_ticks(t)
 	return floor(0.5 + (t / globals.tickinterval()))
 end
@@ -157,6 +158,7 @@ local function aim_fire(e)
 	print(string.format('Fired at %s (%s) for %d dmg (chance=%d%%, bt=%2d, flags=%s)', entity.get_player_name(e.target), group, e.damage, math.floor(e.hit_chance + 0.5), time_to_ticks(e.backtrack), table.concat(flags)))
 end
 client.set_event_callback('aim_fire', aim_fire)
+```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
@@ -177,6 +179,7 @@ Key | Description
 
 {% code-tabs %}
 {% code-tabs-item %}
+```lua
 local hitgroup_names = {'generic', 'head', 'chest', 'stomach', 'left arm', 'right arm', 'left leg', 'right leg', 'neck', '?', 'gear'}
 
 local function aim_hit(e)
@@ -184,6 +187,7 @@ local function aim_hit(e)
 	print(string.format('Hit %s in the %s for %d damage (%d health remaining)', entity.get_player_name(e.target), group, e.damage, entity.get_prop(e.target, 'm_iHealth')))
 end
 client.set_event_callback('aim_hit', aim_hit)
+```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
@@ -204,6 +208,7 @@ Key | Description
 
 {% code-tabs %}
 {% code-tabs-item %}
+```lua
 local hitgroup_names = {'generic', 'head', 'chest', 'stomach', 'left arm', 'right arm', 'left leg', 'right leg', 'neck', '?', 'gear'}
 
 local function aim_miss(e)
@@ -211,6 +216,7 @@ local function aim_miss(e)
 	print(string.format('Missed %s (%s) due to %s', entity.get_player_name(e.target), group, e.reason))
 end
 client.set_event_callback('aim_miss', aim_miss)
+```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
