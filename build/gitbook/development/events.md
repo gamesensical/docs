@@ -118,16 +118,16 @@ Fired when the rage aimbot shoots at a player
 
 Key | Description
 --- | -----------
- **backtrack** | Amount of ticks the player was backtracked
- **boosted** | True if accuracy boost was used to increase the accuracy of the shot
- **damage** | Predicted damage the shot will do
- **high_priority** | True if the shot was at a high priority record, like on shot backtrack
+ **id** | Shot ID, this can be used to find the corresponding aim_hit / aim_miss event
+ **target** | Target player entindex
  **hit_chance** | Chance the shot will hit, depends on spread
  **hitgroup** | Targeted hit group, this is not the same thing as a hitbox
- **id** | Shot ID, this can be used to find the corresponding aim_hit / aim_miss event
+ **damage** | Predicted damage the shot will do
+ **backtrack** | Amount of ticks the player was backtracked
+ **boosted** | True if accuracy boost was used to increase the accuracy of the shot
+ **high_priority** | True if the shot was at a high priority record, like on shot backtrack
  **interpolated** | Player was interpolated
  **extrapolated** | Player was extrapolated
- **target** | Target player entindex
  **teleported** | Target player was teleporting (breaking lag compensation)
  **tick** | Tick the shot was fired at. This can be used to draw the hitboxes using client.draw_hitboxes
  **x** | X world coordinate of the aim point
@@ -135,6 +135,30 @@ Key | Description
  **z** | Z world coordinate of the aim point
 
 
+**Examples:**
+
+{% code-tabs %}
+{% code-tabs-item %}
+local function time_to_ticks(t)
+	return floor(0.5 + (t / globals.tickinterval()))
+end
+
+local hitgroup_names = {'generic', 'head', 'chest', 'stomach', 'left arm', 'right arm', 'left leg', 'right leg', 'neck', '?', 'gear'}
+
+local function aim_fire(e)
+	local flags = {
+		e.teleported and 'T' or '',
+		e.interpolated and 'I' or '',
+		e.extrapolated and 'E' or '',
+		e.boosted and 'B' or '',
+		e.high_priority and 'H' or ''
+	}
+	local group = hitgroup_names[e.hitgroup + 1] or '?'
+	print(string.format('Fired at %s (%s) for %d dmg (chance=%d%%, bt=%2d, flags=%s)', entity.get_player_name(e.target), group, e.damage, math.floor(e.hit_chance + 0.5), time_to_ticks(e.backtrack), table.concat(flags)))
+end
+client.set_event_callback('aim_fire', aim_fire)
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 #### aim_hit
 
@@ -142,13 +166,26 @@ Fired when the rage aimbot hit a shot at a player
 
 Key | Description
 --- | -----------
- **damage** | Actual damage the shot did
- **hit_chance** | Actual hit chance the shot had
- **hitgroup** | Hit group that was hit. This is not the same thing as a hitbox
  **id** | Shot ID, the corresponding aim_fire event has the same ID
  **target** | Target player entindex
+ **hit_chance** | Actual hit chance the shot had
+ **hitgroup** | Hit group that was hit. This is not the same thing as a hitbox
+ **damage** | Actual damage the shot did
 
 
+**Examples:**
+
+{% code-tabs %}
+{% code-tabs-item %}
+local hitgroup_names = {'generic', 'head', 'chest', 'stomach', 'left arm', 'right arm', 'left leg', 'right leg', 'neck', '?', 'gear'}
+
+local function aim_hit(e)
+	local group = hitgroup_names[e.hitgroup + 1] or '?'
+	print(string.format('Hit %s in the %s for %d damage (%d health remaining)', entity.get_player_name(e.target), group, e.damage, entity.get_prop(e.target, 'm_iHealth')))
+end
+client.set_event_callback('aim_hit', aim_hit)
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
 #### aim_miss
 
@@ -156,11 +193,24 @@ Fired when the rage aimbot missed a shot at a player
 
 Key | Description
 --- | -----------
+ **id** | Shot ID, the corresponding aim_fire event has the same ID
+ **target** | Target player entindex
  **hit_chance** | Actual hit chance the shot had
  **hitgroup** | Hit group that was missed. This is not the same thing as a hitbox
- **id** | Shot ID, the corresponding aim_fire event has the same ID
  **reason** | Reason the shot was missed. This can be 'spread', 'prediction error', 'death' or '?' (unknown / resolver)
- **target** | Target player entindex
 
 
+**Examples:**
+
+{% code-tabs %}
+{% code-tabs-item %}
+local hitgroup_names = {'generic', 'head', 'chest', 'stomach', 'left arm', 'right arm', 'left leg', 'right leg', 'neck', '?', 'gear'}
+
+local function aim_miss(e)
+	local group = hitgroup_names[e.hitgroup + 1] or '?'
+	print(string.format('Missed %s (%s) due to %s', entity.get_player_name(e.target), group, e.reason))
+end
+client.set_event_callback('aim_miss', aim_miss)
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
