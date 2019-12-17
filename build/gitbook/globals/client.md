@@ -31,8 +31,8 @@ Returns x, y, z world coordinates of the game's camera position, or nil on failu
 Argument | Type | Description
 -------- | ---- | -----------
   **r** | number | Red (0-255)
-  **g** | number | Red (0-255)
-  **b** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
   **msg** | string | The message
   **...** |  | Comma-separated arguments to concatenate with msg.
 

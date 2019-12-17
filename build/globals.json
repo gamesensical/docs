@@ -229,12 +229,12 @@
         },
         {
           "name": "g",
-          "description": "Red (0-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Red (0-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {

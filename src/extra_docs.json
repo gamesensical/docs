@@ -1,5 +1,8 @@
 {
-	"globals_patch": [],
+	"globals_patch": [
+		{"op": "replace", "path": "client/color_log/args/1", "value": {"name": "g", "description": "Green (0-255)"}},
+		{"op": "replace", "path": "client/color_log/args/2", "value": {"name": "b", "description": "Blue (0-255)"}}
+	],
 	"globals_merge": {
 		"bit": {
 			"arshift": {
