@@ -1630,6 +1630,7 @@
     "indicator": {
       "name": "renderer.indicator",
       "description": "Returns the Y screen coordinate (vertical offset) of the drawn text, or nil on failure. This can only be called from the paint callback.",
+      "return_type": "number",
       "args": [
         {
           "name": "r",
@@ -1709,7 +1710,7 @@
     },
     "load_jpg": {
       "name": "renderer.load_jpg",
-      "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+      "description": "Loads a texture from raw JPG contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure",
       "return_type": "number",
       "return_description": "texture id",
       "args": [
@@ -1722,7 +1723,7 @@
     },
     "load_png": {
       "name": "renderer.load_png",
-      "description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+      "description": "Loads a texture from raw png contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure",
       "return_type": "number",
       "return_description": "texture id",
       "args": [
@@ -1730,6 +1731,31 @@
           "name": "contents",
           "description": "Raw PNG file contents",
           "type": "string"
+        }
+      ]
+    },
+    "load_rgba": {
+      "name": "renderer.load_rgba",
+      "description": "Loads a texture from a RGBA buffer. Returns a texture ID that can be used with renderer.texture, or nil on failure",
+      "return_type": "number",
+      "return_description": "texture id",
+      "args": [
+        {
+          "name": "contents",
+          "description": "RGBA buffer (hex encoded - red = \"\\xFF\\x00\\x00\\xFF\")",
+          "type": "string"
+        },
+        {
+          "name": "width",
+          "description": "Width",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "height",
+          "description": "Height",
+          "type": "number",
+          "type_description": "px"
         }
       ]
     },
@@ -1880,7 +1906,7 @@
     },
     "texture": {
       "name": "renderer.texture",
-      "description": "Draws a texture from the texture id created from load_png, load_jpg or load_svg",
+      "description": "Draws a texture from the texture id created from load_rgba, load_png, load_jpg or load_svg",
       "args": [
         {
           "name": "id",
@@ -1931,6 +1957,12 @@
           "name": "a",
           "description": "Alpha (0-255)",
           "type": "number"
+        },
+        {
+          "name": "tiled",
+          "description": "True if a differently sized texture should be tiled instead of scaled",
+          "optional": true,
+          "type": "boolean"
         }
       ]
     },
@@ -2040,6 +2072,22 @@
       "name": "ui.is_menu_open",
       "description": "Returns true if the menu is currently open.",
       "return_type": "boolean",
+      "args": [
+
+      ]
+    },
+    "menu_position": {
+      "name": "ui.menu_position",
+      "description": "Returns the x, y of the menu, even when closed.",
+      "return_type": "number, number",
+      "args": [
+
+      ]
+    },
+    "menu_size": {
+      "name": "ui.menu_size",
+      "description": "Returns the width, height of the menu, even when closed.",
+      "return_type": "number, number",
       "args": [
 
       ]

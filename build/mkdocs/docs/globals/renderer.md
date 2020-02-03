@@ -69,7 +69,7 @@ This can only be called from the paint callback.
 
 #### renderer.indicator
 
-`renderer.indicator(r: number, g: number, b: number, a: number, ...)`
+`renderer.indicator(r: number, g: number, b: number, a: number, ...)`: number
 
 Argument | Type | Description
 -------- | ---- | -----------
@@ -108,7 +108,7 @@ Argument | Type | Description
 -------- | ---- | -----------
   **contents** | string | Raw JPG file contents
 
-Returns a texture ID that can be used with renderer.texture, or nil on failure
+Loads a texture from raw JPG contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure
 
 
 #### renderer.load_png
@@ -119,7 +119,20 @@ Argument | Type | Description
 -------- | ---- | -----------
   **contents** | string | Raw PNG file contents
 
-Returns a texture ID that can be used with renderer.texture, or nil on failure
+Loads a texture from raw png contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure
+
+
+#### renderer.load_rgba
+
+`renderer.load_rgba(contents: string, width: number, height: number)`: number (texture id)
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **contents** | string | RGBA buffer (hex encoded - red = "\xFF\x00\x00\xFF")
+  **width** | number (px) | Width
+  **height** | number (px) | Height
+
+Loads a texture from a RGBA buffer. Returns a texture ID that can be used with renderer.texture, or nil on failure
 
 
 #### renderer.load_svg
@@ -186,7 +199,7 @@ This can only be called from the paint callback.
 
 #### renderer.texture
 
-`renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number)`
+`renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number[, tiled: boolean])`
 
 Argument | Type | Description
 -------- | ---- | -----------
@@ -199,8 +212,9 @@ Argument | Type | Description
   **g** | number | Green (0-255)
   **b** | number | Blue (0-255)
   **a** | number | Alpha (0-255)
+  **tiled** | boolean | True if a differently sized texture should be tiled instead of scaled
 
-Draws a texture from the texture id created from load_png, load_jpg or load_svg
+Draws a texture from the texture id created from load_rgba, load_png, load_jpg or load_svg
 
 
 #### renderer.triangle

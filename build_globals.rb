@@ -55,7 +55,9 @@ class ReturnTypes
 			"table" => "table",
 			"width, height" => "number, number",
 			"x, y, z" => "number, number, number",
-			"x1, y1, x2, y2, alpha_multiplier" => "number, number, number, number, number"
+			"x, y" => "number, number",
+			"x1, y1, x2, y2, alpha_multiplier" => "number, number, number, number, number",
+			"y screen coordinate" => "number"
 		}
 	end
 
@@ -71,12 +73,15 @@ class ReturnTypes
 		# end
 
 		types = []
-		@types.each do |type, type_str|
-			types << type_str if data.key?("description") && data["description"].include?(type) && data["description"].downcase.include?("returns")
+		if desc = data["description"].dup.downcase
+			@types.each do |type, type_str|
+				if desc.include?(type) && desc.include?("returns")
+					types << type_str
+					desc.gsub!(type, "")
+				end
+			end
+			return types[0] if types.uniq.length == 1
 		end
-		return types[0] if types.uniq.length == 1
-
-		return nil
 	end
 end
 

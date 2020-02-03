@@ -150,8 +150,8 @@ function client.camera_position() end
 --- Logs a colored message to console. End the string with \0 to prevent it from adding a newline.
 ---
 --- `r`: Red (0-255)
---- `g`: Red (0-255)
---- `b`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
 --- `msg`: The message
 --- `...`: Comma-separated arguments to concatenate with msg.
 ---@param r number
@@ -965,6 +965,7 @@ function renderer.gradient(x, y, w, h, r1, g1, b1, a1, r2, g2, b2, a2, ltr) end
 ---@param b number
 ---@param a number
 ---@param ...
+---@return number
 function renderer.indicator(r, g, b, a, ...) end
 
 ---
@@ -989,7 +990,7 @@ function renderer.indicator(r, g, b, a, ...) end
 function renderer.line(xa, ya, xb, yb, r, g, b, a) end
 
 ---
---- Returns a texture ID that can be used with renderer.texture, or nil on failure
+--- Loads a texture from raw JPG contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure
 ---
 --- `contents`: Raw JPG file contents
 ---@param contents string
@@ -997,12 +998,24 @@ function renderer.line(xa, ya, xb, yb, r, g, b, a) end
 function renderer.load_jpg(contents) end
 
 ---
---- Returns a texture ID that can be used with renderer.texture, or nil on failure
+--- Loads a texture from raw png contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure
 ---
 --- `contents`: Raw PNG file contents
 ---@param contents string
 ---@return number texture id
 function renderer.load_png(contents) end
+
+---
+--- Loads a texture from a RGBA buffer. Returns a texture ID that can be used with renderer.texture, or nil on failure
+---
+--- `contents`: RGBA buffer (hex encoded - red = "\xFF\x00\x00\xFF")
+--- `width`: Width
+--- `height`: Height
+---@param contents string
+---@param width number
+---@param height number
+---@return number texture id
+function renderer.load_rgba(contents, width, height) end
 
 ---
 --- Returns a texture ID that can be used with renderer.texture, or nil on failure
@@ -1071,7 +1084,7 @@ function renderer.rectangle(x, y, w, h, r, g, b, a) end
 function renderer.text(x, y, r, g, b, a, flags, max_width, ...) end
 
 ---
---- Draws a texture from the texture id created from load_png, load_jpg or load_svg
+--- Draws a texture from the texture id created from load_rgba, load_png, load_jpg or load_svg
 ---
 --- `id`: Texture ID
 --- `x`: X screen coordinate
@@ -1082,6 +1095,7 @@ function renderer.text(x, y, r, g, b, a, flags, max_width, ...) end
 --- `g`: Green (0-255)
 --- `b`: Blue (0-255)
 --- `a`: Alpha (0-255)
+--- `tiled`: True if a differently sized texture should be tiled instead of scaled
 ---@param id number
 ---@param x number
 ---@param y number
@@ -1091,7 +1105,8 @@ function renderer.text(x, y, r, g, b, a, flags, max_width, ...) end
 ---@param g number
 ---@param b number
 ---@param a number
-function renderer.texture(id, x, y, w, h, r, g, b, a) end
+---@param tiled boolean
+function renderer.texture(id, x, y, w, h, r, g, b, a, tiled) end
 
 ---
 --- This can only be called from the paint callback.
@@ -1148,6 +1163,18 @@ function ui.get(item) end
 ---
 ---@return boolean
 function ui.is_menu_open() end
+
+---
+--- Returns the x, y of the menu, even when closed.
+---
+---@return number, number
+function ui.menu_position() end
+
+---
+--- Returns the width, height of the menu, even when closed.
+---
+---@return number, number
+function ui.menu_size() end
 
 ---
 --- Returns current mouse coordinates x, y

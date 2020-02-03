@@ -1,7 +1,8 @@
 {
 	"globals_patch": [
 		{"op": "replace", "path": "client/color_log/args/1", "value": {"name": "g", "description": "Green (0-255)"}},
-		{"op": "replace", "path": "client/color_log/args/2", "value": {"name": "b", "description": "Blue (0-255)"}}
+		{"op": "replace", "path": "client/color_log/args/2", "value": {"name": "b", "description": "Blue (0-255)"}},
+		{"op": "add", "path": "renderer/texture/args/-", "value": {"name": "tiled", "description": "true if a differently sized texture should be tiled instead of scaled", "optional": true, "type": "boolean"}}
 	],
 	"globals_merge": {
 		"bit": {
@@ -330,10 +331,10 @@
 		},
 		"renderer": {
 			"texture": {
-				"description": "Draws a texture from the texture id created from load_png, load_jpg or load_svg"
+				"description": "Draws a texture from the texture id created from load_rgba, load_png, load_jpg or load_svg"
 			},
 			"load_png": {
-				"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+				"description": "Loads a texture from raw png contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure",
 				"args": [
 					{
 						"name": "contents",
@@ -342,11 +343,28 @@
 				]
 			},
 			"load_jpg": {
-				"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+				"description": "Loads a texture from raw JPG contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure",
 				"args": [
 					{
 						"name": "contents",
 						"description": "Raw JPG file contents"
+					}
+				]
+			},
+			"load_rgba": {
+				"description": "Loads a texture from a RGBA buffer. Returns a texture ID that can be used with renderer.texture, or nil on failure",
+				"args": [
+					{
+						"name": "contents",
+						"description": "RGBA buffer (hex encoded - red = \"\\xFF\\x00\\x00\\xFF\")"
+					},
+					{
+						"name": "width",
+						"description": "Width"
+					},
+					{
+						"name": "height",
+						"description": "Height"
 					}
 				]
 			}
@@ -552,6 +570,12 @@
 			},
 			"set_visible": {
 				"description": "Sets the visibility of the menu item"
+			},
+			"menu_size": {
+				"description": "Returns the width, height of the menu, even when closed."
+			},
+			"menu_position": {
+				"description": "Returns the x, y of the menu, even when closed."
 			}
 		},
 		"entity": {
