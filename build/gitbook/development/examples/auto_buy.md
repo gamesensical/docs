@@ -1,4 +1,4 @@
-# Talk shit
+# Auto buy
 
 This script adds an "Auto buy AWP" checkbox to the misc tab, useful for spread HvH when AWP purchases are limited.
 

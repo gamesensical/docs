@@ -16,27 +16,60 @@ end
 class Template < Mustache
 	self.template_extension = "md"
 
-	def initialize(name)
+	def initialize(name, template_path: nil)
+		self.template_path = template_path.to_s unless template_path.nil?
+
 		self.template_name = name
 	end
 end
 
-SHORT_ARG_TYPES = true
+class DocumentationFormat
+	def initialize(directory_name: "gitbook", build_dir: nil, src_dir: nil, docs_dir: nil)
+		@input_dir = src_dir + directory_name
+		@output_dir = build_dir + directory_name
+		@docs_dir = docs_dir || @output_dir
+		@globals_dir = @docs_dir + "globals"
+		@props_dir = @docs_dir + "netprops"
+		@template_dir = (@input_dir + ".templates").to_s
 
+		FileUtils.rm_r(Dir[@output_dir + "*"]) if @output_dir.directory?
+		@output_dir.mkpath
+		FileUtils.cp_r(@input_dir, build_dir)
+		FileUtils.rm_r(@output_dir + ".templates") if (@output_dir + ".templates").directory?
+
+		@globals_template = Template.new("globals", template_path: @template_dir)
+		@netprops_class_template = Template.new("netprops_class", template_path: @template_dir)
+		@netprops_group_template = Template.new("netprops_group", template_path: @template_dir)
+	end
+
+	def build_global(name, data)
+		(@globals_dir + "#{name}.md").write(@globals_template.render(data).chomp)
+	end
+
+	def build_netprops_class(classname, data)
+		(@props_dir + "#{classname}.md").write(@netprops_class_template.render(data))
+	end
+
+	def build_netprops_group(filename, data)
+		(@props_dir + "#{filename}.md").write(@netprops_group_template.render(data))
+	end
+
+	def build_events(data)
+		(@docs_dir + "development" + "events.md").write(Template.new("events", template_path: @template_dir).render(data))
+	end
+
+	def build_summary(data)
+		(@docs_dir + "SUMMARY.md").write(Template.new("summary", template_path: @template_dir).render(data))
+	end
+end
+
+SHORT_ARG_TYPES = true
 BUILD_DIR = Pathname.new("build/")
 SRC_DIR = Pathname.new("src/")
 
-input_dir = SRC_DIR + "gitbook"
-output_dir = BUILD_DIR + "gitbook"
-globals_dir = output_dir + "globals"
-props_dir = output_dir + "netprops"
-template_dir = input_dir + ".templates"
-
-FileUtils.rm_r(output_dir) if output_dir.directory?
-output_dir.mkpath
-FileUtils.cp_r(input_dir, BUILD_DIR)
-FileUtils.rm_r(output_dir + ".templates")
-Template.template_path = template_dir.to_s
+documentation_formats = []
+documentation_formats << DocumentationFormat.new(directory_name: "gitbook", build_dir: BUILD_DIR, src_dir: SRC_DIR)
+documentation_formats << DocumentationFormat.new(directory_name: "mkdocs", build_dir: BUILD_DIR, src_dir: SRC_DIR, docs_dir: BUILD_DIR + "mkdocs/docs")
 
 globals = JSON.parse((BUILD_DIR + "globals.json").read)
 extra_docs = JSON.parse((SRC_DIR + "extra_docs.json").read)
@@ -44,8 +77,7 @@ events = JSON.parse((SRC_DIR + "events.json").read)
 globals_descriptions = extra_docs["globals_descriptions"]
 globals_examples = extra_docs["globals_examples"]
 
-globals_template = Template.new("globals")
-globals.sort.to_h.each do |global, functions|
+globals.sort.to_h.map do |global, functions|
 	functions_list = functions.sort_by{|name, data| (data.key?("name") && data["name"].include?(":")) ? "\xFF#{name}" : name}.map do |name, function|
 		# name
 		function["name"] ||= "#{global}.#{name}"
@@ -69,17 +101,19 @@ globals.sort.to_h.each do |global, functions|
 		function
 	end
 
-	(globals_dir + "#{global}.md").write(globals_template.render({
+	data = {
 		description: globals_descriptions[global],
 		functions: functions_list,
 		global: global,
 		examples: globals_examples.key?(global) ? {list: globals_examples[global]} : nil
-	}).chomp)
+	}
+
+	documentation_formats.each do |documentation_format|
+		documentation_format.build_global(global, data)
+	end
 end
 
-# Generate netprops docs
-
-# Write netprops
+# Generate netprops
 classes = Hash.new
 classes_type = Hash.new
 current_class = nil
@@ -157,12 +191,15 @@ netprops_class_template = Template.new("netprops_class")
 classes.each do |classname, props|
 	next if classname.nil?
 
-	netprops_class_template
-	(props_dir + "#{classname}.md").write(netprops_class_template.render({
+	data = {
 		type: classes_type[classname],
 		classname: classname,
 		props: props
-	}))
+	}
+
+	documentation_formats.each do |documentation_format|
+		documentation_format.build_netprops_class(classname, data)
+	end
 
 	group = get_group(classname)
 	netprops_groups[group] ||= []
@@ -172,17 +209,20 @@ end
 group_filename = Hash[netprops_groups.map{|a, b| [a, a.parameterize.gsub("-", "")]}]
 
 date = Date.parse(first_line.split(" ").last).strftime("%d.%m.%Y")
-netprops_group_template = Template.new("netprops_group")
 netprops_groups.each do |group, classnames|
-	(props_dir + "#{group_filename[group]}.md").write(netprops_group_template.render({
+	data = {
 		group: group,
 		last_updated: date,
 		classnames: classnames
-	}))
+	}
+
+	documentation_formats.each do |documentation_format|
+		documentation_format.build_netprops_group(group_filename[group], data)
+	end
 end
 
 # Write event list
-(output_dir + "development" + "events.md").write(Template.new("events").render({
+events_data = {
 	events: events["events"].map do |name, data|
 		data["name"] = name
 
@@ -198,14 +238,20 @@ end
 
 		data
 	end
-}))
+}
+documentation_formats.each do |documentation_format|
+	documentation_format.build_events(events_data)
+end
 
 # Write formatted list of globals and netprops to SUMMARY.md
-(output_dir + "SUMMARY.md").write(Template.new("SUMMARY").render({
+summary_data = {
 	globals: globals.keys,
 	netprops: netprops_groups.map{|group, classnames| {
 		group: group,
 		group_filename: group_filename[group],
 		classnames: classnames
 	}}
-}))
+}
+documentation_formats.each do |documentation_format|
+	documentation_format.build_summary(summary_data)
+end
