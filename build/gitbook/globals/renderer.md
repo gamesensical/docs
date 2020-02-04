@@ -190,7 +190,7 @@ Argument | Type | Description
   **g** | number | Green (1-255)
   **b** | number | Blue (1-255)
   **a** | number | Alpha (1-255)
-  **flags** | string (text flags) | "+" for large text, "-" for small text, "c" for centered text, "r" for right-aligned text, "b" for bold text. "c" can be combined with other flags. nil can be specified for normal sized uncentered text.
+  **flags** | string (text flags) | "+" for large text, "-" for small text, "c" for centered text, "r" for right-aligned text, "b" for bold text, "d" for text that scales with DPI. "c" and "d" can be combined with other flags. nil can be specified for normal sized uncentered text.
   **max_width** | number | Text will be clipped if it exceeds this width in pixels. Use 0 for no limit.
   **...** |  | Text that will be drawn
 
@@ -199,7 +199,7 @@ This can only be called from the paint callback.
 
 #### renderer.texture
 
-`renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number[, tiled: boolean])`
+`renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number[, flags: string])`
 
 Argument | Type | Description
 -------- | ---- | -----------
@@ -212,7 +212,7 @@ Argument | Type | Description
   **g** | number | Green (0-255)
   **b** | number | Blue (0-255)
   **a** | number | Alpha (0-255)
-  **tiled** | boolean | True if a differently sized texture should be tiled instead of scaled
+  **flags** | string | "r" for repeated/tiled textures, "f" to fill/stretch
 
 Draws a texture from the texture id created from load_rgba, load_png, load_jpg or load_svg
 

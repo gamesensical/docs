@@ -1889,7 +1889,7 @@
         },
         {
           "name": "flags",
-          "description": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text. \"c\" can be combined with other flags. nil can be specified for normal sized uncentered text.",
+          "description": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text, \"d\" for text that scales with DPI. \"c\" and \"d\" can be combined with other flags. nil can be specified for normal sized uncentered text.",
           "type": "string",
           "type_description": "text flags"
         },
@@ -1959,10 +1959,10 @@
           "type": "number"
         },
         {
-          "name": "tiled",
-          "description": "True if a differently sized texture should be tiled instead of scaled",
+          "name": "flags",
+          "description": "\"r\" for repeated/tiled textures, \"f\" to fill/stretch",
           "optional": true,
-          "type": "boolean"
+          "type": "string"
         }
       ]
     },

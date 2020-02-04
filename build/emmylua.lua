@@ -1069,7 +1069,7 @@ function renderer.rectangle(x, y, w, h, r, g, b, a) end
 --- `g`: Green (1-255)
 --- `b`: Blue (1-255)
 --- `a`: Alpha (1-255)
---- `flags`: "+" for large text, "-" for small text, "c" for centered text, "r" for right-aligned text, "b" for bold text. "c" can be combined with other flags. nil can be specified for normal sized uncentered text.
+--- `flags`: "+" for large text, "-" for small text, "c" for centered text, "r" for right-aligned text, "b" for bold text, "d" for text that scales with DPI. "c" and "d" can be combined with other flags. nil can be specified for normal sized uncentered text.
 --- `max_width`: Text will be clipped if it exceeds this width in pixels. Use 0 for no limit.
 --- `...`: Text that will be drawn
 ---@param x number
@@ -1095,7 +1095,7 @@ function renderer.text(x, y, r, g, b, a, flags, max_width, ...) end
 --- `g`: Green (0-255)
 --- `b`: Blue (0-255)
 --- `a`: Alpha (0-255)
---- `tiled`: True if a differently sized texture should be tiled instead of scaled
+--- `flags`: "r" for repeated/tiled textures, "f" to fill/stretch
 ---@param id number
 ---@param x number
 ---@param y number
@@ -1105,8 +1105,8 @@ function renderer.text(x, y, r, g, b, a, flags, max_width, ...) end
 ---@param g number
 ---@param b number
 ---@param a number
----@param tiled boolean
-function renderer.texture(id, x, y, w, h, r, g, b, a, tiled) end
+---@param flags string
+function renderer.texture(id, x, y, w, h, r, g, b, a, flags) end
 
 ---
 --- This can only be called from the paint callback.

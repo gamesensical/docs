@@ -2,7 +2,8 @@
 	"globals_patch": [
 		{"op": "replace", "path": "client/color_log/args/1", "value": {"name": "g", "description": "Green (0-255)"}},
 		{"op": "replace", "path": "client/color_log/args/2", "value": {"name": "b", "description": "Blue (0-255)"}},
-		{"op": "add", "path": "renderer/texture/args/-", "value": {"name": "tiled", "description": "true if a differently sized texture should be tiled instead of scaled", "optional": true, "type": "boolean"}}
+		{"op": "replace", "path": "renderer/text/args/6/description", "value": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text, \"d\" for text that scales with DPI. \"c\" and \"d\" can be combined with other flags. nil can be specified for normal sized uncentered text."},
+		{"op": "add", "path": "renderer/texture/args/-", "value": {"name": "flags", "description": "\"r\" for repeated/tiled textures, \"f\" to fill/stretch", "optional": true, "type": "string"}}
 	],
 	"globals_merge": {
 		"bit": {
