@@ -57,7 +57,7 @@
 			]
 		},
 		"console_input": {
-			"description": "Fired every time the user types something in the game console and presses enter. Return false from the event handler to make the game not process the input",
+			"description": "Fired every time the user types something in the game console and presses enter. Return true from the event handler to make the game not process the input",
 			"properties": [
 				"console input text"
 			],

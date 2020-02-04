@@ -71,7 +71,7 @@ Key | Description
 
 #### console_input
 
-Fired every time the user types something in the game console and presses enter. Return false from the event handler to make the game not process the input
+Fired every time the user types something in the game console and presses enter. Return true from the event handler to make the game not process the input
 
 || Property
 ------ | --------
