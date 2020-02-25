@@ -359,10 +359,24 @@ function client.timestamp() end
 ---
 --- Returns entindex, damage. Entindex is nil when no player is hit.
 ---
+--- `from_player`: Entity index of the player whose weapon will be used for this trace
+--- `from_x`: Position in world space
+--- `from_y`: Position in world space
+--- `from_z`: Position in world space
+--- `to_x`: Position in world space
+--- `to_y`: Position in world space
+--- `to_z`: Position in world space
 --- `skip_players`: Pass true to skip expensive player hitbox checks when they're not needed.
+---@param from_player number
+---@param from_x number
+---@param from_y number
+---@param from_z number
+---@param to_x number
+---@param to_y number
+---@param to_z number
 ---@param skip_players boolean
 ---@return number, number
-function client.trace_bullet(skip_players) end
+function client.trace_bullet(from_player, from_x, from_y, from_z, to_x, to_y, to_z, skip_players) end
 
 ---
 --- Returns fraction, entindex. fraction is a percentage in the range [0.0, 1.0] that tells you how far the trace went before hitting something, so 1.0 means nothing was hit. entindex is the entity index that hit, or -1 if no entity was hit.

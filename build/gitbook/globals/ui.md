@@ -23,7 +23,6 @@ For a checkbox, returns true or false. For a slider, returns an integer. For a c
 Returns true if the menu is currently open.
 
 
-<<<<<<< Updated upstream
 #### ui.menu_position
 
 `ui.menu_position()`: number, number
@@ -36,13 +35,6 @@ Returns the x, y of the menu, even when closed.
 `ui.menu_size()`: number, number
 
 Returns the width, height of the menu, even when closed.
-=======
-#### ui.menu_size
-
-`ui.menu_size()`
-
-Returns the x and y position of the menu (if opened)
->>>>>>> Stashed changes
 
 
 #### ui.mouse_position
