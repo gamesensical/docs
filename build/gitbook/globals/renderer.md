@@ -102,22 +102,26 @@ This can only be called from the paint callback.
 
 #### renderer.load_jpg
 
-`renderer.load_jpg(contents: string)`: number (texture id)
+`renderer.load_jpg(contents: string, width: number, height: number)`: number (texture id)
 
 Argument | Type | Description
 -------- | ---- | -----------
   **contents** | string | Raw JPG file contents
+  **width** | number (px) | Image width
+  **height** | number (px) | Image height
 
 Loads a texture from raw JPG contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure
 
 
 #### renderer.load_png
 
-`renderer.load_png(contents: string)`: number (texture id)
+`renderer.load_png(contents: string, width: number, height: number)`: number (texture id)
 
 Argument | Type | Description
 -------- | ---- | -----------
   **contents** | string | Raw PNG file contents
+  **width** | number (px) | Image width
+  **height** | number (px) | Image height
 
 Loads a texture from raw png contents (with file header). Returns a texture ID that can be used with renderer.texture, or nil on failure
 

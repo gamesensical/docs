@@ -610,46 +610,10 @@
       "return_type": "number, number",
       "args": [
         {
-          "name": "from_player",
-          "description": "Entity index of the player whose weapon will be used for this trace",
-          "type": "number",
-          "type_description": "entindex"
-        },
-        {
-          "name": "from_x",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "from_y",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "from_z",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "to_x",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "to_y",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
-        },
-        {
-          "name": "to_z",
-          "description": "Position in world space",
-          "type": "number",
-          "type_description": "world coordinate"
+          "name": "skip_players",
+          "description": "Pass true to skip expensive player hitbox checks when they're not needed.",
+          "type": "boolean",
+          "optional": true
         }
       ]
     },
@@ -1718,6 +1682,18 @@
           "name": "contents",
           "description": "Raw JPG file contents",
           "type": "string"
+        },
+        {
+          "name": "width",
+          "description": "Image width",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "height",
+          "description": "Image height",
+          "type": "number",
+          "type_description": "px"
         }
       ]
     },
@@ -1731,6 +1707,18 @@
           "name": "contents",
           "description": "Raw PNG file contents",
           "type": "string"
+        },
+        {
+          "name": "width",
+          "description": "Image width",
+          "type": "number",
+          "type_description": "px"
+        },
+        {
+          "name": "height",
+          "description": "Image height",
+          "type": "number",
+          "type_description": "px"
         }
       ]
     },
@@ -2076,6 +2064,7 @@
 
       ]
     },
+<<<<<<< Updated upstream
     "menu_position": {
       "name": "ui.menu_position",
       "description": "Returns the x, y of the menu, even when closed.",
@@ -2088,6 +2077,11 @@
       "name": "ui.menu_size",
       "description": "Returns the width, height of the menu, even when closed.",
       "return_type": "number, number",
+=======
+    "menu_size": {
+      "name": "ui.menu_size",
+      "description": "Returns the x and y position of the menu (if opened)",
+>>>>>>> Stashed changes
       "args": [
 
       ]

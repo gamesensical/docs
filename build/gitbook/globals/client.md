@@ -265,17 +265,11 @@ Returns high precision timestamp in milliseconds.
 
 #### client.trace_bullet
 
-`client.trace_bullet(from_player: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number)`: number, number
+`client.trace_bullet([skip_players: boolean])`: number, number
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **from_player** | number (entindex) | Entity index of the player whose weapon will be used for this trace
-  **from_x** | number (world coordinate) | Position in world space
-  **from_y** | number (world coordinate) | Position in world space
-  **from_z** | number (world coordinate) | Position in world space
-  **to_x** | number (world coordinate) | Position in world space
-  **to_y** | number (world coordinate) | Position in world space
-  **to_z** | number (world coordinate) | Position in world space
+  **skip_players** | boolean | Pass true to skip expensive player hitbox checks when they're not needed.
 
 Returns entindex, damage. Entindex is nil when no player is hit.
 

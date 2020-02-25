@@ -22,6 +22,87 @@
 		"name": 		{},
 		"get": 		{}
 	},
+	"globals": {
+		"chokedcommands": 		{},
+		"absoluteframetime": 		{},
+		"maxplayers": 		{},
+		"oldcommandack": 		{},
+		"commandack": 		{},
+		"frametime": 		{},
+		"tickcount": 		{},
+		"curtime": 		{},
+		"mapname": 		{},
+		"tickinterval": 		{},
+		"framecount": 		{},
+		"realtime": 		{},
+		"lastoutgoingcommand": 		{}
+	},
+	"renderer": {
+		"load_svg": 		{},
+		"texture": 		{},
+		"circle_outline": 		{},
+		"rectangle": 		{},
+		"gradient": 		{},
+		"circle": 		{},
+		"text": 		{},
+		"line": 		{},
+		"indicator": 		{},
+		"load_png": 		{},
+		"triangle": 		{},
+		"measure_text": 		{},
+		"load_rgba": 		{},
+		"world_to_screen": 		{},
+		"load_jpg": 		{}
+	},
+	"bit": {
+		"rol": 		{},
+		"arshift": 		{},
+		"bor": 		{},
+		"bswap": 		{},
+		"bxor": 		{},
+		"rshift": 		{},
+		"ror": 		{},
+		"bnot": 		{},
+		"tobit": 		{},
+		"lshift": 		{},
+		"tohex": 		{},
+		"band": 		{}
+	},
+	"config": {
+		"load": 		{}
+	},
+	"materialsystem": {
+		"chams_material": 		{},
+		"arms_material": 		{},
+		"find_texture": 		{},
+		"find_material": 		{},
+		"get_model_materials": 		{},
+		"find_materials": 		{},
+		"override_material": 		{}
+	},
+	"entity": {
+		"get_local_player": 		{},
+		"is_enemy": 		{},
+		"get_bounding_box": 		{},
+		"get_all": 		{},
+		"set_prop": 		{},
+		"get_player_weapon": 		{},
+		"get_steam64": 		{},
+		"hitbox_position": 		{},
+		"get_player_resource": 		{},
+		"is_dormant": 		{},
+		"get_player_name": 		{},
+		"get_game_rules": 		{},
+		"get_origin": 		{},
+		"get_prop": 		{},
+		"get_classname": 		{},
+		"get_players": 		{},
+		"is_alive": 		{}
+	},
+	"database": {
+		"write": 		{},
+		"read": 		{}
+	},
 	"client": {
 		"world_to_screen": 		{},
 		"draw_rectangle": 		{},
@@ -64,85 +145,5 @@
 		"unset_event_callback": 		{},
 		"reload_active_scripts": 		{},
 		"open_panorama_context": 		{}
-	},
-	"renderer": {
-		"load_svg": 		{},
-		"texture": 		{},
-		"circle_outline": 		{},
-		"rectangle": 		{},
-		"gradient": 		{},
-		"circle": 		{},
-		"text": 		{},
-		"line": 		{},
-		"indicator": 		{},
-		"load_png": 		{},
-		"triangle": 		{},
-		"measure_text": 		{},
-		"load_rgba": 		{},
-		"world_to_screen": 		{},
-		"load_jpg": 		{}
-	},
-	"bit": {
-		"rol": 		{},
-		"arshift": 		{},
-		"bor": 		{},
-		"bswap": 		{},
-		"bxor": 		{},
-		"rshift": 		{},
-		"ror": 		{},
-		"bnot": 		{},
-		"tobit": 		{},
-		"lshift": 		{},
-		"tohex": 		{},
-		"band": 		{}
-	},
-	"config": {
-		"load": 		{}
-	},
-	"database": {
-		"write": 		{},
-		"read": 		{}
-	},
-	"globals": {
-		"chokedcommands": 		{},
-		"absoluteframetime": 		{},
-		"maxplayers": 		{},
-		"oldcommandack": 		{},
-		"commandack": 		{},
-		"frametime": 		{},
-		"tickcount": 		{},
-		"curtime": 		{},
-		"mapname": 		{},
-		"tickinterval": 		{},
-		"framecount": 		{},
-		"realtime": 		{},
-		"lastoutgoingcommand": 		{}
-	},
-	"materialsystem": {
-		"chams_material": 		{},
-		"arms_material": 		{},
-		"find_texture": 		{},
-		"find_material": 		{},
-		"get_model_materials": 		{},
-		"find_materials": 		{},
-		"override_material": 		{}
-	},
-	"entity": {
-		"get_player_resource": 		{},
-		"get_local_player": 		{},
-		"is_enemy": 		{},
-		"get_classname": 		{},
-		"is_dormant": 		{},
-		"get_players": 		{},
-		"get_player_name": 		{},
-		"get_prop": 		{},
-		"get_bounding_box": 		{},
-		"get_all": 		{},
-		"set_prop": 		{},
-		"is_alive": 		{},
-		"get_player_weapon": 		{},
-		"get_game_rules": 		{},
-		"get_steam64": 		{},
-		"hitbox_position": 		{}
 	}
 }

@@ -231,6 +231,16 @@
 				"description": "Returns x, y, z world coordinates of the game's camera position, or nil on failure.",
 				"args": []
 			},
+			"trace_bullet": {
+				"args": [
+					{
+						"name": "skip_players",
+						"description": "Pass true to skip expensive player hitbox checks when they're not needed.",
+						"type": "boolean",
+						"optional": true
+					}
+				]
+			},
 			"create_interface": {
 				"description": "Returns a pointer to the interface, or nil on failure.",
 				"return_type": "userdata (ffi pointer)",
@@ -340,6 +350,14 @@
 					{
 						"name": "contents",
 						"description": "Raw PNG file contents"
+					},
+					{
+						"name": "width",
+						"description": "Image width"
+					},
+					{
+						"name": "height",
+						"description": "Image height"
 					}
 				]
 			},
@@ -349,6 +367,14 @@
 					{
 						"name": "contents",
 						"description": "Raw JPG file contents"
+					},
+					{
+						"name": "width",
+						"description": "Image width"
+					},
+					{
+						"name": "height",
+						"description": "Image height"
 					}
 				]
 			},
