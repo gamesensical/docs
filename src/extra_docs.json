@@ -425,7 +425,7 @@
 				"description": "Returns all material objects for a specified entity.",
 				"args": [
 					{
-						"name": "entindex",
+						"name": "ent",
 						"description": "The entity whos materials will be returned."
 					}
 				]
@@ -434,7 +434,7 @@
 				"description": "Overrides all of a material properties with another material.",
 				"args": [
 					{
-						"name": "entindex",
+						"name": "ent",
 						"description": "The entity whos materials will be returned."
 					}
 				]
@@ -601,7 +601,16 @@
 				"description": "Sets the value of the property. For vectors or angles, pass three values."
 			},
 			"is_dormant": {
-				"description": "Returns true if the player is dormant."
+				"description": "Returns true if the entity is dormant."
+			},
+			"get_origin": {
+				"description": "Returns the x, y, z coordinates of the entity. Only works for non-dormant entities, except for players, where it will return the dormant esp origin",
+				"args": [
+					{
+						"name": "ent",
+						"description": "Entity index"
+					}
+				]
 			}
 		},
 		"database": {

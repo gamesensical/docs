@@ -977,6 +977,19 @@
 
       ]
     },
+    "get_origin": {
+      "name": "entity.get_origin",
+      "description": "Returns the x, y, z coordinates of the entity. Only works for non-dormant entities, except for players, where it will return the dormant esp origin",
+      "return_type": "number, number, number",
+      "args": [
+        {
+          "name": "ent",
+          "description": "Entity index",
+          "type": "number",
+          "type_description": "entindex"
+        }
+      ]
+    },
     "get_player_name": {
       "name": "entity.get_player_name",
       "description": "Returns the player's name, or the string \"unknown\" on failure.",
@@ -1099,7 +1112,7 @@
     },
     "is_dormant": {
       "name": "entity.is_dormant",
-      "description": "Returns true if the player is dormant.",
+      "description": "Returns true if the entity is dormant.",
       "return_type": "boolean",
       "args": [
         {
@@ -1367,7 +1380,7 @@
       "return_description": "material objects",
       "args": [
         {
-          "name": "entindex",
+          "name": "ent",
           "description": "The entity whos materials will be returned.",
           "type": "number",
           "type_description": "entindex"
@@ -1392,7 +1405,7 @@
       "description": "Overrides all of a material properties with another material.",
       "args": [
         {
-          "name": "entindex",
+          "name": "ent",
           "description": "The entity whos materials will be returned.",
           "type": "number",
           "type_description": "entindex"

@@ -52,6 +52,17 @@ Returns entity index of CCSGameRulesProxy instance, or nil if none exists.
 Returns the entity index for the local player, or nil on failure.
 
 
+#### entity.get_origin
+
+`entity.get_origin(ent: number)`: number, number, number
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **ent** | number (entindex) | Entity index
+
+Returns the x, y, z coordinates of the entity. Only works for non-dormant entities, except for players, where it will return the dormant esp origin
+
+
 #### entity.get_player_name
 
 `entity.get_player_name(ent: number)`: string
@@ -147,7 +158,7 @@ Argument | Type | Description
 -------- | ---- | -----------
   **ent** | number (entindex) | Entity index.
 
-Returns true if the player is dormant.
+Returns true if the entity is dormant.
 
 
 #### entity.is_enemy

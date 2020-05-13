@@ -56,6 +56,19 @@
 				}
 			]
 		},
+		"override_view": {
+			"description": "Lets you override the camera position and angles",
+			"properties": [
+				{
+					"x": "Camera X position",
+					"y": "Camera Y position",
+					"z": "Camera Z position",
+					"pitch": "Pitch view angle",
+					"yaw": "Yaw view angle",
+					"fov": "Field of view"
+				}
+			]
+		},
 		"console_input": {
 			"description": "Fired every time the user types something in the game console and presses enter. Return true from the event handler to make the game not process the input",
 			"properties": [
@@ -63,6 +76,23 @@
 			],
 			"examples": [
 				"```lua\nclient.set_event_callback(\"console_input\", function(text)\n\tclient.log(\"entered: '\", text, \"'\")\nend)\n```"
+			]
+		},
+		"player_chat": {
+			"description": "Fired when a player sends a message to chat",
+			"properties": [
+				{
+					"teamonly": "true if the message was sent to team chat",
+					"entity": "Entity index of the player sending the message",
+					"name": "Name of the player sending the message",
+					"text": "Chat message text"
+				}
+			]
+		},
+		"string_cmd": {
+			"description": "Fired before a string command (chat messages, weapon inspecting, buy commands) is sent to the server.",
+			"properties": [
+				"string command"
 			]
 		},
 		"net_update_start": {
@@ -78,6 +108,12 @@
 					"command_number": "Command number of the predicted command"
 				}
 			]
+		},
+		"pre_render": {
+			"description": "Fired before a frame is rendered"
+		},
+		"post_render": {
+			"description": "Fired after a frame is rendered"
 		},
 		"aim_fire": {
 			"description": "Fired when the rage aimbot shoots at a player",

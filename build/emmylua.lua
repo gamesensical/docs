@@ -579,6 +579,14 @@ function entity.get_game_rules() end
 function entity.get_local_player() end
 
 ---
+--- Returns the x, y, z coordinates of the entity. Only works for non-dormant entities, except for players, where it will return the dormant esp origin
+---
+--- `ent`: Entity index
+---@param ent number
+---@return number, number, number
+function entity.get_origin(ent) end
+
+---
 --- Returns the player's name, or the string "unknown" on failure.
 ---
 --- `ent`: Player entity index.
@@ -647,7 +655,7 @@ function entity.hitbox_position(player, hitbox) end
 function entity.is_alive(ent) end
 
 ---
---- Returns true if the player is dormant.
+--- Returns true if the entity is dormant.
 ---
 --- `ent`: Entity index.
 ---@param ent number
@@ -827,10 +835,10 @@ function materialsystem.get_material_var_flag(material_var_flag) end
 ---
 --- Returns all material objects for a specified entity.
 ---
---- `entindex`: The entity whos materials will be returned.
----@param entindex number
+--- `ent`: The entity whos materials will be returned.
+---@param ent number
 ---@return table material objects
-function materialsystem.get_model_materials(entindex) end
+function materialsystem.get_model_materials(ent) end
 
 ---
 --- Returns the value of the shader param or nil
@@ -843,9 +851,9 @@ function materialsystem.get_shader_param(shader_param) end
 ---
 --- Overrides all of a material properties with another material.
 ---
---- `entindex`: The entity whos materials will be returned.
----@param entindex number
-function materialsystem.override_material(entindex) end
+--- `ent`: The entity whos materials will be returned.
+---@param ent number
+function materialsystem.override_material(ent) end
 
 ---
 --- Restores the original material properties of the material it's called on.

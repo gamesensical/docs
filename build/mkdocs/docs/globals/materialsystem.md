@@ -54,22 +54,22 @@ Returns a texture object for the specified material.
 
 #### materialsystem.get_model_materials
 
-`materialsystem.get_model_materials(entindex: number)`: table (material objects)
+`materialsystem.get_model_materials(ent: number)`: table (material objects)
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **entindex** | number (entindex) | The entity whos materials will be returned.
+  **ent** | number (entindex) | The entity whos materials will be returned.
 
 Returns all material objects for a specified entity.
 
 
 #### materialsystem.override_material
 
-`materialsystem.override_material(entindex: number)`
+`materialsystem.override_material(ent: number)`
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **entindex** | number (entindex) | The entity whos materials will be returned.
+  **ent** | number (entindex) | The entity whos materials will be returned.
 
 Overrides all of a material properties with another material.
 

@@ -69,6 +69,21 @@ Key | Description
 
 
 
+#### override_view
+
+Lets you override the camera position and angles
+
+Key | Description
+--- | -----------
+ **x** | Camera X position
+ **y** | Camera Y position
+ **z** | Camera Z position
+ **pitch** | Pitch view angle
+ **yaw** | Yaw view angle
+ **fov** | Field of view
+
+
+
 #### console_input
 
 Fired every time the user types something in the game console and presses enter. Return true from the event handler to make the game not process the input
@@ -90,6 +105,29 @@ end)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+#### player_chat
+
+Fired when a player sends a message to chat
+
+Key | Description
+--- | -----------
+ **teamonly** | true if the message was sent to team chat
+ **entity** | Entity index of the player sending the message
+ **name** | Name of the player sending the message
+ **text** | Chat message text
+
+
+
+#### string_cmd
+
+Fired before a string command (chat messages, weapon inspecting, buy commands) is sent to the server.
+
+|| Property
+------ | --------
+ 1 | string command
+
+
+
 #### net_update_start
 
 Fired before the game processes entity updates from the server. (`FrameStageNotify FRAME_NET_UPDATE_START`) Be careful when using this event to modify entity data, some things have to be restored manually as not even a full update will update them
@@ -109,6 +147,18 @@ Fired when the game prediction is ran
 Key | Description
 --- | -----------
  **command_number** | Command number of the predicted command
+
+
+
+#### pre_render
+
+Fired before a frame is rendered
+
+
+
+#### post_render
+
+Fired after a frame is rendered
 
 
 

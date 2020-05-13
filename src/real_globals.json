@@ -22,21 +22,6 @@
 		"name": 		{},
 		"get": 		{}
 	},
-	"globals": {
-		"chokedcommands": 		{},
-		"absoluteframetime": 		{},
-		"maxplayers": 		{},
-		"oldcommandack": 		{},
-		"commandack": 		{},
-		"frametime": 		{},
-		"tickcount": 		{},
-		"curtime": 		{},
-		"mapname": 		{},
-		"tickinterval": 		{},
-		"framecount": 		{},
-		"realtime": 		{},
-		"lastoutgoingcommand": 		{}
-	},
 	"renderer": {
 		"load_svg": 		{},
 		"texture": 		{},
@@ -71,6 +56,11 @@
 	"config": {
 		"load": 		{}
 	},
+	"database": {
+		"read": 		{},
+		"write": 		{},
+		"flush": 		{}
+	},
 	"materialsystem": {
 		"chams_material": 		{},
 		"arms_material": 		{},
@@ -90,6 +80,7 @@
 		"get_steam64": 		{},
 		"hitbox_position": 		{},
 		"get_player_resource": 		{},
+		"get_esp_data": 		{},
 		"is_dormant": 		{},
 		"get_player_name": 		{},
 		"get_game_rules": 		{},
@@ -99,9 +90,20 @@
 		"get_players": 		{},
 		"is_alive": 		{}
 	},
-	"database": {
-		"write": 		{},
-		"read": 		{}
+	"globals": {
+		"chokedcommands": 		{},
+		"absoluteframetime": 		{},
+		"maxplayers": 		{},
+		"oldcommandack": 		{},
+		"commandack": 		{},
+		"frametime": 		{},
+		"tickcount": 		{},
+		"curtime": 		{},
+		"mapname": 		{},
+		"tickinterval": 		{},
+		"framecount": 		{},
+		"realtime": 		{},
+		"lastoutgoingcommand": 		{}
 	},
 	"client": {
 		"world_to_screen": 		{},
@@ -112,7 +114,7 @@
 		"set_event_callback": 		{},
 		"screen_size": 		{},
 		"trace_bullet": 		{},
-		"unix_time": 		{},
+		"unset_event_callback": 		{},
 		"color_log": 		{},
 		"draw_text": 		{},
 		"scale_damage": 		{},
@@ -126,24 +128,29 @@
 		"log": 		{},
 		"timestamp": 		{},
 		"random_float": 		{},
-		"trace_line": 		{},
 		"draw_hitboxes": 		{},
+		"trace_line": 		{},
 		"eye_position": 		{},
-		"delay_call": 		{},
+		"draw_circle": 		{},
 		"update_player_list": 		{},
 		"draw_debug_text": 		{},
 		"camera_position": 		{},
+		"unix_time": 		{},
 		"visible": 		{},
 		"exec": 		{},
-		"system_time": 		{},
+		"reload_active_scripts": 		{},
 		"set_cvar": 		{},
 		"draw_indicator": 		{},
 		"error_log": 		{},
-		"draw_circle": 		{},
+		"register_esp_flag": 		{},
 		"draw_line": 		{},
 		"camera_angles": 		{},
-		"unset_event_callback": 		{},
-		"reload_active_scripts": 		{},
-		"open_panorama_context": 		{}
+		"delay_call": 		{},
+		"get_model_name": 		{},
+		"system_time": 		{}
+	},
+	"panorama": {
+		"open": 		{},
+		"loadstring": 		{}
 	}
 }
