@@ -1,5 +1,26 @@
 --[[EmmyLua]]
 
+-- _G:
+
+_G = {}
+
+---
+--- Read and return data from passed file.
+---
+--- `filename`: Name of file what be readed.
+---@param filename string
+function _G.readfile(filename) end
+
+---
+--- Writes a value to the file with name.
+---
+--- `filename`: Name of file what be writen.
+--- `buffer`: Data what be writen in the file
+---@param filename string
+---@param buffer string
+function _G.writefile(filename, buffer) end
+
+
 -- bit:
 
 bit = {}
@@ -263,6 +284,14 @@ function client.eye_position() end
 function client.find_signature(module_name, pattern) end
 
 ---
+--- Returns model name, or nil on failure.
+---
+--- `model_index`: Model index
+---@param model_index number
+---@return string
+function client.get_model_name(model_index) end
+
+---
 --- Returns true if the key is pressed, or nil on failure
 ---
 --- `key`: Virtual key code of the key as integer. [List of virtual key codes](https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes)
@@ -304,6 +333,22 @@ function client.random_float(minimum, maximum) end
 ---@param maximum number
 ---@return number
 function client.random_int(minimum, maximum) end
+
+---
+--- Returns the x, y, z coordinates of the entity. Only works for non-dormant entities, except for players, where it will return the dormant esp origin
+---
+--- `flagname`: Flag what be displayed
+--- `r`: New red value of the material (0-255)
+--- `g`: New green value of the material (0-255)
+--- `b`: New blue value of the material (0-255)
+--- `callback_function`: The given function will be called for every player when the ESP being drawn. Callbacks can return strings, e.g. return true, "DUCKING"
+---@param flagname
+---@param r number
+---@param g number
+---@param b number
+---@param callback_function
+---@return number, number, number
+function client.register_esp_flag(flagname, r, g, b, callback_function) end
 
 ---
 --- Reloads all scripts the following frame.
@@ -567,6 +612,14 @@ function entity.get_bounding_box(player) end
 function entity.get_classname(ent) end
 
 ---
+--- Returns a table containing alpha, health, and weapon_id, or nil on failure.
+---
+--- `ent`: Entity index
+---@param ent number
+---@return table
+function entity.get_esp_data(ent) end
+
+---
 --- Returns entity index of CCSGameRulesProxy instance, or nil if none exists.
 ---
 ---@return number entindex
@@ -767,6 +820,25 @@ function globals.tickcount() end
 function globals.tickinterval() end
 
 
+-- json:
+
+json = {}
+
+---
+--- Will deserialise any UTF-8 JSON string into a Lua value or table.
+---
+--- `json_text`: JSON encoded UTF-8 string.
+---@param json_text string
+function json.parse(json_text) end
+
+---
+--- Will serialise a Lua value into a string containing the JSON representation.
+---
+--- `data`: Data what be converted to json.
+---@param data any
+function json.stringify(data) end
+
+
 -- materialsystem:
 
 materialsystem = {}
@@ -877,6 +949,54 @@ function materialsystem.set_material_var_flag(material_var_flag, value) end
 ---@param shader_param string
 ---@param value any
 function materialsystem.set_shader_param(shader_param, value) end
+
+
+-- panorama:
+
+panorama = {}
+
+---
+--- This function behaves similar to lua's loadstring but executes JS code instead. It compiles the given chunk string of JS and returns a function to call it. Avoid generating JS code on-the-fly, instead return a table of functions, which you can then call in Lua. Arguments can be passed from Lua to JS functions.
+---
+--- `js_code`: JSON encoded UTF-8 string.
+--- `root_panel`: The root panel is an optional argument and controls in which panel context the code is executed. Some APIs, for example UIToolkitAPI, require a valid root panel context. Valid root panels (highlighted = you'll probably want to use one of these): CSGOJsRegistration, CSGOTripleMonitorBackground, CSGOHud, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, ChatTextEntryBoxIMEControls, CSGOMainMenu, ChatInputIMEControls, CSGOLoadingScreen, CSGOIntroMovie, CSGOPopups.
+---@param js_code string
+---@param root_panel string
+---@return table
+function panorama.loadstring(js_code, root_panel) end
+
+---
+--- Returns a JS context table that lets you call vanilla JS and panorama functions. Avoid calling this in event callbacks, instead, call it once and store its return value in a function.
+---
+--- `root_panel`: The root panel is an optional argument and controls in which panel context the code is executed. Some APIs, for example UIToolkitAPI, require a valid root panel context. Valid root panels (highlighted = you'll probably want to use one of these): CSGOJsRegistration, CSGOTripleMonitorBackground, CSGOHud, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, ChatTextEntryBoxIMEControls, CSGOMainMenu, ChatInputIMEControls, CSGOLoadingScreen, CSGOIntroMovie, CSGOPopups.
+---@param root_panel string
+---@return table
+function panorama.open(root_panel) end
+
+
+-- plist:
+
+plist = {}
+
+---
+--- Get the previously stored by plist.set variable at any entity.
+---
+--- `entindex`: Entity index
+--- `variable_name`: Variable name
+---@param entindex number
+---@param variable_name
+function plist.get(entindex, variable_name) end
+
+---
+--- Set the special variable to any entity.
+---
+--- `entindex`: Entity index
+--- `variable_name`: Variable name
+--- `value`: Value
+---@param entindex number
+---@param variable_name
+---@param value any
+function plist.set(entindex, variable_name, value) end
 
 
 -- renderer:
@@ -1363,10 +1483,12 @@ function ui.new_string(name, default_value) end
 ---
 --- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
 --- `container`: The name of the existing container to which this textbox will be added.
+--- `name`: The name of the menu item.
 ---@param tab string
 ---@param container string
+---@param name string
 ---@return number menu item
-function ui.new_textbox(tab, container) end
+function ui.new_textbox(tab, container, name) end
 
 ---
 --- Avoid calling this from inside a function. Returns a reference that can be passed to ui.get and ui.set, or throws an error on failure. This allows you to access a built-in pre-existing menu items. This function returns multiple values when the specified menu item is followed by unnamed menu items, for example a color picker or a hotkey.
@@ -1408,3 +1530,12 @@ function ui.set_callback(item, callback) end
 ---@param item number
 ---@param visible boolean
 function ui.set_visible(item, visible) end
+
+---
+--- Change current values for e.g. in listbox to passed.
+---
+--- `item`: A menu item reference.
+--- `...`: New values for e.g. listbox. Can be passed comma separated values or just table.
+---@param item number
+---@param ...
+function ui.update(item, ...) end

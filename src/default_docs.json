@@ -850,6 +850,10 @@
 				{
 					"name": "container",
 					"description": "The name of the existing container to which this textbox will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the menu item."
 				}
 			]
 		},
@@ -922,6 +926,20 @@
 				{
 					"name": "visible",
 					"description": "Boolean. Pass false to hide the control from the menu."
+				}
+			]
+		},
+		"update": {
+			"name": "ui.update",
+			"description": "Change current values for e.g. in listbox to passed.",
+			"args": [
+				{
+					"name": "item",
+					"description": "A menu item reference."
+				},
+				{
+					"name": "...",
+					"description": "New values for e.g. listbox. Can be passed comma separated values or just table."
 				}
 			]
 		},
@@ -1364,5 +1382,123 @@
 				}
 			]
 		}
-	}
+	},
+	"plist": {
+		"set": {
+			"name": "plist.set",
+			"description": "Set the special variable to any entity.",
+			"args": [
+				{
+					"name": "entindex",
+					"description": "Entity index"
+				},
+				{
+					"name": "variable_name",
+					"description": "Variable name"
+				},
+				{
+					"name": "value",
+					"description": "Value"
+				}
+			]
+		},
+		"get": {
+			"name": "plist.get",
+			"description": "Get the previously stored by plist.set variable at any entity.",
+			"args": [
+				{
+					"name": "entindex",
+					"description": "Entity index"
+				},
+				{
+					"name": "variable_name",
+					"description": "Variable name"
+				}
+			]
+		}
+	},
+	"_G": {
+        "writefile": {
+            "name": "writefile",
+            "description": "Writes a value to the file with name.",
+            "args": [
+                {
+                    "name": "filename",
+                    "description": "Name of file what be writen.",
+                    "type": "string"
+                },
+                {
+                    "name": "buffer",
+                    "description": "Data what be writen in the file",
+                    "type": "string"
+                }
+            ]
+        },
+        "readfile": {
+            "name": "readfile",
+            "description": "Read and return data from passed file.",
+            "args": [
+                {
+                    "name": "filename",
+                    "description": "Name of file what be readed.",
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "json": {
+        "stringify": {
+            "name": "json.stringify",
+            "description": "Will serialise a Lua value into a string containing the JSON representation.",
+            "args": [
+                {
+                    "name": "data",
+                    "description": "Data what be converted to json.",
+                    "type": "any"
+                }
+            ]
+        },
+        "parse": {
+            "name": "json.parse",
+            "description": "Will deserialise any UTF-8 JSON string into a Lua value or table.",
+            "args": [
+                {
+                    "name": "json_text",
+                    "description": "JSON encoded UTF-8 string.",
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "panorama": {
+        "open": {
+            "name": "panorama.open",
+            "description": "Returns a JS context table that lets you call vanilla JS and panorama functions. Avoid calling this in event callbacks, instead, call it once and store its return value in a function.",
+            "args": [
+                {
+                    "name": "root_panel",
+                    "description": "The root panel is an optional argument and controls in which panel context the code is executed. Some APIs, for example UIToolkitAPI, require a valid root panel context. Valid root panels (highlighted = you'll probably want to use one of these): CSGOJsRegistration, CSGOTripleMonitorBackground, CSGOHud, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, ChatTextEntryBoxIMEControls, CSGOMainMenu, ChatInputIMEControls, CSGOLoadingScreen, CSGOIntroMovie, CSGOPopups.",
+                    "type": "string",
+                    "optional": true
+                }
+            ]
+        },
+        "loadstring": {
+            "name": "panorama.loadstring",
+            "description": "This function behaves similar to lua's loadstring but executes JS code instead. It compiles the given chunk string of JS and returns a function to call it. Avoid generating JS code on-the-fly, instead return a table of functions, which you can then call in Lua. Arguments can be passed from Lua to JS functions.",
+            "args": [
+                {
+                    "name": "js_code",
+                    "description": "JSON encoded UTF-8 string.",
+                    "type": "string"
+                },
+                {
+                    "name": "root_panel",
+                    "description": "The root panel is an optional argument and controls in which panel context the code is executed. Some APIs, for example UIToolkitAPI, require a valid root panel context. Valid root panels (highlighted = you'll probably want to use one of these): CSGOJsRegistration, CSGOTripleMonitorBackground, CSGOHud, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, LightSelectionEnumDropDownMenuBg, ChatTextEntryBoxIMEControls, CSGOMainMenu, ChatInputIMEControls, CSGOLoadingScreen, CSGOIntroMovie, CSGOPopups.",
+                    "type": "string",
+                    "optional": true
+                }
+            ]
+        }
+    }
 }

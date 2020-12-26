@@ -1,6 +1,6 @@
 # Base Entities
 ---
-description: Last updated at 09.10.2019
+description: Last updated at 26.12.2020
 ---
 
 

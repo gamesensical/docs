@@ -1,6 +1,6 @@
 # Items
 ---
-description: Last updated at 09.10.2019
+description: Last updated at 26.12.2020
 ---
 
 
@@ -71,4 +71,5 @@ description: Last updated at 09.10.2019
 {% page-ref page="CWeaponUMP45.md" %}
 {% page-ref page="CWeaponUSP.md" %}
 {% page-ref page="CWeaponXM1014.md" %}
+{% page-ref page="CWeaponZoneRepulsor.md" %}
 {% page-ref page="ParticleSmokeGrenade.md" %}

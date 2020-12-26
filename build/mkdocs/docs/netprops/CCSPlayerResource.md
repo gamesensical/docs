@@ -5,7 +5,8 @@ summary: DT_CSPlayerResource
 # CCSPlayerResource
 
 
-* `m_iPing` (integer[0-64])
+* `m_vecPlayerPatchEconIndices` (integer[0-4])
+* `m_iKills` (integer[0-64])
 * `m_iAssists` (integer[0-64])
 * `m_iDeaths` (integer[0-64])
 * `m_bConnected` (integer[0-64])
@@ -13,7 +14,7 @@ summary: DT_CSPlayerResource
 * `m_iPendingTeam` (integer[0-64])
 * `m_bAlive` (integer[0-64])
 * `m_iHealth` (integer[0-64])
-* `m_iKills` (integer[0-64])
+* `m_iPing` (integer[0-64])
 * `m_iCoachingTeam` (integer[0-64])
 * `m_iPlayerC4` (integer)
 * `m_bHostageAlive` (integer[0-11])
@@ -40,6 +41,7 @@ summary: DT_CSPlayerResource
 * `m_iControlledByPlayer` (integer[0-64])
 * `m_iBotDifficulty` (integer[0-64])
 * `m_szClan` (string[0-64])
+* `m_nCharacterDefIndex` (integer[0-64])
 * `m_iTotalCashSpent` (integer[0-64])
 * `m_iGunGameLevel` (integer[0-64])
 * `m_iCashSpentThisRound` (integer[0-64])
@@ -51,6 +53,8 @@ summary: DT_CSPlayerResource
 * `m_nPersonaDataPublicCommendsLeader` (integer[0-64])
 * `m_nPersonaDataPublicCommendsTeacher` (integer[0-64])
 * `m_nPersonaDataPublicCommendsFriendly` (integer[0-64])
+* `m_bHasCommunicationAbuseMute` (integer[0-64])
+* `m_szCrosshairCodes` (string[0-64])
 * `m_iMatchStats_Kills_Total` (integer[0-64])
 * `m_iMatchStats_5k_Total` (integer[0-64])
 * `m_iMatchStats_4k_Total` (integer[0-64])

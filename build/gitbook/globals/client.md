@@ -145,6 +145,17 @@ Argument | Type | Description
 Finds the specified pattern and returns a pointer to it, or nil if not found.
 
 
+#### client.get_model_name
+
+`client.get_model_name(model_index: number)`: string
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **model_index** | number | Model index
+
+Returns model name, or nil on failure.
+
+
 #### client.key_state
 
 `client.key_state(key: number)`: boolean
@@ -197,6 +208,21 @@ Argument | Type | Description
   **maximum** | number | Highest possible result
 
 Returns a random integer between minimum and maximum.
+
+
+#### client.register_esp_flag
+
+`client.register_esp_flag(flagname, r: number, g: number, b: number, callback_function)`: number, number, number
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **flagname** |  | Flag what be displayed
+  **r** | number | New red value of the material (0-255)
+  **g** | number | New green value of the material (0-255)
+  **b** | number | New blue value of the material (0-255)
+  **callback_function** |  | The given function will be called for every player when the ESP being drawn. Callbacks can return strings, e.g. return true, "DUCKING"
+
+Returns the x, y, z coordinates of the entity. Only works for non-dormant entities, except for players, where it will return the dormant esp origin
 
 
 #### client.reload_active_scripts

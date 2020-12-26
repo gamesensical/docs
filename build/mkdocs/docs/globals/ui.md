@@ -202,12 +202,13 @@ Creates a string UI element, can be used to store arbitrary strings in configs. 
 
 #### ui.new_textbox
 
-`ui.new_textbox(tab: string, container: string)`: number (menu item)
+`ui.new_textbox(tab: string, container: string, name: string)`: number (menu item)
 
 Argument | Type | Description
 -------- | ---- | -----------
   **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
   **container** | string (menu container) | The name of the existing container to which this textbox will be added.
+  **name** | string (menu item) | The name of the menu item.
 
 Throws an error on failure. Returns a special value that can be used with ui.get
 
@@ -260,4 +261,16 @@ Argument | Type | Description
   **visible** | boolean | Boolean. Pass false to hide the control from the menu.
 
 Sets the visibility of the menu item
+
+
+#### ui.update
+
+`ui.update(item: number, ...)`
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **item** | number (menu reference) | A menu item reference.
+  **...** |  | New values for e.g. listbox. Can be passed comma separated values or just table.
+
+Change current values for e.g. in listbox to passed.
 

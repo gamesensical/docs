@@ -317,6 +317,41 @@
 			},
 			"exec": {
 				"description": "Executes a console command. Multiple commands can be combined with ';'. Be careful when passing user input (including usernames) to it."
+			},
+			"get_model_name": {
+				"description": "Returns model name, or nil on failure.",
+				"args": [
+					{
+						"name": "model_index",
+						"description": "Model index",
+						"type": "number"
+					}
+				]
+			},
+			"register_esp_flag": {
+				"description": "Returns the x, y, z coordinates of the entity. Only works for non-dormant entities, except for players, where it will return the dormant esp origin",
+				"args": [
+					{
+						"name": "flagname",
+						"description": "Flag what be displayed"
+					},
+					{
+						"name": "r",
+						"description": "New red value of the material (0-255)"
+					},
+					{
+						"name": "g",
+						"description": "New green value of the material (0-255)"
+					},
+					{
+						"name": "b",
+						"description": "New blue value of the material (0-255)"
+					},
+					{
+						"name": "callback_function",
+						"description": "The given function will be called for every player when the ESP being drawn. Callbacks can return strings, e.g. return true, \"DUCKING\""
+					}
+				]
 			}
 		},
 		"globals": {
@@ -611,6 +646,15 @@
 						"description": "Entity index"
 					}
 				]
+			},
+			"get_esp_data": {
+				"description": "Returns a table containing alpha, health, and weapon_id, or nil on failure.",
+				"args": [
+					{
+						"name": "ent",
+						"description": "Entity index"
+					}
+				]
 			}
 		},
 		"database": {
@@ -660,7 +704,9 @@
 		"globals": "Functions for getting game globals such as the server time and map name.",
 		"materialsystem": "Functions controlling the CS:GO Material System, letting you modulate, swap, remove materials and set their shader params / material vars",
 		"database": "Persistent storage engine that lets you store values between reloads / reinjects",
-		"config": "Configuration related lua functions"
+		"config": "Configuration related lua functions",
+		"panorama": "Acess to CS:GO buil-in javascript Panorama gui",
+		"_G": "LUA global root variable"
 	},
 	"globals_examples": {
 		"cvar": [

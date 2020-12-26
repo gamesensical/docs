@@ -149,8 +149,20 @@
 		"get_model_name": 		{},
 		"system_time": 		{}
 	},
+	"plist": {
+		"set": 		{},
+		"get": 		{}
+	},
 	"panorama": {
 		"open": 		{},
 		"loadstring": 		{}
+	},
+	"json": {
+		"stringify": 		{},
+		"parse": 		{}
+	},
+	"_G": {
+		"writefile": 		{},
+		"readfile": 		{}
 	}
 }

@@ -118,6 +118,34 @@ Key | Description
 
 
 
+#### output
+
+This event lets you override the text drawn in the top left. There can only be one callback for this event. This event callback is invoked from print, client.log, client.color_log, "Missed due to spread" message, etc.
+
+Key | Description
+--- | -----------
+ **text** | Drawn text
+ **r** | Drawn color: Red 0-255
+ **g** | Drawn color: Green 0-255
+ **b** | Drawn color: Blue 0-255
+ **a** | Alpha 0-255
+
+
+
+#### indicator
+
+This event lets you lets you override how indicators are drawn. There can only be one callback for this event. This event callback is invoked from renderer.indicator and indicators like "DT".
+
+Key | Description
+--- | -----------
+ **text** | Drawn text
+ **r** | Drawn color: Red 0-255
+ **g** | Drawn color: Green 0-255
+ **b** | Drawn color: Blue 0-255
+ **a** | Alpha 0-255
+
+
+
 #### string_cmd
 
 Fired before a string command (chat messages, weapon inspecting, buy commands) is sent to the server.
@@ -147,6 +175,30 @@ Fired when the game prediction is ran
 Key | Description
 --- | -----------
  **command_number** | Command number of the predicted command
+
+
+
+#### pre_config_load
+
+Fired before config will be loaded
+
+
+
+#### post_config_load
+
+Fired after config was loaded
+
+
+
+#### pre_config_save
+
+Fired before config being saved
+
+
+
+#### post_config_save
+
+Fired after config been saved
 
 
 

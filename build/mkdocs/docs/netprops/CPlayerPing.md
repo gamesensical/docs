@@ -59,3 +59,4 @@ summary: DT_PlayerPing
 * `m_hPlayer` (integer)
 * `m_hPingedEntity` (integer)
 * `m_iType` (integer)
+* `m_bUrgent` (integer)

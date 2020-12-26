@@ -34,6 +34,7 @@ class DocumentationFormat
 
 		FileUtils.rm_r(Dir[@output_dir + "*"]) if @output_dir.directory?
 		@output_dir.mkpath
+		@props_dir.mkpath
 		FileUtils.cp_r(@input_dir, build_dir)
 		FileUtils.rm_r(@output_dir + ".templates") if (@output_dir + ".templates").directory?
 
@@ -43,11 +44,13 @@ class DocumentationFormat
 	end
 
 	def build_global(name, data)
+		
 		(@globals_dir + "#{name}.md").write(@globals_template.render(data).chomp)
 	end
 
 	def build_netprops_class(classname, data)
-		(@props_dir + "#{classname}.md").write(@netprops_class_template.render(data))
+		File.open("#{@props_dir}/#{classname}.md", "w").close
+		(@props_dir + "#{classname}.md").open("w+").write(@netprops_class_template.render(data))
 	end
 
 	def build_netprops_group(filename, data)
