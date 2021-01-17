@@ -1,3 +1,6 @@
+---
+description: API to interact with CS:GO's panorama UI
+---
 
 # panorama
 
@@ -11,6 +14,7 @@ Argument | Type | Description
   **js_code** | string | String containing JavaScript code
   **panel** | string (panorama root panel) | Panel name
 
+API to interact with CS:GO's panorama UI
 
 
 #### panorama.open
@@ -21,4 +25,5 @@ Argument | Type | Description
 -------- | ---- | -----------
   **panel** | string (panorama root panel) | Panel name
 
+API to interact with CS:GO's panorama UI
 

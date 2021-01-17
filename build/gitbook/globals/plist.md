@@ -1,3 +1,6 @@
+---
+description: Functions for interacting with the player list
+---
 
 # plist
 
@@ -11,6 +14,7 @@ Argument | Type | Description
   **entindex** | number (entindex) | Player index
   **field** | string (menu item) | Name of the field
 
+Functions for interacting with the player list
 
 
 #### plist.set
@@ -23,4 +27,5 @@ Argument | Type | Description
   **field** | string (menu item) | Name of the field
   **value** | any | Value of the field
 
+Functions for interacting with the player list
 

@@ -886,7 +886,9 @@
 		"database": "Persistent storage engine that lets you store values between reloads / reinjects",
 		"config": "Configuration related lua functions",
 		"json": "JSON encoding / parsing functions, based on lua-cjson",
-		"vector": "Built-in vector library, loaded by requiring vector"
+		"vector": "Built-in vector library, loaded by requiring vector",
+		"panorama": "API to interact with CS:GO's panorama UI",
+		"plist": "Functions for interacting with the player list"
 	},
 	"globals_examples": {
 		"cvar": [
