@@ -885,7 +885,8 @@
 		"materialsystem": "Functions controlling the CS:GO Material System, letting you modulate, swap, remove materials and set their shader params / material vars",
 		"database": "Persistent storage engine that lets you store values between reloads / reinjects",
 		"config": "Configuration related lua functions",
-		"json": "JSON encoding / parsing functions, based on lua-cjson"
+		"json": "JSON encoding / parsing functions, based on lua-cjson",
+		"vector": "Built-in vector library, loaded by requiring vector"
 	},
 	"globals_examples": {
 		"cvar": [

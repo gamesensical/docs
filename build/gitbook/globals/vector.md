@@ -1,3 +1,6 @@
+---
+description: Built-in vector library, loaded by requiring vector
+---
 
 # vector
 
