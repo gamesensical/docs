@@ -57,6 +57,7 @@ description: DT_DangerZoneController
 * `m_flMaxFallVelocity` (float)
 * `m_bEligibleForScreenHighlight` (integer)
 * `m_bDangerZoneControllerEnabled` (integer)
+* `m_bMissionControlledExplosions` (integer)
 * `m_flStartTime` (float)
 * `m_flFinalExpansionTime` (float)
 * `m_vecEndGameCircleStart` (vector)

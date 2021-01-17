@@ -1,294 +1,4 @@
 {
-	"cvar": {
-		"set_string": {
-			"name": "cvar.set_string",
-			"args": [
-				{
-					"name": "value",
-					"description": "String value"
-				}
-			]
-		},
-		"get_string": {
-			"name": "cvar.get_string",
-			"description": "Returns nil on failure.",
-			"args": []
-		},
-		"set_float": {
-			"name": "cvar.set_float",
-			"args": [
-				{
-					"name": "value",
-					"description": "Float value"
-				}
-			]
-		},
-		"set_raw_float": {
-			"name": "cvar.set_raw_float",
-			"description": "This sets the float value without changing the integer and string values.",
-			"args": [
-				{
-					"name": "value",
-					"description": "Float value"
-				}
-			]
-		},
-		"get_float": {
-			"name": "cvar.get_float",
-			"description": "Returns nil if called on a ConCommand.",
-			"args": []
-		},
-		"set_int": {
-			"name": "cvar.set_int",
-			"args": [
-				{
-					"name": "value",
-					"description": "Integer value"
-				}
-			]
-		},
-		"set_raw_int": {
-			"name": "cvar.set_raw_int",
-			"description": "This sets the integer value without changing the float and string values.",
-			"args": [
-				{
-					"name": "value",
-					"description": "Integer value"
-				}
-			]
-		},
-		"get_int": {
-			"name": "cvar.get_int",
-			"description": "Returns nil if called on a ConCommand.",
-			"args": []
-		},
-		"invoke_callback": {
-			"name": "cvar.invoke_callback",
-			"args": []
-		}
-	},
-	"globals": {
-		"realtime": {
-			"name": "globals.realtime",
-			"description": "Returns the local time in seconds.",
-			"args": []
-		},
-		"curtime": {
-			"name": "globals.curtime",
-			"description": "Returns the game time in seconds. This number is synchronized with the server.",
-			"args": []
-		},
-		"frametime": {
-			"name": "globals.frametime",
-			"description": "Returns the number of seconds elapsed during the last game frame.",
-			"args": []
-		},
-		"absoluteframetime": {
-			"name": "globals.absoluteframetime",
-			"description": "Returns the number of seconds elapsed during the last game frame.",
-			"args": []
-		},
-		"maxplayers": {
-			"name": "globals.maxplayers",
-			"description": "Returns the maximum number of players in the server.",
-			"args": []
-		},
-		"tickcount": {
-			"name": "globals.tickcount",
-			"description": "Returns the number of ticks elapsed in the server.",
-			"args": []
-		},
-		"tickinterval": {
-			"name": "globals.tickinterval",
-			"description": "Returns the time elapsed in one game tick in seconds.",
-			"args": []
-		},
-		"framecount": {
-			"name": "globals.framecount",
-			"description": "Returns the number of frames since the game started",
-			"args": []
-		},
-		"mapname": {
-			"name": "globals.mapname",
-			"description": "Returns the name of the loaded map, or nil if you are not in game.",
-			"args": []
-		},
-		"lastoutgoingcommand": {
-			"name": "globals.lastoutgoingcommand",
-			"description": "Returns the command number of the last outgoing command.",
-			"args": []
-		}
-	},
-	"entity": {
-		"get_local_player": {
-			"name": "entity.get_local_player",
-			"description": "Returns the entity index for the local player, or nil on failure.",
-			"args": []
-		},
-		"get_all": {
-			"name": "entity.get_all",
-			"description": "Returns an array of entity indices. Pass no arguments for all entities.",
-			"args": [
-				{
-					"name": "classname",
-					"description": "Optional string that specifies the class name of entities that will be added to the list, for example \"CCSPlayer\"."
-				}
-			]
-		},
-		"get_players": {
-			"name": "entity.get_players",
-			"description": "Returns an array of player entity indices. Dormant and dead players will not be added to the list.",
-			"args": [
-				{
-					"name": "enemies_only",
-					"description": "Optional. If true then you and the players on your team will not be added to the list."
-				}
-			]
-		},
-		"get_game_rules": {
-			"name": "entity.get_game_rules",
-			"description": "Returns entity index of CCSGameRulesProxy instance, or nil if none exists.",
-			"args": []
-		},
-		"get_player_resource": {
-			"name": "entity.get_player_resource",
-			"description": "Returns entity index of CCSPlayerResource instance, or nil if none exists.",
-			"args": []
-		},
-		"get_classname": {
-			"name": "entity.get_classname",
-			"description": "Returns the name of the entity's class, or nil on failure.",
-			"args": [
-				{
-					"name": "ent",
-					"description": "Entity index."
-				}
-			]
-		},
-		"set_prop": {
-			"name": "entity.set_prop",
-			"args": [
-				{
-					"name": "ent",
-					"description": "Entity index."
-				},
-				{
-					"name": "propname",
-					"description": "Name of the networked property."
-				},
-				{
-					"name": "value",
-					"description": "The property will be set to this value. For vectors or angles, separate the components by commas."
-				},
-				{
-					"name": "array_index",
-					"description": "Optional. If propname is an array, the value at this array index will be set."
-				}
-			]
-		},
-		"get_prop": {
-			"name": "entity.get_prop",
-			"description": "Returns the value of the property, or nil on failure. For vectors or angles, this returns three values.",
-			"args": [
-				{
-					"name": "ent",
-					"description": "Entity index."
-				},
-				{
-					"name": "propname",
-					"description": "Name of the networked property."
-				},
-				{
-					"name": "array_index",
-					"description": "Optional. If propname is an array, the value at this array index will be returned."
-				}
-			]
-		},
-		"is_enemy": {
-			"name": "entity.is_enemy",
-			"description": "Returns true if the entity is on the other team.",
-			"args": [
-				{
-					"name": "ent",
-					"description": "Entity index."
-				}
-			]
-		},
-		"is_alive": {
-			"name": "entity.is_alive",
-			"description": "Returns true if the player is not dead.",
-			"args": [
-				{
-					"name": "ent",
-					"description": "Entity index."
-				}
-			]
-		},
-		"is_dormant": {
-			"name": "entity.is_dormant",
-			"description": "Returns true if the player is not dormant.",
-			"args": [
-				{
-					"name": "ent",
-					"description": "Entity index."
-				}
-			]
-		},
-		"get_player_name": {
-			"name": "entity.get_player_name",
-			"description": "Returns the player's name, or the string \"unknown\" on failure.",
-			"args": [
-				{
-					"name": "ent",
-					"description": "Player entity index."
-				}
-			]
-		},
-		"get_player_weapon": {
-			"name": "entity.get_player_weapon",
-			"description": "Returns the entity index of the player's active weapon, or nil if the player is not alive, dormant, etc.",
-			"args": [
-				{
-					"name": "ent",
-					"description": "Player entity index."
-				}
-			]
-		},
-		"hitbox_position": {
-			"name": "entity.hitbox_position",
-			"description": "Returns world coordinates x, y, z, or nil on failure.",
-			"args": [
-				{
-					"name": "player",
-					"description": "Entity index of the player."
-				},
-				{
-					"name": "hitbox",
-					"description": "Either a string of the hitbox name, or an integer index of the hitbox."
-				}
-			]
-		},
-		"get_steam64": {
-			"name": "entity.get_steam64",
-			"description": "Returns steamID3, or nil on failure.",
-			"args": [
-				{
-					"name": "player",
-					"description": "Entity index of the player."
-				}
-			]
-		},
-		"get_bounding_box": {
-			"name": "entity.get_bounding_box",
-			"description": "Returns x1, y1, x2, y2, alpha_multiplier. The contents of x1, y1, x2, y2 must be ignored when alpha_multiplier is zero, which indicates that the bounding box is invalid and should not be drawn.",
-			"args": [
-				{
-					"name": "player",
-					"description": "Entity index of the player."
-				}
-			]
-		}
-	},
 	"client": {
 		"set_event_callback": {
 			"name": "client.set_event_callback",
@@ -301,6 +11,20 @@
 				{
 					"name": "callback",
 					"description": "Lua function to call when this event occurs."
+				}
+			]
+		},
+		"unset_event_callback": {
+			"name": "client.unset_event_callback",
+			"description": "Removes a callback that was previously set using set_event_callback",
+			"args": [
+				{
+					"name": "event_name",
+					"description": "Name of the event"
+				},
+				{
+					"name": "callback",
+					"description": "Lua function that was passed to set_event_callback"
 				}
 			]
 		},
@@ -326,11 +50,11 @@
 				},
 				{
 					"name": "g",
-					"description": "Red (0-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b",
-					"description": "Red (0-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "msg",
@@ -339,6 +63,15 @@
 				{
 					"name": "...",
 					"description": "Optional comma-separated arguments to concatenate with msg."
+				}
+			]
+		},
+		"error_log": {
+			"name": "client.error_log",
+			"args": [
+				{
+					"name": "msg",
+					"description": "The error message"
 				}
 			]
 		},
@@ -536,7 +269,7 @@
 		},
 		"trace_bullet": {
 			"name": "client.trace_bullet",
-			"description": "Returns entindex, damage. Entindex is nil when no player is hit.",
+			"description": "Returns entindex, damage. Entindex is nil when no player is hit or if players are skipped.",
 			"args": [
 				{
 					"name": "from_player",
@@ -565,6 +298,10 @@
 				{
 					"name": "to_z",
 					"description": "Position in world space"
+				},
+				{
+					"name": "skip_players",
+					"description": "Optional, pass true to skip expensive hitbox checks."
 				}
 			]
 		},
@@ -610,17 +347,13 @@
 		},
 		"camera_angles": {
 			"name": "client.camera_angles",
-			"description": "Set camera angles",
-			"args": [
-				{
-					"name": "pitch",
-					"description": "Optional. If set, pitch that your camera angles will be set to"
-				},
-				{
-					"name": "yaw",
-					"description": "Optional. If set, pitch that your camera angles will be set to"
-				}
-			]
+			"description": "Returns pitch, yaw, roll of where you are looking.",
+			"args": []
+		},
+		"camera_position": {
+			"name": "client.camera_position",
+			"description": "Returns x, y, z world coordinates of the camera position.",
+			"args": []
 		},
 		"timestamp": {
 			"name": "client.timestamp",
@@ -644,296 +377,671 @@
 		},
 		"system_time": {
 			"name": "client.system_time",
+			"description": "Returns hour, minute, seconds, milliseconds.\nlocal h, m, s, ms = client.system_time()",
+			"args": []
+		},
+		"unix_time": {
+			"name": "client.unix_time",
+			"description": "Returns hour, minute, seconds, milliseconds.\nlocal time = client.unix_time()",
 			"args": []
 		},
 		"reload_active_scripts": {
 			"name": "client.reload_active_scripts",
 			"description": "Reloads all scripts the following frame.",
 			"args": []
-		}
-	},
-	"ui": {
-		"new_checkbox": {
-			"name": "ui.new_checkbox",
-			"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+		},
+		"create_interface": {
+			"name": "client.create_interface",
+			"description": "Returns a pointer to the interface, or nil on failure.",
 			"args": [
 				{
-					"name": "tab",
-					"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
+					"name": "module_name",
+					"description": "Filename of the module that contains the interface"
 				},
 				{
-					"name": "container",
-					"description": "The name of the existing container to which this control will be added."
-				},
-				{
-					"name": "name",
-					"description": "The name of the checkbox."
+					"name": "interface_name",
+					"description": "Name of the interface"
 				}
 			]
 		},
-		"new_slider": {
-			"name": "ui.new_slider",
-			"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+		"find_signature": {
+			"name": "client.find_signature",
+			"description": "Finds the specified pattern and returns its address, or nil if not found. CC is wildcard.",
 			"args": [
 				{
-					"name": "tab",
-					"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
+					"name": "module_name",
+					"description": "Filename of the module that contains the interface"
 				},
 				{
-					"name": "container",
-					"description": "The name of the existing container to which this control will be added."
-				},
-				{
-					"name": "name",
-					"description": "The name of the slider."
-				},
-				{
-					"name": "min",
-					"description": "The minimum value that can be set using the slider."
-				},
-				{
-					"name": "max",
-					"description": "The maximum value that can be set using the slider."
-				},
-				{
-					"name": "init_value",
-					"description": "Optional integer. The initial value. If not provided, the initial value will be min."
-				},
-				{
-					"name": "show_tooltip",
-					"description": "Optional boolean. true if the slider should display its current value."
-				},
-				{
-					"name": "unit",
-					"description": "Optional string that is two characters or less. This will be appended to the display value. For example, \"px\" for pixels or \"%\" for a percentage."
-				},
-				{
-					"name": "scale",
-					"description": "Optional The display value will be multiplied by this scale. For example, 0.1 will make a slider with the range [0-1800] show as 0.0-180.0 with one decimal place."
-				},
-				{
-					"name": "tooltips",
-					"description": "Optional table used to override the tooltip for the specified values. The key must be within min-max. The value is a string that will be shown instead of the numeric value whenever that value is selected."
+					"name": "pattern",
+					"description": "String in the form of '\\x01\\x02\\xCC\\x03'"
 				}
 			]
 		},
-		"new_combobox": {
-			"name": "ui.new_combobox",
-			"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+		"key_state": {
+			"name": "client.key_state",
+			"description": "Returns true if the key is pressed.",
 			"args": [
 				{
-					"name": "tab",
-					"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
-				},
-				{
-					"name": "container",
-					"description": "The name of the existing container to which this control will be added."
-				},
-				{
-					"name": "name",
-					"description": "The name of the combobox."
-				},
-				{
-					"name": "...",
-					"description": "One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added."
+					"name": "virtual_key",
+					"description": "Virtual key index"
 				}
 			]
 		},
-		"new_multiselect": {
-			"name": "ui.new_multiselect",
-			"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+		"get_model_name": {
+			"name": "client.get_model_name",
+			"description": "Returns model name, or nil on failure.",
 			"args": [
 				{
-					"name": "tab",
-					"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
-				},
-				{
-					"name": "container",
-					"description": "The name of the existing container to which this control will be added."
-				},
-				{
-					"name": "name",
-					"description": "The name of the multiselect."
-				},
-				{
-					"name": "...",
-					"description": "One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added."
+					"name": "model_index",
+					"description": "Model index"
 				}
 			]
 		},
-		"new_hotkey": {
-			"name": "ui.new_hotkey",
-			"description": "Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.",
+		"register_esp_flag": {
+			"name": "client.register_esp_flag",
+			"description": "Requires \"Flags\" is enabled in Player ESP",
 			"args": [
 				{
-					"name": "tab",
-					"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
-				},
-				{
-					"name": "container",
-					"description": "The name of the existing container to which this control will be added."
-				},
-				{
-					"name": "name",
-					"description": "The name of the hotkey."
-				},
-				{
-					"name": "inline",
-					"description": "Optional boolean. If set to true, the hotkey will be placed to the right of the preceding menu item."
-				}
-			]
-		},
-		"new_button": {
-			"name": "ui.new_button",
-			"description": "Throws an error on failure. The return value should not be used with ui.set or ui.get.",
-			"args": [
-				{
-					"name": "tab",
-					"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
-				},
-				{
-					"name": "container",
-					"description": "The name of the existing container to which this checkbox will be added."
-				},
-				{
-					"name": "name",
-					"description": "The name of the button."
-				},
-				{
-					"name": "callback",
-					"description": "The lua function that will be called when the button is pressed."
-				}
-			]
-		},
-		"new_color_picker": {
-			"name": "ui.new_color_picker",
-			"description": "Throws an error on failure. The color picker is placed to the right of the previous menu item.",
-			"args": [
-				{
-					"name": "tab",
-					"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
-				},
-				{
-					"name": "container",
-					"description": "The name of the existing container to which this checkbox will be added."
-				},
-				{
-					"name": "name",
-					"description": "The name of the color picker. This will not be shown, it is only used to identify this item in saved configs."
+					"name": "flag",
+					"description": "String of text that will be shown when callback returns true"
 				},
 				{
 					"name": "r",
-					"description": "Optional initial red value (0-255)"
+					"description": "Red (1-255)"
 				},
 				{
 					"name": "g",
-					"description": "Optional initial green value (0-255)"
+					"description": "Green (1-255)"
 				},
 				{
 					"name": "b",
-					"description": "Optional initial blue value (0-255)"
+					"description": "Blue (1-255)"
 				},
 				{
-					"name": "a",
-					"description": "Optional initial alpha value (0-255)"
+					"name": "callback",
+					"description": "Function that will be called for each entity while drawing the ESP"
 				}
 			]
-		},
-		"new_textbox": {
-			"name": "ui.new_textbox",
-			"description": "Throws an error on failure. Returns a special value that can be used with ui.get",
+		}
+	},
+	"config": {
+		"load": {
+			"name": "config.load",
+			"description": "To load the specified config: config.load('Config name here') To load a tab from the specified config: config.load('Config name here', 'Tab name here') To load a container from the specified config: config.load('Config name here', 'Tab name here', 'Container name here')",
 			"args": [
-				{
-					"name": "tab",
-					"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
-				},
-				{
-					"name": "container",
-					"description": "The name of the existing container to which this textbox will be added."
-				}
-			]
-		},
-		"reference": {
-			"name": "ui.reference",
-			"description": "Avoid calling this from inside a function. Returns a reference that can be passed to ui.get and ui.set, or throws an error on failure. This allows you to access a built-in pre-existing menu items. This function returns multiple values when the specified menu item is followed by unnamed menu items, for example a color picker or a hotkey.",
-			"args": [
-				{
-					"name": "tab",
-					"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
-				},
-				{
-					"name": "container",
-					"description": "The name of the existing container to which this checkbox will be added."
-				},
 				{
 					"name": "name",
-					"description": "The name of the menu item."
+					"description": "Name of the config"
+				},
+				{
+					"name": "tab_name",
+					"description": "Optional name of the tab"
+				},
+				{
+					"name": "container_name",
+					"description": "Optional name of the container"
 				}
 			]
 		},
-		"set": {
-			"name": "ui.set",
-			"description": "For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, param is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.",
+		"export": {
+			"name": "config.export",
+			"description": "Returns the current config as a string",
+			"args": []
+		}
+	},
+	"cvar": {
+		"set_string": {
+			"name": "cvar.set_string",
 			"args": [
 				{
-					"name": "item",
-					"description": "The result of either ui.new_checkbox, ui.new_slider, or ui.reference."
+					"name": "value",
+					"description": "String value"
+				}
+			]
+		},
+		"get_string": {
+			"name": "cvar.get_string",
+			"description": "Returns nil on failure.",
+			"args": []
+		},
+		"set_float": {
+			"name": "cvar.set_float",
+			"description": "cvar.cl_interp_ratio:set_float(1)",
+			"args": [
+				{
+					"name": "value",
+					"description": "Float value"
+				}
+			]
+		},
+		"set_raw_float": {
+			"name": "cvar.set_raw_float",
+			"description": "This sets the float value without changing the integer and string values.",
+			"args": [
+				{
+					"name": "value",
+					"description": "Float value"
+				}
+			]
+		},
+		"get_float": {
+			"name": "cvar.get_float",
+			"description": "Returns nil if called on a ConCommand.",
+			"args": []
+		},
+		"set_int": {
+			"name": "cvar.set_int",
+			"args": [
+				{
+					"name": "value",
+					"description": "Integer value"
+				}
+			]
+		},
+		"set_raw_int": {
+			"name": "cvar.set_raw_int",
+			"description": "This sets the integer value without changing the float and string values.",
+			"args": [
+				{
+					"name": "value",
+					"description": "Integer value"
+				}
+			]
+		},
+		"get_int": {
+			"name": "cvar.get_int",
+			"description": "Returns nil if called on a ConCommand.",
+			"args": []
+		},
+		"invoke_callback": {
+			"name": "cvar.invoke_callback",
+			"description": "For ConCommands, optionally pass extra arguments and they will be forwarded to the callback. For ConVars, optionally pass an extra integer argument specifying the index of the change callback to invoke, otherwise all change callbacks will be invoked.\ncvar.snd_setmixer:invoke_callback(\"Ambient\", \"vol\", \"0\") -- equivalent to typing \"snd_setmixer Ambient vol 0\" in console",
+			"args": []
+		}
+	},
+	"database": {
+		"write": {
+			"name": "database.write",
+			"description": "Saves a persistent table, possibly overwriting any existing data",
+			"args": [
+				{
+					"name": "key",
+					"description": "Name of the database, must be a string"
 				},
 				{
 					"name": "value",
-					"description": "The value to which the menu item will be set."
+					"description": "Value or table"
+				}
+			]
+		},
+		"read": {
+			"name": "database.read",
+			"description": "Returns a table",
+			"args": [
+				{
+					"name": "key",
+					"description": "Unique string identifier"
+				}
+			]
+		}
+	},
+	"entity": {
+		"get_local_player": {
+			"name": "entity.get_local_player",
+			"description": "Returns the entity index for the local player, or nil on failure.",
+			"args": []
+		},
+		"get_all": {
+			"name": "entity.get_all",
+			"description": "Returns an array of entity indices. Pass no arguments for all entities.",
+			"args": [
+				{
+					"name": "classname",
+					"description": "Optional string that specifies the class name of entities that will be added to the list, for example \"CCSPlayer\"."
+				}
+			]
+		},
+		"get_players": {
+			"name": "entity.get_players",
+			"description": "Returns an array of player entity indices. Dormant and dead players will not be added to the list.",
+			"args": [
+				{
+					"name": "enemies_only",
+					"description": "Optional. If true then you and the players on your team will not be added to the list."
+				}
+			]
+		},
+		"get_game_rules": {
+			"name": "entity.get_game_rules",
+			"description": "Returns entity index of CCSGameRulesProxy instance, or nil if none exists.",
+			"args": []
+		},
+		"get_player_resource": {
+			"name": "entity.get_player_resource",
+			"description": "Returns entity index of CCSPlayerResource instance, or nil if none exists.",
+			"args": []
+		},
+		"get_classname": {
+			"name": "entity.get_classname",
+			"description": "Returns the name of the entity's class, or nil on failure.",
+			"args": [
+				{
+					"name": "ent",
+					"description": "Entity index."
+				}
+			]
+		},
+		"set_prop": {
+			"name": "entity.set_prop",
+			"args": [
+				{
+					"name": "ent",
+					"description": "Entity index."
 				},
 				{
-					"name": "...",
-					"description": "Optional. For multiselect comboboxes, you may want to set more than one option."
+					"name": "propname",
+					"description": "Name of the networked property."
+				},
+				{
+					"name": "value",
+					"description": "The property will be set to this value. For vectors or angles, separate the components by commas."
+				},
+				{
+					"name": "array_index",
+					"description": "Optional. If propname is an array, the value at this array index will be set."
+				}
+			]
+		},
+		"get_prop": {
+			"name": "entity.get_prop",
+			"description": "Returns the value of the property, or nil on failure. For vectors or angles, this returns three values.",
+			"args": [
+				{
+					"name": "ent",
+					"description": "Entity index."
+				},
+				{
+					"name": "propname",
+					"description": "Name of the networked property."
+				},
+				{
+					"name": "array_index",
+					"description": "Optional. If propname is an array, the value at this array index will be returned."
+				}
+			]
+		},
+		"is_enemy": {
+			"name": "entity.is_enemy",
+			"description": "Returns true if the entity is on the other team.",
+			"args": [
+				{
+					"name": "ent",
+					"description": "Entity index."
+				}
+			]
+		},
+		"is_alive": {
+			"name": "entity.is_alive",
+			"description": "Returns true if the player is not dead.",
+			"args": [
+				{
+					"name": "ent",
+					"description": "Entity index."
+				}
+			]
+		},
+		"is_dormant": {
+			"name": "entity.is_dormant",
+			"description": "Returns true if the player is not dormant.",
+			"args": [
+				{
+					"name": "ent",
+					"description": "Entity index."
+				}
+			]
+		},
+		"get_player_name": {
+			"name": "entity.get_player_name",
+			"description": "Returns the player's name, or the string \"unknown\" on failure.",
+			"args": [
+				{
+					"name": "ent",
+					"description": "Player entity index."
+				}
+			]
+		},
+		"get_player_weapon": {
+			"name": "entity.get_player_weapon",
+			"description": "Returns the entity index of the player's active weapon, or nil if the player is not alive, dormant, etc.",
+			"args": [
+				{
+					"name": "ent",
+					"description": "Player entity index."
+				}
+			]
+		},
+		"hitbox_position": {
+			"name": "entity.hitbox_position",
+			"description": "Returns world coordinates x, y, z, or nil on failure.",
+			"args": [
+				{
+					"name": "player",
+					"description": "Entity index of the player."
+				},
+				{
+					"name": "hitbox",
+					"description": "Either a string of the hitbox name, or an integer index of the hitbox."
+				}
+			]
+		},
+		"get_steam64": {
+			"name": "entity.get_steam64",
+			"description": "Returns steamID3, or nil on failure.",
+			"args": [
+				{
+					"name": "player",
+					"description": "Entity index of the player."
+				}
+			]
+		},
+		"get_bounding_box": {
+			"name": "entity.get_bounding_box",
+			"description": "Returns x1, y1, x2, y2, alpha_multiplier. The contents of x1, y1, x2, y2 must be ignored when alpha_multiplier is zero, which indicates that the bounding box is invalid and should not be drawn.",
+			"args": [
+				{
+					"name": "player",
+					"description": "Entity index of the player."
+				}
+			]
+		},
+		"get_origin": {
+			"name": "entity.get_origin",
+			"description": "Returns x, y, z world coordinates of the entity's origin, or nil if the entity is dormant and dormant ESP information is not available.",
+			"args": [
+				{
+					"name": "player",
+					"description": "Entity index"
+				}
+			]
+		},
+		"get_esp_data": {
+			"name": "entity.get_esp_data",
+			"description": "Returns a table containing alpha, health, and weapon_id, or nil on failure.",
+			"args": [
+				{
+					"name": "player",
+					"description": "Entity index"
+				}
+			]
+		}
+	},
+	"globals": {
+		"realtime": {
+			"name": "globals.realtime",
+			"description": "Returns the local time in seconds.",
+			"args": []
+		},
+		"curtime": {
+			"name": "globals.curtime",
+			"description": "Returns the game time in seconds. This number is synchronized with the server.",
+			"args": []
+		},
+		"frametime": {
+			"name": "globals.frametime",
+			"description": "Returns the number of seconds elapsed during the last game frame.",
+			"args": []
+		},
+		"absoluteframetime": {
+			"name": "globals.absoluteframetime",
+			"description": "Returns the number of seconds elapsed during the last game frame.",
+			"args": []
+		},
+		"maxplayers": {
+			"name": "globals.maxplayers",
+			"description": "Returns the maximum number of players in the server.",
+			"args": []
+		},
+		"tickcount": {
+			"name": "globals.tickcount",
+			"description": "Returns the number of ticks elapsed in the server.",
+			"args": []
+		},
+		"tickinterval": {
+			"name": "globals.tickinterval",
+			"description": "Returns the time elapsed in one game tick in seconds.",
+			"args": []
+		},
+		"framecount": {
+			"name": "globals.framecount",
+			"description": "Returns the number of frames since the game started",
+			"args": []
+		},
+		"mapname": {
+			"name": "globals.mapname",
+			"description": "Returns the name of the loaded map, or nil if you are not in game.",
+			"args": []
+		},
+		"lastoutgoingcommand": {
+			"name": "globals.lastoutgoingcommand",
+			"description": "Returns the command number of the last outgoing command.",
+			"args": []
+		},
+		"oldcommandack": {
+			"name": "globals.oldcommandack",
+			"description": "Returns the command number of the previous server-acknowledged command.",
+			"args": []
+		},
+		"commandack": {
+			"name": "globals.commandack",
+			"description": "Returns the command number of the most recent server-acknowledged command.",
+			"args": []
+		},
+		"chokedcommands": {
+			"name": "globals.chokedcommands",
+			"description": "Returns the number of choked commands, i.e. the number of commands that haven't yet been sent to the server.",
+			"args": []
+		}
+	},
+	"panorama": {
+		"open": {
+			"name": "panorama.open",
+			"args": [
+				{
+					"name": "panel",
+					"description": "Optional panel name"
+				}
+			]
+		},
+		"loadstring": {
+			"name": "panorama.loadstring",
+			"args": [
+				{
+					"name": "js_code",
+					"description": "String containing JavaScript code"
+				},
+				{
+					"name": "panel",
+					"description": "Optional panel name"
+				}
+			]
+		}
+	},
+	"materialsystem": {
+		"get_name": {
+			"name": "materialsystem.get_name",
+			"description": "Returns name of the material",
+			"args": []
+		},
+		"reload": {
+			"name": "materialsystem.reload",
+			"description": "Resets the material",
+			"args": []
+		},
+		"color_modulate": {
+			"name": "materialsystem.color_modulate",
+			"args": [
+				{
+					"name": "r",
+					"description": "Red (0-255)"
+				},
+				{
+					"name": "g",
+					"description": "Green (0-255)"
+				},
+				{
+					"name": "b",
+					"description": "Blue (0-255)"
+				}
+			]
+		},
+		"alpha_modulate": {
+			"name": "materialsystem.alpha_modulate",
+			"args": [
+				{
+					"name": "alpha",
+					"description": "Opacity (0-255)"
+				}
+			]
+		},
+		"set_shader_param": {
+			"name": "materialsystem.set_shader_param",
+			"args": [
+				{
+					"name": "param_name",
+					"description": "Name of the shader parameter"
+				},
+				{
+					"name": "value",
+					"description": "New value"
+				},
+				{
+					"name": "force",
+					"description": "Optional boolean. Add the var if it does not exist in the material"
+				}
+			]
+		},
+		"get_shader_param": {
+			"name": "materialsystem.get_shader_param",
+			"args": [
+				{
+					"name": "param_name",
+					"description": "Name of the shader parameter"
+				}
+			]
+		},
+		"set_material_var_flag": {
+			"name": "materialsystem.set_material_var_flag",
+			"args": [
+				{
+					"name": "index",
+					"description": "Index of MaterialVarFlags_t"
+				},
+				{
+					"name": "enabled",
+					"description": "Boolean"
+				}
+			]
+		},
+		"get_material_var_flag": {
+			"name": "materialsystem.get_material_var_flag",
+			"description": "Returns true if the specified flag is set",
+			"args": [
+				{
+					"name": "index",
+					"description": "Index of MaterialVarFlags_t"
+				}
+			]
+		},
+		"find_material": {
+			"name": "materialsystem.find_material",
+			"description": "Returns a reference to the material",
+			"args": [
+				{
+					"name": "path",
+					"description": "Path to material including filename"
+				},
+				{
+					"name": "force_load",
+					"description": "Optional boolean. Load the material if it isn't loaded"
+				}
+			]
+		},
+		"find_materials": {
+			"name": "materialsystem.find_materials",
+			"description": "Returns a table of references to materials that have partial_path in their name",
+			"args": [
+				{
+					"name": "partial_path",
+					"description": "Partial path to material"
+				},
+				{
+					"name": "force_load",
+					"description": "Optional boolean. Load each material if it isn't loaded"
+				}
+			]
+		},
+		"find_texture": {
+			"name": "materialsystem.find_texture",
+			"description": "Returns a reference to the texture that can be used with set_shader_param",
+			"args": [
+				{
+					"name": "path",
+					"description": "Path to texture including filename"
+				}
+			]
+		},
+		"get_model_materials": {
+			"name": "materialsystem.get_model_materials",
+			"description": "Returns a table of references to materials used by the entity",
+			"args": [
+				{
+					"name": "entindex",
+					"description": "Entity index"
+				}
+			]
+		},
+		"arms_material": {
+			"name": "materialsystem.arms_material",
+			"description": "Returns a reference to the arms material when 'Viewmodel arms' is enabled",
+			"args": []
+		},
+		"chams_material": {
+			"name": "materialsystem.chams_material",
+			"description": "Returns a reference to the player chams material",
+			"args": []
+		}
+	},
+	"plist": {
+		"set": {
+			"name": "plist.set",
+			"args": [
+				{
+					"name": "entindex",
+					"description": "Player index"
+				},
+				{
+					"name": "field",
+					"description": "Name of the field"
+				},
+				{
+					"name": "value",
+					"description": "Value of the field"
 				}
 			]
 		},
 		"get": {
-			"name": "ui.get",
-			"description": "For a checkbox, returns true or false. For a slider, returns an integer. For a combobox, returns a string. For a multiselect combobox, returns an array of strings. For a hotkey, returns true if the hotkey is active. For a color picker, returns r, g, b, a. Throws an error on failure.",
+			"name": "plist.get",
 			"args": [
 				{
-					"name": "item",
-					"description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference."
-				}
-			]
-		},
-		"set_callback": {
-			"name": "ui.set_callback",
-			"args": [
-				{
-					"name": "item",
-					"description": "The special value returned by ui.new_*. Do not try passing a reference to an existing menu item."
+					"name": "entindex",
+					"description": "Player index"
 				},
 				{
-					"name": "callback",
-					"description": "Lua function that will be called when the menu item changes values. For example, this will be called when the user checks or unchecks a checkbox."
+					"name": "field",
+					"description": "Name of the field"
 				}
 			]
-		},
-		"set_visible": {
-			"name": "ui.set_visible",
-			"args": [
-				{
-					"name": "item",
-					"description": "A menu item reference."
-				},
-				{
-					"name": "visible",
-					"description": "Boolean. Pass false to hide the control from the menu."
-				}
-			]
-		},
-		"is_menu_open": {
-			"name": "ui.is_menu_open",
-			"description": "Returns true if the menu is currently open.",
-			"args": []
-		},
-		"mouse_position": {
-			"name": "ui.mouse_position",
-			"description": "Returns current mouse coordinates x, y",
-			"args": []
 		}
 	},
 	"renderer": {
@@ -951,23 +1059,23 @@
 				},
 				{
 					"name": "r",
-					"description": "Red (1-255)"
+					"description": "Red (0-255)"
 				},
 				{
 					"name": "g",
-					"description": "Green (1-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b",
-					"description": "Blue (1-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "a",
-					"description": "Alpha (1-255)"
+					"description": "Alpha (0-255)"
 				},
 				{
 					"name": "flags",
-					"description": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text. \"c\" can be combined with other flags. nil can be specified for normal sized uncentered text."
+					"description": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text, \"d\" for high DPI support. \"c\" can be combined with other flags. nil can be specified for normal sized uncentered text."
 				},
 				{
 					"name": "max_width",
@@ -1015,19 +1123,19 @@
 				},
 				{
 					"name": "r",
-					"description": "Red (1-255)"
+					"description": "Red (0-255)"
 				},
 				{
 					"name": "g",
-					"description": "Green (1-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b",
-					"description": "Blue (1-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "a",
-					"description": "Alpha (1-255)"
+					"description": "Alpha (0-255)"
 				}
 			]
 		},
@@ -1053,19 +1161,19 @@
 				},
 				{
 					"name": "r",
-					"description": "Red (1-255)"
+					"description": "Red (0-255)"
 				},
 				{
 					"name": "g",
-					"description": "Green (1-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b",
-					"description": "Blue (1-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "a",
-					"description": "Alpha (1-255)"
+					"description": "Alpha (0-255)"
 				}
 			]
 		},
@@ -1091,35 +1199,35 @@
 				},
 				{
 					"name": "r1",
-					"description": "Red (1-255)"
+					"description": "Red (0-255)"
 				},
 				{
 					"name": "g1",
-					"description": "Green (1-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b1",
-					"description": "Blue (1-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "a1",
-					"description": "Alpha (1-255)"
+					"description": "Alpha (0-255)"
 				},
 				{
 					"name": "r2",
-					"description": "Red (1-255)"
+					"description": "Red (0-255)"
 				},
 				{
 					"name": "g2",
-					"description": "Green (1-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b2",
-					"description": "Blue (1-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "a2",
-					"description": "Alpha (1-255)"
+					"description": "Alpha (0-255)"
 				},
 				{
 					"name": "ltr",
@@ -1141,19 +1249,19 @@
 				},
 				{
 					"name": "r",
-					"description": "Red (1-255)"
+					"description": "Red (0-255)"
 				},
 				{
 					"name": "g",
-					"description": "Green (1-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b",
-					"description": "Blue (1-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "a",
-					"description": "Alpha (1-255)"
+					"description": "Alpha (0-255)"
 				},
 				{
 					"name": "radius",
@@ -1183,19 +1291,19 @@
 				},
 				{
 					"name": "r",
-					"description": "Red (1-255)"
+					"description": "Red (0-255)"
 				},
 				{
 					"name": "g",
-					"description": "Green (1-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b",
-					"description": "Blue (1-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "a",
-					"description": "Alpha (1-255)"
+					"description": "Alpha (0-255)"
 				},
 				{
 					"name": "radius",
@@ -1245,19 +1353,19 @@
 				},
 				{
 					"name": "r",
-					"description": "Red (1-255)"
+					"description": "Red (0-255)"
 				},
 				{
 					"name": "g",
-					"description": "Green (1-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b",
-					"description": "Blue (1-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "a",
-					"description": "Alpha (1-255)"
+					"description": "Alpha (0-255)"
 				}
 			]
 		},
@@ -1285,19 +1393,19 @@
 			"args": [
 				{
 					"name": "r",
-					"description": "Red (1-255)"
+					"description": "Red (0-255)"
 				},
 				{
 					"name": "g",
-					"description": "Green (1-255)"
+					"description": "Green (0-255)"
 				},
 				{
 					"name": "b",
-					"description": "Blue (1-255)"
+					"description": "Blue (0-255)"
 				},
 				{
 					"name": "a",
-					"description": "Alpha (1-255)"
+					"description": "Alpha (0-255)"
 				},
 				{
 					"name": "...",
@@ -1307,6 +1415,7 @@
 		},
 		"texture": {
 			"name": "renderer.texture",
+			"description": "In fill mode, the texture will be stretched to the specified size. This may cause textures to appear blurry if the specified size is not the same as the texture's size. In repeat mode, the texture will be tiled.",
 			"args": [
 				{
 					"name": "id",
@@ -1342,7 +1451,11 @@
 				},
 				{
 					"name": "a",
-					"description": "Alpha (0-255)"
+					"description": "Alpha (1-255)"
+				},
+				{
+					"name": "mode",
+					"description": "Optional string: \"f\" for fill, \"r\" for repeat, otherwise automatic"
 				}
 			]
 		},
@@ -1361,6 +1474,427 @@
 				{
 					"name": "height",
 					"description": "Height"
+				}
+			]
+		},
+		"load_png": {
+			"name": "renderer.load_png",
+			"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+			"args": [
+				{
+					"name": "contents",
+					"description": "PNG file contents"
+				},
+				{
+					"name": "width",
+					"description": "Width"
+				},
+				{
+					"name": "height",
+					"description": "Height"
+				}
+			]
+		},
+		"load_jpg": {
+			"name": "renderer.load_jpg",
+			"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+			"args": [
+				{
+					"name": "contents",
+					"description": "JPG file contents"
+				},
+				{
+					"name": "width",
+					"description": "Width"
+				},
+				{
+					"name": "height",
+					"description": "Height"
+				}
+			]
+		},
+		"load_rgba": {
+			"name": "renderer.load_rgba",
+			"description": "Returns a texture ID that can be used with renderer.texture, or nil on failure",
+			"args": [
+				{
+					"name": "contents",
+					"description": "RGBA buffer"
+				},
+				{
+					"name": "width",
+					"description": "Width"
+				},
+				{
+					"name": "height",
+					"description": "Height"
+				}
+			]
+		}
+	},
+	"ui": {
+		"new_checkbox": {
+			"name": "ui.new_checkbox",
+			"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA."
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this control will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the checkbox."
+				}
+			]
+		},
+		"new_slider": {
+			"name": "ui.new_slider",
+			"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA."
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this control will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the slider."
+				},
+				{
+					"name": "min",
+					"description": "The minimum value that can be set using the slider."
+				},
+				{
+					"name": "max",
+					"description": "The maximum value that can be set using the slider."
+				},
+				{
+					"name": "init_value",
+					"description": "Optional integer. The initial value. If not provided, the initial value will be min."
+				},
+				{
+					"name": "show_tooltip",
+					"description": "Optional boolean. true if the slider should display its current value."
+				},
+				{
+					"name": "unit",
+					"description": "Optional string that is two characters or less. This will be appended to the display value. For example, \"px\" for pixels or \"%\" for a percentage."
+				},
+				{
+					"name": "scale",
+					"description": "Optional The display value will be multiplied by this scale. For example, 0.1 will make a slider with the range [0-1800] show as 0.0-180.0 with one decimal place."
+				},
+				{
+					"name": "tooltips",
+					"description": "Optional table used to override the tooltip for the specified values. The key must be within min-max. The value is a string that will be shown instead of the numeric value whenever that value is selected."
+				}
+			]
+		},
+		"new_combobox": {
+			"name": "ui.new_combobox",
+			"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA."
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this control will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the combobox."
+				},
+				{
+					"name": "...",
+					"description": "One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added."
+				}
+			]
+		},
+		"new_multiselect": {
+			"name": "ui.new_multiselect",
+			"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA."
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this control will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the multiselect."
+				},
+				{
+					"name": "...",
+					"description": "One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added."
+				}
+			]
+		},
+		"new_hotkey": {
+			"name": "ui.new_hotkey",
+			"description": "Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA."
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this control will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the hotkey."
+				},
+				{
+					"name": "inline",
+					"description": "Optional boolean. If set to true, the hotkey will be placed to the right of the preceding menu item."
+				},
+				{
+					"name": "default_hotkey",
+					"description": "Optional virtual key"
+				}
+			]
+		},
+		"new_button": {
+			"name": "ui.new_button",
+			"description": "Throws an error on failure. The return value should not be used with ui.set or ui.get.",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA."
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this checkbox will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the button."
+				},
+				{
+					"name": "callback",
+					"description": "The lua function that will be called when the button is pressed."
+				}
+			]
+		},
+		"new_color_picker": {
+			"name": "ui.new_color_picker",
+			"description": "Throws an error on failure. The color picker is placed to the right of the previous menu item.",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA."
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this checkbox will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the color picker. This will not be shown, it is only used to identify this item in saved configs."
+				},
+				{
+					"name": "r",
+					"description": "Optional initial red value (0-255)"
+				},
+				{
+					"name": "g",
+					"description": "Optional initial green value (0-255)"
+				},
+				{
+					"name": "b",
+					"description": "Optional initial blue value (0-255)"
+				},
+				{
+					"name": "a",
+					"description": "Optional initial alpha value (0-255)"
+				}
+			]
+		},
+		"new_textbox": {
+			"name": "ui.new_textbox",
+			"description": "Throws an error on failure. Returns a special value that can be used with ui.get",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA."
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this textbox will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the textbox"
+				}
+			]
+		},
+		"new_listbox": {
+			"name": "ui.new_listbox",
+			"description": "Throws an error on failure. Returns a special value that can be used with ui.get. Calling ui.get on a listbox will return the zero-based index of the currently selected string.",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA"
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this listbox will be added"
+				},
+				{
+					"name": "name",
+					"description": "Name"
+				},
+				{
+					"name": "items",
+					"description": "Optional table of items (strings)"
+				}
+			]
+		},
+		"new_string": {
+			"name": "ui.new_string",
+			"description": "Returns a special value that can be used with ui.get and ui.set. This function does not create any menu items. The value will be stored in configs just like other menu items.",
+			"args": [
+				{
+					"name": "name",
+					"description": "Name"
+				},
+				{
+					"name": "value",
+					"description": "Optional string that specifies the default value."
+				}
+			]
+		},
+		"new_label": {
+			"name": "ui.new_label",
+			"description": "Returns a special value that can be used with ui.set",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA"
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this listbox will be added"
+				},
+				{
+					"name": "name",
+					"description": "Name"
+				}
+			]
+		},
+		"reference": {
+			"name": "ui.reference",
+			"description": "Avoid calling this from inside a function. Returns a reference that can be passed to ui.get and ui.set, or throws an error on failure. This allows you to access a built-in pre-existing menu items. This function returns multiple values when the specified menu item is followed by unnamed menu items, for example a color picker or a hotkey.",
+			"args": [
+				{
+					"name": "tab",
+					"description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA."
+				},
+				{
+					"name": "container",
+					"description": "The name of the existing container to which this checkbox will be added."
+				},
+				{
+					"name": "name",
+					"description": "The name of the menu item."
+				}
+			]
+		},
+		"set": {
+			"name": "ui.set",
+			"description": "For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, value is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.",
+			"args": [
+				{
+					"name": "item",
+					"description": "The result of either ui.new_* or ui.reference"
+				},
+				{
+					"name": "value",
+					"description": "The value to which the menu item will be set"
+				},
+				{
+					"name": "...",
+					"description": "Optional. For multiselect comboboxes, you may want to set more than one option."
+				}
+			]
+		},
+		"get": {
+			"name": "ui.get",
+			"description": "For a checkbox, returns true or false. For a slider, returns an integer. For a combobox, returns a string. For a multiselect combobox, returns an array of strings. For a hotkey, returns true if the hotkey is active. For a color picker, returns r, g, b, a. Throws an error on failure.",
+			"args": [
+				{
+					"name": "item",
+					"description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference."
+				}
+			]
+		},
+		"set_callback": {
+			"name": "ui.set_callback",
+			"description": "item is passed as an argument to the callback function.",
+			"args": [
+				{
+					"name": "item",
+					"description": "The special value returned by ui.new_*. Do not try passing a reference to an existing menu item."
+				},
+				{
+					"name": "callback",
+					"description": "Lua function that will be called when the menu item changes values. For example, this will be called when the user checks or unchecks a checkbox."
+				}
+			]
+		},
+		"set_visible": {
+			"name": "ui.set_visible",
+			"args": [
+				{
+					"name": "item",
+					"description": "A menu item reference."
+				},
+				{
+					"name": "visible",
+					"description": "Boolean. Pass false to hide the control from the menu."
+				}
+			]
+		},
+		"is_menu_open": {
+			"name": "ui.is_menu_open",
+			"description": "Returns true if the menu is currently open.",
+			"args": []
+		},
+		"mouse_position": {
+			"name": "ui.mouse_position",
+			"description": "Returns current mouse coordinates x, y",
+			"args": []
+		},
+		"menu_position": {
+			"name": "ui.menu_position",
+			"description": "Returns current window coordinates x, y",
+			"args": []
+		},
+		"menu_size": {
+			"name": "ui.menu_size",
+			"description": "Returns current menu size width, height",
+			"args": []
+		},
+		"name": {
+			"name": "ui.name",
+			"description": "Returns the display name",
+			"args": [
+				{
+					"name": "item",
+					"description": "Reference to menu item"
 				}
 			]
 		}

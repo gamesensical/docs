@@ -28,9 +28,14 @@
           "type": "number"
         },
         {
-          "name": "[x2...]",
-          "description": "number(s)",
+          "name": "x2",
+          "description": "number",
           "type": "number"
+        },
+        {
+          "name": "...",
+          "description": "Number(s)",
+          "optional": true
         }
       ]
     },
@@ -57,9 +62,14 @@
           "type": "number"
         },
         {
-          "name": "[x2...]",
-          "description": "number(s)",
+          "name": "x2",
+          "description": "number",
           "type": "number"
+        },
+        {
+          "name": "...",
+          "description": "Number(s)",
+          "optional": true
         }
       ]
     },
@@ -322,22 +332,22 @@
         },
         {
           "name": "r",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         },
         {
@@ -369,22 +379,22 @@
         },
         {
           "name": "r",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         },
         {
@@ -397,17 +407,11 @@
     },
     "error_log": {
       "name": "client.error_log",
-      "description": "Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)",
       "args": [
         {
           "name": "msg",
           "description": "The error message",
           "type": "string"
-        },
-        {
-          "name": "...",
-          "description": "Comma-separated arguments to concatenate with msg.",
-          "optional": true
         }
       ]
     },
@@ -450,6 +454,19 @@
           "name": "pattern",
           "description": "String of the signature. Escape with \\x, replace wildcards with \\xCC",
           "type": "string"
+        }
+      ]
+    },
+    "get_model_name": {
+      "name": "client.get_model_name",
+      "description": "Returns model name, or nil on failure.",
+      "return_type": "string",
+      "args": [
+        {
+          "name": "model_index",
+          "description": "Model index",
+          "type": "number",
+          "type_description": "model index"
         }
       ]
     },
@@ -520,6 +537,37 @@
           "name": "maximum",
           "description": "Highest possible result",
           "type": "number"
+        }
+      ]
+    },
+    "register_esp_flag": {
+      "name": "client.register_esp_flag",
+      "description": "Requires \"Flags\" is enabled in Player ESP",
+      "args": [
+        {
+          "name": "flag",
+          "description": "String of text that will be shown when callback returns true",
+          "type": "string"
+        },
+        {
+          "name": "r",
+          "description": "Red (0-255)",
+          "type": "number"
+        },
+        {
+          "name": "g",
+          "description": "Green (0-255)",
+          "type": "number"
+        },
+        {
+          "name": "b",
+          "description": "Blue (0-255)",
+          "type": "number"
+        },
+        {
+          "name": "callback",
+          "description": "Function that will be called for each entity while drawing the ESP",
+          "type": "function"
         }
       ]
     },
@@ -606,7 +654,7 @@
     },
     "trace_bullet": {
       "name": "client.trace_bullet",
-      "description": "Returns entindex, damage. Entindex is nil when no player is hit.",
+      "description": "Returns entindex, damage. Entindex is nil when no player is hit or if players are skipped.",
       "return_type": "number, number",
       "args": [
         {
@@ -653,9 +701,8 @@
         },
         {
           "name": "skip_players",
-          "description": "Pass true to skip expensive player hitbox checks when they're not needed.",
-          "type": "boolean",
-          "optional": true
+          "description": "Optional, pass true to skip expensive hitbox checks.",
+          "type": "boolean"
         }
       ]
     },
@@ -718,16 +765,16 @@
     },
     "unset_event_callback": {
       "name": "client.unset_event_callback",
-      "description": "Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.",
+      "description": "Removes a callback that was previously set using set_event_callback",
       "args": [
         {
           "name": "event_name",
-          "description": "Name of the event.",
+          "description": "Name of the event",
           "type": "string"
         },
         {
           "name": "callback",
-          "description": "Registered lua callback to remove.",
+          "description": "Lua function that was passed to set_event_callback",
           "type": "function"
         }
       ]
@@ -779,15 +826,34 @@
     }
   },
   "config": {
+    "export": {
+      "name": "config.export",
+      "description": "Returns the current config as a string",
+      "args": [
+
+      ]
+    },
     "load": {
       "name": "config.load",
-      "description": "Loads a configuration preset.",
+      "description": "To load the specified config: config.load('Config name here') To load a tab from the specified config: config.load('Config name here', 'Tab name here') To load a container from the specified config: config.load('Config name here', 'Tab name here', 'Container name here')",
       "args": [
         {
           "name": "name",
-          "description": "Name of the configuration preset",
+          "description": "Name of the config",
           "type": "string",
           "type_description": "menu item"
+        },
+        {
+          "name": "tab",
+          "description": "Name of the tab",
+          "type": "string",
+          "type_description": "menu tab"
+        },
+        {
+          "name": "container",
+          "description": "Name of the container",
+          "type": "string",
+          "type_description": "menu container"
         }
       ]
     }
@@ -954,6 +1020,19 @@
         {
           "name": "ent",
           "description": "Entity index.",
+          "type": "number",
+          "type_description": "entindex"
+        }
+      ]
+    },
+    "get_esp_data": {
+      "name": "entity.get_esp_data",
+      "description": "Returns a table containing alpha, health, and weapon_id, or nil on failure.",
+      "return_type": "table",
+      "args": [
+        {
+          "name": "player",
+          "description": "Entity index",
           "type": "number",
           "type_description": "entindex"
         }
@@ -1177,7 +1256,7 @@
     },
     "chokedcommands": {
       "name": "globals.chokedcommands",
-      "description": "Returns the current number of commands that are being held back.",
+      "description": "Returns the number of choked commands, i.e. the number of commands that haven't yet been sent to the server.",
       "return_type": "number",
       "args": [
 
@@ -1185,7 +1264,7 @@
     },
     "commandack": {
       "name": "globals.commandack",
-      "description": "Returns the number of the command the server last acknowledged.",
+      "description": "Returns the command number of the most recent server-acknowledged command.",
       "return_type": "number",
       "args": [
 
@@ -1241,7 +1320,7 @@
     },
     "oldcommandack": {
       "name": "globals.oldcommandack",
-      "description": "Returns the previous server acknowledged command number.",
+      "description": "Returns the command number of the previous server-acknowledged command.",
       "return_type": "number",
       "args": [
 
@@ -1272,6 +1351,135 @@
       ]
     }
   },
+  "json": {
+    "decode_invalid_numbers": {
+      "name": "json.decode_invalid_numbers",
+      "description": "Lua CJSON may generate an error when trying to decode numbers not supported by the JSON specification. Invalid numbers are defined as: infinity, not-a-number (NaN) or hexadecimal. The current value wil always be returned.",
+      "return_type": "boolean",
+      "args": [
+        {
+          "name": "setting",
+          "description": "Pass true to accept and decode invalid numbers or false to throw an error",
+          "type": "boolean",
+          "optional": true
+        }
+      ]
+    },
+    "decode_max_depth": {
+      "name": "json.decode_max_depth",
+      "description": "Lua CJSON will generate an error when parsing deeply nested JSON once the maximum array/object depth has been exceeded. This check prevents unnecessarily complicated JSON from slowing down the application, or crashing the application due to lack of process stack space.",
+      "return_type": "number",
+      "args": [
+        {
+          "name": "setting",
+          "description": "Depth must be a positive integer. Default: 1000.",
+          "type": "number",
+          "optional": true
+        }
+      ]
+    },
+    "encode_invalid_numbers": {
+      "name": "json.encode_invalid_numbers",
+      "description": "Lua CJSON may generate an error when encoding floating point numbers not supported by the JSON specification (invalid numbers): infinity, not-a-number (NaN)",
+      "return_type": "boolean",
+      "args": [
+        {
+          "name": "setting",
+          "description": "Pass true to allow invalid numbers to be encoded. This will generate non-standard JSON, but this output is supported by some libraries.",
+          "type": "boolean",
+          "optional": true
+        }
+      ]
+    },
+    "encode_keep_buffer": {
+      "name": "json.encode_keep_buffer",
+      "description": "Lua CJSON can reuse the JSON encoding buffer to improve performance.",
+      "return_type": "boolean",
+      "args": [
+        {
+          "name": "setting",
+          "description": "The buffer will grow to the largest size required and is not freed until the Lua CJSON module is garbage collected when true is passed.",
+          "type": "boolean",
+          "optional": true
+        }
+      ]
+    },
+    "encode_max_depth": {
+      "name": "json.encode_max_depth",
+      "description": "Once the maximum table depth has been exceeded Lua CJSON will generate an error. This prevents a deeply nested or recursive data structure from crashing the application.",
+      "return_type": "number",
+      "args": [
+        {
+          "name": "depth",
+          "description": "Depth must be a positive integer. Default: 1000.",
+          "type": "number",
+          "optional": true
+        }
+      ]
+    },
+    "encode_number_precision": {
+      "name": "json.encode_number_precision",
+      "description": "The amount of significant digits returned by Lua CJSON when encoding numbers can be changed to balance accuracy versus performance. For data structures containing many numbers, setting cjson.encode_number_precision to a smaller integer, for example 3, can improve encoding performance by up to 50%.",
+      "return_type": "number",
+      "args": [
+        {
+          "name": "precision",
+          "description": "Precision must be an integer between 1 and 14. Default: 14.",
+          "type": "number",
+          "optional": true
+        }
+      ]
+    },
+    "encode_sparse_array": {
+      "name": "json.encode_sparse_array",
+      "description": "Lua CJSON classifies a Lua table into one of three kinds when encoding a JSON array. This is determined by the number of values missing from the Lua array as follows:",
+      "return_type": "boolean, number, number",
+      "args": [
+        {
+          "name": "convert",
+          "description": "Convert must be a boolean. Default: false",
+          "type": "boolean",
+          "optional": true
+        },
+        {
+          "name": "ratio",
+          "description": "Ratio must be a positive integer. Default: 2.",
+          "type": "number",
+          "optional": true
+        },
+        {
+          "name": "safe",
+          "description": "Safe must be a positive integer. Default: 10.",
+          "type": "number",
+          "optional": true
+        }
+      ]
+    },
+    "parse": {
+      "name": "json.parse",
+      "description": "json.parse will deserialise any UTF-8 JSON string into a Lua value or table. null will be converted to a NULL lightuserdata value. This can be compared with cjson.null for convenience.",
+      "return_type": "any",
+      "args": [
+        {
+          "name": "json_text",
+          "description": "UTF-8 JSON text",
+          "type": "string"
+        }
+      ]
+    },
+    "stringify": {
+      "name": "json.stringify",
+      "description": "Will serialise a Lua value into a string containing the JSON representation.",
+      "return_type": "string",
+      "args": [
+        {
+          "name": "value",
+          "description": "A lua boolean, number, string, table or nil",
+          "type": "any"
+        }
+      ]
+    }
+  },
   "materialsystem": {
     "alpha_modulate": {
       "name": "material_object:alpha_modulate",
@@ -1286,7 +1494,7 @@
     },
     "arms_material": {
       "name": "materialsystem.arms_material",
-      "description": "Returns the players hand cham material as an object.",
+      "description": "Returns a reference to the arms material when 'Viewmodel arms' is enabled",
       "return_type": "table",
       "return_description": "material object",
       "args": [
@@ -1295,7 +1503,7 @@
     },
     "chams_material": {
       "name": "materialsystem.chams_material",
-      "description": "Returns the players cham material as an object.",
+      "description": "Returns a reference to the player chams material",
       "return_type": "table",
       "return_description": "material object",
       "args": [
@@ -1325,37 +1533,49 @@
     },
     "find_material": {
       "name": "materialsystem.find_material",
-      "description": "Returns a material object for the specified material.",
+      "description": "Returns a reference to the material",
       "return_type": "table",
       "return_description": "material object",
       "args": [
         {
-          "name": "material",
-          "description": "The name of the material.",
+          "name": "path",
+          "description": "Path to material including filename",
           "type": "string"
+        },
+        {
+          "name": "force_load",
+          "description": "Boolean. Load the material if it isn't loaded",
+          "optional": true,
+          "type": "boolean"
         }
       ]
     },
     "find_materials": {
       "name": "materialsystem.find_materials",
-      "description": "Returns all material objects that contain the specified material.",
+      "description": "Returns a table of references to materials that have partial_path in their name",
       "return_type": "table",
       "return_description": "material objects",
       "args": [
         {
-          "name": "materials",
-          "description": "The substring that the material name must contain.",
+          "name": "partial_path",
+          "description": "Partial path to material",
           "type": "string"
+        },
+        {
+          "name": "force_load",
+          "description": "Boolean. Load each material if it isn't loaded",
+          "optional": true,
+          "type": "boolean"
         }
       ]
     },
     "find_texture": {
       "name": "materialsystem.find_texture",
-      "description": "Returns a texture object for the specified material.",
+      "description": "Returns a reference to the texture that can be used with set_shader_param",
       "args": [
         {
-          "name": "material",
-          "description": "The name of the material.",
+          "name": "path",
+          "description": "Path to texture including filename",
           "type": "string"
         }
       ]
@@ -1375,16 +1595,24 @@
     },
     "get_model_materials": {
       "name": "materialsystem.get_model_materials",
-      "description": "Returns all material objects for a specified entity.",
+      "description": "Returns a table of references to materials used by the entity",
       "return_type": "table",
       "return_description": "material objects",
       "args": [
         {
-          "name": "ent",
-          "description": "The entity whos materials will be returned.",
+          "name": "entindex",
+          "description": "Entity index",
           "type": "number",
           "type_description": "entindex"
         }
+      ]
+    },
+    "get_name": {
+      "name": "materialsystem.get_name",
+      "description": "Returns name of the material",
+      "return_type": "string",
+      "args": [
+
       ]
     },
     "get_shader_param": {
@@ -1454,6 +1682,78 @@
       ]
     }
   },
+  "panorama": {
+    "loadstring": {
+      "name": "panorama.loadstring",
+      "args": [
+        {
+          "name": "js_code",
+          "description": "String containing JavaScript code",
+          "type": "string"
+        },
+        {
+          "name": "panel",
+          "description": "Panel name",
+          "optional": true,
+          "type": "string",
+          "type_description": "panorama root panel"
+        }
+      ]
+    },
+    "open": {
+      "name": "panorama.open",
+      "args": [
+        {
+          "name": "panel",
+          "description": "Panel name",
+          "optional": true,
+          "type": "string",
+          "type_description": "panorama root panel"
+        }
+      ]
+    }
+  },
+  "plist": {
+    "get": {
+      "name": "plist.get",
+      "args": [
+        {
+          "name": "entindex",
+          "description": "Player index",
+          "type": "number",
+          "type_description": "entindex"
+        },
+        {
+          "name": "field",
+          "description": "Name of the field",
+          "type": "string",
+          "type_description": "menu item"
+        }
+      ]
+    },
+    "set": {
+      "name": "plist.set",
+      "args": [
+        {
+          "name": "entindex",
+          "description": "Player index",
+          "type": "number",
+          "type_description": "entindex"
+        },
+        {
+          "name": "field",
+          "description": "Name of the field",
+          "type": "string",
+          "type_description": "menu item"
+        },
+        {
+          "name": "value",
+          "description": "Value of the field",
+          "type": "any"
+        }
+      ]
+    }
+  },
   "renderer": {
     "circle": {
       "name": "renderer.circle",
@@ -1473,22 +1773,22 @@
         },
         {
           "name": "r",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         },
         {
@@ -1528,22 +1828,22 @@
         },
         {
           "name": "r",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         },
         {
@@ -1601,42 +1901,42 @@
         },
         {
           "name": "r1",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g1",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b1",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a1",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         },
         {
           "name": "r2",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g2",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b2",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a2",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         },
         {
@@ -1653,22 +1953,22 @@
       "args": [
         {
           "name": "r",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         },
         {
@@ -1707,22 +2007,22 @@
         },
         {
           "name": "r",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         }
       ]
@@ -1874,22 +2174,22 @@
         },
         {
           "name": "r",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         }
       ]
@@ -1912,27 +2212,27 @@
         },
         {
           "name": "r",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         },
         {
           "name": "flags",
-          "description": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text, \"d\" for text that scales with DPI. \"c\" and \"d\" can be combined with other flags. nil can be specified for normal sized uncentered text.",
+          "description": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text, \"d\" for high DPI support. \"c\" can be combined with other flags. nil can be specified for normal sized uncentered text.",
           "type": "string",
           "type_description": "text flags"
         },
@@ -2002,8 +2302,8 @@
           "type": "number"
         },
         {
-          "name": "flags",
-          "description": "\"r\" for repeated/tiled textures, \"f\" to fill/stretch",
+          "name": "mode",
+          "description": "String: \"f\" for fill, \"r\" for repeat, otherwise automatic",
           "optional": true,
           "type": "string"
         }
@@ -2051,22 +2351,22 @@
         },
         {
           "name": "r",
-          "description": "Red (1-255)",
+          "description": "Red (0-255)",
           "type": "number"
         },
         {
           "name": "g",
-          "description": "Green (1-255)",
+          "description": "Green (0-255)",
           "type": "number"
         },
         {
           "name": "b",
-          "description": "Blue (1-255)",
+          "description": "Blue (0-255)",
           "type": "number"
         },
         {
           "name": "a",
-          "description": "Alpha (1-255)",
+          "description": "Alpha (0-255)",
           "type": "number"
         }
       ]
@@ -2145,7 +2445,7 @@
     },
     "name": {
       "name": "ui.name",
-      "description": "Returns the name of the menu item reference passed to it. Throws an error on failure.",
+      "description": "Returns the display name",
       "return_type": "string",
       "args": [
         {
@@ -2164,7 +2464,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2195,7 +2495,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2221,7 +2521,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2271,7 +2571,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2301,7 +2601,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2322,6 +2622,13 @@
           "description": "Boolean. If set to true, the hotkey will be placed to the right of the preceding menu item.",
           "optional": true,
           "type": "boolean"
+        },
+        {
+          "name": "default_hotkey",
+          "description": "Virtual key",
+          "optional": true,
+          "type": "number",
+          "type_description": "virtual key code"
         }
       ]
     },
@@ -2333,7 +2640,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, CONFIG or LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2353,31 +2660,33 @@
     },
     "new_listbox": {
       "name": "ui.new_listbox",
-      "description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
+      "description": "Throws an error on failure. Returns a special value that can be used with ui.get. Calling ui.get on a listbox will return the zero-based index of the currently selected string.",
       "return_type": "number",
       "return_description": "menu item",
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA",
           "type": "string",
           "type_description": "menu tab"
         },
         {
           "name": "container",
-          "description": "The name of the existing container to which this control will be added.",
+          "description": "The name of the existing container to which this listbox will be added",
           "type": "string",
           "type_description": "menu container"
         },
         {
           "name": "name",
-          "description": "The name of the listbox.",
+          "description": "Name",
           "type": "string",
           "type_description": "menu item"
         },
         {
-          "name": "...",
-          "description": "One or more comma separated string values that will be added to the listbox. Alternatively, a table of strings that will be added."
+          "name": "items",
+          "description": "Table of items (strings)",
+          "optional": true,
+          "type": "table"
         }
       ]
     },
@@ -2389,7 +2698,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2419,7 +2728,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2491,7 +2800,7 @@
         },
         {
           "name": "default_value",
-          "description": "Default value of the element.",
+          "description": "String that specifies the default value.",
           "type": "string",
           "optional": true
         }
@@ -2505,7 +2814,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2514,6 +2823,12 @@
           "description": "The name of the existing container to which this textbox will be added.",
           "type": "string",
           "type_description": "menu container"
+        },
+        {
+          "name": "name",
+          "description": "The name of the textbox",
+          "type": "string",
+          "type_description": "menu item"
         }
       ]
     },
@@ -2525,7 +2840,7 @@
       "args": [
         {
           "name": "tab",
-          "description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.",
+          "description": "The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.",
           "type": "string",
           "type_description": "menu tab"
         },
@@ -2545,17 +2860,17 @@
     },
     "set": {
       "name": "ui.set",
-      "description": "For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, param is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.",
+      "description": "For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, value is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.",
       "args": [
         {
           "name": "item",
-          "description": "The result of either ui.new_checkbox, ui.new_slider, or ui.reference.",
+          "description": "The result of either ui.new_* or ui.reference",
           "type": "number",
           "type_description": "menu reference"
         },
         {
           "name": "value",
-          "description": "The value to which the menu item will be set.",
+          "description": "The value to which the menu item will be set",
           "type": "any"
         },
         {
@@ -2597,6 +2912,242 @@
           "description": "Boolean. Pass false to hide the control from the menu.",
           "type": "boolean"
         }
+      ]
+    }
+  },
+  "vector": {
+    "angles": {
+      "name": "vector_object:angles",
+      "description": "Converts the vector to an angle and returns the pitch, yaw and roll",
+      "return_type": "number, number, number",
+      "args": [
+
+      ]
+    },
+    "cross": {
+      "name": "vector_object:dist2d",
+      "description": "Returns the cross product / vector product of itself and another vector",
+      "return_type": "number",
+      "args": [
+        {
+          "name": "other",
+          "description": "Other vector",
+          "type": "vector"
+        }
+      ]
+    },
+    "dist": {
+      "name": "vector_object:dist",
+      "description": "Returns the 3d distance to another vector",
+      "return_type": "number",
+      "args": [
+        {
+          "name": "other",
+          "description": "Vector to calculate the distance to",
+          "type": "vector"
+        }
+      ]
+    },
+    "dist2d": {
+      "name": "vector_object:dist",
+      "description": "Returns the 2d distance to another vector",
+      "return_type": "number",
+      "args": [
+        {
+          "name": "other",
+          "description": "Vector to calculate the distance to",
+          "type": "vector"
+        }
+      ]
+    },
+    "dot": {
+      "name": "vector_object:dot",
+      "description": "Returns the dot product of the vector",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "init": {
+      "name": "vector_object:init",
+      "description": "Overwrites the X, Y and Z coordinates of the vector object, returning itself",
+      "return_type": "vector",
+      "args": [
+        {
+          "name": "x",
+          "description": "X coordinate of 3D position",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "description": "Y coordinate of 3D position",
+          "type": "number"
+        },
+        {
+          "name": "z",
+          "description": "Z coordinate of 3D position",
+          "type": "number"
+        }
+      ]
+    },
+    "init_from_angles": {
+      "name": "vector_object:init_from_angles",
+      "description": "Converts the pitch, yaw and roll passed to a forward vector and overwrites the X, Y and Z coordinates with that. Returns itself",
+      "return_type": "vector",
+      "args": [
+        {
+          "name": "pitch",
+          "description": "Pitch component of angle",
+          "type": "number"
+        },
+        {
+          "name": "yaw",
+          "description": "Yaw component of angle",
+          "type": "number"
+        },
+        {
+          "name": "roll",
+          "description": "Roll component of angle",
+          "optional": true,
+          "type": "number"
+        }
+      ]
+    },
+    "length": {
+      "name": "vector_object:length",
+      "description": "Returns the length (magnitude)",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "length2d": {
+      "name": "vector_object:length2d",
+      "description": "Returns the 2d length (X and Y components)",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "length2dsqr": {
+      "name": "vector_object:length2dsqr",
+      "description": "Returns the squared 2d length (X and Y components, faster than :length2d)",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "lengthsqr": {
+      "name": "vector_object:lengthsqr",
+      "description": "Returns the squared length (faster than :length)",
+      "return_type": "number",
+      "args": [
+
+      ]
+    },
+    "lerp": {
+      "name": "vector_object:lerp",
+      "description": "Interpolates by the specified percentage between the 2 vectors.",
+      "return_type": "vector",
+      "args": [
+        {
+          "name": "to",
+          "description": "Vector to lerp to",
+          "type": "vector"
+        },
+        {
+          "name": "percentage",
+          "description": "Interpolation percentage (0-1)",
+          "type": "number"
+        }
+      ]
+    },
+    "normalize": {
+      "name": "vector_object:normalize",
+      "description": "Normalizes the vector, dividing it by it's own length (resulting in a unit vector with length = 1)",
+      "args": [
+
+      ]
+    },
+    "normalized": {
+      "name": "vector_object:normalized",
+      "description": "Returns a new unit vector, divided it by it's own length",
+      "return_type": "vector",
+      "args": [
+
+      ]
+    },
+    "scale": {
+      "name": "vector_object:scale",
+      "description": "Scales the vector by the specified value.",
+      "args": [
+        {
+          "name": "scalar",
+          "description": "Scalar value",
+          "type": "number"
+        }
+      ]
+    },
+    "scaled": {
+      "name": "vector_object:scaled",
+      "description": "Returns a new vector, scaled by the specified value.",
+      "return_type": "vector",
+      "args": [
+        {
+          "name": "scalar",
+          "description": "Scalar value",
+          "type": "number"
+        }
+      ]
+    },
+    "to": {
+      "name": "vector_object:to",
+      "description": "Returns the forward vector from itself to another vector",
+      "return_type": "vector",
+      "args": [
+        {
+          "name": "other",
+          "description": "Other vector",
+          "type": "vector"
+        }
+      ]
+    },
+    "unpack": {
+      "name": "vector_object:unpack",
+      "description": "Returns the X, Y and Z coordinate of the vector object. They can also be accessed by vec.x, vec.y, etc",
+      "return_type": "number, number, number",
+      "args": [
+
+      ]
+    },
+    "vector": {
+      "name": "vector",
+      "description": "Creates a new vector object. Please note that you need to load the built-in vector library with require \"vector\"",
+      "return_type": "vector",
+      "args": [
+        {
+          "name": "x",
+          "description": "X coordinate of 3D position",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "description": "Y coordinate of 3D position",
+          "type": "number"
+        },
+        {
+          "name": "z",
+          "description": "Z coordinate of 3D position",
+          "type": "number"
+        }
+      ]
+    },
+    "vectors": {
+      "name": "vector_object:vectors",
+      "description": "Returns the right and up vector of a forward vector",
+      "return_type": "vector, vector",
+      "args": [
+
       ]
     }
   }

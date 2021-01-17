@@ -16,14 +16,14 @@ Returns the number of seconds elapsed during the last game frame.
 
 `globals.chokedcommands()`: number
 
-Returns the current number of commands that are being held back.
+Returns the number of choked commands, i.e. the number of commands that haven't yet been sent to the server.
 
 
 #### globals.commandack
 
 `globals.commandack()`: number
 
-Returns the number of the command the server last acknowledged.
+Returns the command number of the most recent server-acknowledged command.
 
 
 #### globals.curtime
@@ -72,7 +72,7 @@ Returns the maximum number of players in the server.
 
 `globals.oldcommandack()`: number
 
-Returns the previous server acknowledged command number.
+Returns the command number of the previous server-acknowledged command.
 
 
 #### globals.realtime

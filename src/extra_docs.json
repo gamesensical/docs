@@ -1,10 +1,8 @@
 {
 	"globals_patch": [
-		{"op": "replace", "path": "client/color_log/args/1", "value": {"name": "g", "description": "Green (0-255)"}},
-		{"op": "replace", "path": "client/color_log/args/2", "value": {"name": "b", "description": "Blue (0-255)"}},
-		{"op": "replace", "path": "renderer/text/args/6/description", "value": "\"+\" for large text, \"-\" for small text, \"c\" for centered text, \"r\" for right-aligned text, \"b\" for bold text, \"d\" for text that scales with DPI. \"c\" and \"d\" can be combined with other flags. nil can be specified for normal sized uncentered text."},
-		{"op": "add", "path": "renderer/texture/args/-", "value": {"name": "flags", "description": "\"r\" for repeated/tiled textures, \"f\" to fill/stretch", "optional": true, "type": "string"}},
-		{"op": "add", "path": "client/trace_bullet/args/-", "value": {"name": "skip_players", "description": "Pass true to skip expensive player hitbox checks when they're not needed.", "type": "boolean", "optional": true}}
+		{"op": "replace", "path": "config/load/args/1", "value": {"name": "tab", "description": "Name of the tab"}},
+		{"op": "replace", "path": "config/load/args/2", "value": {"name": "container", "description": "Name of the container"}},
+		{"op": "replace", "path": "ui/name/args/0", "value": {"name": "item", "description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference."}}
 	],
 	"globals_merge": {
 		"bit": {
@@ -32,9 +30,14 @@
 						"type": "number"
 					},
 					{
-						"name": "[x2...]",
-						"description": "number(s)",
+						"name": "x2",
+						"description": "number",
 						"type": "number"
+					},
+					{
+						"name": "...",
+						"description": "number(s)",
+						"optional": true
 					}
 				]
 			},
@@ -57,9 +60,14 @@
 						"type": "number"
 					},
 					{
-						"name": "[x2...]",
-						"description": "number(s)",
+						"name": "x2",
+						"description": "number",
 						"type": "number"
+					},
+					{
+						"name": "...",
+						"description": "number(s)",
+						"optional": true
 					}
 				]
 			},
@@ -260,19 +268,6 @@
 					}
 				]
 			},
-			"unset_event_callback": {
-				"description": "Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.",
-				"args": [
-					{
-						"name": "event_name",
-						"description": "Name of the event."
-					},
-					{
-						"name": "callback",
-						"description": "Registered lua callback to remove."
-					}
-				]
-			},
 			"unix_time": {
 				"description": "Returns current windows time as [unix time / epoch time](https://en.wikipedia.org/wiki/Unix_time) (seconds since 1 January 1970 00:00:00)"
 			},
@@ -289,19 +284,6 @@
 				"description": "Updates the player list tab without having to open it.",
 				"args": []
 			},
-			"error_log": {
-				"description": "Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)",
-				"args": [
-					{
-						"name": "msg",
-						"description": "The error message"
-					},
-					{
-						"name": "...",
-						"description": "Optional comma-separated arguments to concatenate with msg."
-					}
-				]
-			},
 			"system_time": {
 				"description": "Returns windows time as (hours, minutes, seconds, milliseconds)",
 				"return_type": "number, number, number, number"
@@ -317,18 +299,6 @@
 			},
 			"exec": {
 				"description": "Executes a console command. Multiple commands can be combined with ';'. Be careful when passing user input (including usernames) to it."
-			}
-		},
-		"globals": {
-			"chokedcommands": {
-				"description": "Returns the current number of commands that are being held back.",
-				"args": []
-			},
-			"oldcommandack": {
-				"description": "Returns the previous server acknowledged command number."
-			},
-			"commandack": {
-				"description": "Returns the number of the command the server last acknowledged."
 			}
 		},
 		"renderer": {
@@ -388,48 +358,6 @@
 			}
 		},
 		"materialsystem": {
-			"arms_material": {
-				"description": "Returns the players hand cham material as an object."
-			},
-			"chams_material": {
-				"description": "Returns the players cham material as an object."
-			},
-			"find_material": {
-				"description": "Returns a material object for the specified material.",
-				"args": [
-					{
-						"name": "material",
-						"description": "The name of the material."
-					}
-				]
-			},
-			"find_materials": {
-				"description": "Returns all material objects that contain the specified material.",
-				"args": [
-					{
-						"name": "materials",
-						"description": "The substring that the material name must contain."
-					}
-				]
-			},
-			"find_texture": {
-				"description": "Returns a texture object for the specified material.",
-				"args": [
-					{
-						"name": "material",
-						"description": "The name of the material."
-					}
-				]
-			},
-			"get_model_materials": {
-				"description": "Returns all material objects for a specified entity.",
-				"args": [
-					{
-						"name": "ent",
-						"description": "The entity whos materials will be returned."
-					}
-				]
-			},
 			"override_material": {
 				"description": "Overrides all of a material properties with another material.",
 				"args": [
@@ -522,27 +450,6 @@
 			}
 		},
 		"ui": {
-			"new_listbox": {
-				"description": "Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
-				"args": [
-					{
-						"name": "tab",
-						"description": "The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS."
-					},
-					{
-						"name": "container",
-						"description": "The name of the existing container to which this control will be added."
-					},
-					{
-						"name": "name",
-						"description": "The name of the listbox."
-					},
-					{
-						"name": "...",
-						"description": "One or more comma separated string values that will be added to the listbox. Alternatively, a table of strings that will be added."
-					}
-				]
-			},
 			"new_string": {
 				"description": "Creates a string UI element, can be used to store arbitrary strings in configs. No menu item is created but it has the same semantics as other ui.new_* functions. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.",
 				"args": [
@@ -552,7 +459,7 @@
 					},
 					{
 						"name": "default_value",
-						"description": "Optional default value of the element.",
+						"description": "Optional string that specifies the default value.",
 						"type": "string"
 					}
 				]
@@ -571,15 +478,6 @@
 					{
 						"name": "name",
 						"description": "The name of the label. This can later be changed using ui.set."
-					}
-				]
-			},
-			"name": {
-				"description": "Returns the name of the menu item reference passed to it. Throws an error on failure.",
-				"args": [
-					{
-						"name": "item",
-						"description": "The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference."
 					}
 				]
 			},
@@ -638,15 +536,341 @@
 				]
 			}
 		},
-		"config": {
-			"load": {
-				"description": "Loads a configuration preset.",
+		"json": {
+			"parse": {
+				"description": "json.parse will deserialise any UTF-8 JSON string into a Lua value or table. null will be converted to a NULL lightuserdata value. This can be compared with cjson.null for convenience.",
 				"args": [
 					{
-						"name": "name",
-						"description": "Name of the configuration preset"
+						"name": "json_text",
+						"description": "UTF-8 JSON text",
+						"type": "string"
+					}
+				],
+				"return_type": "any"
+			},
+			"stringify": {
+				"description": "Will serialise a Lua value into a string containing the JSON representation.",
+				"args": [
+					{
+						"name": "value",
+						"description": "A lua boolean, number, string, table or nil"
+					}
+				],
+				"return_type": "string"
+			},
+			"decode_invalid_numbers": {
+				"description": "Lua CJSON may generate an error when trying to decode numbers not supported by the JSON specification. Invalid numbers are defined as: infinity, not-a-number (NaN) or hexadecimal. The current value wil always be returned.",
+				"args": [
+					{
+						"name": "setting",
+						"description": "Pass true to accept and decode invalid numbers or false to throw an error",
+						"type": "boolean",
+						"optional": true
+					}
+				],
+				"return_type": "boolean"
+			},
+			"decode_max_depth": {
+				"description": "Lua CJSON will generate an error when parsing deeply nested JSON once the maximum array/object depth has been exceeded. This check prevents unnecessarily complicated JSON from slowing down the application, or crashing the application due to lack of process stack space.",
+				"args": [
+					{
+						"name": "setting",
+						"description": "depth must be a positive integer. Default: 1000.",
+						"type": "number",
+						"optional": true
+					}
+				],
+				"return_type": "number"
+			},
+			"encode_invalid_numbers": {
+				"description": "Lua CJSON may generate an error when encoding floating point numbers not supported by the JSON specification (invalid numbers): infinity, not-a-number (NaN)",
+				"args": [
+					{
+						"name": "setting",
+						"description": "Pass true to allow invalid numbers to be encoded. This will generate non-standard JSON, but this output is supported by some libraries.",
+						"type": "boolean",
+						"optional": true
+					}
+				],
+				"return_type": "boolean"
+			},
+			"encode_keep_buffer": {
+				"description": "Lua CJSON can reuse the JSON encoding buffer to improve performance.",
+				"args": [
+					{
+						"name": "setting",
+						"description": "The buffer will grow to the largest size required and is not freed until the Lua CJSON module is garbage collected when true is passed.",
+						"type": "boolean",
+						"optional": true
+					}
+				],
+				"return_type": "boolean"
+			},
+			"encode_max_depth": {
+				"description": "Once the maximum table depth has been exceeded Lua CJSON will generate an error. This prevents a deeply nested or recursive data structure from crashing the application.",
+				"args": [
+					{
+						"name": "depth",
+						"description": "depth must be a positive integer. Default: 1000.",
+						"type": "number",
+						"optional": true
+					}
+				],
+				"return_type": "number"
+			},
+			"encode_number_precision": {
+				"description": "The amount of significant digits returned by Lua CJSON when encoding numbers can be changed to balance accuracy versus performance. For data structures containing many numbers, setting cjson.encode_number_precision to a smaller integer, for example 3, can improve encoding performance by up to 50%.",
+				"args": [
+					{
+						"name": "precision",
+						"description": "precision must be an integer between 1 and 14. Default: 14.",
+						"type": "number",
+						"optional": true
+					}
+				],
+				"return_type": "number"
+			},
+			"encode_sparse_array": {
+				"description": "Lua CJSON classifies a Lua table into one of three kinds when encoding a JSON array. This is determined by the number of values missing from the Lua array as follows:",
+				"args": [
+					{
+						"name": "convert",
+						"description": "convert must be a boolean. Default: false",
+						"type": "boolean",
+						"optional": true
+					},
+					{
+						"name": "ratio",
+						"description": "ratio must be a positive integer. Default: 2.",
+						"type": "number",
+						"optional": true
+					},
+					{
+						"name": "safe",
+						"description": "safe must be a positive integer. Default: 10.",
+						"type": "number",
+						"optional": true
+					}
+				],
+				"return_type": "boolean, number, number"
+			}
+		},
+		"vector": {
+			"vector": {
+				"name": "vector",
+				"description": "Creates a new vector object. Please note that you need to load the built-in vector library with require \"vector\"",
+				"args": [
+					{
+						"name": "x",
+						"description": "X coordinate of 3D position",
+						"type": "number"
+					},
+					{
+						"name": "y",
+						"description": "Y coordinate of 3D position",
+						"type": "number"
+					},
+					{
+						"name": "z",
+						"description": "Z coordinate of 3D position",
+						"type": "number"
+					}
+				],
+				"return_type": "vector"
+			},
+			"unpack": {
+				"name": "vector_object:unpack",
+				"description": "Returns the X, Y and Z coordinate of the vector object. They can also be accessed by vec.x, vec.y, etc",
+				"return_type": "number, number, number"
+			},
+			"init": {
+				"name": "vector_object:init",
+				"description": "Overwrites the X, Y and Z coordinates of the vector object, returning itself",
+				"args": [
+					{
+						"name": "x",
+						"description": "X coordinate of 3D position",
+						"type": "number"
+					},
+					{
+						"name": "y",
+						"description": "Y coordinate of 3D position",
+						"type": "number"
+					},
+					{
+						"name": "z",
+						"description": "Z coordinate of 3D position",
+						"type": "number"
+					}
+				],
+				"return_type": "vector"
+			},
+			"init_from_angles": {
+				"name": "vector_object:init_from_angles",
+				"description": "Converts the pitch, yaw and roll passed to a forward vector and overwrites the X, Y and Z coordinates with that. Returns itself",
+				"args": [
+					{
+						"name": "pitch",
+						"description": "Pitch component of angle",
+						"type": "number"
+					},
+					{
+						"name": "yaw",
+						"description": "Yaw component of angle",
+						"type": "number"
+					},
+					{
+						"name": "roll",
+						"description": "Roll component of angle",
+						"optional": true,
+						"type": "number"
+					}
+				],
+				"return_type": "vector"
+			},
+			"scale": {
+				"name": "vector_object:scale",
+				"description": "Scales the vector by the specified value.",
+				"args": [
+					{
+						"name": "scalar",
+						"description": "Scalar value",
+						"type": "number"
 					}
 				]
+			},
+			"scaled": {
+				"name": "vector_object:scaled",
+				"description": "Returns a new vector, scaled by the specified value.",
+				"args": [
+					{
+						"name": "scalar",
+						"description": "Scalar value",
+						"type": "number"
+					}
+				],
+				"return_type": "vector"
+			},
+			"normalize": {
+				"name": "vector_object:normalize",
+				"description": "Normalizes the vector, dividing it by it's own length (resulting in a unit vector with length = 1)"
+			},
+			"normalized": {
+				"name": "vector_object:normalized",
+				"description": "Returns a new unit vector, divided it by it's own length",
+				"return_type": "vector"
+			},
+			"length2d": {
+				"name": "vector_object:length2d",
+				"description": "Returns the 2d length (X and Y components)",
+				"return_type": "number"
+			},
+			"length2dsqr": {
+				"name": "vector_object:length2dsqr",
+				"description": "Returns the squared 2d length (X and Y components, faster than :length2d)",
+				"return_type": "number"
+			},
+			"length": {
+				"name": "vector_object:length",
+				"description": "Returns the length (magnitude)",
+				"return_type": "number"
+			},
+			"lengthsqr": {
+				"name": "vector_object:lengthsqr",
+				"description": "Returns the squared length (faster than :length)",
+				"return_type": "number"
+			},
+			"lerp": {
+				"name": "vector_object:lerp",
+				"description": "Interpolates by the specified percentage between the 2 vectors.",
+				"args": [
+					{
+						"name": "to",
+						"description": "Vector to lerp to",
+						"type": "vector"
+					},
+					{
+						"name": "percentage",
+						"description": "Interpolation percentage (0-1)",
+						"type": "number"
+					}
+				],
+				"return_type": "vector"
+			},
+			"dot": {
+				"name": "vector_object:dot",
+				"description": "Returns the dot product of the vector",
+				"return_type": "number"
+			},
+			"dist": {
+				"name": "vector_object:dist",
+				"description": "Returns the 3d distance to another vector",
+				"args": [
+					{
+						"name": "other",
+						"description": "Vector to calculate the distance to",
+						"type": "vector"
+					}
+				],
+				"return_type": "number"
+			},
+			"dist2d": {
+				"name": "vector_object:dist",
+				"description": "Returns the 2d distance to another vector",
+				"args": [
+					{
+						"name": "other",
+						"description": "Vector to calculate the distance to",
+						"type": "vector"
+					}
+				],
+				"return_type": "number"
+			},
+			"dist2d": {
+				"name": "vector_object:dist",
+				"description": "Returns the 2d distance to another vector",
+				"args": [
+					{
+						"name": "other",
+						"description": "Vector to calculate the distance to",
+						"type": "vector"
+					}
+				],
+				"return_type": "number"
+			},
+			"cross": {
+				"name": "vector_object:dist2d",
+				"description": "Returns the cross product / vector product of itself and another vector",
+				"args": [
+					{
+						"name": "other",
+						"description": "Other vector",
+						"type": "vector"
+					}
+				],
+				"return_type": "number"
+			},
+			"angles": {
+				"name": "vector_object:angles",
+				"description": "Converts the vector to an angle and returns the pitch, yaw and roll",
+				"return_type": "number, number, number"
+			},
+			"vectors": {
+				"name": "vector_object:vectors",
+				"description": "Returns the right and up vector of a forward vector",
+				"return_type": "vector, vector"
+			},
+			"to": {
+				"name": "vector_object:to",
+				"description": "Returns the forward vector from itself to another vector",
+				"args": [
+					{
+						"name": "other",
+						"description": "Other vector",
+						"type": "vector"
+					}
+				],
+				"return_type": "vector"
 			}
 		}
 	},
@@ -660,7 +884,8 @@
 		"globals": "Functions for getting game globals such as the server time and map name.",
 		"materialsystem": "Functions controlling the CS:GO Material System, letting you modulate, swap, remove materials and set their shader params / material vars",
 		"database": "Persistent storage engine that lets you store values between reloads / reinjects",
-		"config": "Configuration related lua functions"
+		"config": "Configuration related lua functions",
+		"json": "JSON encoding / parsing functions, based on lua-cjson"
 	},
 	"globals_examples": {
 		"cvar": [
@@ -688,9 +913,10 @@
 	},
 	"globals_replacements": {
 		"function_descriptions": [],
-		"function_arg_descriptions": [
-			["AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS", "AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA"]
-		]
+		"function_arg_descriptions": {
+			"AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, or VISUALS": "RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, CONFIG or LUA",
+			"(1-255)": "(0-255)"
+		}
 	},
 	"globals_deprecated_regex": "^(draw_.{1,}|world_to_screen|get_cvar|set_cvar)$",
 	"globals_optional_regex": "^Optional[. ]",

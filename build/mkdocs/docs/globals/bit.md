@@ -21,12 +21,13 @@ Only the lower 5 bits of the shift count are used (reduces to the range [0..31])
 
 #### bit.band
 
-`bit.band(x1: number, [x2...]: number)`: number
+`bit.band(x1: number, x2: number[, ...])`: number
 
 Argument | Type | Description
 -------- | ---- | -----------
   **x1** | number | number
-  **[x2...]** | number | number(s)
+  **x2** | number | number
+  **...** |  | Number(s)
 
 Returns the bitwise and of all of its arguments. Note that more than two arguments are allowed.
 
@@ -44,12 +45,13 @@ Returns the bitwise not of its argument.
 
 #### bit.bor
 
-`bit.bor(x1: number, [x2...]: number)`: number
+`bit.bor(x1: number, x2: number[, ...])`: number
 
 Argument | Type | Description
 -------- | ---- | -----------
   **x1** | number | number
-  **[x2...]** | number | number(s)
+  **x2** | number | number
+  **...** |  | Number(s)
 
 Returns the bitwise or of all of its arguments. Note that more than two arguments are allowed.
 

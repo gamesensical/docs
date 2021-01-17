@@ -73,7 +73,7 @@ class ReturnTypes
 		# end
 
 		types = []
-		if desc = data["description"].dup.downcase
+		if data.key?("description") && desc = data["description"].dup.downcase
 			@types.each do |type, type_str|
 				if desc.include?(type) && desc.include?("returns")
 					types << type_str
@@ -92,6 +92,7 @@ class ArgumentTypes
 			"tab" => "string (menu tab)",
 			"container" => "string (menu container)",
 			"name" => "string (menu item)",
+			"field" => "string (menu item)",
 			"classname" => "string (entity classname)",
 			"flags" => "string (text flags)",
 			"percentage" => "number (0 - 1)",
@@ -103,6 +104,7 @@ class ArgumentTypes
 			"start_degrees" => "number (0 - 360)",
 			"propname" => "string (netprop)",
 			"tooltips" => "table",
+			"items" => "table",
 			"contents" => "string",
 		}
 		argument_types_array = {
@@ -110,10 +112,13 @@ class ArgumentTypes
 			"number (hitbox id)" => ["hitbox", "hitboxes"],
 			"number (hitgroup id)" => ["hitgroup"],
 			"number (material var flag)" => ["material_var_flag"],
+			"number (model index)" => ["model_index"],
+			"number (virtual key code)" => ["default_hotkey"],
 			"number" => ["array_index", "duration", "line_offset", "tick", "minimum", "maximum", "damage", "delay", "min", "max", "init_value", "radius", "scale", "max_width", "r", "g", "b", "a", "r1", "g1", "b1", "a1", "r2", "g2", "b2", "a2", "key"],
-			"boolean" => ["enemies_only", "show_tooltip", "inline", "visible", "ltr"],
-			"string" => ["event_name", "msg", "cmd", "unit", "material", "materials", "module_name", "interface_name"],
+			"boolean" => ["enemies_only", "show_tooltip", "inline", "visible", "ltr", "skip_players", "force_load"],
+			"string" => ["event_name", "msg", "cmd", "unit", "material", "materials", "module_name", "interface_name", "path", "partial_path"],
 			"string (shader param)" => ["shader_param"],
+			"string (panorama root panel)" => ["panel"],
 		}
 		argument_types_array.each do |argument_type, argument_names|
 			argument_names.each do |argument_name|
@@ -135,14 +140,10 @@ class ArgumentTypes
 	end
 
 	def get_argument_type(arg, data)
-		if @argument_types.key? arg["name"]
-			return @argument_types[arg["name"]]
-		end
+		return @argument_types[arg["name"]] if @argument_types.key? arg["name"]
 
 		@docs_types_to_lua_types.each do |type, new_type|
-			if arg["description"].start_with? type
-				return new_type
-			end
+			return new_type if arg["description"].start_with? type
 		end
 
 		@require_all_args.each do |type, required_args_sets|
@@ -152,12 +153,12 @@ class ArgumentTypes
 		end
 
 		if arg["name"] == "item" && (arg["description"].include?("special value") || arg["description"].include?("reference"))
-			return (arg["description"].include? "existing") ? "number (custom menu reference)" : "number (menu reference)"
+			return arg["description"].include?("existing") ? "number (custom menu reference)" : "number (menu reference)"
 		end
 
 		return "any" if arg["name"] == "value"
 
-		return nil
+		nil
 	end
 end
 
@@ -166,13 +167,13 @@ if (SRC_DIR + "real_globals.json").file?
 	real_globals = JSON.parse((SRC_DIR + "real_globals.json").read)
 	real_globals.each do |global, keys|
 		keys.each do |key, _|
-			puts "#{global}.#{key}: Undocumented global" if (!globals.key?(global) || !globals[global].key?(key)) && (!key.match(globals_deprecated_regex))
+			puts "#{global}.#{key}: Undocumented global" if (!globals.key?(global) || !globals[global].key?(key)) && !key.match(globals_deprecated_regex)
 		end
 	end
 end
 
-argtypes = ArgumentTypes.new()
-rettypes = ReturnTypes.new()
+argtypes = ArgumentTypes.new
+rettypes = ReturnTypes.new
 
 # Generate data for each global
 globals = globals.sort.to_h
@@ -194,7 +195,7 @@ globals.each do |global, functions|
 		end
 		data["deprecated"] = true if !data.key?("deprecated") && data["name"].match?(globals_deprecated_regex)
 
-		if data.key?("args") && data["args"].length > 0
+		if data.key?("args") && !data["args"].empty?
 			data["args"].each do |argument|
 				description = argument["description"]
 				globals_replacements["function_arg_descriptions"].each do |orig, rep|
@@ -205,25 +206,19 @@ globals.each do |global, functions|
 				if argument["optional"]
 					description.sub!(globals_optional_regex, "")
 
-					parts = description.split(" ")
-					description.replace [parts[0].capitalize, *parts[1..-1]].join(" ")
+					parts = description.split
+					description.replace [parts[0].capitalize, *parts[1..]].join(" ")
 				end
 
 				type_info = argtypes.get_argument_type(argument, data)
-				unless type_info.nil?
-					argument["type"] ||= type_info
-				end
+				argument["type"] ||= type_info unless type_info.nil?
 
-				if argument.key? "type"
-					if match = argument["type"].match(globals_type_description_regex)
+				if argument.key?("type") && match = argument["type"].match(globals_type_description_regex)
 						argument["type"] = match[1]
 						argument["type_description"] = match[2]
 					end
-				end
 
-				if !argument.key?("type") && argument["name"] != "..."
-					puts "#{global}.#{name}: Type of argument #{argument.inspect} unknown"
-				end
+				puts "#{global}.#{name}: Type of argument #{argument.inspect} unknown" if !argument.key?("type") && argument["name"] != "..."
 			end
 		else
 			data["args"] = []

@@ -20,11 +20,13 @@ function bit.arshift(x, n) end
 --- Returns the bitwise and of all of its arguments. Note that more than two arguments are allowed.
 ---
 --- `x1`: number
---- `[x2...]`: number(s)
+--- `x2`: number
+--- `...`: Number(s)
 ---@param x1 number
----@param [x2...] number
+---@param x2 number
+---@param ...
 ---@return number
-function bit.band(x1, [x2...]) end
+function bit.band(x1, x2, ...) end
 
 ---
 --- Returns the bitwise not of its argument.
@@ -38,11 +40,13 @@ function bit.bnot(x) end
 --- Returns the bitwise or of all of its arguments. Note that more than two arguments are allowed.
 ---
 --- `x1`: number
---- `[x2...]`: number(s)
+--- `x2`: number
+--- `...`: Number(s)
 ---@param x1 number
----@param [x2...] number
+---@param x2 number
+---@param ...
 ---@return number
-function bit.bor(x1, [x2...]) end
+function bit.bor(x1, x2, ...) end
 
 ---
 --- Swaps the bytes of its argument and returns it. This can be used to convert little-endian 32 bit numbers to big-endian 32 bit numbers or vice versa.
@@ -190,10 +194,10 @@ function client.delay_call(delay, callback, ...) end
 --- `z`: Position in world space
 --- `line_offset`: Used for vertical alignment, use 0 for the first line.
 --- `duration`: Time in seconds that the text will remain on the screen.
---- `r`: Red (1-255)
---- `g`: Green (1-255)
---- `b`: Blue (1-255)
---- `a`: Alpha (1-255)
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `a`: Alpha (0-255)
 --- `...`: The text that will be drawn
 ---@param x number
 ---@param y number
@@ -213,10 +217,10 @@ function client.draw_debug_text(x, y, z, line_offset, duration, r, g, b, a, ...)
 --- `entindex`: Entity index
 --- `duration`: Time in seconds
 --- `hitboxes`: Either the hitbox index, an array of hitbox indices, or 19 for all hitboxes
---- `r`: Red (1-255)
---- `g`: Green (1-255)
---- `b`: Blue (1-255)
---- `a`: Alpha (1-255)
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `a`: Alpha (0-255)
 --- `tick`: Integer
 ---@param entindex number
 ---@param duration number
@@ -229,13 +233,9 @@ function client.draw_debug_text(x, y, z, line_offset, duration, r, g, b, a, ...)
 function client.draw_hitboxes(entindex, duration, hitboxes, r, g, b, a, tick) end
 
 ---
---- Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)
----
 --- `msg`: The error message
---- `...`: Comma-separated arguments to concatenate with msg.
 ---@param msg string
----@param ...
-function client.error_log(msg, ...) end
+function client.error_log(msg) end
 
 ---
 --- Executes a console command. Multiple commands can be combined with ';'. Be careful when passing user input (including usernames) to it.
@@ -261,6 +261,14 @@ function client.eye_position() end
 ---@param pattern string
 ---@return userdata ffi pointer
 function client.find_signature(module_name, pattern) end
+
+---
+--- Returns model name, or nil on failure.
+---
+--- `model_index`: Model index
+---@param model_index number
+---@return string
+function client.get_model_name(model_index) end
 
 ---
 --- Returns true if the key is pressed, or nil on failure
@@ -304,6 +312,21 @@ function client.random_float(minimum, maximum) end
 ---@param maximum number
 ---@return number
 function client.random_int(minimum, maximum) end
+
+---
+--- Requires "Flags" is enabled in Player ESP
+---
+--- `flag`: String of text that will be shown when callback returns true
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `callback`: Function that will be called for each entity while drawing the ESP
+---@param flag string
+---@param r number
+---@param g number
+---@param b number
+---@param callback function
+function client.register_esp_flag(flag, r, g, b, callback) end
 
 ---
 --- Reloads all scripts the following frame.
@@ -357,7 +380,7 @@ function client.system_time() end
 function client.timestamp() end
 
 ---
---- Returns entindex, damage. Entindex is nil when no player is hit.
+--- Returns entindex, damage. Entindex is nil when no player is hit or if players are skipped.
 ---
 --- `from_player`: Entity index of the player whose weapon will be used for this trace
 --- `from_x`: Position in world space
@@ -366,7 +389,7 @@ function client.timestamp() end
 --- `to_x`: Position in world space
 --- `to_y`: Position in world space
 --- `to_z`: Position in world space
---- `skip_players`: Pass true to skip expensive player hitbox checks when they're not needed.
+--- `skip_players`: Optional, pass true to skip expensive hitbox checks.
 ---@param from_player number
 ---@param from_x number
 ---@param from_y number
@@ -405,10 +428,10 @@ function client.trace_line(skip_entindex, from_x, from_y, from_z, to_x, to_y, to
 function client.unix_time() end
 
 ---
---- Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.
+--- Removes a callback that was previously set using set_event_callback
 ---
---- `event_name`: Name of the event.
---- `callback`: Registered lua callback to remove.
+--- `event_name`: Name of the event
+--- `callback`: Lua function that was passed to set_event_callback
 ---@param event_name string
 ---@param callback function
 function client.unset_event_callback(event_name, callback) end
@@ -444,76 +467,25 @@ function client.visible(x, y, z) end
 config = {}
 
 ---
---- Loads a configuration preset.
+--- Returns the current config as a string
 ---
---- `name`: Name of the configuration preset
+function config.export() end
+
+---
+--- To load the specified config: config.load('Config name here') To load a tab from the specified config: config.load('Config name here', 'Tab name here') To load a container from the specified config: config.load('Config name here', 'Tab name here', 'Container name here')
+---
+--- `name`: Name of the config
+--- `tab`: Name of the tab
+--- `container`: Name of the container
 ---@param name string
-function config.load(name) end
+---@param tab string
+---@param container string
+function config.load(name, tab, container) end
 
 
 -- cvar:
 
 cvar = {}
-
----
---- Returns nil if called on a ConCommand.
----
----@return number
-function cvar.get_float() end
-
----
---- Returns nil if called on a ConCommand.
----
----@return number
-function cvar.get_int() end
-
----
---- Returns nil on failure.
----
----@return string
-function cvar.get_string() end
-
----
---- Executes a ConCommand or cvar callback, passing its arguments to it
----
---- `...`: Arguments passed to the callback
----@param ...
-function cvar.invoke_callback(...) end
-
----
---- Sets the int, float and string value to the passed float. Invokes the change callback
----
---- `value`: Float value
----@param value number
-function cvar.set_float(value) end
-
----
---- Sets the int, float and string value to the passed float. Invokes the change callback
----
---- `value`: Integer value
----@param value number
-function cvar.set_int(value) end
-
----
---- This sets the float value without changing the integer and string values.
----
---- `value`: Float value
----@param value number
-function cvar.set_raw_float(value) end
-
----
---- This sets the integer value without changing the float and string values.
----
---- `value`: Integer value
----@param value number
-function cvar.set_raw_int(value) end
-
----
---- Sets the int, float and string value to the passed float. Invokes the change callback
----
---- `value`: String value
----@param value string
-function cvar.set_string(value) end
 
 
 -- database:
@@ -565,6 +537,14 @@ function entity.get_bounding_box(player) end
 ---@param ent number
 ---@return string
 function entity.get_classname(ent) end
+
+---
+--- Returns a table containing alpha, health, and weapon_id, or nil on failure.
+---
+--- `player`: Entity index
+---@param player number
+---@return table
+function entity.get_esp_data(player) end
 
 ---
 --- Returns entity index of CCSGameRulesProxy instance, or nil if none exists.
@@ -695,13 +675,13 @@ globals = {}
 function globals.absoluteframetime() end
 
 ---
---- Returns the current number of commands that are being held back.
+--- Returns the number of choked commands, i.e. the number of commands that haven't yet been sent to the server.
 ---
 ---@return number
 function globals.chokedcommands() end
 
 ---
---- Returns the number of the command the server last acknowledged.
+--- Returns the command number of the most recent server-acknowledged command.
 ---
 ---@return number
 function globals.commandack() end
@@ -743,7 +723,7 @@ function globals.mapname() end
 function globals.maxplayers() end
 
 ---
---- Returns the previous server acknowledged command number.
+--- Returns the command number of the previous server-acknowledged command.
 ---
 ---@return number
 function globals.oldcommandack() end
@@ -767,86 +747,143 @@ function globals.tickcount() end
 function globals.tickinterval() end
 
 
+-- json:
+
+json = {}
+
+---
+--- Lua CJSON may generate an error when trying to decode numbers not supported by the JSON specification. Invalid numbers are defined as: infinity, not-a-number (NaN) or hexadecimal. The current value wil always be returned.
+---
+--- `setting`: Pass true to accept and decode invalid numbers or false to throw an error
+---@param setting boolean
+---@return boolean
+function json.decode_invalid_numbers(setting) end
+
+---
+--- Lua CJSON will generate an error when parsing deeply nested JSON once the maximum array/object depth has been exceeded. This check prevents unnecessarily complicated JSON from slowing down the application, or crashing the application due to lack of process stack space.
+---
+--- `setting`: Depth must be a positive integer. Default: 1000.
+---@param setting number
+---@return number
+function json.decode_max_depth(setting) end
+
+---
+--- Lua CJSON may generate an error when encoding floating point numbers not supported by the JSON specification (invalid numbers): infinity, not-a-number (NaN)
+---
+--- `setting`: Pass true to allow invalid numbers to be encoded. This will generate non-standard JSON, but this output is supported by some libraries.
+---@param setting boolean
+---@return boolean
+function json.encode_invalid_numbers(setting) end
+
+---
+--- Lua CJSON can reuse the JSON encoding buffer to improve performance.
+---
+--- `setting`: The buffer will grow to the largest size required and is not freed until the Lua CJSON module is garbage collected when true is passed.
+---@param setting boolean
+---@return boolean
+function json.encode_keep_buffer(setting) end
+
+---
+--- Once the maximum table depth has been exceeded Lua CJSON will generate an error. This prevents a deeply nested or recursive data structure from crashing the application.
+---
+--- `depth`: Depth must be a positive integer. Default: 1000.
+---@param depth number
+---@return number
+function json.encode_max_depth(depth) end
+
+---
+--- The amount of significant digits returned by Lua CJSON when encoding numbers can be changed to balance accuracy versus performance. For data structures containing many numbers, setting cjson.encode_number_precision to a smaller integer, for example 3, can improve encoding performance by up to 50%.
+---
+--- `precision`: Precision must be an integer between 1 and 14. Default: 14.
+---@param precision number
+---@return number
+function json.encode_number_precision(precision) end
+
+---
+--- Lua CJSON classifies a Lua table into one of three kinds when encoding a JSON array. This is determined by the number of values missing from the Lua array as follows:
+---
+--- `convert`: Convert must be a boolean. Default: false
+--- `ratio`: Ratio must be a positive integer. Default: 2.
+--- `safe`: Safe must be a positive integer. Default: 10.
+---@param convert boolean
+---@param ratio number
+---@param safe number
+---@return boolean, number, number
+function json.encode_sparse_array(convert, ratio, safe) end
+
+---
+--- json.parse will deserialise any UTF-8 JSON string into a Lua value or table. null will be converted to a NULL lightuserdata value. This can be compared with cjson.null for convenience.
+---
+--- `json_text`: UTF-8 JSON text
+---@param json_text string
+---@return any
+function json.parse(json_text) end
+
+---
+--- Will serialise a Lua value into a string containing the JSON representation.
+---
+--- `value`: A lua boolean, number, string, table or nil
+---@param value any
+---@return string
+function json.stringify(value) end
+
+
 -- materialsystem:
 
 materialsystem = {}
 
 ---
---- Overrides the alpha of the material object it's called on. Doesn't work with some materials
----
---- `a`: New alpha value of the material (0-255)
----@param a number
-function materialsystem.alpha_modulate(a) end
-
----
---- Returns the players hand cham material as an object.
+--- Returns a reference to the arms material when 'Viewmodel arms' is enabled
 ---
 ---@return table material object
 function materialsystem.arms_material() end
 
 ---
---- Returns the players cham material as an object.
+--- Returns a reference to the player chams material
 ---
 ---@return table material object
 function materialsystem.chams_material() end
 
 ---
---- Overrides the color of the material object it's called on. Doesn't work with some materials
+--- Returns a reference to the material
 ---
---- `r`: New red value of the material (0-255)
---- `g`: New green value of the material (0-255)
---- `b`: New blue value of the material (0-255)
----@param r number
----@param g number
----@param b number
-function materialsystem.color_modulate(r, g, b) end
-
----
---- Returns a material object for the specified material.
----
---- `material`: The name of the material.
----@param material string
+--- `path`: Path to material including filename
+--- `force_load`: Boolean. Load the material if it isn't loaded
+---@param path string
+---@param force_load boolean
 ---@return table material object
-function materialsystem.find_material(material) end
+function materialsystem.find_material(path, force_load) end
 
 ---
---- Returns all material objects that contain the specified material.
+--- Returns a table of references to materials that have partial_path in their name
 ---
---- `materials`: The substring that the material name must contain.
----@param materials string
+--- `partial_path`: Partial path to material
+--- `force_load`: Boolean. Load each material if it isn't loaded
+---@param partial_path string
+---@param force_load boolean
 ---@return table material objects
-function materialsystem.find_materials(materials) end
+function materialsystem.find_materials(partial_path, force_load) end
 
 ---
---- Returns a texture object for the specified material.
+--- Returns a reference to the texture that can be used with set_shader_param
 ---
---- `material`: The name of the material.
----@param material string
-function materialsystem.find_texture(material) end
+--- `path`: Path to texture including filename
+---@param path string
+function materialsystem.find_texture(path) end
 
 ---
---- Returns the boolean value of the material var flag
+--- Returns a table of references to materials used by the entity
 ---
---- `material_var_flag`: Material var flag as number
----@param material_var_flag number
----@return boolean
-function materialsystem.get_material_var_flag(material_var_flag) end
-
----
---- Returns all material objects for a specified entity.
----
---- `ent`: The entity whos materials will be returned.
----@param ent number
+--- `entindex`: Entity index
+---@param entindex number
 ---@return table material objects
-function materialsystem.get_model_materials(ent) end
+function materialsystem.get_model_materials(entindex) end
 
 ---
---- Returns the value of the shader param or nil
+--- Returns name of the material
 ---
---- `shader_param`: Shader param name
----@param shader_param string
----@return any
-function materialsystem.get_shader_param(shader_param) end
+---@return string
+function materialsystem.get_name() end
 
 ---
 --- Overrides all of a material properties with another material.
@@ -855,28 +892,43 @@ function materialsystem.get_shader_param(shader_param) end
 ---@param ent number
 function materialsystem.override_material(ent) end
 
----
---- Restores the original material properties of the material it's called on.
----
-function materialsystem.reload() end
+
+-- panorama:
+
+panorama = {}
 
 ---
---- Sets the value of the material var flag of the material
----
---- `material_var_flag`: Material var flag as number
---- `value`: New boolean value of the material var flag
----@param material_var_flag number
----@param value any
-function materialsystem.set_material_var_flag(material_var_flag, value) end
+--- `js_code`: String containing JavaScript code
+--- `panel`: Panel name
+---@param js_code string
+---@param panel string
+function panorama.loadstring(js_code, panel) end
 
 ---
---- Sets the value of the shader param of the material
+--- `panel`: Panel name
+---@param panel string
+function panorama.open(panel) end
+
+
+-- plist:
+
+plist = {}
+
 ---
---- `shader_param`: Shader param name
---- `value`: New value of the shader param
----@param shader_param string
+--- `entindex`: Player index
+--- `field`: Name of the field
+---@param entindex number
+---@param field string
+function plist.get(entindex, field) end
+
+---
+--- `entindex`: Player index
+--- `field`: Name of the field
+--- `value`: Value of the field
+---@param entindex number
+---@param field string
 ---@param value any
-function materialsystem.set_shader_param(shader_param, value) end
+function plist.set(entindex, field, value) end
 
 
 -- renderer:
@@ -888,10 +940,10 @@ renderer = {}
 ---
 --- `x`: Screen coordinate
 --- `y`: Screen coordinate
---- `r`: Red (1-255)
---- `g`: Green (1-255)
---- `b`: Blue (1-255)
---- `a`: Alpha (1-255)
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `a`: Alpha (0-255)
 --- `radius`: Radius of the circle in pixels.
 --- `start_degrees`: 0 is the right side, 90 is the bottom, 180 is the left, 270 is the top.
 --- `percentage`: Must be within [0.0-1.0]. 1.0 is a full circle, 0.5 is a half circle, etc.
@@ -911,10 +963,10 @@ function renderer.circle(x, y, r, g, b, a, radius, start_degrees, percentage) en
 ---
 --- `x`: Screen coordinate
 --- `y`: Screen coordinate
---- `r`: Red (1-255)
---- `g`: Green (1-255)
---- `b`: Blue (1-255)
---- `a`: Alpha (1-255)
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `a`: Alpha (0-255)
 --- `radius`: Radius of the circle in pixels.
 --- `start_degrees`: 0 is the right side, 90 is the bottom, 180 is the left, 270 is the top.
 --- `percentage`: Must be within [0.0-1.0]. 1.0 is a full circle, 0.5 is a half circle, etc.
@@ -938,14 +990,14 @@ function renderer.circle_outline(x, y, r, g, b, a, radius, start_degrees, percen
 --- `y`: Screen coordinate
 --- `w`: Width in pixels
 --- `h`: Height in pixels
---- `r1`: Red (1-255)
---- `g1`: Green (1-255)
---- `b1`: Blue (1-255)
---- `a1`: Alpha (1-255)
---- `r2`: Red (1-255)
---- `g2`: Green (1-255)
---- `b2`: Blue (1-255)
---- `a2`: Alpha (1-255)
+--- `r1`: Red (0-255)
+--- `g1`: Green (0-255)
+--- `b1`: Blue (0-255)
+--- `a1`: Alpha (0-255)
+--- `r2`: Red (0-255)
+--- `g2`: Green (0-255)
+--- `b2`: Blue (0-255)
+--- `a2`: Alpha (0-255)
 --- `ltr`: Left to right. Pass true for horizontal gradient, or false for vertical.
 ---@param x number
 ---@param y number
@@ -965,10 +1017,10 @@ function renderer.gradient(x, y, w, h, r1, g1, b1, a1, r2, g2, b2, a2, ltr) end
 ---
 --- Returns the Y screen coordinate (vertical offset) of the drawn text, or nil on failure. This can only be called from the paint callback.
 ---
---- `r`: Red (1-255)
---- `g`: Green (1-255)
---- `b`: Blue (1-255)
---- `a`: Alpha (1-255)
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `a`: Alpha (0-255)
 --- `...`: The text that will be drawn
 ---@param r number
 ---@param g number
@@ -985,10 +1037,10 @@ function renderer.indicator(r, g, b, a, ...) end
 --- `ya`: Screen coordinate of point A
 --- `xb`: Screen coordinate of point B
 --- `yb`: Screen coordinate of point B
---- `r`: Red (1-255)
---- `g`: Green (1-255)
---- `b`: Blue (1-255)
---- `a`: Alpha (1-255)
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `a`: Alpha (0-255)
 ---@param xa number
 ---@param ya number
 ---@param xb number
@@ -1064,10 +1116,10 @@ function renderer.measure_text(flags, ...) end
 --- `y`: Screen coordinate
 --- `w`: Width in pixels
 --- `h`: Height in pixels
---- `r`: Red (1-255)
---- `g`: Green (1-255)
---- `b`: Blue (1-255)
---- `a`: Alpha (1-255)
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `a`: Alpha (0-255)
 ---@param x number
 ---@param y number
 ---@param w number
@@ -1083,11 +1135,11 @@ function renderer.rectangle(x, y, w, h, r, g, b, a) end
 ---
 --- `x`: Screen coordinate
 --- `y`: Screen coordinate
---- `r`: Red (1-255)
---- `g`: Green (1-255)
---- `b`: Blue (1-255)
---- `a`: Alpha (1-255)
---- `flags`: "+" for large text, "-" for small text, "c" for centered text, "r" for right-aligned text, "b" for bold text, "d" for text that scales with DPI. "c" and "d" can be combined with other flags. nil can be specified for normal sized uncentered text.
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `a`: Alpha (0-255)
+--- `flags`: "+" for large text, "-" for small text, "c" for centered text, "r" for right-aligned text, "b" for bold text, "d" for high DPI support. "c" can be combined with other flags. nil can be specified for normal sized uncentered text.
 --- `max_width`: Text will be clipped if it exceeds this width in pixels. Use 0 for no limit.
 --- `...`: Text that will be drawn
 ---@param x number
@@ -1113,7 +1165,7 @@ function renderer.text(x, y, r, g, b, a, flags, max_width, ...) end
 --- `g`: Green (0-255)
 --- `b`: Blue (0-255)
 --- `a`: Alpha (0-255)
---- `flags`: "r" for repeated/tiled textures, "f" to fill/stretch
+--- `mode`: String: "f" for fill, "r" for repeat, otherwise automatic
 ---@param id number
 ---@param x number
 ---@param y number
@@ -1123,8 +1175,8 @@ function renderer.text(x, y, r, g, b, a, flags, max_width, ...) end
 ---@param g number
 ---@param b number
 ---@param a number
----@param flags string
-function renderer.texture(id, x, y, w, h, r, g, b, a, flags) end
+---@param mode string
+function renderer.texture(id, x, y, w, h, r, g, b, a, mode) end
 
 ---
 --- This can only be called from the paint callback.
@@ -1135,10 +1187,10 @@ function renderer.texture(id, x, y, w, h, r, g, b, a, flags) end
 --- `y1`: Screen coordinate Y for point B
 --- `x2`: Screen coordinate X for point C
 --- `y2`: Screen coordinate Y for point C
---- `r`: Red (1-255)
---- `g`: Green (1-255)
---- `b`: Blue (1-255)
---- `a`: Alpha (1-255)
+--- `r`: Red (0-255)
+--- `g`: Green (0-255)
+--- `b`: Blue (0-255)
+--- `a`: Alpha (0-255)
 ---@param x0 number
 ---@param y0 number
 ---@param x1 number
@@ -1201,7 +1253,7 @@ function ui.menu_size() end
 function ui.mouse_position() end
 
 ---
---- Returns the name of the menu item reference passed to it. Throws an error on failure.
+--- Returns the display name
 ---
 --- `item`: The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.
 ---@param item number
@@ -1211,7 +1263,7 @@ function ui.name(item) end
 ---
 --- Throws an error on failure. The return value should not be used with ui.set or ui.get.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
 --- `container`: The name of the existing container to which this checkbox will be added.
 --- `name`: The name of the button.
 --- `callback`: The lua function that will be called when the button is pressed.
@@ -1225,7 +1277,7 @@ function ui.new_button(tab, container, name, callback) end
 ---
 --- Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
 --- `container`: The name of the existing container to which this control will be added.
 --- `name`: The name of the checkbox.
 ---@param tab string
@@ -1237,7 +1289,7 @@ function ui.new_checkbox(tab, container, name) end
 ---
 --- Throws an error on failure. The color picker is placed to the right of the previous menu item.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
 --- `container`: The name of the existing container to which this checkbox will be added.
 --- `name`: The name of the color picker. This will not be shown, it is only used to identify this item in saved configs.
 --- `r`: Initial red value (0-255)
@@ -1257,7 +1309,7 @@ function ui.new_color_picker(tab, container, name, r, g, b, a) end
 ---
 --- Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
 --- `container`: The name of the existing container to which this control will be added.
 --- `name`: The name of the combobox.
 --- `...`: One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added.
@@ -1271,21 +1323,23 @@ function ui.new_combobox(tab, container, name, ...) end
 ---
 --- Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
 --- `container`: The name of the existing container to which this control will be added.
 --- `name`: The name of the hotkey.
 --- `inline`: Boolean. If set to true, the hotkey will be placed to the right of the preceding menu item.
+--- `default_hotkey`: Virtual key
 ---@param tab string
 ---@param container string
 ---@param name string
 ---@param inline boolean
+---@param default_hotkey number
 ---@return number menu item
-function ui.new_hotkey(tab, container, name, inline) end
+function ui.new_hotkey(tab, container, name, inline, default_hotkey) end
 
 ---
 --- Creates a new label, this can be used to make otherwise attached menu items standalone or have interactive menus. Returns a special value that can be passed to ui.set, or throws an error on failure.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, CONFIG or LUA.
 --- `container`: The name of the existing container to which this control will be added.
 --- `name`: The name of the label. This can later be changed using ui.set.
 ---@param tab string
@@ -1295,23 +1349,23 @@ function ui.new_hotkey(tab, container, name, inline) end
 function ui.new_label(tab, container, name) end
 
 ---
---- Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
+--- Throws an error on failure. Returns a special value that can be used with ui.get. Calling ui.get on a listbox will return the zero-based index of the currently selected string.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
---- `container`: The name of the existing container to which this control will be added.
---- `name`: The name of the listbox.
---- `...`: One or more comma separated string values that will be added to the listbox. Alternatively, a table of strings that will be added.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA
+--- `container`: The name of the existing container to which this listbox will be added
+--- `name`: Name
+--- `items`: Table of items (strings)
 ---@param tab string
 ---@param container string
 ---@param name string
----@param ...
+---@param items table
 ---@return number menu item
-function ui.new_listbox(tab, container, name, ...) end
+function ui.new_listbox(tab, container, name, items) end
 
 ---
 --- Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
 --- `container`: The name of the existing container to which this control will be added.
 --- `name`: The name of the multiselect.
 --- `...`: One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added.
@@ -1325,7 +1379,7 @@ function ui.new_multiselect(tab, container, name, ...) end
 ---
 --- Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
 --- `container`: The name of the existing container to which this control will be added.
 --- `name`: The name of the slider.
 --- `min`: The minimum value that can be set using the slider.
@@ -1352,7 +1406,7 @@ function ui.new_slider(tab, container, name, min, max, init_value, show_tooltip,
 --- Creates a string UI element, can be used to store arbitrary strings in configs. No menu item is created but it has the same semantics as other ui.new_* functions. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 ---
 --- `name`: The name of the string element, make sure this is unique.
---- `default_value`: Default value of the element.
+--- `default_value`: String that specifies the default value.
 ---@param name string
 ---@param default_value string
 ---@return number menu item
@@ -1361,17 +1415,19 @@ function ui.new_string(name, default_value) end
 ---
 --- Throws an error on failure. Returns a special value that can be used with ui.get
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
 --- `container`: The name of the existing container to which this textbox will be added.
+--- `name`: The name of the textbox
 ---@param tab string
 ---@param container string
+---@param name string
 ---@return number menu item
-function ui.new_textbox(tab, container) end
+function ui.new_textbox(tab, container, name) end
 
 ---
 --- Avoid calling this from inside a function. Returns a reference that can be passed to ui.get and ui.set, or throws an error on failure. This allows you to access a built-in pre-existing menu items. This function returns multiple values when the specified menu item is followed by unnamed menu items, for example a color picker or a hotkey.
 ---
---- `tab`: The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+--- `tab`: The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
 --- `container`: The name of the existing container to which this checkbox will be added.
 --- `name`: The name of the menu item.
 ---@param tab string
@@ -1381,10 +1437,10 @@ function ui.new_textbox(tab, container) end
 function ui.reference(tab, container, name) end
 
 ---
---- For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, param is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.
+--- For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, value is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.
 ---
---- `item`: The result of either ui.new_checkbox, ui.new_slider, or ui.reference.
---- `value`: The value to which the menu item will be set.
+--- `item`: The result of either ui.new_* or ui.reference
+--- `value`: The value to which the menu item will be set
 --- `...`: For multiselect comboboxes, you may want to set more than one option.
 ---@param item number
 ---@param value any
@@ -1408,3 +1464,20 @@ function ui.set_callback(item, callback) end
 ---@param item number
 ---@param visible boolean
 function ui.set_visible(item, visible) end
+
+
+-- vector:
+
+vector = {}
+
+---
+--- Creates a new vector object. Please note that you need to load the built-in vector library with require "vector"
+---
+--- `x`: X coordinate of 3D position
+--- `y`: Y coordinate of 3D position
+--- `z`: Z coordinate of 3D position
+---@param x number
+---@param y number
+---@param z number
+---@return vector
+function vector.vector(x, y, z) end

@@ -13,10 +13,10 @@ Argument | Type | Description
 -------- | ---- | -----------
   **x** | number (screen coordinate) | Screen coordinate
   **y** | number (screen coordinate) | Screen coordinate
-  **r** | number | Red (1-255)
-  **g** | number | Green (1-255)
-  **b** | number | Blue (1-255)
-  **a** | number | Alpha (1-255)
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **a** | number | Alpha (0-255)
   **radius** | number | Radius of the circle in pixels.
   **start_degrees** | number (0 - 360) | 0 is the right side, 90 is the bottom, 180 is the left, 270 is the top.
   **percentage** | number (0 - 1) | Must be within [0.0-1.0]. 1.0 is a full circle, 0.5 is a half circle, etc.
@@ -32,10 +32,10 @@ Argument | Type | Description
 -------- | ---- | -----------
   **x** | number (screen coordinate) | Screen coordinate
   **y** | number (screen coordinate) | Screen coordinate
-  **r** | number | Red (1-255)
-  **g** | number | Green (1-255)
-  **b** | number | Blue (1-255)
-  **a** | number | Alpha (1-255)
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **a** | number | Alpha (0-255)
   **radius** | number | Radius of the circle in pixels.
   **start_degrees** | number (0 - 360) | 0 is the right side, 90 is the bottom, 180 is the left, 270 is the top.
   **percentage** | number (0 - 1) | Must be within [0.0-1.0]. 1.0 is a full circle, 0.5 is a half circle, etc.
@@ -54,14 +54,14 @@ Argument | Type | Description
   **y** | number (screen coordinate) | Screen coordinate
   **w** | number (px) | Width in pixels
   **h** | number (px) | Height in pixels
-  **r1** | number | Red (1-255)
-  **g1** | number | Green (1-255)
-  **b1** | number | Blue (1-255)
-  **a1** | number | Alpha (1-255)
-  **r2** | number | Red (1-255)
-  **g2** | number | Green (1-255)
-  **b2** | number | Blue (1-255)
-  **a2** | number | Alpha (1-255)
+  **r1** | number | Red (0-255)
+  **g1** | number | Green (0-255)
+  **b1** | number | Blue (0-255)
+  **a1** | number | Alpha (0-255)
+  **r2** | number | Red (0-255)
+  **g2** | number | Green (0-255)
+  **b2** | number | Blue (0-255)
+  **a2** | number | Alpha (0-255)
   **ltr** | boolean | Left to right. Pass true for horizontal gradient, or false for vertical.
 
 This can only be called from the paint callback.
@@ -73,10 +73,10 @@ This can only be called from the paint callback.
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **r** | number | Red (1-255)
-  **g** | number | Green (1-255)
-  **b** | number | Blue (1-255)
-  **a** | number | Alpha (1-255)
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **a** | number | Alpha (0-255)
   **...** |  | The text that will be drawn
 
 Returns the Y screen coordinate (vertical offset) of the drawn text, or nil on failure. This can only be called from the paint callback.
@@ -92,10 +92,10 @@ Argument | Type | Description
   **ya** | number (screen coordinate) | Screen coordinate of point A
   **xb** | number (screen coordinate) | Screen coordinate of point B
   **yb** | number (screen coordinate) | Screen coordinate of point B
-  **r** | number | Red (1-255)
-  **g** | number | Green (1-255)
-  **b** | number | Blue (1-255)
-  **a** | number | Alpha (1-255)
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **a** | number | Alpha (0-255)
 
 This can only be called from the paint callback.
 
@@ -174,10 +174,10 @@ Argument | Type | Description
   **y** | number (screen coordinate) | Screen coordinate
   **w** | number (px) | Width in pixels
   **h** | number (px) | Height in pixels
-  **r** | number | Red (1-255)
-  **g** | number | Green (1-255)
-  **b** | number | Blue (1-255)
-  **a** | number | Alpha (1-255)
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **a** | number | Alpha (0-255)
 
 This can only be called from the paint callback.
 
@@ -190,11 +190,11 @@ Argument | Type | Description
 -------- | ---- | -----------
   **x** | number (screen coordinate) | Screen coordinate
   **y** | number (screen coordinate) | Screen coordinate
-  **r** | number | Red (1-255)
-  **g** | number | Green (1-255)
-  **b** | number | Blue (1-255)
-  **a** | number | Alpha (1-255)
-  **flags** | string (text flags) | "+" for large text, "-" for small text, "c" for centered text, "r" for right-aligned text, "b" for bold text, "d" for text that scales with DPI. "c" and "d" can be combined with other flags. nil can be specified for normal sized uncentered text.
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **a** | number | Alpha (0-255)
+  **flags** | string (text flags) | "+" for large text, "-" for small text, "c" for centered text, "r" for right-aligned text, "b" for bold text, "d" for high DPI support. "c" can be combined with other flags. nil can be specified for normal sized uncentered text.
   **max_width** | number | Text will be clipped if it exceeds this width in pixels. Use 0 for no limit.
   **...** |  | Text that will be drawn
 
@@ -203,7 +203,7 @@ This can only be called from the paint callback.
 
 #### renderer.texture
 
-`renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number[, flags: string])`
+`renderer.texture(id: number, x: number, y: number, w: number, h: number, r: number, g: number, b: number, a: number[, mode: string])`
 
 Argument | Type | Description
 -------- | ---- | -----------
@@ -216,7 +216,7 @@ Argument | Type | Description
   **g** | number | Green (0-255)
   **b** | number | Blue (0-255)
   **a** | number | Alpha (0-255)
-  **flags** | string | "r" for repeated/tiled textures, "f" to fill/stretch
+  **mode** | string | String: "f" for fill, "r" for repeat, otherwise automatic
 
 Draws a texture from the texture id created from load_rgba, load_png, load_jpg or load_svg
 
@@ -233,10 +233,10 @@ Argument | Type | Description
   **y1** | number (screen coordinate) | Screen coordinate Y for point B
   **x2** | number (screen coordinate) | Screen coordinate X for point C
   **y2** | number (screen coordinate) | Screen coordinate Y for point C
-  **r** | number | Red (1-255)
-  **g** | number | Green (1-255)
-  **b** | number | Blue (1-255)
-  **a** | number | Alpha (1-255)
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **a** | number | Alpha (0-255)
 
 This can only be called from the paint callback.
 

@@ -9,58 +9,67 @@ summary: Functions controlling the CS:GO Material System, letting you modulate, 
 
 `materialsystem.arms_material()`: table (material object)
 
-Returns the players hand cham material as an object.
+Returns a reference to the arms material when 'Viewmodel arms' is enabled
 
 
 #### materialsystem.chams_material
 
 `materialsystem.chams_material()`: table (material object)
 
-Returns the players cham material as an object.
+Returns a reference to the player chams material
 
 
 #### materialsystem.find_material
 
-`materialsystem.find_material(material: string)`: table (material object)
+`materialsystem.find_material(path: string[, force_load: boolean])`: table (material object)
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **material** | string | The name of the material.
+  **path** | string | Path to material including filename
+  **force_load** | boolean | Boolean. Load the material if it isn't loaded
 
-Returns a material object for the specified material.
+Returns a reference to the material
 
 
 #### materialsystem.find_materials
 
-`materialsystem.find_materials(materials: string)`: table (material objects)
+`materialsystem.find_materials(partial_path: string[, force_load: boolean])`: table (material objects)
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **materials** | string | The substring that the material name must contain.
+  **partial_path** | string | Partial path to material
+  **force_load** | boolean | Boolean. Load each material if it isn't loaded
 
-Returns all material objects that contain the specified material.
+Returns a table of references to materials that have partial_path in their name
 
 
 #### materialsystem.find_texture
 
-`materialsystem.find_texture(material: string)`
+`materialsystem.find_texture(path: string)`
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **material** | string | The name of the material.
+  **path** | string | Path to texture including filename
 
-Returns a texture object for the specified material.
+Returns a reference to the texture that can be used with set_shader_param
 
 
 #### materialsystem.get_model_materials
 
-`materialsystem.get_model_materials(ent: number)`: table (material objects)
+`materialsystem.get_model_materials(entindex: number)`: table (material objects)
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **ent** | number (entindex) | The entity whos materials will be returned.
+  **entindex** | number (entindex) | Entity index
 
-Returns all material objects for a specified entity.
+Returns a table of references to materials used by the entity
+
+
+#### materialsystem.get_name
+
+`materialsystem.get_name()`: string
+
+Returns name of the material
 
 
 #### materialsystem.override_material

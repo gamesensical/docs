@@ -52,7 +52,7 @@ Argument | Type | Description
 -------- | ---- | -----------
   **item** | number (menu reference) | The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.
 
-Returns the name of the menu item reference passed to it. Throws an error on failure.
+Returns the display name
 
 
 #### ui.new_button
@@ -61,7 +61,7 @@ Returns the name of the menu item reference passed to it. Throws an error on fai
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
   **container** | string (menu container) | The name of the existing container to which this checkbox will be added.
   **name** | string (menu item) | The name of the button.
   **callback** | function | The lua function that will be called when the button is pressed.
@@ -75,7 +75,7 @@ Throws an error on failure. The return value should not be used with ui.set or u
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
   **container** | string (menu container) | The name of the existing container to which this control will be added.
   **name** | string (menu item) | The name of the checkbox.
 
@@ -88,7 +88,7 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
   **container** | string (menu container) | The name of the existing container to which this checkbox will be added.
   **name** | string (menu item) | The name of the color picker. This will not be shown, it is only used to identify this item in saved configs.
   **r** | number | Initial red value (0-255)
@@ -105,7 +105,7 @@ Throws an error on failure. The color picker is placed to the right of the previ
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
   **container** | string (menu container) | The name of the existing container to which this control will be added.
   **name** | string (menu item) | The name of the combobox.
   **...** |  | One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added.
@@ -115,14 +115,15 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 #### ui.new_hotkey
 
-`ui.new_hotkey(tab: string, container: string, name: string[, inline: boolean])`: number (menu item)
+`ui.new_hotkey(tab: string, container: string, name: string[, inline: boolean] [, default_hotkey: number])`: number (menu item)
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
   **container** | string (menu container) | The name of the existing container to which this control will be added.
   **name** | string (menu item) | The name of the hotkey.
   **inline** | boolean | Boolean. If set to true, the hotkey will be placed to the right of the preceding menu item.
+  **default_hotkey** | number (virtual key code) | Virtual key
 
 Returns a special value that can be passed to ui.get to see if the hotkey is pressed, or throws an error on failure.
 
@@ -133,7 +134,7 @@ Returns a special value that can be passed to ui.get to see if the hotkey is pre
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, CONFIG or LUA.
   **container** | string (menu container) | The name of the existing container to which this control will be added.
   **name** | string (menu item) | The name of the label. This can later be changed using ui.set.
 
@@ -142,16 +143,16 @@ Creates a new label, this can be used to make otherwise attached menu items stan
 
 #### ui.new_listbox
 
-`ui.new_listbox(tab: string, container: string, name: string, ...)`: number (menu item)
+`ui.new_listbox(tab: string, container: string, name: string[, items: table])`: number (menu item)
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
-  **container** | string (menu container) | The name of the existing container to which this control will be added.
-  **name** | string (menu item) | The name of the listbox.
-  **...** |  | One or more comma separated string values that will be added to the listbox. Alternatively, a table of strings that will be added.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA
+  **container** | string (menu container) | The name of the existing container to which this listbox will be added
+  **name** | string (menu item) | Name
+  **items** | table | Table of items (strings)
 
-Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
+Throws an error on failure. Returns a special value that can be used with ui.get. Calling ui.get on a listbox will return the zero-based index of the currently selected string.
 
 
 #### ui.new_multiselect
@@ -160,7 +161,7 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
   **container** | string (menu container) | The name of the existing container to which this control will be added.
   **name** | string (menu item) | The name of the multiselect.
   **...** |  | One or more comma separated string values that will be added to the combobox. Alternatively, a table of strings that will be added.
@@ -174,7 +175,7 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
   **container** | string (menu container) | The name of the existing container to which this control will be added.
   **name** | string (menu item) | The name of the slider.
   **min** | number | The minimum value that can be set using the slider.
@@ -195,19 +196,20 @@ Returns a special value that can be passed to ui.get and ui.set, or throws an er
 Argument | Type | Description
 -------- | ---- | -----------
   **name** | string (menu item) | The name of the string element, make sure this is unique.
-  **default_value** | string | Default value of the element.
+  **default_value** | string | String that specifies the default value.
 
 Creates a string UI element, can be used to store arbitrary strings in configs. No menu item is created but it has the same semantics as other ui.new_* functions. Returns a special value that can be passed to ui.get and ui.set, or throws an error on failure.
 
 
 #### ui.new_textbox
 
-`ui.new_textbox(tab: string, container: string)`: number (menu item)
+`ui.new_textbox(tab: string, container: string, name: string)`: number (menu item)
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
   **container** | string (menu container) | The name of the existing container to which this textbox will be added.
+  **name** | string (menu item) | The name of the textbox
 
 Throws an error on failure. Returns a special value that can be used with ui.get
 
@@ -218,7 +220,7 @@ Throws an error on failure. Returns a special value that can be used with ui.get
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **tab** | string (menu tab) | The name of the tab: AA, RAGE, LEGIT, MISC, PLAYERS, SKINS, VISUALS or LUA.
+  **tab** | string (menu tab) | The name of the tab: RAGE, AA, LEGIT, VISUALS, MISC, SKINS, PLAYERS, LUA.
   **container** | string (menu container) | The name of the existing container to which this checkbox will be added.
   **name** | string (menu item) | The name of the menu item.
 
@@ -231,11 +233,11 @@ Avoid calling this from inside a function. Returns a reference that can be passe
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **item** | number (menu reference) | The result of either ui.new_checkbox, ui.new_slider, or ui.reference.
-  **value** | any | The value to which the menu item will be set.
+  **item** | number (menu reference) | The result of either ui.new_* or ui.reference
+  **value** | any | The value to which the menu item will be set
   **...** |  | For multiselect comboboxes, you may want to set more than one option.
 
-For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, param is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.
+For checkboxes, pass true or false. For a slider, pass a number that is within the slider's minimum/maximum values. For a combobox, pass a string value. For a multiselect combobox, pass zero or more strings. For referenced buttons, value is ignored and the button's callback is invoked. For color pickers, pass the arguments r, g, b, a.
 
 
 #### ui.set_callback

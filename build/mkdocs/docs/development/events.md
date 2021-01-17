@@ -105,6 +105,34 @@ end)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
+#### output
+
+This event lets you override the text drawn in the top left. There can only be one callback for this event. This event callback is invoked from print, client.log, client.color_log, "Missed due to spread" message, etc.
+
+Key | Description
+--- | -----------
+ **text** | Drawn text
+ **r** | Drawn color: Red 0-255
+ **g** | Drawn color: Green 0-255
+ **b** | Drawn color: Blue 0-255
+ **a** | Alpha 0-255
+
+
+
+#### indicator
+
+This event lets you lets you override how indicators are drawn. There can only be one callback for this event. This event callback is invoked from renderer.indicator and indicators like "DT".
+
+Key | Description
+--- | -----------
+ **text** | Drawn text
+ **r** | Drawn color: Red 0-255
+ **g** | Drawn color: Green 0-255
+ **b** | Drawn color: Blue 0-255
+ **a** | Alpha 0-255
+
+
+
 #### player_chat
 
 Fired when a player sends a message to chat
@@ -240,6 +268,30 @@ client.set_event_callback('aim_hit', aim_hit)
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+#### pre_config_load
+
+Fired before a config will be loaded
+
+
+
+#### post_config_load
+
+Fired after a config has been loaded
+
+
+
+#### pre_config_save
+
+Fired before a config will be saved
+
+
+
+#### post_config_save
+
+Fired after a config has been saved
+
+
 
 #### aim_miss
 

@@ -1,7 +1,7 @@
 # Items
 ---
-summary: Last updated at 09.10.2019
-date: 09.10.2019
+summary: Last updated at 16.01.2021
+date: 16.01.2021
 ---
 
 
@@ -72,4 +72,5 @@ date: 09.10.2019
 {% page-ref page="CWeaponUMP45.md" %}
 {% page-ref page="CWeaponUSP.md" %}
 {% page-ref page="CWeaponXM1014.md" %}
+{% page-ref page="CWeaponZoneRepulsor.md" %}
 {% page-ref page="ParticleSmokeGrenade.md" %}

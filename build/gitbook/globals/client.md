@@ -75,10 +75,10 @@ Argument | Type | Description
   **z** | number (world coordinate) | Position in world space
   **line_offset** | number | Used for vertical alignment, use 0 for the first line.
   **duration** | number | Time in seconds that the text will remain on the screen.
-  **r** | number | Red (1-255)
-  **g** | number | Green (1-255)
-  **b** | number | Blue (1-255)
-  **a** | number | Alpha (1-255)
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **a** | number | Alpha (0-255)
   **...** |  | The text that will be drawn
 
 Avoid calling this during the paint event.
@@ -93,10 +93,10 @@ Argument | Type | Description
   **entindex** | number (entindex) | Entity index
   **duration** | number | Time in seconds
   **hitboxes** | number (hitbox id) | Either the hitbox index, an array of hitbox indices, or 19 for all hitboxes
-  **r** | number | Red (1-255)
-  **g** | number | Green (1-255)
-  **b** | number | Blue (1-255)
-  **a** | number | Alpha (1-255)
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **a** | number | Alpha (0-255)
   **tick** | number | Integer
 
 Draws hitbox overlays. Avoid calling this during the paint event.
@@ -104,14 +104,13 @@ Draws hitbox overlays. Avoid calling this during the paint event.
 
 #### client.error_log
 
-`client.error_log(msg: string[, ...])`
+`client.error_log(msg: string)`
 
 Argument | Type | Description
 -------- | ---- | -----------
   **msg** | string | The error message
-  **...** |  | Comma-separated arguments to concatenate with msg.
 
-Logs a message to console in the error format and plays the sound (If Hide from OBS is disabled)
+General game- and cheat-related functions
 
 
 #### client.exec
@@ -143,6 +142,17 @@ Argument | Type | Description
   **pattern** | string | String of the signature. Escape with \x, replace wildcards with \xCC
 
 Finds the specified pattern and returns a pointer to it, or nil if not found.
+
+
+#### client.get_model_name
+
+`client.get_model_name(model_index: number)`: string
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **model_index** | number (model index) | Model index
+
+Returns model name, or nil on failure.
 
 
 #### client.key_state
@@ -197,6 +207,21 @@ Argument | Type | Description
   **maximum** | number | Highest possible result
 
 Returns a random integer between minimum and maximum.
+
+
+#### client.register_esp_flag
+
+`client.register_esp_flag(flag: string, r: number, g: number, b: number, callback: function)`
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **flag** | string | String of text that will be shown when callback returns true
+  **r** | number | Red (0-255)
+  **g** | number | Green (0-255)
+  **b** | number | Blue (0-255)
+  **callback** | function | Function that will be called for each entity while drawing the ESP
+
+Requires "Flags" is enabled in Player ESP
 
 
 #### client.reload_active_scripts
@@ -265,7 +290,7 @@ Returns high precision timestamp in milliseconds.
 
 #### client.trace_bullet
 
-`client.trace_bullet(from_player: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number[, skip_players: boolean])`: number, number
+`client.trace_bullet(from_player: number, from_x: number, from_y: number, from_z: number, to_x: number, to_y: number, to_z: number, skip_players: boolean)`: number, number
 
 Argument | Type | Description
 -------- | ---- | -----------
@@ -276,9 +301,9 @@ Argument | Type | Description
   **to_x** | number (world coordinate) | Position in world space
   **to_y** | number (world coordinate) | Position in world space
   **to_z** | number (world coordinate) | Position in world space
-  **skip_players** | boolean | Pass true to skip expensive player hitbox checks when they're not needed.
+  **skip_players** | boolean | Optional, pass true to skip expensive hitbox checks.
 
-Returns entindex, damage. Entindex is nil when no player is hit.
+Returns entindex, damage. Entindex is nil when no player is hit or if players are skipped.
 
 
 #### client.trace_line
@@ -311,10 +336,10 @@ Returns current windows time as [unix time / epoch time](https://en.wikipedia.or
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **event_name** | string | Name of the event.
-  **callback** | function | Registered lua callback to remove.
+  **event_name** | string | Name of the event
+  **callback** | function | Lua function that was passed to set_event_callback
 
-Removes the event callback for the passed event name and function. Raises an error and prints a message in console upon failure.
+Removes a callback that was previously set using set_event_callback
 
 
 #### client.update_player_list

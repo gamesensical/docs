@@ -25,6 +25,8 @@ globals.sort.each do |global, functions|
 	contents << ""
 
 	functions.each do |name, documentation|
+		next if documentation["name"].include? ":"
+
 		contents << "---"
 
 		if documentation.key? "description"

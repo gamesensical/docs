@@ -12,6 +12,12 @@ description: List of events that you can listen to using client.set_event_callba
 {{{description}}}
 {{/description}}
 
+{{#hint}}
+{% hint style="{{style}}" %}
+{{{text}}}
+{% endhint %}
+
+{{/hint}}
 {{#has_string_properties}}
 || Property
 ------ | --------

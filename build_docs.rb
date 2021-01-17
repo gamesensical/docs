@@ -18,7 +18,6 @@ class Template < Mustache
 
 	def initialize(name, template_path: nil)
 		self.template_path = template_path.to_s unless template_path.nil?
-
 		self.template_name = name
 	end
 end
@@ -33,7 +32,10 @@ class DocumentationFormat
 		@template_dir = (@input_dir + ".templates").to_s
 
 		FileUtils.rm_r(Dir[@output_dir + "*"]) if @output_dir.directory?
+
 		@output_dir.mkpath
+		@props_dir.mkpath
+
 		FileUtils.cp_r(@input_dir, build_dir)
 		FileUtils.rm_r(@output_dir + ".templates") if (@output_dir + ".templates").directory?
 
@@ -43,23 +45,23 @@ class DocumentationFormat
 	end
 
 	def build_global(name, data)
-		(@globals_dir + "#{name}.md").write(@globals_template.render(data).chomp)
+		(@globals_dir + "#{name}.md").write(@globals_template.render(data).chomp, mode: "w+")
 	end
 
 	def build_netprops_class(classname, data)
-		(@props_dir + "#{classname}.md").write(@netprops_class_template.render(data))
+		(@props_dir + "#{classname}.md").write(@netprops_class_template.render(data), mode: "w+")
 	end
 
 	def build_netprops_group(filename, data)
-		(@props_dir + "#{filename}.md").write(@netprops_group_template.render(data))
+		(@props_dir + "#{filename}.md").write(@netprops_group_template.render(data), mode: "w+")
 	end
 
 	def build_events(data)
-		(@docs_dir + "development" + "events.md").write(Template.new("events", template_path: @template_dir).render(data))
+		(@docs_dir + "development" + "events.md").write(Template.new("events", template_path: @template_dir).render(data), mode: "w+")
 	end
 
 	def build_summary(data)
-		(@docs_dir + "SUMMARY.md").write(Template.new("summary", template_path: @template_dir).render(data))
+		(@docs_dir + "SUMMARY.md").write(Template.new("summary", template_path: @template_dir).render(data), mode: "w+")
 	end
 end
 
@@ -78,7 +80,7 @@ globals_descriptions = extra_docs["globals_descriptions"]
 globals_examples = extra_docs["globals_examples"]
 
 globals.sort.to_h.map do |global, functions|
-	functions_list = functions.sort_by{|name, data| (data.key?("name") && data["name"].include?(":")) ? "\xFF#{name}" : name}.map do |name, function|
+	functions_list = functions.sort_by{|name, data| data.key?("name") && data["name"].include?(":") ? "\xFF#{name}" : name}.map do |name, function|
 		# name
 		function["name"] ||= "#{global}.#{name}"
 		function["display_name"] = function["name"].include?(":") ? (":" + function["name"].split(":").last) : function["name"]
@@ -88,9 +90,9 @@ globals.sort.to_h.map do |global, functions|
 		if function.key? "args"
 			function["args"].each_with_index do |arg, i|
 				arg_text = arg["name"]
-				arg_text += ": #{SHORT_ARG_TYPES ? arg["type"].split(" ")[0] : arg["type"]}" if arg.key? "type"
+				arg_text += ": #{SHORT_ARG_TYPES ? arg["type"].split[0] : arg["type"]}" if arg.key? "type"
 				arg_text = i == 0 ? "#{arg_text}" : ", #{arg_text}"
-				arg_names << (arg["optional"] ? ("[#{arg_text}]#{(i == function["args"].length-1) ? "" : " "}") : arg_text)
+				arg_names << (arg["optional"] ? "[#{arg_text}]#{i == function["args"].length-1 ? "" : " "}" : arg_text)
 			end
 		end
 		function["args_text"] = arg_names
@@ -127,7 +129,7 @@ number_regex = /^[0-9]*$/
 	first_line ||= line
 	next if line == "" || line.start_with?("//")
 	unless line.start_with? " "
-		current_class = line.split(" ")[0]
+		current_class = line.split[0]
 		classes[current_class] = []
 		classes_type[current_class] = line.split("(type ")[1].split(")")[0] rescue nil
 		next
@@ -153,7 +155,7 @@ number_regex = /^[0-9]*$/
 		current_table_new = line.split("Table: ")[1].split(" (offset ")[0]
 	end
 
-	if table_finished && !current_table.nil? && current_table_nums.length > 0
+	if table_finished && !current_table.nil? && !current_table_nums.empty?
 		classes[current_class].insert(classes[current_class].length > 1 ? -2 : -1, {"name" => current_table, "type" => "#{current_table_type}[#{current_table_nums.min == current_table_nums.max ? current_table_nums.min.to_s : "#{current_table_nums.min}-#{current_table_nums.max}"}]"})
 		current_table = nil
 		current_table_type = nil
@@ -174,7 +176,7 @@ def get_group(classname)
 	return "Environment" if classname.include?("CColorCorrection") || classname.include?("CSun") || classname.start_with?("CEnv")
 	return "Controllers" if classname.include?("Control") || classname.include?("CTeam")
 
-	return "Other"
+	"Other"
 end
 
 netprops_groups = {
@@ -187,7 +189,7 @@ netprops_groups = {
 	"Base Entities" => [],
 	"Other" => [],
 }
-netprops_class_template = Template.new("netprops_class")
+
 classes.each do |classname, props|
 	next if classname.nil?
 
@@ -208,7 +210,7 @@ end
 
 group_filename = Hash[netprops_groups.map{|a, b| [a, a.parameterize.gsub("-", "")]}]
 
-date = Date.parse(first_line.split(" ").last).strftime("%d.%m.%Y")
+date = Date.parse(first_line.split.last).strftime("%d.%m.%Y")
 netprops_groups.each do |group, classnames|
 	data = {
 		group: group,
@@ -246,12 +248,9 @@ end
 # Write formatted list of globals and netprops to SUMMARY.md
 summary_data = {
 	globals: globals.keys,
-	netprops: netprops_groups.map{|group, classnames| {
-		group: group,
-		group_filename: group_filename[group],
-		classnames: classnames
-	}}
+	netprops: netprops_groups.map{|group, classnames| {group: group, group_filename: group_filename[group], classnames: classnames}}
 }
+
 documentation_formats.each do |documentation_format|
 	documentation_format.build_summary(summary_data)
 end

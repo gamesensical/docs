@@ -38,6 +38,17 @@ Argument | Type | Description
 Returns the name of the entity's class, or nil on failure.
 
 
+#### entity.get_esp_data
+
+`entity.get_esp_data(player: number)`: table
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **player** | number (entindex) | Entity index
+
+Returns a table containing alpha, health, and weapon_id, or nil on failure.
+
+
 #### entity.get_game_rules
 
 `entity.get_game_rules()`: number (entindex)

@@ -78,6 +78,38 @@
 				"```lua\nclient.set_event_callback(\"console_input\", function(text)\n\tclient.log(\"entered: '\", text, \"'\")\nend)\n```"
 			]
 		},
+		"output": {
+			"description": "This event lets you override the text drawn in the top left. There can only be one callback for this event. This event callback is invoked from print, client.log, client.color_log, \"Missed due to spread\" message, etc.",
+			"properties": [
+				{
+					"text": "Drawn text",
+					"r": "Drawn color: Red 0-255",
+					"g": "Drawn color: Green 0-255",
+					"b": "Drawn color: Blue 0-255",
+					"a": "Alpha 0-255"
+				}
+			],
+			"hint": {
+				"style": "warning",
+				"text": "Make sure to unset your callback when you don't need it. Otherwise you will break the built-in output and other scripts using this event."
+			}
+		},
+		"indicator": {
+			"description": "This event lets you lets you override how indicators are drawn. There can only be one callback for this event. This event callback is invoked from renderer.indicator and indicators like \"DT\".",
+			"properties": [
+				{
+					"text": "Drawn text",
+					"r": "Drawn color: Red 0-255",
+					"g": "Drawn color: Green 0-255",
+					"b": "Drawn color: Blue 0-255",
+					"a": "Alpha 0-255"
+				}
+			],
+			"hint": {
+				"style": "warning",
+				"text": "Make sure to unset your callback when you don't need it. Otherwise you will break the built-in indicators and other scripts using this event."
+			}
+		},
 		"player_chat": {
 			"description": "Fired when a player sends a message to chat",
 			"properties": [
@@ -107,7 +139,11 @@
 				{
 					"command_number": "Command number of the predicted command"
 				}
-			]
+			],
+			"hint": {
+				"style": "info",
+				"text": "This event is called a lot of times per second, avoid doing any heavy processing in it."
+			}
 		},
 		"pre_render": {
 			"description": "Fired before a frame is rendered"
@@ -154,6 +190,18 @@
 			"examples": [
 				"```lua\nlocal hitgroup_names = {'generic', 'head', 'chest', 'stomach', 'left arm', 'right arm', 'left leg', 'right leg', 'neck', '?', 'gear'}\n\nlocal function aim_hit(e)\n\tlocal group = hitgroup_names[e.hitgroup + 1] or '?'\n\tprint(string.format('Hit %s in the %s for %d damage (%d health remaining)', entity.get_player_name(e.target), group, e.damage, entity.get_prop(e.target, 'm_iHealth')))\nend\nclient.set_event_callback('aim_hit', aim_hit)\n```"
 			]
+		},
+		"pre_config_load": {
+			"description": "Fired before a config will be loaded"
+		},
+		"post_config_load": {
+			"description": "Fired after a config has been loaded"
+		},
+		"pre_config_save": {
+			"description": "Fired before a config will be saved"
+		},
+		"post_config_save": {
+			"description": "Fired after a config has been saved"
 		},
 		"aim_miss": {
 			"description": "Fired when the rage aimbot missed a shot at a player",
