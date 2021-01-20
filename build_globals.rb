@@ -9,6 +9,7 @@ gemfile do
 
 	gem "pry"
 	gem "json-patch"
+	gem "jsondiff"
 	gem "activesupport", :require => ["active_support/core_ext/hash", "active_support/core_ext/string/inflections"]
 end
 
@@ -21,6 +22,16 @@ globals = JSON.parse((SRC_DIR + "default_docs.json").read)
 extra_docs = JSON.parse((SRC_DIR + "extra_docs.json").read)
 
 globals = JSON::Patch.new(globals, extra_docs["globals_patch"]).call
+
+extra_docs["globals_merge"].each do |global, funcs|
+	funcs.each do |func, func_val|
+		next unless globals.dig(global, func)
+
+		diff = JsonDiff.generate(globals.dig(global, func), func_val)
+		puts "Overwriting global #{global}.#{func} - this should use globals_patch instead (#{diff.to_json})"
+	end
+end
+
 globals.deep_merge!(extra_docs["globals_merge"])
 globals_replacements = extra_docs["globals_replacements"]
 globals_deprecated_regex = Regexp.new(extra_docs["globals_deprecated_regex"])
