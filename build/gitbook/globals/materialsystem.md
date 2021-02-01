@@ -65,13 +65,6 @@ Argument | Type | Description
 Returns a table of references to materials used by the entity
 
 
-#### materialsystem.get_name
-
-`materialsystem.get_name()`: string
-
-Returns name of the material
-
-
 #### materialsystem.override_material
 
 `materialsystem.override_material(ent: number)`
@@ -116,6 +109,13 @@ Argument | Type | Description
   **material_var_flag** | number (material var flag) | Material var flag as number
 
 Returns the boolean value of the material var flag
+
+
+#### :get_name
+
+`material_object:get_name()`: string
+
+Returns name of the material
 
 
 #### :get_shader_param

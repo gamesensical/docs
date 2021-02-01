@@ -880,12 +880,6 @@ function materialsystem.find_texture(path) end
 function materialsystem.get_model_materials(entindex) end
 
 ---
---- Returns name of the material
----
----@return string
-function materialsystem.get_name() end
-
----
 --- Overrides all of a material properties with another material.
 ---
 --- `ent`: The entity whos materials will be returned.

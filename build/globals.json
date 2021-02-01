@@ -1608,7 +1608,7 @@
       ]
     },
     "get_name": {
-      "name": "materialsystem.get_name",
+      "name": "material_object:get_name",
       "description": "Returns name of the material",
       "return_type": "string",
       "args": [
