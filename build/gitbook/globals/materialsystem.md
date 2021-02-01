@@ -67,11 +67,12 @@ Returns a table of references to materials used by the entity
 
 #### materialsystem.override_material
 
-`materialsystem.override_material(ent: number)`
+`materialsystem.override_material(material: table, material_new: table)`
 
 Argument | Type | Description
 -------- | ---- | -----------
-  **ent** | number (entindex) | The entity whos materials will be returned.
+  **material** | table (material object) | The material to override
+  **material_new** | table (material object) | The material to override it with
 
 Overrides all of a material properties with another material.
 

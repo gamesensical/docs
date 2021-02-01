@@ -882,9 +882,11 @@ function materialsystem.get_model_materials(entindex) end
 ---
 --- Overrides all of a material properties with another material.
 ---
---- `ent`: The entity whos materials will be returned.
----@param ent number
-function materialsystem.override_material(ent) end
+--- `material`: The material to override
+--- `material_new`: The material to override it with
+---@param material table
+---@param material_new table
+function materialsystem.override_material(material, material_new) end
 
 
 -- panorama:

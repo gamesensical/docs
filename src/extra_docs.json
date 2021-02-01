@@ -362,8 +362,14 @@
 				"description": "Overrides all of a material properties with another material.",
 				"args": [
 					{
-						"name": "ent",
-						"description": "The entity whos materials will be returned."
+						"name": "material",
+						"description": "The material to override",
+						"type": "table (material object)"
+					},
+					{
+						"name": "material_new",
+						"description": "The material to override it with",
+						"type": "table (material object)"
 					}
 				]
 			},
