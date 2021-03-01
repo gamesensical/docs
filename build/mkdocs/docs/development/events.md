@@ -7,10 +7,25 @@ description: List of events that you can listen to using client.set_event_callba
 
 #### paint
 
-Fired every time the game renders a frame while being connected to a server. Can be used to draw to the screen using the renderer.* functions
+Fired every time the game renders a frame while being connected to a server. Can be used to draw to the screen using the [renderer.*](/docs/developers/globals/renderer) functions
 
 
-{% page-ref page="/developers/globals/renderer" %}
+**Examples:**
+
+{% code-tabs %}
+{% code-tabs-item %}
+```lua
+client.set_event_callback("paint", function()
+	renderer.text(15, 15, 255, 255, 255, 255, nil, 0, "hello world")
+end)
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+#### paint_ui
+
+Fired every time the game renders a frame, even if you're in the menu. Can be used to draw to the screen using the [renderer.*](/docs/developers/globals/renderer) functions
+
 
 
 #### run_command
@@ -269,30 +284,6 @@ client.set_event_callback('aim_hit', aim_hit)
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-#### pre_config_load
-
-Fired before a config will be loaded
-
-
-
-#### post_config_load
-
-Fired after a config has been loaded
-
-
-
-#### pre_config_save
-
-Fired before a config will be saved
-
-
-
-#### post_config_save
-
-Fired after a config has been saved
-
-
-
 #### aim_miss
 
 Fired when the rage aimbot missed a shot at a player
@@ -321,4 +312,28 @@ client.set_event_callback('aim_miss', aim_miss)
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
+
+#### pre_config_load
+
+Fired before a config will be loaded
+
+
+
+#### post_config_load
+
+Fired after a config has been loaded
+
+
+
+#### pre_config_save
+
+Fired before a config will be saved
+
+
+
+#### post_config_save
+
+Fired after a config has been saved
+
+
 

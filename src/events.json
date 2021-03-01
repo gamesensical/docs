@@ -1,8 +1,15 @@
 {
 	"events": {
 		"paint": {
-			"description": "Fired every time the game renders a frame while being connected to a server. Can be used to draw to the screen using the renderer.* functions",
-			"page-ref": "/developers/globals/renderer"
+			"description": "Fired every time the game renders a frame while being connected to a server. Can be used to draw to the screen using the [renderer.*](/docs/developers/globals/renderer) functions",
+			"page_ref": "/developers/globals/renderer",
+			"examples": [
+				"```lua\nclient.set_event_callback(\"paint\", function()\n\trenderer.text(15, 15, 255, 255, 255, 255, nil, 0, \"hello world\")\nend)\n```"
+			]
+		},
+		"paint_ui": {
+			"description": "Fired every time the game renders a frame, even if you're in the menu. Can be used to draw to the screen using the [renderer.*](/docs/developers/globals/renderer) functions",
+			"page_ref": "/developers/globals/renderer"
 		},
 		"run_command": {
 			"description": "Fired every time the game runs a command (usually 64 times a second, equal to tickrate) while you're alive. This is the best event for processing data that only changes when the game receives an update from the server, like information about other players.",
@@ -191,18 +198,6 @@
 				"```lua\nlocal hitgroup_names = {'generic', 'head', 'chest', 'stomach', 'left arm', 'right arm', 'left leg', 'right leg', 'neck', '?', 'gear'}\n\nlocal function aim_hit(e)\n\tlocal group = hitgroup_names[e.hitgroup + 1] or '?'\n\tprint(string.format('Hit %s in the %s for %d damage (%d health remaining)', entity.get_player_name(e.target), group, e.damage, entity.get_prop(e.target, 'm_iHealth')))\nend\nclient.set_event_callback('aim_hit', aim_hit)\n```"
 			]
 		},
-		"pre_config_load": {
-			"description": "Fired before a config will be loaded"
-		},
-		"post_config_load": {
-			"description": "Fired after a config has been loaded"
-		},
-		"pre_config_save": {
-			"description": "Fired before a config will be saved"
-		},
-		"post_config_save": {
-			"description": "Fired after a config has been saved"
-		},
 		"aim_miss": {
 			"description": "Fired when the rage aimbot missed a shot at a player",
 			"properties": [
@@ -217,6 +212,18 @@
 			"examples": [
 				"```lua\nlocal hitgroup_names = {'generic', 'head', 'chest', 'stomach', 'left arm', 'right arm', 'left leg', 'right leg', 'neck', '?', 'gear'}\n\nlocal function aim_miss(e)\n\tlocal group = hitgroup_names[e.hitgroup + 1] or '?'\n\tprint(string.format('Missed %s (%s) due to %s', entity.get_player_name(e.target), group, e.reason))\nend\nclient.set_event_callback('aim_miss', aim_miss)\n```"
 			]
+		},
+		"pre_config_load": {
+			"description": "Fired before a config will be loaded"
+		},
+		"post_config_load": {
+			"description": "Fired after a config has been loaded"
+		},
+		"pre_config_save": {
+			"description": "Fired before a config will be saved"
+		},
+		"post_config_save": {
+			"description": "Fired after a config has been saved"
 		}
 	}
 }

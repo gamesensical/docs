@@ -37,10 +37,10 @@ Key | Description
 {{/table_properties}}
 {{/has_table_properties}}
 
-{{#page-ref}}
-{% page-ref page="{{{page-ref}}}" %}
+{{#page_ref}}
+{% page-ref page="{{{page_ref}}}" %}
 
-{{/page-ref}}
+{{/page_ref}}
 {{#has_examples}}
 **Examples:**
 
