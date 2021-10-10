@@ -4,24 +4,24 @@ on: [push]
 jobs:
   Deploy:
     runs-on: self-hosted
-
-    defaults:
-      run:
-        working-directory: docs_compiler
     
     steps:
 
       - name: Compile and build snippets
-        run: node .
+        run: |
+          cd ~/actions-runner/_work/docs_compiler
+          node .
 
       - name: Push new snippets to repository
         run: |
+          cd ~/actions-runner/_work/docs_compiler
           cd dist
           git commit -m "Update snippets"
           git push
 
       - name: Build and publish VSCode extension
         run: |
+          cd ~/actions-runner/_work/docs_compiler
           cd dist/vscode
           vsce package
           vsce publish
