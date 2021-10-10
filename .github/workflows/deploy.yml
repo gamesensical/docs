@@ -1,0 +1,26 @@
+name: Deployment
+on: [push]
+
+defaults:
+  run:
+    working-directory: docs_compiler
+
+jobs:
+  Deploy:
+    runs-on: self-hosted
+    steps:
+
+      - name: Compile and build snippets
+        run: node .
+
+      - name: Push new snippets to repository
+        run: |
+          cd dist
+          git commit -m "Update snippets"
+          git push
+
+      - name: Build and publish VSCode extension
+        run: |
+          cd dist/vscode
+          vsce package
+          vsce publish
