@@ -1,8 +1,8 @@
 # file system
 
-### Functions:
+## Functions:
 
-#### readfile
+### readfile
 
 `readfile(filename: string)`
 
@@ -12,7 +12,7 @@
 
 Read and return data from passed file.
 
-#### writefile
+### writefile
 
 `writefile(filename: string, buffer: string)`
 
