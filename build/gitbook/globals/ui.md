@@ -197,7 +197,7 @@ Creates a string UI element, can be used to store arbitrary strings in configs. 
 
 Throws an error on failure. Returns a special value that can be used with ui.get
 
-#### ui.reference
+### ui.reference
 
 `ui.reference(tab: string, container: string, name: string)`: number (menu item)
 

@@ -20,7 +20,7 @@ Export's current config to the string.
 | ---------- | ------ | ---------------------------- |
 | **config** | string | String what contains config. |
 
-### Loads a confin from preset string.
+Loads a confin from preset string.
 
 ### config.load
 

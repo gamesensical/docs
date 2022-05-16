@@ -70,7 +70,7 @@ Swaps the bytes of its argument and returns it. This can be used to convert litt
 
 Returns the bitwise xor of all of its arguments. Note that more than two arguments are allowed.
 
-#### bit.lshift
+### bit.lshift
 
 `bit.lshift(x: number, n: number)`: number
 
