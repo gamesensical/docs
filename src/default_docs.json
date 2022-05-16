@@ -608,6 +608,9 @@
 			"description": "Returns your latency in seconds.",
 			"args": []
 		},
+		"real_latency": {
+				"description": "Returns your current real latency, regardless of ping spike."
+		},
 		"camera_angles": {
 			"name": "client.camera_angles",
 			"description": "Set camera angles",
@@ -649,6 +652,11 @@
 		"reload_active_scripts": {
 			"name": "client.reload_active_scripts",
 			"description": "Reloads all scripts the following frame.",
+			"args": []
+		},
+		"request_full_update": {
+			"name": "client.request_full_update",
+			"description": "Request cl_fullupdate and update all networked stuff.",
 			"args": []
 		}
 	},

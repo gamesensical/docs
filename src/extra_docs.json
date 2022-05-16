@@ -230,6 +230,7 @@
 			},
 			"camera_position": {
 				"description": "Returns x, y, z world coordinates of the game's camera position, or nil on failure.",
+				"return_type": "number, number, number",
 				"args": []
 			},
 			"create_interface": {
@@ -284,6 +285,9 @@
 						"description": "Virtual key code of the key as integer. [List of virtual key codes](https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes)"
 					}
 				]
+			},
+			"current_threat": {
+				"description": "Returns the entity index of the player being used for 'At targets' anti-aim."
 			},
 			"update_player_list": {
 				"description": "Updates the player list tab without having to open it.",
@@ -474,6 +478,9 @@
 					}
 				]
 			},
+			"viewmodel_material": {
+				"description": "Returns a texture object for the viewmodel material."
+			},
 			"alpha_modulate": {
 				"name": "material_object:alpha_modulate",
 				"description": "Overrides the alpha of the material object it's called on. Doesn't work with some materials",
@@ -552,7 +559,20 @@
 					{
 						"name": "value",
 						"description": "New value of the shader param"
+					},
+					{
+						"name": "scale",
+						"description": "New value of the scale param [0-1]"
+					},
+					{
+						"name": "x_offset",
+						"description": "New value of the x offset [0-1]"
+					},
+					{
+						"name": "y_offset",
+						"description": "New value of the y offset [0-1]"
 					}
+					
 				]
 			}
 		},
@@ -691,6 +711,18 @@
 						"description": "Name of the configuration preset"
 					}
 				]
+			},
+			"import": {
+				"description": "Loads a confin from preset string.",
+				"args": [
+					{
+						"name": "config",
+						"description": "String what contains config."
+					}
+				]
+			},
+			"export": {
+				"description": "Export's current config to the string."
 			}
 		}
 	},

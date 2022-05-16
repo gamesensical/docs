@@ -51,6 +51,13 @@ Argument | Type | Description
 Returns a pointer to the interface, or nil on failure.
 
 
+#### client.current_threat
+
+`client.current_threat()`
+
+Returns the entity index of the player being used for 'At targets' anti-aim.
+
+
 #### client.delay_call
 
 `client.delay_call(delay: number, callback: function[, ...])`
@@ -210,6 +217,13 @@ Argument | Type | Description
 Returns a random integer between minimum and maximum.
 
 
+#### client.real_latency
+
+`client.real_latency()`
+
+Returns your current real latency, regardless of ping spike.
+
+
 #### client.register_esp_flag
 
 `client.register_esp_flag(flagname, r: number, g: number, b: number, callback_function)`: number, number, number
@@ -230,6 +244,13 @@ Returns the x, y, z coordinates of the entity. Only works for non-dormant entiti
 `client.reload_active_scripts()`
 
 Reloads all scripts the following frame.
+
+
+#### client.request_full_update
+
+`client.request_full_update()`
+
+Request cl_fullupdate and update all networked stuff.
 
 
 #### client.scale_damage

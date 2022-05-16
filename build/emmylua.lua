@@ -193,6 +193,11 @@ function client.color_log(r, g, b, msg, ...) end
 function client.create_interface(module_name, interface_name) end
 
 ---
+--- Returns the entity index of the player being used for 'At targets' anti-aim.
+---
+function client.current_threat() end
+
+---
 --- Executes the callback after delay seconds, passing the arguments to it.
 ---
 --- `delay`: Time in seconds to wait before calling callback.
@@ -335,6 +340,11 @@ function client.random_float(minimum, maximum) end
 function client.random_int(minimum, maximum) end
 
 ---
+--- Returns your current real latency, regardless of ping spike.
+---
+function client.real_latency() end
+
+---
 --- Returns the x, y, z coordinates of the entity. Only works for non-dormant entities, except for players, where it will return the dormant esp origin
 ---
 --- `flagname`: Flag what be displayed
@@ -354,6 +364,11 @@ function client.register_esp_flag(flagname, r, g, b, callback_function) end
 --- Reloads all scripts the following frame.
 ---
 function client.reload_active_scripts() end
+
+---
+--- Request cl_fullupdate and update all networked stuff.
+---
+function client.request_full_update() end
 
 ---
 --- Returns adjusted damage for the specified hitgroup
@@ -487,6 +502,18 @@ function client.visible(x, y, z) end
 -- config:
 
 config = {}
+
+---
+--- Export's current config to the string.
+---
+function config.export() end
+
+---
+--- Loads a confin from preset string.
+---
+--- `config`: String what contains config.
+---@param config string
+function config.import(config) end
 
 ---
 --- Loads a configuration preset.
@@ -946,9 +973,21 @@ function materialsystem.set_material_var_flag(material_var_flag, value) end
 ---
 --- `shader_param`: Shader param name
 --- `value`: New value of the shader param
+--- `scale`: New value of the scale param [0-1]
+--- `x_offset`: New value of the x offset [0-1]
+--- `y_offset`: New value of the y offset [0-1]
 ---@param shader_param string
 ---@param value any
-function materialsystem.set_shader_param(shader_param, value) end
+---@param scale number
+---@param x_offset
+---@param y_offset
+function materialsystem.set_shader_param(shader_param, value, scale, x_offset, y_offset) end
+
+---
+--- Returns a texture object for the viewmodel material.
+---
+---@return table material object
+function materialsystem.viewmodel_material() end
 
 
 -- panorama:

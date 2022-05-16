@@ -25,6 +25,7 @@
 	"renderer": {
 		"load_svg": 		{},
 		"texture": 		{},
+		"texture_size": {},
 		"circle_outline": 		{},
 		"rectangle": 		{},
 		"gradient": 		{},
@@ -37,7 +38,9 @@
 		"measure_text": 		{},
 		"load_rgba": 		{},
 		"world_to_screen": 		{},
-		"load_jpg": 		{}
+		"load_jpg": 		{},
+		"update_rgba":{},
+		"update_bgra":{}
 	},
 	"bit": {
 		"rol": 		{},
@@ -68,7 +71,8 @@
 		"find_material": 		{},
 		"get_model_materials": 		{},
 		"find_materials": 		{},
-		"override_material": 		{}
+		"override_material": 		{},
+		"viewmodel_material":   {}
 	},
 	"entity": {
 		"get_local_player": 		{},
@@ -88,7 +92,8 @@
 		"get_prop": 		{},
 		"get_classname": 		{},
 		"get_players": 		{},
-		"is_alive": 		{}
+		"is_alive": 		{},
+		"new_prop":         {}
 	},
 	"globals": {
 		"chokedcommands": 		{},
@@ -123,6 +128,7 @@
 		"create_interface": 		{},
 		"random_int": 		{},
 		"latency": 		{},
+		"real_latency": {},
 		"set_clan_tag": 		{},
 		"find_signature": 		{},
 		"log": 		{},
@@ -139,6 +145,7 @@
 		"visible": 		{},
 		"exec": 		{},
 		"reload_active_scripts": 		{},
+		"request_full_update": {},
 		"set_cvar": 		{},
 		"draw_indicator": 		{},
 		"error_log": 		{},
@@ -147,7 +154,9 @@
 		"camera_angles": 		{},
 		"delay_call": 		{},
 		"get_model_name": 		{},
-		"system_time": 		{}
+		"system_time": 		{},
+		"current_threat": {}
+		
 	},
 	"plist": {
 		"set": 		{},

@@ -74,6 +74,13 @@ Argument | Type | Description
 Overrides all of a material properties with another material.
 
 
+#### materialsystem.viewmodel_material
+
+`materialsystem.viewmodel_material()`: table (material object)
+
+Returns a texture object for the viewmodel material.
+
+
 #### :alpha_modulate
 
 `material_object:alpha_modulate(a: number)`
@@ -141,12 +148,15 @@ Sets the value of the material var flag of the material
 
 #### :set_shader_param
 
-`material_object:set_shader_param(shader_param: string, value: any)`
+`material_object:set_shader_param(shader_param: string, value: any, scale: number, x_offset, y_offset)`
 
 Argument | Type | Description
 -------- | ---- | -----------
   **shader_param** | string (shader param) | Shader param name
   **value** | any | New value of the shader param
+  **scale** | number | New value of the scale param [0-1]
+  **x_offset** |  | New value of the x offset [0-1]
+  **y_offset** |  | New value of the y offset [0-1]
 
 Sets the value of the shader param of the material
 

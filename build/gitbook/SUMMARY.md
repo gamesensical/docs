@@ -26,7 +26,7 @@
   * [Snippets](development/snippets/README.md)
   * [Compiling lua scripts](development/compiling.md)
 * [API Documentation](globals/README.md)
-  * [files](globals/_G.md)
+  * [_G](globals/_G.md)
   * [bit](globals/bit.md)
   * [client](globals/client.md)
   * [config](globals/config.md)

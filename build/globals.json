@@ -296,6 +296,13 @@
         }
       ]
     },
+    "current_threat": {
+      "name": "client.current_threat",
+      "description": "Returns the entity index of the player being used for 'At targets' anti-aim.",
+      "args": [
+
+      ]
+    },
     "delay_call": {
       "name": "client.delay_call",
       "description": "Executes the callback after delay seconds, passing the arguments to it.",
@@ -564,6 +571,13 @@
         }
       ]
     },
+    "real_latency": {
+      "name": "client.real_latency",
+      "description": "Returns your current real latency, regardless of ping spike.",
+      "args": [
+
+      ]
+    },
     "register_esp_flag": {
       "name": "client.register_esp_flag",
       "description": "Returns the x, y, z coordinates of the entity. Only works for non-dormant entities, except for players, where it will return the dormant esp origin",
@@ -597,6 +611,13 @@
     "reload_active_scripts": {
       "name": "client.reload_active_scripts",
       "description": "Reloads all scripts the following frame.",
+      "args": [
+
+      ]
+    },
+    "request_full_update": {
+      "name": "client.request_full_update",
+      "description": "Request cl_fullupdate and update all networked stuff.",
       "args": [
 
       ]
@@ -850,6 +871,24 @@
     }
   },
   "config": {
+    "export": {
+      "name": "config.export",
+      "description": "Export's current config to the string.",
+      "args": [
+
+      ]
+    },
+    "import": {
+      "name": "config.import",
+      "description": "Loads a confin from preset string.",
+      "args": [
+        {
+          "name": "config",
+          "description": "String what contains config.",
+          "type": "string"
+        }
+      ]
+    },
     "load": {
       "name": "config.load",
       "description": "Loads a configuration preset.",
@@ -1558,7 +1597,29 @@
           "name": "value",
           "description": "New value of the shader param",
           "type": "any"
+        },
+        {
+          "name": "scale",
+          "description": "New value of the scale param [0-1]",
+          "type": "number"
+        },
+        {
+          "name": "x_offset",
+          "description": "New value of the x offset [0-1]"
+        },
+        {
+          "name": "y_offset",
+          "description": "New value of the y offset [0-1]"
         }
+      ]
+    },
+    "viewmodel_material": {
+      "name": "materialsystem.viewmodel_material",
+      "description": "Returns a texture object for the viewmodel material.",
+      "return_type": "table",
+      "return_description": "material object",
+      "args": [
+
       ]
     }
   },
