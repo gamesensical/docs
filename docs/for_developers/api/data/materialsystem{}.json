@@ -1,0 +1,51 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "materialsystem{}",
+      "functions": [
+        {
+          "alias": "alpha_modulate",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "color_modulate",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_material_var_flag",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_shader_param",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "reload",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "set_material_var_flag",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "set_shader_param",
+          "arguments": [],
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

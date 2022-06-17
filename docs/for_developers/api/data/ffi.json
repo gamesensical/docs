@@ -1,0 +1,105 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "ffi",
+      "functions": [
+        {
+          "alias": "abi",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "alignof",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "cast",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "cdef",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "copy",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "errno",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "fill",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "gc",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "istype",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "metatype",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "new",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "offsetof",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "sizeof",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "string",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "typeinfo",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "typeof",
+          "arguments": [],
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

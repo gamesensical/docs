@@ -1,0 +1,15 @@
+D:\Git\gamesense_docs\GenDoc\GenDoc\bin\Debug\netcoreapp3.1\GenDoc.exe
+D:\Git\gamesense_docs\GenDoc\GenDoc\bin\Debug\netcoreapp3.1\GenDoc.deps.json
+D:\Git\gamesense_docs\GenDoc\GenDoc\bin\Debug\netcoreapp3.1\GenDoc.runtimeconfig.json
+D:\Git\gamesense_docs\GenDoc\GenDoc\bin\Debug\netcoreapp3.1\GenDoc.runtimeconfig.dev.json
+D:\Git\gamesense_docs\GenDoc\GenDoc\bin\Debug\netcoreapp3.1\GenDoc.dll
+D:\Git\gamesense_docs\GenDoc\GenDoc\bin\Debug\netcoreapp3.1\GenDoc.pdb
+D:\Git\gamesense_docs\GenDoc\GenDoc\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Git\gamesense_docs\GenDoc\GenDoc\obj\Debug\netcoreapp3.1\GenDoc.csprojAssemblyReference.cache
+D:\Git\gamesense_docs\GenDoc\GenDoc\obj\Debug\netcoreapp3.1\GenDoc.AssemblyInfoInputs.cache
+D:\Git\gamesense_docs\GenDoc\GenDoc\obj\Debug\netcoreapp3.1\GenDoc.AssemblyInfo.cs
+D:\Git\gamesense_docs\GenDoc\GenDoc\obj\Debug\netcoreapp3.1\GenDoc.csproj.CoreCompileInputs.cache
+D:\Git\gamesense_docs\GenDoc\GenDoc\obj\Debug\netcoreapp3.1\GenDoc.csproj.CopyComplete
+D:\Git\gamesense_docs\GenDoc\GenDoc\obj\Debug\netcoreapp3.1\GenDoc.dll
+D:\Git\gamesense_docs\GenDoc\GenDoc\obj\Debug\netcoreapp3.1\GenDoc.pdb
+D:\Git\gamesense_docs\GenDoc\GenDoc\obj\Debug\netcoreapp3.1\GenDoc.genruntimeconfig.cache

@@ -1,0 +1,64 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "cvar{}",
+      "functions": [
+        {
+          "alias": "get_float",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_int",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_string",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "invoke_callback",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "set_float",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "set_int",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "set_raw_float",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "set_raw_int",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "set_string",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

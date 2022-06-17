@@ -1,0 +1,1003 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "client",
+      "functions": [
+        {
+          "alias": "camera_angles",
+          "returns": [
+            {
+              "type": "number",
+              "description": "pitch (degrees)"
+            },
+            {
+              "type": "number",
+              "description": "yaw (degrees)"
+            }
+          ],
+          "description": "returns camera world angles"
+        },
+        {
+          "alias": "camera_angles",
+          "arguments": [
+            {
+              "alias": "nPitch",
+              "type": "number",
+              "optional": false,
+              "description": "pitch (degrees)"
+            },
+            {
+              "alias": "nYaw",
+              "type": "number",
+              "optional": false,
+              "description": "yaw (degrees)"
+            }
+          ],
+          "description": "sets camera world angles to values provided"
+        },
+        {
+          "alias": "camera_position",
+          "returns": [
+            {
+              "type": "number",
+              "description": "x asix coordinate (units)"
+            },
+            {
+              "type": "number",
+              "description": "y asix coordinate (units)"
+            },
+            {
+              "type": "number",
+              "description": "z asix coordinate (units)"
+            }
+          ],
+          "description": "returns camera world position coordinates"
+        },
+        {
+          "alias": "color_log",
+          "arguments": [
+            {
+              "alias": "nR",
+              "type": "number",
+              "optional": false,
+              "description": "red color channel [0-255]"
+            },
+            {
+              "alias": "nG",
+              "type": "number",
+              "optional": false,
+              "description": "green color channel [0-255]"
+            },
+            {
+              "alias": "nB",
+              "type": "number",
+              "optional": false,
+              "description": "blue color channel [0-255]"
+            },
+            {
+              "alias": "sMessage",
+              "type": "string",
+              "optional": false,
+              "description": "message to log"
+            },
+            {
+              "alias": "...",
+              "type": "variadic string",
+              "optional": true,
+              "description": "messages to log"
+            }
+          ],
+          "description": "logs message(s) with provided color into game console"
+        },
+        {
+          "alias": "create_interface",
+          "arguments": [
+            {
+              "alias": "sModuleFileName",
+              "type": "string",
+              "optional": false,
+              "description": "a module filename, e.g. `engine.dll`"
+            },
+            {
+              "alias": "sInterfaceAlias",
+              "type": "string",
+              "optional": false,
+              "description": "a module's interface alias, e.g. `VEngineClient014`"
+            }
+          ],
+          "returns": [
+            {
+              "type": "cdata",
+              "description": "a C data object (a void pointer)"
+            }
+          ],
+          "description": "returns pointer of the module's interface"
+        },
+        {
+          "alias": "delay_call",
+          "arguments": [
+            {
+              "alias": "nDelay",
+              "type": "number",
+              "optional": false,
+              "description": "delay (seconds)"
+            },
+            {
+              "alias": "fnCallback",
+              "type": "function",
+              "optional": false,
+              "description": "a function that will be called"
+            }
+          ],
+          "description": "binds function that will be called after specified delay"
+        },
+        {
+          "alias": "draw_circle",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `renderer.circle` instead"
+            }
+          ]
+        },
+        {
+          "alias": "draw_circle_outline",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `renderer.circle_outline` instead"
+            }
+          ]
+        },
+        {
+          "alias": "draw_debug_text",
+          "arguments": [
+            {
+              "alias": "nX",
+              "type": "number",
+              "optional": false,
+              "description": "x asix coordinate (units)"
+            },
+            {
+              "alias": "nY",
+              "type": "number",
+              "optional": false,
+              "description": "y asix coordinate (units)"
+            },
+            {
+              "alias": "nZ",
+              "type": "number",
+              "optional": false,
+              "description": "z asix coordinate (units)"
+            },
+            {
+              "alias": "nLineOffset",
+              "type": "number",
+              "optional": false,
+              "description": "line offset (0 for first line)"
+            },
+            {
+              "alias": "nDuration",
+              "type": "number",
+              "optional": false,
+              "description": "time to keep rendering of the text (seconds)"
+            },
+            {
+              "alias": "nR",
+              "type": "number",
+              "optional": false,
+              "description": "red color channel [0-255]"
+            },
+            {
+              "alias": "nG",
+              "type": "number",
+              "optional": true,
+              "description": "green color channel [0-255]"
+            },
+            {
+              "alias": "nB",
+              "type": "number",
+              "optional": true,
+              "description": "blue color channel [0-255]"
+            },
+            {
+              "alias": "nA",
+              "type": "number",
+              "optional": true,
+              "description": "alpha channel [0-255]"
+            },
+            {
+              "alias": "...",
+              "type": "variadic string",
+              "optional": true,
+              "description": "text to draw"
+            }
+          ],
+          "description": "draws text with provided color for required amount of time",
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "Avoid calling this function frequently"
+            }
+          ]
+        },
+        {
+          "alias": "draw_gradient",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `renderer.gradient` instead"
+            }
+          ]
+        },
+        {
+          "alias": "draw_hitboxes",
+          "arguments": [
+            {
+              "alias": "nEntityIndex",
+              "type": "number",
+              "optional": false,
+              "description": "entity index"
+            },
+            {
+              "alias": "nDuration",
+              "type": "number",
+              "optional": false,
+              "description": "time to keep rendering (seconds)"
+            },
+            {
+              "alias": "hitboxes",
+              "type": "number / {number, ...}",
+              "optional": false,
+              "description": "hitbox index or table of hitbox indices, or 19 for all hitboxes"
+            },
+            {
+              "alias": "nR",
+              "type": "number",
+              "optional": false,
+              "description": "red color channel [0-255]"
+            },
+            {
+              "alias": "nG",
+              "type": "number",
+              "optional": false,
+              "description": "green color channel [0-255]"
+            },
+            {
+              "alias": "nB",
+              "type": "number",
+              "optional": false,
+              "description": "blue color channel [0-255]"
+            },
+            {
+              "alias": "nA",
+              "type": "number",
+              "optional": false,
+              "description": "alpha channel [0-255]"
+            },
+            {
+              "alias": "nTick",
+              "type": "number",
+              "optional": true,
+              "description": "server tick"
+            }
+          ],
+          "description": "draws hitbox capsule(s) with provided color for required amount of time and selected tick",
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "Avoid calling this function frequently"
+            }
+          ]
+        },
+        {
+          "alias": "draw_indicator",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `renderer.indicator` instead"
+            }
+          ]
+        },
+        {
+          "alias": "draw_line",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `renderer.line` instead"
+            }
+          ]
+        },
+        {
+          "alias": "draw_rectangle",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `renderer.rectangle` instead"
+            }
+          ]
+        },
+        {
+          "alias": "draw_text",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `renderer.text` instead"
+            }
+          ]
+        },
+        {
+          "alias": "error_log",
+          "arguments": [
+            {
+              "alias": "sMessage",
+              "type": "string",
+              "optional": false,
+              "description": "message to log"
+            },
+            {
+              "alias": "...",
+              "type": "variadic string",
+              "optional": true,
+              "description": "messages to log"
+            }
+          ],
+          "description": "logs message(s) as error into game console"
+        },
+        {
+          "alias": "exec",
+          "arguments": [
+            {
+              "alias": "sCommand",
+              "type": "string",
+              "optional": false,
+              "description": "command to execute"
+            },
+            {
+              "alias": "...",
+              "type": "variadic string",
+              "optional": true,
+              "description": "commands to execute"
+            }
+          ],
+          "description": "executes game console command(s)",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "If passing multiple console commands, append `;` to each, e.g. `client.exec(\"disconnect;\", \"quit\")`"
+            }
+          ]
+        },
+        {
+          "alias": "eye_position",
+          "returns": [
+            {
+              "type": "number",
+              "description": "x asix coordinate (units)"
+            },
+            {
+              "type": "number",
+              "description": "y asix coordinate (units)"
+            },
+            {
+              "type": "number",
+              "description": "z asix coordinate (units)"
+            }
+          ],
+          "description": "returns eye position of a local player entity"
+        },
+        {
+          "alias": "find_signature",
+          "arguments": [
+            {
+              "alias": "sModuleFileName",
+              "type": "string",
+              "optional": false,
+              "description": "a module filename, e.g. `engine.dll`"
+            },
+            {
+              "alias": "sSignature",
+              "type": "string",
+              "optional": false,
+              "description": "a signature, e.g. `\\xB9\\xCC\\xCC\\xCC\\xCC\\x88\\x46\\x09` (as byte escape sequence)"
+            }
+          ],
+          "returns": [
+            {
+              "type": "cdata",
+              "description": "a C data object (a void pointer)"
+            }
+          ],
+          "description": "returns pointer at signature match start inside specified module",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "Wildcard `? (IDA type)` for signatures is `\\xCC`"
+            }
+          ]
+        },
+        {
+          "alias": "get_cvar",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `cvar{}:get<_raw/>_<int/float/string>` instead"
+            }
+          ]
+        },
+        {
+          "alias": "get_model_name",
+          "arguments": [
+            {
+              "alias": "nModelIndex",
+              "type": "number",
+              "optional": false,
+              "description": "a model index"
+            }
+          ],
+          "returns": [
+            {
+              "type": "string",
+              "description": "a model name"
+            }
+          ],
+          "description": "returns model name by provided model index"
+        },
+        {
+          "alias": "key_state",
+          "arguments": [
+            {
+              "alias": "nVK",
+              "type": "number",
+              "optional": false,
+              "description": "virtual key code"
+            }
+          ],
+          "returns": [
+            {
+              "type": "boolean",
+              "description": "-"
+            }
+          ],
+          "description": "returns whether the key is pressed",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "For more info about virtual key codes check [this article](https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes)"
+            }
+          ]
+        },
+        {
+          "alias": "latency",
+          "returns": [
+            {
+              "type": "number",
+              "description": "latency (seconds)"
+            }
+          ],
+          "description": "returns your latency in seconds"
+        },
+        {
+          "alias": "log",
+          "arguments": [
+            {
+              "alias": "sMessage",
+              "type": "string",
+              "optional": false,
+              "description": "message to log"
+            },
+            {
+              "alias": "...",
+              "type": "variadic string",
+              "optional": true,
+              "description": "messages to log"
+            }
+          ],
+          "description": "logs message(s) into game console"
+        },
+        {
+          "alias": "random_float",
+          "arguments": [
+            {
+              "alias": "nMin",
+              "type": "number",
+              "optional": false,
+              "description": "minimum value"
+            },
+            {
+              "alias": "nMax",
+              "type": "number",
+              "optional": false,
+              "description": "maximum value"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "random float"
+            }
+          ],
+          "description": "returns random float in range specified"
+        },
+        {
+          "alias": "random_int",
+          "arguments": [
+            {
+              "alias": "nMin",
+              "type": "number",
+              "optional": false,
+              "description": "minimum value"
+            },
+            {
+              "alias": "nMax",
+              "type": "number",
+              "optional": false,
+              "description": "maximum value"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "random integer"
+            }
+          ],
+          "description": "returns random integer in range specified"
+        },
+        {
+          "alias": "register_esp_flag",
+          "arguments": [
+            {
+              "alias": "sFlag",
+              "type": "string",
+              "optional": false,
+              "description": "a flag"
+            },
+            {
+              "alias": "nR",
+              "type": "number",
+              "optional": false,
+              "description": "red color channel [0-255]"
+            },
+            {
+              "alias": "nG",
+              "type": "number",
+              "optional": false,
+              "description": "green color channel [0-255]"
+            },
+            {
+              "alias": "nB",
+              "type": "number",
+              "optional": false,
+              "description": "blue color channel [0-255]"
+            },
+            {
+              "alias": "fnCallback",
+              "type": "function",
+              "optional": false,
+              "description": "a function that will be called on ui element action. **Entity index is passed to callback function as first parameter**"
+            }
+          ],
+          "description": "sets function that is called for each player entity while drawing the ESP",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "This function requires `Visuals > Player > Flags` feature being active"
+            }
+          ]
+        },
+        {
+          "alias": "reload_active_scripts",
+          "description": "forces reload of all loaded scripts"
+        },
+        {
+          "alias": "scale_damage",
+          "arguments": [],
+          "returns": [],
+          "description": "(buggy) `client.trace_bullet` takes that into account"
+        },
+        {
+          "alias": "screen_size",
+          "returns": [
+            {
+              "type": "number",
+              "description": "width [px]"
+            },
+            {
+              "type": "number",
+              "description": "height [px]"
+            }
+          ],
+          "description": "returns dimensions of the game's viewport"
+        },
+        {
+          "alias": "set_clan_tag",
+          "arguments": [
+            {
+              "alias": "...",
+              "type": "variadic string",
+              "optional": true,
+              "description": "text(s) to set as clantag (leave empty to remove clantag)"
+            }
+          ],
+          "description": "sets clantag to the text(s) provided"
+        },
+        {
+          "alias": "set_cvar",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `cvar{}:set<_raw/>_<int/float/string>` instead"
+            }
+          ]
+        },
+        {
+          "alias": "set_event_callback",
+          "arguments": [
+            {
+              "alias": "sEventAlias",
+              "type": "string",
+              "optional": false,
+              "description": "an event alias, e.g. `paint`, `player_connect_full` (game events and built-in cheat events)"
+            },
+            {
+              "alias": "fnCallback",
+              "type": "function",
+              "optional": false,
+              "description": "a function that will be called when provided event is fired. **Event data is passed to callback function as first parameter**"
+            }
+          ],
+          "description": "sets function that is called when specified even is fired",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "For more info about events check `For Developers > Events`"
+            }
+          ]
+        },
+        {
+          "alias": "system_time",
+          "returns": [
+            {
+              "type": "number",
+              "description": "hours [0-24]"
+            },
+            {
+              "type": "number",
+              "description": "minutes [0-59]"
+            },
+            {
+              "type": "number",
+              "description": "seconds [0-59]"
+            },
+            {
+              "type": "number",
+              "description": "milliseconds [0-999]"
+            }
+          ],
+          "description": "returns your local system time"
+        },
+        {
+          "alias": "timestamp",
+          "returns": [
+            {
+              "type": "number",
+              "description": "milliseconds"
+            }
+          ],
+          "description": "returns high precision timestamp in milliseconds"
+        },
+        {
+          "alias": "trace_bullet",
+          "arguments": [
+            {
+              "alias": "nEntityIndex",
+              "type": "number",
+              "optional": false,
+              "description": "entity index to trace from"
+            },
+            {
+              "alias": "nFromX",
+              "type": "number",
+              "optional": false,
+              "description": "x asix coordinate (units) to trace from"
+            },
+            {
+              "alias": "nFromY",
+              "type": "number",
+              "optional": false,
+              "description": "y asix coordinate (units) to trace from"
+            },
+            {
+              "alias": "nFromZ",
+              "type": "number",
+              "optional": false,
+              "description": "z asix coordinate (units) to trace from"
+            },
+            {
+              "alias": "nToX",
+              "type": "number",
+              "optional": false,
+              "description": "x asix coordinate (units) to trace to"
+            },
+            {
+              "alias": "nToY",
+              "type": "number",
+              "optional": false,
+              "description": "y asix coordinate (units) to trace to"
+            },
+            {
+              "alias": "nToZ",
+              "type": "number",
+              "optional": false,
+              "description": "z asix coordinate (units) to trace to"
+            },
+            {
+              "alias": "bSkipHitboxes",
+              "type": "boolean",
+              "optional": true,
+              "description": "whether to skip expensive entity hitbox checks"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "entity index of entity that intersects trace (can deal damage to)"
+            },
+            {
+              "type": "number",
+              "description": "damage that can be done with local player active weapon at traced world position"
+            }
+          ],
+          "description": "traces damage from world position via selected entity's active weapon to another world position"
+        },
+        {
+          "alias": "trace_line",
+          "arguments": [
+            {
+              "alias": "nSkipEntityIndex",
+              "type": "number",
+              "optional": false,
+              "description": "entity index to skip"
+            },
+            {
+              "alias": "nFromX",
+              "type": "number",
+              "optional": false,
+              "description": "x asix coordinate (units) to trace from"
+            },
+            {
+              "alias": "nFromY",
+              "type": "number",
+              "optional": false,
+              "description": "y asix coordinate (units) to trace from"
+            },
+            {
+              "alias": "nFromZ",
+              "type": "number",
+              "optional": false,
+              "description": "z asix coordinate (units) to trace from"
+            },
+            {
+              "alias": "nToX",
+              "type": "number",
+              "optional": false,
+              "description": "x asix coordinate (units) to trace to"
+            },
+            {
+              "alias": "nToY",
+              "type": "number",
+              "optional": false,
+              "description": "y asix coordinate (units) to trace to"
+            },
+            {
+              "alias": "nToZ",
+              "type": "number",
+              "optional": false,
+              "description": "z asix coordinate (units) to trace to"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "fraction that shows how far the trace went relative to distance between world positions [0.0-1.0]"
+            },
+            {
+              "type": "number",
+              "description": "entity index of entity that intersects trace"
+            }
+          ],
+          "description": "traces visibility from world position to another world position"
+        },
+        {
+          "alias": "unix_time",
+          "returns": [
+            {
+              "type": "number",
+              "description": "hours [0-24]"
+            },
+            {
+              "type": "number",
+              "description": "minutes [0-59]"
+            },
+            {
+              "type": "number",
+              "description": "seconds [0-59]"
+            },
+            {
+              "type": "number",
+              "description": "milliseconds [0-999]"
+            }
+          ],
+          "description": "returns time since `00:00:00 01/01/1970`"
+        },
+        {
+          "alias": "unset_event_callback",
+          "arguments": [
+            {
+              "alias": "sEventAlias",
+              "type": "string",
+              "optional": false,
+              "description": "an event alias, e.g. `paint`, `player_connect_full` (game events and built-in cheat events)"
+            },
+            {
+              "alias": "fnCallback",
+              "type": "function",
+              "optional": false,
+              "description": "a function for which to unset the provided event"
+            }
+          ],
+          "description": "unsets function that have been bound to provided event",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "For more info about events check `For Developers > Events`"
+            }
+          ]
+        },
+        {
+          "alias": "update_player_list",
+          "description": "updates player list tab without having to open it"
+        },
+        {
+          "alias": "userid_to_entindex",
+          "arguments": [
+            {
+              "alias": "nUserId",
+              "type": "number",
+              "optional": false,
+              "description": "a userId that is given by some game events, e.g. `player_connect_full`"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "entity index"
+            }
+          ],
+          "description": "returns entity index by provided userId",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "For more info about events check `For Developers > Events`"
+            }
+          ]
+        },
+        {
+          "alias": "visible",
+          "arguments": [],
+          "returns": [],
+          "admonitions": [
+            {
+              "type": "bug",
+              "title": "",
+              "data": "This function is buggy, and returns unreliable results"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `client.trace_line` instead"
+            }
+          ]
+        },
+        {
+          "alias": "world_to_screen",
+          "arguments": [],
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `renderer.world_to_screen` instead"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

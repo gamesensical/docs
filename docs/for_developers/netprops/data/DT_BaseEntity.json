@@ -1,0 +1,182 @@
+{
+  "type": "LuaNetpropsDTArray",
+  "MyArray": [
+    {
+      "alias": "DT_BaseEntity",
+      "inherits": [
+        "DT_AnimTimeMustBeFirst",
+        "DT_CollisionProperty"
+      ],
+      "netprops": [
+        {
+          "alias": "m_flSimulationTime",
+          "type": "int"
+        },
+        {
+          "alias": "m_cellbits",
+          "type": "int"
+        },
+        {
+          "alias": "m_cellX",
+          "type": "int"
+        },
+        {
+          "alias": "m_cellY",
+          "type": "int"
+        },
+        {
+          "alias": "m_cellZ",
+          "type": "int"
+        },
+        {
+          "alias": "m_vecOrigin",
+          "type": "vector"
+        },
+        {
+          "alias": "m_nModelIndex",
+          "type": "int"
+        },
+        {
+          "alias": "m_nRenderFX",
+          "type": "int"
+        },
+        {
+          "alias": "m_nRenderMode",
+          "type": "int"
+        },
+        {
+          "alias": "m_fEffects",
+          "type": "int"
+        },
+        {
+          "alias": "m_clrRender",
+          "type": "int"
+        },
+        {
+          "alias": "m_iTeamNum",
+          "type": "int"
+        },
+        {
+          "alias": "m_iPendingTeamNum",
+          "type": "int"
+        },
+        {
+          "alias": "m_CollisionGroup",
+          "type": "int"
+        },
+        {
+          "alias": "m_flElasticity",
+          "type": "float"
+        },
+        {
+          "alias": "m_flShadowCastDistance",
+          "type": "float"
+        },
+        {
+          "alias": "m_hOwnerEntity",
+          "type": "int"
+        },
+        {
+          "alias": "m_hEffectEntity",
+          "type": "int"
+        },
+        {
+          "alias": "moveparent",
+          "type": "int"
+        },
+        {
+          "alias": "m_iParentAttachment",
+          "type": "int"
+        },
+        {
+          "alias": "m_iName",
+          "type": "string"
+        },
+        {
+          "alias": "movetype",
+          "type": "int"
+        },
+        {
+          "alias": "movecollide",
+          "type": "int"
+        },
+        {
+          "alias": "m_angRotation",
+          "type": "vector"
+        },
+        {
+          "alias": "m_iTextureFrameIndex",
+          "type": "int"
+        },
+        {
+          "alias": "m_bSimulatedEveryTick",
+          "type": "int"
+        },
+        {
+          "alias": "m_bAnimatedEveryTick",
+          "type": "int"
+        },
+        {
+          "alias": "m_bAlternateSorting",
+          "type": "int"
+        },
+        {
+          "alias": "m_bSpotted",
+          "type": "int"
+        },
+        {
+          "alias": "m_bSpottedByMask",
+          "type": "(int)array[0-1]"
+        },
+        {
+          "alias": "m_bIsAutoaimTarget",
+          "type": "int"
+        },
+        {
+          "alias": "m_fadeMinDist",
+          "type": "float"
+        },
+        {
+          "alias": "m_fadeMaxDist",
+          "type": "float"
+        },
+        {
+          "alias": "m_flFadeScale",
+          "type": "float"
+        },
+        {
+          "alias": "m_nMinCPULevel",
+          "type": "int"
+        },
+        {
+          "alias": "m_nMaxCPULevel",
+          "type": "int"
+        },
+        {
+          "alias": "m_nMinGPULevel",
+          "type": "int"
+        },
+        {
+          "alias": "m_nMaxGPULevel",
+          "type": "int"
+        },
+        {
+          "alias": "m_flUseLookAtAngle",
+          "type": "float"
+        },
+        {
+          "alias": "m_flLastMadeNoiseTime",
+          "type": "float"
+        },
+        {
+          "alias": "m_flMaxFallVelocity",
+          "type": "float"
+        },
+        {
+          "alias": "m_bEligibleForScreenHighlight",
+          "type": "int"
+        }
+      ]
+    }
+  ]
+}

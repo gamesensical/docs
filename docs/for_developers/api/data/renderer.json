@@ -1,0 +1,99 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "renderer",
+      "functions": [
+        {
+          "alias": "circle",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "circle_outline",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "gradient",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "indicator",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "line",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "load_jpg",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "load_png",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "load_rgba",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "load_svg",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "measure_text",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "rectangle",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "text",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "texture",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "triangle",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "world_to_screen",
+          "arguments": [],
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

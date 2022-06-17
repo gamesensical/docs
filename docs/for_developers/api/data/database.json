@@ -1,0 +1,52 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "database",
+      "functions": [
+        {
+          "alias": "flush",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "read",
+          "arguments": [
+            {
+              "alias": "sKey",
+              "type": "string",
+              "optional": false,
+              "description": "a key"
+            }
+          ],
+          "returns": [
+            {
+              "type": "any",
+              "description": "a value"
+            }
+          ],
+          "description": "returns value stored in database by provided key"
+        },
+        {
+          "alias": "write",
+          "arguments": [
+            {
+              "alias": "sKey",
+              "type": "string",
+              "optional": false,
+              "description": "a key"
+            },
+            {
+              "alias": "value",
+              "type": "any",
+              "optional": false,
+              "description": "a value"
+            }
+          ],
+          "description": "writes value by provided key in database"
+        }
+      ]
+    }
+  ]
+}

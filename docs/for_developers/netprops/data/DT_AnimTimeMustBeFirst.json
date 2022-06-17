@@ -1,0 +1,14 @@
+{
+  "type": "LuaNetpropsDTArray",
+  "MyArray": [
+    {
+      "alias": "DT_AnimTimeMustBeFirst",
+      "netprops": [
+        {
+          "alias": "m_flAnimTime",
+          "type": "float"
+        }
+      ]
+    }
+  ]
+}

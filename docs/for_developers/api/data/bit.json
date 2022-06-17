@@ -1,0 +1,298 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "bit",
+      "functions": [
+        {
+          "alias": "arshift",
+          "arguments": [
+            {
+              "alias": "nValue",
+              "type": "number",
+              "optional": false,
+              "description": "value to shift"
+            },
+            {
+              "alias": "nPositions",
+              "type": "number",
+              "optional": false,
+              "description": "number of positions to shift"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns arithmetic right-shift by bits of value"
+        },
+        {
+          "alias": "band",
+          "arguments": [
+            {
+              "alias": "nValue1",
+              "type": "number",
+              "optional": false,
+              "description": "value for bitwise and"
+            },
+            {
+              "alias": "nValue2",
+              "type": "number",
+              "optional": true,
+              "description": "value for bitwise and"
+            },
+            {
+              "alias": "...",
+              "type": "variadic number",
+              "optional": true,
+              "description": "values for bitwise and"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns bitwise and of values"
+        },
+        {
+          "alias": "bnot",
+          "arguments": [
+            {
+              "alias": "nValue",
+              "type": "number",
+              "optional": false,
+              "description": "value for bitwise not"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns bitwise not of value"
+        },
+        {
+          "alias": "bor",
+          "arguments": [
+            {
+              "alias": "nValue1",
+              "type": "number",
+              "optional": false,
+              "description": "value for bitwise or"
+            },
+            {
+              "alias": "nValue2",
+              "type": "number",
+              "optional": true,
+              "description": "value for bitwise or"
+            },
+            {
+              "alias": "...",
+              "type": "variadic number",
+              "optional": true,
+              "description": "values for bitwise or"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns bitwise or of values"
+        },
+        {
+          "alias": "bswap",
+          "arguments": [
+            {
+              "alias": "nValue",
+              "type": "number",
+              "optional": false,
+              "description": "value for byte swap"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns byte-swap of value (little-endian <-> big-endian)"
+        },
+        {
+          "alias": "bxor",
+          "arguments": [
+            {
+              "alias": "nValue1",
+              "type": "number",
+              "optional": false,
+              "description": "value for bitwise xor"
+            },
+            {
+              "alias": "nValue2",
+              "type": "number",
+              "optional": true,
+              "description": "value for bitwise xor"
+            },
+            {
+              "alias": "...",
+              "type": "variadic number",
+              "optional": true,
+              "description": "value sfor bitwise xor"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns bitwise xor of values"
+        },
+        {
+          "alias": "lshift",
+          "arguments": [
+            {
+              "alias": "nValue",
+              "type": "number",
+              "optional": false,
+              "description": "value to shift"
+            },
+            {
+              "alias": "nPositions",
+              "type": "number",
+              "optional": false,
+              "description": "number of positions to shift"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns logical left-shift by bits of value"
+        },
+        {
+          "alias": "rol",
+          "arguments": [
+            {
+              "alias": "nValue",
+              "type": "number",
+              "optional": false,
+              "description": "value to rotate"
+            },
+            {
+              "alias": "nPositions",
+              "type": "number",
+              "optional": false,
+              "description": "number of positions to rotate"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns left-rotate by bits of value"
+        },
+        {
+          "alias": "ror",
+          "arguments": [
+            {
+              "alias": "nValue",
+              "type": "number",
+              "optional": false,
+              "description": "value to rotate"
+            },
+            {
+              "alias": "nPositions",
+              "type": "number",
+              "optional": false,
+              "description": "number of positions to rotate"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns right-rotate by bits of value"
+        },
+        {
+          "alias": "rshift",
+          "arguments": [
+            {
+              "alias": "nValue",
+              "type": "number",
+              "optional": false,
+              "description": "value to shift"
+            },
+            {
+              "alias": "nPositions",
+              "type": "number",
+              "optional": false,
+              "description": "number of positions to shift"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns logical left-shift by bits of value"
+        },
+        {
+          "alias": "tobit",
+          "arguments": [
+            {
+              "alias": "nValue",
+              "type": "number",
+              "optional": false,
+              "description": "value to normalize"
+            }
+          ],
+          "returns": [
+            {
+              "type": "number",
+              "description": "-"
+            }
+          ],
+          "description": "returns normalized number to the numeric range of bit operations (all bit ops use this implicitly)"
+        },
+        {
+          "alias": "tohex",
+          "arguments": [
+            {
+              "alias": "nValue",
+              "type": "number",
+              "optional": false,
+              "description": "value to format"
+            },
+            {
+              "alias": "n",
+              "type": "number",
+              "optional": true,
+              "description": "amount of hex digits (default is 8)"
+            }
+          ],
+          "returns": [
+            {
+              "type": "string",
+              "description": "result"
+            }
+          ],
+          "description": "returns format of value as hex with digit limit"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "json",
+      "functions": [
+        {
+          "alias": "decode_invalid_numbers",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "decode_max_depth",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "encode_invalid_numbers",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "encode_max_depth",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "encode_number_precision",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "encode_sparse_array",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "parse",
+          "arguments": [
+            {
+              "alias": "sData",
+              "type": "string",
+              "optional": false,
+              "description": "inlined JSON to transform"
+            }
+          ],
+          "returns": [
+            {
+              "type": "table",
+              "description": "table representation of a JSON"
+            }
+          ],
+          "description": "returns table representation of a JSON"
+        },
+        {
+          "alias": "stringify",
+          "arguments": [
+            {
+              "alias": "tData",
+              "type": "table",
+              "optional": false,
+              "description": "table to transform"
+            }
+          ],
+          "returns": [
+            {
+              "type": "string",
+              "description": "inlined JSON"
+            }
+          ],
+          "description": "returns JSON representation of a table"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "_G",
+      "functions": [
+        {
+          "alias": "defer",
+          "arguments": [],
+          "returns": [],
+          "description": "(obsolete) `shutdown` event",
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "This function is deprecated, and it's only available for compatibility reasons"
+            },
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Use `client.set_event_callback` with `shutdown` as event parameter"
+            }
+          ]
+        },
+        {
+          "alias": "vector",
+          "arguments": [
+            {
+              "alias": "nX",
+              "type": "number",
+              "optional": false,
+              "description": "x asix coordinate (units)"
+            },
+            {
+              "alias": "nY",
+              "type": "number",
+              "optional": false,
+              "description": "y asix coordinate (units)"
+            },
+            {
+              "alias": "nZ",
+              "type": "number",
+              "optional": false,
+              "description": "z asix coordinate (units)"
+            }
+          ],
+          "returns": [
+            {
+              "type": "vector{}",
+              "description": "instance of vector object"
+            }
+          ],
+          "description": "returns a new vector object with given coordinates"
+        },
+        {
+          "alias": "readfile",
+          "arguments": [
+            {
+              "alias": "sPath",
+              "type": "string",
+              "optional": false,
+              "description": "path to file"
+            }
+          ],
+          "returns": [
+            {
+              "type": "string",
+              "description": "contents of file"
+            }
+          ],
+          "description": "returns contents of file by provided path",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "Argument `sPath` is relative to a `MOD` directory, e.g. `...\\steamapps\\common\\Counter-Strike Global Offensive\\csgo`"
+            }
+          ]
+        },
+        {
+          "alias": "vtable_bind",
+          "arguments": [
+            {
+              "alias": "sModuleFileName",
+              "type": "string",
+              "optional": false,
+              "description": "a module filename, e.g. `engine.dll`"
+            },
+            {
+              "alias": "sInterfaceAlias",
+              "type": "string",
+              "optional": false,
+              "description": "a module's interface alias, e.g. `VEngineClient014`"
+            },
+            {
+              "alias": "nVTFI",
+              "type": "number",
+              "optional": false,
+              "description": "a virtual table function index inside the interface, e.g. for GetNetChannelInfo it's `78`"
+            },
+            {
+              "alias": "sTypeOf",
+              "type": "string",
+              "optional": false,
+              "description": "a function typeof to which the result pointer is casted, e.g. for GetNetChannelInfo it's `void*(__thiscall*)(void*)`"
+            }
+          ],
+          "returns": [
+            {
+              "type": "cdata",
+              "description": "a C data object (a function pointer)"
+            }
+          ],
+          "description": "returns function (callable cdata object) bound to virtual function table method from module's interface",
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "The first argument `sTypeOf` must be a `void*` (a pointer to the interface)"
+            }
+          ]
+        },
+        {
+          "alias": "vtable_thunk",
+          "arguments": [
+            {
+              "alias": "nVTFI",
+              "type": "number",
+              "optional": false,
+              "description": "a virtual table function index inside the interface, e.g. for GetLatency it's `9`"
+            },
+            {
+              "alias": "sTypeOf",
+              "type": "string",
+              "optional": false,
+              "description": "a function typeof to which the result pointer is casted, e.g. for GetLatency it's `float(__thiscall*)(void*, int)`"
+            }
+          ],
+          "returns": [
+            {
+              "type": "cdata",
+              "description": "a C data object (a function pointer)"
+            }
+          ],
+          "description": "returns function (callable cdata object) thunked to virtual function table method from interface.",
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "The first argument passed to a function call must be a pointer to the interface"
+            },
+            {
+              "type": "warning",
+              "title": "",
+              "data": "The first argument of ctype definition `sTypeOf` must be a `void*` (a pointer to the interface)"
+            }
+          ]
+        },
+        {
+          "alias": "writefile",
+          "arguments": [
+            {
+              "alias": "sPath",
+              "type": "string",
+              "optional": false,
+              "description": "path to file"
+            },
+            {
+              "alias": "sData",
+              "type": "string",
+              "optional": false,
+              "description": "contents to write"
+            }
+          ],
+          "description": "writes contents to file by provided path",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "Argument `sPath` is relative to a `MOD` directory, e.g. `...\\steamapps\\common\\Counter-Strike Global Offensive\\csgo`"
+            }
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "title": "vtable_bind.lua",
+          "language": "lua",
+          "data": "--8<-- \"docs/for_developers/api/examples/vtable_bind.lua\""
+        },
+        {
+          "title": "vtable_thunk.lua",
+          "language": "lua",
+          "data": "--8<-- \"docs/for_developers/api/examples/vtable_thunk.lua\""
+        }
+      ]
+    }
+  ]
+}

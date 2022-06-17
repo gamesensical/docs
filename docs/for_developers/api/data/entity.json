@@ -1,0 +1,117 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "entity",
+      "functions": [
+        {
+          "alias": "get_all",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_bounding_box",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_classname",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_esp_data",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_game_rules",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_local_player",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_origin",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_player_name",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_player_resource",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_player_weapon",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_players",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_prop",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_steam64",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "hitbox_position",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "is_alive",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "is_dormant",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "is_enemy",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "set_prop",
+          "arguments": [],
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

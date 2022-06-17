@@ -1,0 +1,21 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "panorama",
+      "functions": [
+        {
+          "alias": "loadstring",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "open",
+          "arguments": [],
+          "description": ""
+        }
+      ]
+    }
+  ]
+}
