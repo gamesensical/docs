@@ -1,0 +1,58 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "plist",
+      "functions": [
+        {
+          "alias": "get",
+          "arguments": [
+            {
+              "alias": "nEntityIndex",
+              "type": "number",
+              "optional": false,
+              "description": "entity index (players only)"
+            },
+            {
+              "alias": "sUiAlias",
+              "type": "string",
+              "optional": false,
+              "description": "alias of the ui element inside player list, e.g. `Correction Active`"
+            }
+          ],
+          "returns": [
+            {
+              "type": "any",
+              "description": "value of ui element (ui element specific type)"
+            }
+          ],
+          "description": "returns the value of corresponding ui element for specific player in playerlist tab"
+        },
+        {
+          "alias": "set",
+          "arguments": [
+            {
+              "alias": "nEntityIndex",
+              "type": "number",
+              "optional": false,
+              "description": "entity index (players only)"
+            },
+            {
+              "alias": "sUiAlias",
+              "type": "string",
+              "optional": false,
+              "description": "alias of the ui element inside player list, e.g. `Correction Active`"
+            },
+            {
+              "alias": "value",
+              "type": "any",
+              "optional": false,
+              "description": "value to set (ui element specific type)"
+            }
+          ],
+          "description": "sets the value to corresponding ui element for specific player in playerlist tab"
+        }
+      ]
+    }
+  ]
+}

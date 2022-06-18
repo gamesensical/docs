@@ -1,0 +1,117 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "vector{}",
+      "functions": [
+        {
+          "alias": "init",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "init_from_angles",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "scale",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "scaled",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "normalize",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "normalized",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "length2d",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "length2dsqr",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "length",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "lengthsqr",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "lerp",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "dot",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "dist",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "dist2d",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "cross",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "angles",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "vectors",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "to",
+          "arguments": [],
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

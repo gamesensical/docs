@@ -1,0 +1,140 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "globals",
+      "functions": [
+        {
+          "alias": "absoluteframetime",
+          "returns": [
+            {
+              "type": "number",
+              "description": "time (seconds)"
+            }
+          ],
+          "description": "returns time elapsed during last game frame"
+        },
+        {
+          "alias": "chokedcommands",
+          "returns": [
+            {
+              "type": "number",
+              "description": "amount of commands"
+            }
+          ],
+          "description": "returns amount of commands that are being held back"
+        },
+        {
+          "alias": "commandack",
+          "returns": [
+            {
+              "type": "number",
+              "description": "command number"
+            }
+          ],
+          "description": "returns last command number that the server acknowledged"
+        },
+        {
+          "alias": "curtime",
+          "returns": [
+            {
+              "type": "number",
+              "description": "time (seconds)"
+            }
+          ],
+          "description": "returns server's game time"
+        },
+        {
+          "alias": "framecount",
+          "returns": [
+            {
+              "type": "number",
+              "description": "amount of frames"
+            }
+          ],
+          "description": "returns total amount of frames drawn"
+        },
+        {
+          "alias": "frametime",
+          "returns": [
+            {
+              "type": "number",
+              "description": "time (seconds)"
+            }
+          ],
+          "description": "returns time that took frame to render"
+        },
+        {
+          "alias": "lastoutgoingcommand",
+          "returns": [
+            {
+              "type": "number",
+              "description": "command number"
+            }
+          ],
+          "description": "returns last command number that the client sent to server"
+        },
+        {
+          "alias": "mapname",
+          "returns": [
+            {
+              "type": "string",
+              "description": "current map name"
+            }
+          ],
+          "description": "returns current map name that the server has"
+        },
+        {
+          "alias": "maxplayers",
+          "returns": [
+            {
+              "type": "number",
+              "description": "max amount of players"
+            }
+          ],
+          "description": "returns max amount of players that the server allows"
+        },
+        {
+          "alias": "oldcommandack",
+          "returns": [
+            {
+              "type": "number",
+              "description": "command number"
+            }
+          ],
+          "description": "returns previous command number that the server acknowledged"
+        },
+        {
+          "alias": "realtime",
+          "returns": [
+            {
+              "type": "number",
+              "description": "time (seconds)"
+            }
+          ],
+          "description": "returns local game time"
+        },
+        {
+          "alias": "tickcount",
+          "returns": [
+            {
+              "type": "number",
+              "description": "amount of ticks"
+            }
+          ],
+          "description": "returns server's tickcount"
+        },
+        {
+          "alias": "tickinterval",
+          "returns": [
+            {
+              "type": "number",
+              "description": "time (seconds)"
+            }
+          ],
+          "description": "returns time elapsed in one tick"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "type": "CheatFeaturesArray",
+  "MyArray": [
+    {
+      "alias": "Legitbot",
+      "refalias": "LEGIT",
+      "description": "A legitbot tab",
+      "containers": [
+        {
+          "alias": "Weapon Type",
+          "refalias": "Weapon Type",
+          "description": "A container",
+          "elements": [
+            {
+              "alias": "Weapon Type",
+              "refalias": "Weapon Type",
+              "type": "string",
+              "description": "Element for switching legitbot weapon type configuration",
+              "admonitions": [
+                {
+                  "type": "tip",
+                  "title": "",
+                  "data": "Automatically changes to active local player weapon"
+                }
+              ]
+            }
+          ],
+          "admonitions": []
+        }
+      ],
+      "admonitions": [
+        {
+          "type": "tip",
+          "title": "",
+          "data": "Features in this tab are inactive, when Ragebot is active"
+        }
+      ]
+    }
+  ]
+}

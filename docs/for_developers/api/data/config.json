@@ -1,0 +1,44 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "config",
+      "functions": [
+        {
+          "alias": "export",
+          "returns": [
+            {
+              "type": "string",
+              "description": "encrypted base64 config data"
+            }
+          ],
+          "description": "returns current config data as encrypted base64"
+        },
+        {
+          "alias": "import",
+          "arguments": [
+            {
+              "alias": "sConfigData",
+              "type": "string",
+              "optional": false,
+              "description": "encrypted base64 config data"
+            }
+          ],
+          "description": "writes config data to current config"
+        },
+        {
+          "alias": "load",
+          "arguments": [
+            {
+              "alias": "sConfigAlias",
+              "type": "string",
+              "optional": false,
+              "description": "alias of the config"
+            }
+          ],
+          "description": "loads config by provided alias"
+        }
+      ]
+    }
+  ]
+}

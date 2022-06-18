@@ -1,0 +1,597 @@
+{
+  "type": "LuaEventsArray",
+  "MyArray": [
+    {
+      "alias": "events",
+      "events": [
+        {
+          "alias": "paint",
+          "parameters": [
+            {
+              "alias": "",
+              "type": "number",
+              "description": "a paint context `(obsolete) only available for compatibility reasons`"
+            }
+          ],
+          "description": "Fired every time the game renders a frame while being connected to the server, used to utilize `renderer.*` and `client.draw_*` functions",
+          "admonitions": [
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Prefer using this event only for visualization of data"
+            }
+          ]
+        },
+        {
+          "alias": "paint_ui",
+          "description": "Fired every time the game renders a frame, used to utilize `renderer.*` functions",
+          "admonitions": [
+            {
+              "type": "tip",
+              "title": "",
+              "data": "Prefer using this event only for visualization of data"
+            }
+          ]
+        },
+        {
+          "alias": "run_command",
+          "parameters": [
+            {
+              "alias": ".chokedcommands",
+              "type": "number",
+              "description": "amount of commands that are being held back"
+            },
+            {
+              "alias": ".command_number",
+              "type": "number",
+              "description": "current command number"
+            }
+          ],
+          "description": "Fired every time the game runs a command (equally to server's tickrate) while local player is alive",
+          "admonitions": [
+            {
+              "type": "tip",
+              "title": "",
+              "data": "This is the best event for processing data that changes when the game receives an update from the server and local player is alive"
+            }
+          ]
+        },
+        {
+          "alias": "setup_command",
+          "parameters": [
+            {
+              "alias": ".chokedcommands",
+              "type": "number",
+              "description": "amount of commands that are being held back"
+            },
+            {
+              "alias": ".command_number",
+              "type": "number",
+              "description": "current command number"
+            },
+            {
+              "alias": ".pitch",
+              "type": "number",
+              "description": "view pitch (degrees)"
+            },
+            {
+              "alias": ".yaw",
+              "type": "number",
+              "description": "view yaw (degrees)"
+            },
+            {
+              "alias": ".forwardmove",
+              "type": "number",
+              "description": "forward speed (units) [-450-450]"
+            },
+            {
+              "alias": ".sidemove",
+              "type": "number",
+              "description": "right speed (units) [-450-450]"
+            },
+            {
+              "alias": ".move_yaw",
+              "type": "number",
+              "description": "move yaw (degrees) (defaults to view yaw)"
+            },
+            {
+              "alias": ".allow_send_packet",
+              "type": "boolean",
+              "description": "whether to hold back current packet"
+            },
+            {
+              "alias": ".in_attack",
+              "type": "boolean",
+              "description": "whether IN_ATTACK button is pressed"
+            },
+            {
+              "alias": ".in_jump",
+              "type": "boolean",
+              "description": "whether IN_JUMP button is pressed"
+            },
+            {
+              "alias": ".in_duck",
+              "type": "boolean",
+              "description": "whether IN_DUCK button is pressed"
+            },
+            {
+              "alias": ".in_forward",
+              "type": "boolean",
+              "description": "whether IN_FORWARD button is pressed"
+            },
+            {
+              "alias": ".in_back",
+              "type": "boolean",
+              "description": "whether IN_BACK button is pressed"
+            },
+            {
+              "alias": ".in_use",
+              "type": "boolean",
+              "description": "whether IN_USE button is pressed"
+            },
+            {
+              "alias": ".in_cancel",
+              "type": "boolean",
+              "description": "whether IN_CANCEL button is pressed"
+            },
+            {
+              "alias": ".in_left",
+              "type": "boolean",
+              "description": "whether IN_LEFT button is pressed"
+            },
+            {
+              "alias": ".in_right",
+              "type": "boolean",
+              "description": "whether IN_RIGHT button is pressed"
+            },
+            {
+              "alias": ".in_moveleft",
+              "type": "boolean",
+              "description": "whether IN_MOVELEFT button is pressed"
+            },
+            {
+              "alias": ".in_moveright",
+              "type": "boolean",
+              "description": "whether IN_MOVERIGHT button is pressed"
+            },
+            {
+              "alias": ".in_attack2",
+              "type": "boolean",
+              "description": "whether IN_ATTACK2 button is pressed"
+            },
+            {
+              "alias": ".in_run",
+              "type": "boolean",
+              "description": "whether IN_RUN button is pressed"
+            },
+            {
+              "alias": ".in_reload",
+              "type": "boolean",
+              "description": "whether IN_RELOAD button is pressed"
+            },
+            {
+              "alias": ".in_alt1",
+              "type": "boolean",
+              "description": "whether IN_ALT1 button is pressed"
+            },
+            {
+              "alias": ".in_alt2",
+              "type": "boolean",
+              "description": "whether IN_ALT2 button is pressed"
+            },
+            {
+              "alias": ".in_score",
+              "type": "boolean",
+              "description": "whether IN_SCORE button is pressed"
+            },
+            {
+              "alias": ".in_speed",
+              "type": "boolean",
+              "description": "whether IN_SPEED button is pressed"
+            },
+            {
+              "alias": ".in_walk",
+              "type": "boolean",
+              "description": "whether IN_WALK button is pressed"
+            },
+            {
+              "alias": ".in_zoom",
+              "type": "boolean",
+              "description": "whether IN_ZOOM button is pressed"
+            },
+            {
+              "alias": ".in_weapon1",
+              "type": "boolean",
+              "description": "whether IN_WEAPON1 button is pressed"
+            },
+            {
+              "alias": ".in_weapon2",
+              "type": "boolean",
+              "description": "whether IN_WEAPON2 button is pressed"
+            },
+            {
+              "alias": ".in_bullrush",
+              "type": "boolean",
+              "description": "whether IN_BULLRUSH button is pressed"
+            },
+            {
+              "alias": ".in_grenade1",
+              "type": "boolean",
+              "description": "whether IN_GRENADE1 button is pressed"
+            },
+            {
+              "alias": ".in_grenade2",
+              "type": "boolean",
+              "description": "whether IN_GRENADE2 button is pressed"
+            },
+            {
+              "alias": ".in_attack3",
+              "type": "boolean",
+              "description": "whether IN_ATTACK3 button is pressed"
+            },
+            {
+              "alias": ".weaponselect",
+              "type": "number",
+              "description": ""
+            },
+            {
+              "alias": ".weaponsubtype",
+              "type": "number",
+              "description": ""
+            }
+          ],
+          "description": "Fired every time the game prepares a move command that's sent to the server (equally to server's tickrate)",
+          "admonitions": [
+            {
+              "type": "tip",
+              "title": "",
+              "data": "This is the best event for setting user input and should be used instead of `client.exec` whenever possible"
+            },
+            {
+              "type": "info",
+              "title": "",
+              "data": "This is ran before cheat features like antiaim and can be used to modify user input (view angles, pressed keys, movement) how it's seen by the cheat"
+            }
+          ]
+        },
+        {
+          "alias": "override_view",
+          "parameters": [
+            {
+              "alias": ".x",
+              "type": "number",
+              "description": "x asix coordinate (units)"
+            },
+            {
+              "alias": ".y",
+              "type": "number",
+              "description": "y asix coordinate (units)"
+            },
+            {
+              "alias": ".z",
+              "type": "number",
+              "description": "z asix coordinate (units)"
+            },
+            {
+              "alias": ".pitch",
+              "type": "number",
+              "description": "pitch (degrees)"
+            },
+            {
+              "alias": ".yaw",
+              "type": "number",
+              "description": "yaw (degrees)"
+            },
+            {
+              "alias": ".fov",
+              "type": "number",
+              "description": "vertical field of view (degrees)"
+            }
+          ],
+          "description": "Fired every time the game renders a frame, let's you override camera position and angles (limited)",
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "Avoid using this event for anything else but view override"
+            }
+          ]
+        },
+        {
+          "alias": "console_input",
+          "parameters": [
+            {
+              "alias": "",
+              "type": "string",
+              "description": "console input"
+            }
+          ],
+          "description": "Fired every time user sumbmits console input, let's you handle the input",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "Return `true` to block processing of the input"
+            }
+          ]
+        },
+        {
+          "alias": "player_chat",
+          "parameters": [
+            {
+              "alias": ".teamonly",
+              "type": "boolean",
+              "description": "whether team chat was used"
+            },
+            {
+              "alias": ".entity",
+              "type": "number",
+              "description": "entity index who sent the message"
+            },
+            {
+              "alias": ".name",
+              "type": "string",
+              "description": "name of the player who sent the message"
+            },
+            {
+              "alias": ".text",
+              "type": "string",
+              "description": "text that was in the message sent"
+            }
+          ],
+          "description": "Fired every time player sends a message to in-game chat"
+        },
+        {
+          "alias": "string_cmd",
+          "parameters": [
+            {
+              "alias": "",
+              "type": "string",
+              "description": "console command"
+            }
+          ],
+          "description": "Fired every time user sumbmits console command"
+        },
+        {
+          "alias": "net_update_start",
+          "description": "Fired every time game starts to process entity updates from the server",
+          "admonitions": [
+            {
+              "type": "warning",
+              "title": "",
+              "data": "Avoid using this event for modifying entity data"
+            }
+          ]
+        },
+        {
+          "alias": "net_update_end",
+          "description": "Fired every time game starts to process entity updates from the server",
+          "admonitions": [
+            {
+              "type": "tip",
+              "title": "",
+              "data": "This is the best event for processing entity data that changes when the game processed entity updates from the server"
+            }
+          ]
+        },
+        {
+          "alias": "predict_command",
+          "parameters": [
+            {
+              "alias": ".command_number",
+              "type": "number",
+              "description": "predicted command number"
+            }
+          ],
+          "description": "Fired every time game prediction is ran",
+          "admonitions": [
+            {
+              "type": "tip",
+              "title": "",
+              "data": "This is the best event for processing entity data that changes when the game processed entity updates from the server"
+            }
+          ]
+        },
+        {
+          "alias": "pre_render",
+          "description": "Fired every time the game prepares to render a frame while being connected to the server"
+        },
+        {
+          "alias": "post_render",
+          "description": "Fired every time the game completed rendering a frame while being connected to the server"
+        },
+        {
+          "alias": "aim_fire",
+          "parameters": [
+            {
+              "alias": ".id",
+              "type": "number",
+              "description": "id of the shot, can be used to find corresponding `aim_him` / `aim_miss` event"
+            },
+            {
+              "alias": ".target",
+              "type": "number",
+              "description": "entity index of the target"
+            },
+            {
+              "alias": ".hit_chance",
+              "type": "number",
+              "description": "chance the shot will hit"
+            },
+            {
+              "alias": ".hitgroup",
+              "type": "number",
+              "description": "target's entity hitgroup the shot was fired at"
+            },
+            {
+              "alias": ".damage",
+              "type": "number",
+              "description": "predicted damage the shot will do to the target"
+            },
+            {
+              "alias": ".backtrack",
+              "type": "number",
+              "description": "`(obsolete) only available for compatibility reasons`"
+            },
+            {
+              "alias": ".boosted",
+              "type": "boolean",
+              "description": "whether accuracy boost feature was used to increase accuracy of the shot"
+            },
+            {
+              "alias": ".high_priority",
+              "type": "boolean",
+              "description": "whether shot was fired at high priority record, e.g. `on-shot backtrack`"
+            },
+            {
+              "alias": ".interpolated",
+              "type": "boolean",
+              "description": "whether entity state was interpolated"
+            },
+            {
+              "alias": ".extrapolated",
+              "type": "boolean",
+              "description": "whether entity state was extrapolated (predicted)"
+            },
+            {
+              "alias": ".teleported",
+              "type": "boolean",
+              "description": "whether entity was breaking lag compensation (teleporting)"
+            },
+            {
+              "alias": ".tick",
+              "type": "number",
+              "description": "tickcount at which the show was fired, can be used in `client.draw_hitboxes`"
+            },
+            {
+              "alias": ".x",
+              "type": "number",
+              "description": "x asix coordinate (units) of client-side shot position"
+            },
+            {
+              "alias": ".y",
+              "type": "number",
+              "description": "y asix coordinate (units) of client-side shot position"
+            },
+            {
+              "alias": ".z",
+              "type": "number",
+              "description": "z asix coordinate (units) of client-side shot position"
+            }
+          ],
+          "description": "Fired every time the ragebot aimbot fires at the target",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "This event requires `Rage > Other > Anti-aim correction` being active"
+            },
+            {
+              "type": "note",
+              "title": "Hitgroups",
+              "data": "``` lua\n--8<-- \"docs/for_developers/events/examples/hitgroups.lua\"\n```"
+            }
+          ]
+        },
+        {
+          "alias": "aim_hit",
+          "parameters": [
+            {
+              "alias": ".id",
+              "type": "number",
+              "description": "id of the shot, can be used to find corresponding `aim_him` / `aim_miss` event"
+            },
+            {
+              "alias": ".target",
+              "type": "number",
+              "description": "entity index of the target"
+            },
+            {
+              "alias": ".hit_chance",
+              "type": "number",
+              "description": "(duplicate) same value as in `aim_fire` event"
+            },
+            {
+              "alias": ".hitgroup",
+              "type": "number",
+              "description": "target's entity hitgroup the shot landed at"
+            },
+            {
+              "alias": ".damage",
+              "type": "number",
+              "description": "actual damage the shot did to the target"
+            }
+          ],
+          "description": "Fired every time the ragebot aimbot hits the target",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "This event requires `Rage > Other > Anti-aim correction` being active"
+            },
+            {
+              "type": "note",
+              "title": "Hitgroups",
+              "data": "``` lua\n--8<-- \"docs/for_developers/events/examples/hitgroups.lua\"\n```"
+            }
+          ]
+        },
+        {
+          "alias": "aim_miss",
+          "parameters": [
+            {
+              "alias": ".id",
+              "type": "number",
+              "description": "id of the shot, can be used to find corresponding `aim_him` / `aim_miss` event"
+            },
+            {
+              "alias": ".target",
+              "type": "number",
+              "description": "entity index of the target"
+            },
+            {
+              "alias": ".hit_chance",
+              "type": "number",
+              "description": "(duplicate) same value as in `aim_fire` event"
+            },
+            {
+              "alias": ".hitgroup",
+              "type": "number",
+              "description": "(duplicate) same value as in `aim_fire` event"
+            },
+            {
+              "alias": ".reason",
+              "type": "string",
+              "description": "reason due to which the a shot missed the target"
+            }
+          ],
+          "description": "Fired every time the ragebot aimbot misses the target",
+          "admonitions": [
+            {
+              "type": "info",
+              "title": "",
+              "data": "This event requires `Rage > Other > Anti-aim correction` being active"
+            },
+            {
+              "type": "note",
+              "title": "Hitgroups",
+              "data": "``` lua\n--8<-- \"docs/for_developers/events/examples/hitgroups.lua\"\n```"
+            },
+            {
+              "type": "note",
+              "title": "Reasons",
+              "data": "``` lua\n--8<-- \"docs/for_developers/events/examples/reasons.lua\"\n```"
+            }
+          ]
+        }
+      ],
+      "examples": [
+        {
+          "title": "snaplines.lua",
+          "language": "lua",
+          "data": "--8<-- \"docs/for_developers/events/examples/snaplines.lua\""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "type": "LuaFunctionsTableArray",
+  "MyArray": [
+    {
+      "alias": "materialsystem",
+      "functions": [
+        {
+          "alias": "arms_material",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "chams_material",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "find_material",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "find_materials",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "find_texture",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "get_model_materials",
+          "arguments": [],
+          "returns": [],
+          "description": ""
+        },
+        {
+          "alias": "override_material",
+          "arguments": [],
+          "description": ""
+        }
+      ]
+    }
+  ]
+}
