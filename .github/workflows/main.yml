@@ -15,6 +15,14 @@
     owner: # optional
     # Optional NuGet.config location, if your NuGet.config isn't located in the root of the repo.
     config-file: # optional
+
+- name: Download a Build Artifact
+  uses: actions/download-artifact@v3.0.1
+  with:
+    # Artifact name
+    name: # optional
+    # Destination path
+    path: # optional
     
 - name: Index.md
   uses: actions/download-artifact@v3.0.1
