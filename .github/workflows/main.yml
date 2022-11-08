@@ -2,15 +2,18 @@
 
 name: CI
 
-# sike sucker
-
 - name: Download a Build Artifact
-  uses: actions/download-artifact@v3.0.0
+  uses: actions/download-artifact@v3.0.1
   with:
     # Artifact name
     name: # optional
     # Destination path
     path: # optional
+
+jobs:
+  my_job:
+    name: deploy to staging
+    runs-on: ubuntu-latest
     
 # Controls when the workflow will  defaults:
   
