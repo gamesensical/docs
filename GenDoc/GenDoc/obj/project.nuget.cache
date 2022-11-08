@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "tWYf13JIby9Q3tbmAXGFXqMOGBhw2ijU9w4fsuL+BEicF+dgbXf5s5RqVnBczITcTFkq0c29+f0aHq1Rw0wjsw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rbels\\Source\\Repos\\h4xrOx\\docs\\GenDoc\\GenDoc\\GenDoc.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rbels\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\rbels\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.30\\microsoft.netcore.app.host.win-x64.3.1.30.nupkg.sha512",
+    "C:\\Users\\rbels\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\rbels\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\rbels\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

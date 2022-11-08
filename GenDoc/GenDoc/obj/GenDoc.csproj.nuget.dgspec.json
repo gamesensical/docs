@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git\\gamesense_docs\\GenDoc\\GenDoc\\GenDoc.csproj": {}
+    "C:\\Users\\rbels\\Source\\Repos\\h4xrOx\\docs\\GenDoc\\GenDoc\\GenDoc.csproj": {}
   },
   "projects": {
-    "D:\\Git\\gamesense_docs\\GenDoc\\GenDoc\\GenDoc.csproj": {
+    "C:\\Users\\rbels\\Source\\Repos\\h4xrOx\\docs\\GenDoc\\GenDoc\\GenDoc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\gamesense_docs\\GenDoc\\GenDoc\\GenDoc.csproj",
+        "projectUniqueName": "C:\\Users\\rbels\\Source\\Repos\\h4xrOx\\docs\\GenDoc\\GenDoc\\GenDoc.csproj",
         "projectName": "GenDoc",
-        "projectPath": "D:\\Git\\gamesense_docs\\GenDoc\\GenDoc\\GenDoc.csproj",
-        "packagesPath": "C:\\Users\\w7rus\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\gamesense_docs\\GenDoc\\GenDoc\\obj\\",
+        "projectPath": "C:\\Users\\rbels\\Source\\Repos\\h4xrOx\\docs\\GenDoc\\GenDoc\\GenDoc.csproj",
+        "packagesPath": "C:\\Users\\rbels\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rbels\\Source\\Repos\\h4xrOx\\docs\\GenDoc\\GenDoc\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\w7rus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rbels\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,10 +27,12 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,10 +44,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.1, )"
             }
           },
           "imports": [
@@ -49,16 +57,35 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.30, 3.1.30]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
