@@ -1,382 +1,381 @@
 # docs
 
-/*Documentation of the gamesense lua api*
+*/*Documentation of the gamesense lua api*/
 
-/*Table of Contents:
+# Table of Contents:
 
-*1. Events*
+- 1. Events
 
-*2. CVARS*
+- 2. CVARS
 
-/*The following events can be found in csgo\pak01_dir.vpk in the file resource\modevents.res.*
+# The following events can be found in csgo\pak01_dir.vpk in the file - resource *modevents.res.* Other events not listed here can be found in:*
 
-/*Other events not listed here can be found in:*
+- resource - gameevents.res
 
-resource\gameevents.res
+- resource - demoimportantevents.res
 
-resource\demoimportantevents.res
+- resource - serverevents.res
 
-resource\serverevents.res
+- resource - hltvevents.res
 
-resource\hltvevents.res
+- resource - replayevents.res
 
-resource\replayevents.res
+# Contents
 
-Contents
+- 1 player_death
 
-1  player_death
+- 2 other_death
 
-2  other_death
+- 3 player_hurt
 
-3  player_hurt
+- 4 item_purchase
 
-4  item_purchase
+- 5 bomb_beginplant
 
-5  bomb_beginplant
+- 6 bomb_abortplant
 
-6  bomb_abortplant
+- 7 bomb_planted
 
-7  bomb_planted
+- 8 bomb_defused
 
-8  bomb_defused
+- 9 bomb_exploded
 
-9  bomb_exploded
+- 10 bomb_dropped
 
-10  bomb_dropped
+- 11 bomb_pickup
 
-11  bomb_pickup
+- 12 defuser_dropped
 
-12  defuser_dropped
+- 13 defuser_pickup
 
-13  defuser_pickup
+- 14 announce_phase_end
 
-14  announce_phase_end
+- 15 cs_intermission
 
-15  cs_intermission
+- 16 bomb_begindefuse
 
-16  bomb_begindefuse
+- 17 bomb_abortdefuse
 
-17  bomb_abortdefuse
+- 18 hostage_follows
 
-18  hostage_follows
+- 19 hostage_hurt
 
-19  hostage_hurt
+- 20 hostage_killed
 
-20  hostage_killed
+- 21 hostage_rescued
 
-21  hostage_rescued
+- 22 hostage_stops_following
 
-22  hostage_stops_following
+- 23 hostage_rescued_all
 
-23  hostage_rescued_all
+- 24 hostage_call_for_help
 
-24  hostage_call_for_help
+- 25 vip_escaped
 
-25  vip_escaped
+- 26 vip_killed
 
-26  vip_killed
+- 27 player_radio
 
-27  player_radio
+- 28 bomb_beep
 
-28  bomb_beep
+- 29 weapon_fire
 
-29  weapon_fire
+- 30 weapon_fire_on_empty
 
-30  weapon_fire_on_empty
+- 31 grenade_thrown
 
-31  grenade_thrown
+- 32 weapon_outofammo
 
-32  weapon_outofammo
+- 33 weapon_reload
 
-33  weapon_reload
+- 34 weapon_zoom
 
-34  weapon_zoom
+- 35 silencer_detach
 
-35  silencer_detach
+- 36 inspect_weapon
 
-36  inspect_weapon
+- 37 weapon_zoom_rifle
 
-37  weapon_zoom_rifle
+- 38 player_spawned
 
-38  player_spawned
+- 39 item_pickup
 
-39  item_pickup
+- 40 item_pickup_slerp
 
-40  item_pickup_slerp
+- 41 item_pickup_failed
 
-41  item_pickup_failed
+- 42 item_remove
 
-42  item_remove
+- 43 ammo_pickup
 
-43  ammo_pickup
+- 44 item_equip
 
-44  item_equip
+- 45 enter_buyzone
 
-45  enter_buyzone
+- 46 exit_buyzone
 
-46  exit_buyzone
+- 47 buytime_ended
 
-47  buytime_ended
+- 48 enter_bombzone
 
-48  enter_bombzone
+- 49 exit_bombzone
 
-49  exit_bombzone
+- 50 enter_rescue_zone
 
-50  enter_rescue_zone
+- 51 exit_rescue_zone
 
-51  exit_rescue_zone
+- 52 silencer_off
 
-52  silencer_off
+- 53 silencer_on
 
-53  silencer_on
+- 54 buymenu_open
 
-54  buymenu_open
+- 55 buymenu_close
 
-55  buymenu_close
+- 56 round_prestart
 
-56  round_prestart
+- 57 round_poststart
 
-57  round_poststart
+- 58 round_start
 
-58  round_start
+- 59 round_end
 
-59  round_end
+- 60 grenade_bounce
 
-60  grenade_bounce
+- 61 hegrenade_detonate
 
-61  hegrenade_detonate
+- 62 flashbang_detonate
 
-62  flashbang_detonate
+- 63 smokegrenade_detonate
 
-63  smokegrenade_detonate
+- 64 smokegrenade_expired
 
-64  smokegrenade_expired
+- 65 molotov_detonate
 
-65  molotov_detonate
+- 66 decoy_detonate
 
-66  decoy_detonate
+- 67 decoy_started
 
-67  decoy_started
+- 68 tagrenade_detonate
 
-68  tagrenade_detonate
+- 69 inferno_startburn
 
-69  inferno_startburn
+- 70 inferno_expire
 
-70  inferno_expire
+- 71 inferno_extinguish
 
-71  inferno_extinguish
+- 72 decoy_firing
 
-72  decoy_firing
+- 73 bullet_impact
 
-73  bullet_impact
+- 74 player_footstep
 
-74  player_footstep
+- 75 player_jump
 
-75  player_jump
+- 76 player_blind
 
-76  player_blind
+- 77 player_falldamage
 
-77  player_falldamage
+- 78 door_moving
 
-78  door_moving
+- 79 round_freeze_end
 
-79  round_freeze_end
+- 80 mb_input_lock_success
 
-80  mb_input_lock_success
+- 81 mb_input_lock_cancel
 
-81  mb_input_lock_cancel
+- 82 nav_blocked
 
-82  nav_blocked
+- 83 nav_generate
 
-83  nav_generate
+- 84 player_stats_updated
 
-84  player_stats_updated
+- 85 achievement_info_loaded
 
-85  achievement_info_loaded
+- 86 spec_target_updated
 
-86  spec_target_updated
+- 87 spec_mode_updated
 
-87  spec_mode_updated
+- 88 hltv_changed_mode
 
-88  hltv_changed_mode
+- 89 cs_game_disconnected
 
-89  cs_game_disconnected
+- 90 cs_win_panel_round
 
-90  cs_win_panel_round
+- 91 cs_win_panel_match
 
-91  cs_win_panel_match
+- 92 cs_match_end_restart
 
-92  cs_match_end_restart
+- 93 cs_pre_restart
 
-93  cs_pre_restart
+- 94 show_freezepanel
 
-94  show_freezepanel
+- 95 hide_freezepanel
 
-95  hide_freezepanel
+- 96 freezecam_started
 
-96  freezecam_started
+- 97 player_avenged_teammate
 
-97  player_avenged_teammate
+- 98 achievement_earned
 
-98  achievement_earned
+- 99 achievement_earned_local
 
-99  achievement_earned_local
+- 100 item_found
 
-100  item_found
+- 101 items_gifted
 
-101  items_gifted
+- 102 repost_xbox_achievements
 
-102  repost_xbox_achievements
+- 103 match_end_conditions
 
-103  match_end_conditions
+- 104 round_mvp
 
-104  round_mvp
+- 105 player_decal
 
-105  player_decal
+- 106 teamplay_round_start
 
-106  teamplay_round_start
+- 107 show_survival_respawn_status
 
-107  show_survival_respawn_status
+- 108 client_disconnect
 
-108  client_disconnect
+- 109 gg_player_levelup
 
-109  gg_player_levelup
+- 110 ggtr_player_levelup
 
-110  ggtr_player_levelup
+- 111 assassination_target_killed
 
-111  assassination_target_killed
+- 112 ggprogressive_player_levelup
 
-112  ggprogressive_player_levelup
+- 113 gg_killed_enemy
 
-113  gg_killed_enemy
+- 114 gg_final_weapon_achieved
 
-114  gg_final_weapon_achieved
+- 115 gg_bonus_grenade_achieved
 
-115  gg_bonus_grenade_achieved
+- 116 switch_team
 
-116  switch_team
+- 117 gg_leader
 
-117  gg_leader
+- 118 gg_team_leader
 
-118  gg_team_leader
+- 119 gg_player_impending_upgrade
 
-119  gg_player_impending_upgrade
+- 120 write_profile_data
 
-120  write_profile_data
+- 121 trial_time_expired
 
-121  trial_time_expired
+- 122 update_matchmaking_stats
 
-122  update_matchmaking_stats
+- 123 player_reset_vote
 
-123  player_reset_vote
+- 124 enable_restart_voting
 
-124  enable_restart_voting
+- 125 sfuievent
 
-125  sfuievent
+- 126 start_vote
 
-126  start_vote
+- 127 player_given_c4
 
-127  player_given_c4
+- 128 player_become_ghost
 
-128  player_become_ghost
+- 129 gg_reset_round_start_sounds
 
-129  gg_reset_round_start_sounds
+- 130 tr_player_flashbanged
 
-130  tr_player_flashbanged
+- 131 tr_mark_complete
 
-131  tr_mark_complete
+- 132 tr_mark_best_time
 
-132  tr_mark_best_time
+- 133 tr_exit_hint_trigger
 
-133  tr_exit_hint_trigger
+- 134 bot_takeover
 
-134  bot_takeover
+- 135 tr_show_finish_msgbox
 
-135  tr_show_finish_msgbox
+- 136 tr_show_exit_msgbox
 
-136  tr_show_exit_msgbox
+- 137 reset_player_controls
 
-137  reset_player_controls
+- 138 jointeam_failed
 
-138  jointeam_failed
+- 139 teamchange_pending
 
-139  teamchange_pending
+- 140 material_default_complete
 
-140  material_default_complete
+- 141 cs_prev_next_spectator
 
-141  cs_prev_next_spectator
+- 142 cs_handle_ime_event
 
-142  cs_handle_ime_event
+- 143 nextlevel_changed
 
-143  nextlevel_changed
+- 144 seasoncoin_levelup
 
-144  seasoncoin_levelup
+- 145 tournament_reward
 
-145  tournament_reward
+- 146 start_halftime
 
-146  start_halftime
+- 147 ammo_refill
 
-147  ammo_refill
+- 148 parachute_pickup
 
-148  parachute_pickup
+- 149 parachute_deploy
 
-149  parachute_deploy
+- 150 dronegun_attack
 
-150  dronegun_attack
+- 151 drone_dispatched
 
-151  drone_dispatched
+- 152 loot_crate_visible
 
-152  loot_crate_visible
+- 153 loot_crate_opened
 
-153  loot_crate_opened
+- 154 open_crate_instr
 
-154  open_crate_instr
+- 155 smoke_beacon_paradrop
 
-155  smoke_beacon_paradrop
+- 156 survival_paradrop_spawn
 
-156  survival_paradrop_spawn
+- 157 survival_paradrop_break
 
-157  survival_paradrop_break
+- 158 drone_cargo_detached
 
-158  drone_cargo_detached
+- 159 drone_above_roof
 
-159  drone_above_roof
+- 160 choppers_incoming_warning
 
-160  choppers_incoming_warning
+- 161 firstbombs_incoming_warning
 
-161  firstbombs_incoming_warning
+- 162 dz_item_interaction
 
-162  dz_item_interaction
+- 163 snowball_hit_player_face
 
-163  snowball_hit_player_face
+- 164 survival_teammate_respawn
 
-164  survival_teammate_respawn
+- 165 survival_no_respawns_warning
 
-165  survival_no_respawns_warning
+- 166 survival_no_respawns_final
 
-166  survival_no_respawns_final
+- 167 player_ping
 
-167  player_ping
+- 168 player_ping_stop
 
-168  player_ping_stop
+- 169 guardian_wave_restart
 
-169  guardian_wave_restart
 
-player_death
+#player_death
 
-Note: When a client dies
+> **_NOTE:_** When a client dies
 
-Name:  player_death
+# name:   player_death
 
-Structure:
+- Structure:
 
-short  userid  user ID who died
+- short  userid  user ID who died
 
-short  attacker  user ID who killed
+- short  attacker  user ID who killed
 
-short  assister  user ID who assisted in the kill
+- short  assister  user ID who assisted in the kill
 
-bool  assistedflash  assister helped with a flash
+- bool  assistedflash  assister helped with a flash
 
 string  weapon  weapon name killer used
 
@@ -386,39 +385,39 @@ string  weapon_fauxitemid  faux item id of weapon killer used
 
 string  weapon_originalowner_xuid
 
-bool  headshot  signals a headshot
+- bool  headshot  signals a headshot
 
-short  dominated  did killer dominate victim with this kill
+- short  dominated  did killer dominate victim with this kill
 
-short  revenge  did killer get revenge on victim with this kill
+- short  revenge  did killer get revenge on victim with this kill
 
-short  wipe  To do: check if indicates on a squad wipeout in Danger Zone
+- short  wipe  To do: check if indicates on a squad wipeout in Danger Zone
 
-short  penetrated  number of objects shot penetrated before killing target
+- short  penetrated  number of objects shot penetrated before killing target
 
-bool  noreplay  if replay data is unavailable, this will be present and set to false
+- bool  noreplay  if replay data is unavailable, this will be present and set to false
 
-bool  noscope  kill happened without a scope, used for death notice icon
+- bool  noscope  kill happened without a scope, used for death notice icon
 
-bool  thrusmoke  hitscan weapon went through smoke grenade
+- bool  thrusmoke  hitscan weapon went through smoke grenade
 
-bool  attackerblind  attacker was blind from flashbang
+- bool  attackerblind  attacker was blind from flashbang
 
-float  distance  distance to victim in meters
+- float  distance  distance to victim in meters
 
 other_death
 
-Note: As far as I know only used for chicken deaths at the moment
+> **_NOTE:_** As far as I know only used for chicken deaths at the moment
 
-Name:  other_death
+## name:   other_death
 
-Structure:
+- Structure:
 
-short  otherid
+- short  otherid
 
 string  othertype
 
-short  attacker  user ID who attacked
+- short  attacker  user ID who attacked
 
 string  weapon  weapon name attacker used, if not the world
 
@@ -428,465 +427,465 @@ string  weapon_fauxitemid  faux item id of weapon killer used
 
 string  weapon_originalowner_xuid
 
-bool  headshot  signals a headshot
+- bool  headshot  signals a headshot
 
-short  penetrated  number of objects shot penetrated before killing target
+- short  penetrated  number of objects shot penetrated before killing target
 
-bool  noscope  kill happened without a scope, used for death notice icon
+- bool  noscope  kill happened without a scope, used for death notice icon
 
-bool  thrusmoke  hitscan weapon went through smoke grenade
+- bool  thrusmoke  hitscan weapon went through smoke grenade
 
-bool  attackerblind  attacker was blind from flashbang
+- bool  attackerblind  attacker was blind from flashbang
 
 player_hurt
 
-Name:  player_hurt
+# name:   player_hurt
 
-Structure:
+- Structure:
 
-short  userid  user ID of who was hurt
+- short  userid  user ID of who was hurt
 
-short  attacker  user ID of who attacked
+- short  attacker  user ID of who attacked
 
-byte  health  remaining health points
+> byte  health  remaining health points
 
-byte  armor  remaining armor points
+> byte  armor  remaining armor points
 
 string  weapon  weapon name attacker used, if not the world
 
-short  dmg_health  damage done to health
+- short  dmg_health  damage done to health
 
-byte  dmg_armor  damage done to armor
+> byte  dmg_armor  damage done to armor
 
-byte  hitgroup  hitgroup that was damaged
+> byte  hitgroup  hitgroup that was damaged
 
 item_purchase
 
-Name:  item_purchase
+# name:   item_purchase
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  team
+- short  team
 
-short  loadout
+- short  loadout
 
 string  weapon
 
 bomb_beginplant
 
-Note: When the bomb is starting to get planted
+> **_NOTE:_** When the bomb is starting to get planted
 
-Name:  bomb_beginplant
+# name:   bomb_beginplant
 
-Structure:
+- Structure:
 
-short  userid  player who is planting the bomb
+- short  userid  player who is planting the bomb
 
-short  site  bombsite index
+- short  site  bombsite index
 
 bomb_abortplant
 
-Note: When the bomb planter stops planting the bomb
+> **_NOTE:_** When the bomb planter stops planting the bomb
 
-Name:  bomb_abortplant
+# name:   bomb_abortplant
 
-Structure:
+- Structure:
 
-short  userid  player who is planting the bomb
+- short  userid  player who is planting the bomb
 
-short  site  bombsite index
+- short  site  bombsite index
 
 bomb_planted
 
-Note: When the bomb has been planted
+> **_NOTE:_** When the bomb has been planted
 
-Name:  bomb_planted
+# name:   bomb_planted
 
-Structure:
+- Structure:
 
-short  userid  player who planted the bomb
+- short  userid  player who planted the bomb
 
-short  site  bombsite index
+- short  site  bombsite index
 
 bomb_defused
 
-Note: When the bomb has been defused
+> **_NOTE:_** When the bomb has been defused
 
-Name:  bomb_defused
+# name:   bomb_defused
 
-Structure:
+- Structure:
 
-short  userid  player who defused the bomb
+- short  userid  player who defused the bomb
 
-short  site  bombsite index
+- short  site  bombsite index
 
 bomb_exploded
 
-Note: When the bomb explodes
+> **_NOTE:_** When the bomb explodes
 
-Name:  bomb_exploded
+# name:   bomb_exploded
 
-Structure:
+- Structure:
 
-short  userid  player who planted the bomb
+- short  userid  player who planted the bomb
 
-short  site  bombsite index
+- short  site  bombsite index
 
 bomb_dropped
 
-Note: When the bomb is dropped by a client
+> **_NOTE:_** When the bomb is dropped by a client
 
-Name:  bomb_dropped
+# name:   bomb_dropped
 
-Structure:
+- Structure:
 
-short  userid  player who dropped the bomb
+- short  userid  player who dropped the bomb
 
 long  entindex
 
 bomb_pickup
 
-Note: When the bomb is picked up by a client
+> **_NOTE:_** When the bomb is picked up by a client
 
-Name:  bomb_pickup
+# name:   bomb_pickup
 
-Structure:
+- Structure:
 
-short  userid  player who picked up the bomb
+- short  userid  player who picked up the bomb
 
 defuser_dropped
 
-Note: When the defuser is dropped by a client
+> **_NOTE:_** When the defuser is dropped by a client
 
-Name:  defuser_dropped
+# name:   defuser_dropped
 
-Structure:
+- Structure:
 
 long  entityid  defuser's entity ID
 
 defuser_pickup
 
-Note: When the defuser is picked up by a client
+> **_NOTE:_** When the defuser is picked up by a client
 
-Name:  defuser_pickup
+# name:   defuser_pickup
 
-Structure:
+- Structure:
 
 long  entityid  defuser's entity ID
 
-short  userid  player who picked up the defuser
+- short  userid  player who picked up the defuser
 
 announce_phase_end
 
-Name:  announce_phase_end
+# name:   announce_phase_end
 
-Structure:
+- Structure:
 
 cs_intermission
 
-Name:  cs_intermission
+# name:   cs_intermission
 
-Structure:
+- Structure:
 
 bomb_begindefuse
 
-Note: When the bomb is started to be defused
+> **_NOTE:_** When the bomb is started to be defused
 
-Name:  bomb_begindefuse
+# name:   bomb_begindefuse
 
-Structure:
+- Structure:
 
-short  userid  player who is defusing
+- short  userid  player who is defusing
 
-bool  haskit
+- bool  haskit
 
 bomb_abortdefuse
 
-Note: When the bomb defusal is stopped
+> **_NOTE:_** When the bomb defusal is stopped
 
-Name:  bomb_abortdefuse
+# name:   bomb_abortdefuse
 
-Structure:
+- Structure:
 
-short  userid  player who was defusing
+- short  userid  player who was defusing
 
 hostage_follows
 
-Note: When the hostage begins following a client
+> **_NOTE:_** When the hostage begins following a client
 
-Name:  hostage_follows
+# name:   hostage_follows
 
-Structure:
+- Structure:
 
-short  userid  player who touched the hostage
+- short  userid  player who touched the hostage
 
-short  hostage  hostage entity index
+- short  hostage  hostage entity index
 
 hostage_hurt
 
-Note: When a hostage is damaged
+> **_NOTE:_** When a hostage is damaged
 
-Name:  hostage_hurt
+# name:   hostage_hurt
 
-Structure:
+- Structure:
 
-short  userid  player who hurt the hostage
+- short  userid  player who hurt the hostage
 
-short  hostage  hostage entity index
+- short  hostage  hostage entity index
 
 hostage_killed
 
-Note: When a hostage is killed
+> **_NOTE:_** When a hostage is killed
 
-Name:  hostage_killed
+# name:   hostage_killed
 
-Structure:
+- Structure:
 
-short  userid  player who killed the hostage
+- short  userid  player who killed the hostage
 
-short  hostage  hostage entity index
+- short  hostage  hostage entity index
 
 hostage_rescued
 
-Note: When a hostage is rescued
+> **_NOTE:_** When a hostage is rescued
 
-Name:  hostage_rescued
+# name:   hostage_rescued
 
-Structure:
+- Structure:
 
-short  userid  player who rescued the hostage
+- short  userid  player who rescued the hostage
 
-short  hostage  hostage entity index
+- short  hostage  hostage entity index
 
-short  site  rescue site index
+- short  site  rescue site index
 
 hostage_stops_following
 
-Note: When a hostage stops following a client
+> **_NOTE:_** When a hostage stops following a client
 
-Name:  hostage_stops_following
+# name:   hostage_stops_following
 
-Structure:
+- Structure:
 
-short  userid  player who rescued the hostage
+- short  userid  player who rescued the hostage
 
-short  hostage  hostage entity index
+- short  hostage  hostage entity index
 
 hostage_rescued_all
 
-Note: When all the hostages are rescued
+> **_NOTE:_** When all the hostages are rescued
 
-Name:  hostage_rescued_all
+# name:   hostage_rescued_all
 
-Structure:
+- Structure:
 
 hostage_call_for_help
 
-Note: When the hostage calls for help
+> **_NOTE:_** When the hostage calls for help
 
-Name:  hostage_call_for_help
+# name:   hostage_call_for_help
 
-Structure:
+- Structure:
 
-short  hostage  hostage entity index
+- short  hostage  hostage entity index
 
 vip_escaped
 
-Note: When the VIP escapes
+> **_NOTE:_** When the VIP escapes
 
-Name:  vip_escaped
+# name:   vip_escaped
 
-Structure:
+- Structure:
 
-short  userid  player who was the VIP
+- short  userid  player who was the VIP
 
 vip_killed
 
-Note: When the VIP is killed
+> **_NOTE:_** When the VIP is killed
 
-Name:  vip_killed
+# name:   vip_killed
 
-Structure:
+- Structure:
 
-short  userid  player who was the VIP
+- short  userid  player who was the VIP
 
-short  attacker  user ID who killed the VIP
+- short  attacker  user ID who killed the VIP
 
 player_radio
 
-Note: When the player uses radio commands
+> **_NOTE:_** When the player uses radio commands
 
-Name:  player_radio
+# name:   player_radio
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  slot
+- short  slot
 
 bomb_beep
 
-Note: Every time the bomb beep sound happens
+> **_NOTE:_** Every time the bomb beep sound happens
 
-Name:  bomb_beep
+# name:   bomb_beep
 
-Structure:
+- Structure:
 
 long  entindex  c4 entity
 
 weapon_fire
 
-Note: Every time a client fires their weapon
+> **_NOTE:_** Every time a client fires their weapon
 
-Name:  weapon_fire
+# name:   weapon_fire
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 string  weapon  weapon name used
 
-bool  silenced  is weapon silenced
+- bool  silenced  is weapon silenced
 
 weapon_fire_on_empty
 
-Note: Every time a client fires their weapon and it's empty
+> **_NOTE:_** Every time a client fires their weapon and it's empty
 
-Name:  weapon_fire_on_empty
+# name:   weapon_fire_on_empty
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 string  weapon  weapon name used
 
 grenade_thrown
 
-Note: Every time a client throws their grenade
+> **_NOTE:_** Every time a client throws their grenade
 
-Name:  grenade_thrown
+# name:   grenade_thrown
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 string  weapon  weapon name used
 
 weapon_outofammo
 
-Name:  weapon_outofammo
+# name:   weapon_outofammo
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 weapon_reload
 
-Note: Every time a client reloads their weapon
+> **_NOTE:_** Every time a client reloads their weapon
 
-Name:  weapon_reload
+# name:   weapon_reload
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 weapon_zoom
 
-Note: Every time a client zooms a scoped weapon
+> **_NOTE:_** Every time a client zooms a scoped weapon
 
-Name:  weapon_zoom
+# name:   weapon_zoom
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 silencer_detach
 
-Name:  silencer_detach
+# name:   silencer_detach
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 inspect_weapon
 
-Name:  inspect_weapon
+# name:   inspect_weapon
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 weapon_zoom_rifle
 
-Note: exists for the game instructor to let it know when the player zoomed in with a regular rifle. Different from the above weapon_zoom because we don't use this event to notify bots
+> **_NOTE:_** exists for the game instructor to let it know when the player zoomed in with a regular rifle. Different from the above weapon_zoom because we don't use this event to notify bots
 
-Name:  weapon_zoom_rifle
+# name:   weapon_zoom_rifle
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 player_spawned
 
-Name:  player_spawned
+# name:   player_spawned
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-bool  inrestart  true if restart is pending
+- bool  inrestart  true if restart is pending
 
 item_pickup
 
-Note: Every time an item is picked up (generally weapons)
+> **_NOTE:_** Every time an item is picked up (generally weapons)
 
-Name:  item_pickup
+# name:   item_pickup
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
-bool  silent
+- bool  silent
 
 long  defindex
 
 item_pickup_slerp
 
-Name:  item_pickup_slerp
+# name:   item_pickup_slerp
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  index
+- short  index
 
-short  behavior
+- short  behavior
 
 item_pickup_failed
 
-Name:  item_pickup_failed
+# name:   item_pickup_failed
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 string  item
 
-short  reason
+- short  reason
 
-short  limit
+- short  limit
 
 item_remove
 
-Name:  item_remove
+# name:   item_remove
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
@@ -894,11 +893,11 @@ long  defindex
 
 ammo_pickup
 
-Name:  ammo_pickup
+# name:   ammo_pickup
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
@@ -906,171 +905,171 @@ long  index  the weapon entindex
 
 item_equip
 
-Name:  item_equip
+# name:   item_equip
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long  defindex
 
-bool  canzoom
+- bool  canzoom
 
-bool  hassilencer
+- bool  hassilencer
 
-bool  issilenced
+- bool  issilenced
 
-bool  hastracers
+- bool  hastracers
 
-short  weptype  see below
+- short  weptype  see below
 
-WEAPONTYPE_UNKNOWN = -1
+> WEAPONTYPE_UNKNOWN = -1
 
-WEAPONTYPE_KNIFE = 0
+> WEAPONTYPE_KNIFE = 0
 
-WEAPONTYPE_PISTOL = 1
+> WEAPONTYPE_PISTOL = 1
 
-WEAPONTYPE_SUBMACHINEGUN = 2
+> WEAPONTYPE_SUBMACHINEGUN = 2
 
-WEAPONTYPE_RIFLE = 3
+> WEAPONTYPE_RIFLE = 3
 
-WEAPONTYPE_SHOTGUN = 4
+> WEAPONTYPE_SHOTGUN = 4
 
-WEAPONTYPE_SNIPER_RIFLE = 5
+> WEAPONTYPE_SNIPER_RIFLE = 5
 
-WEAPONTYPE_MACHINEGUN = 6
+> WEAPONTYPE_MACHINEGUN = 6
 
-WEAPONTYPE_C4 = 7
+> WEAPONTYPE_C4 = 7
 
-WEAPONTYPE_TASER = 8
+> WEAPONTYPE_TASER = 8
 
-WEAPONTYPE_GRENADE = 9
+> WEAPONTYPE_GRENADE = 9
 
-WEAPONTYPE_HEALTHSHOT = 11
+> WEAPONTYPE_HEALTHSHOT = 11
 
-bool  ispainted
+- bool  ispainted
 
 enter_buyzone
 
-Name:  enter_buyzone
+# name:   enter_buyzone
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-bool  canbuy
+- bool  canbuy
 
 exit_buyzone
 
-Name:  exit_buyzone
+# name:   exit_buyzone
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-bool  canbuy
+- bool  canbuy
 
 buytime_ended
 
-Name:  buytime_ended
+# name:   buytime_ended
 
-Structure:
+- Structure:
 
 enter_bombzone
 
-Name:  enter_bombzone
+# name:   enter_bombzone
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-bool  hasbomb
+- bool  hasbomb
 
-bool  isplanted
+- bool  isplanted
 
 exit_bombzone
 
-Name:  exit_bombzone
+# name:   exit_bombzone
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-bool  hasbomb
+- bool  hasbomb
 
-bool  isplanted
+- bool  isplanted
 
 enter_rescue_zone
 
-Name:  enter_rescue_zone
+# name:   enter_rescue_zone
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 exit_rescue_zone
 
-Name:  exit_rescue_zone
+# name:   exit_rescue_zone
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 silencer_off
 
-Name:  silencer_off
+# name:   silencer_off
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 silencer_on
 
-Name:  silencer_on
+# name:   silencer_on
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 buymenu_open
 
-Name:  buymenu_open
+# name:   buymenu_open
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 buymenu_close
 
-Name:  buymenu_close
+# name:   buymenu_close
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 round_prestart
 
-Note: sent before all other round restart actions
+> **_NOTE:_** sent before all other round restart actions
 
-Name:  round_prestart
+# name:   round_prestart
 
-Structure:
+- Structure:
 
 round_poststart
 
-Note: sent after all other round restart actions
+> **_NOTE:_** sent after all other round restart actions
 
-Name:  round_poststart
+# name:   round_poststart
 
-Structure:
+- Structure:
 
 round_start
 
-Name:  round_start
+# name:   round_start
 
-Structure:
+- Structure:
 
 long  timelimit  round time limit in seconds
 
@@ -1080,383 +1079,383 @@ string  objective  round objective
 
 round_end
 
-Name:  round_end
+# name:   round_end
 
-Structure:
+- Structure:
 
-byte  winner  winner team/user id
+> byte  winner  winner team/user id
 
-byte  reason  reason why team won
+> byte  reason  reason why team won
 
 string  message  end round message
 
-byte  legacy  server-generated legacy value
+> byte  legacy  server-generated legacy value
 
-short  player_count  total number of players alive at the end of round, used for statistics gathering, computed on the server in the event client is in replay when receiving this message
+- short  player_count  total number of players alive at the end of round, used for statistics gathering, computed on the server in the event client is in replay when receiving this message
 
-byte  nomusic  if set, don't play round end music, because action is still on-going
+> byte  nomusic  if set, don't play round end music, because action is still on-going
 
 grenade_bounce
 
-Note: Every time a grenade bounces
+> **_NOTE:_** Every time a grenade bounces
 
-Name:  grenade_bounce
+# name:   grenade_bounce
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 hegrenade_detonate
 
-Note: Every time a hegrenade explodes
+> **_NOTE:_** Every time a hegrenade explodes
 
-Name:  hegrenade_detonate
+# name:   hegrenade_detonate
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 flashbang_detonate
 
-Note: Every time a flashbang detonates
+> **_NOTE:_** Every time a flashbang detonates
 
-Name:  flashbang_detonate
+# name:   flashbang_detonate
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 smokegrenade_detonate
 
-Note: Every time a smokegrenade detonates
+> **_NOTE:_** Every time a smokegrenade detonates
 
-Name:  smokegrenade_detonate
+# name:   smokegrenade_detonate
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 smokegrenade_expired
 
-Name:  smokegrenade_expired
+# name:   smokegrenade_expired
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 molotov_detonate
 
-Name:  molotov_detonate
+# name:   molotov_detonate
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 decoy_detonate
 
-Name:  decoy_detonate
+# name:   decoy_detonate
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 decoy_started
 
-Name:  decoy_started
+# name:   decoy_started
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 tagrenade_detonate
 
-Note: Every time a tagrenade explodes
+> **_NOTE:_** Every time a tagrenade explodes
 
-Name:  tagrenade_detonate
+# name:   tagrenade_detonate
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 inferno_startburn
 
-Name:  inferno_startburn
+# name:   inferno_startburn
 
-Structure:
+- Structure:
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 inferno_expire
 
-Note:
+> **_NOTE:_**
 
-Name:  inferno_expire
+# name:   inferno_expire
 
-Structure:
+- Structure:
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 inferno_extinguish
 
-Note:
+> **_NOTE:_**
 
-Name:  inferno_extinguish
+# name:   inferno_extinguish
 
-Structure:
+- Structure:
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 decoy_firing
 
-Note:
+> **_NOTE:_**
 
-Name:  decoy_firing
+# name:   decoy_firing
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 bullet_impact
 
-Note: Every time a bullet hits something
+> **_NOTE:_** Every time a bullet hits something
 
-Name:  bullet_impact
+# name:   bullet_impact
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
 player_footstep
 
-Note: Every time a player takes a step
+> **_NOTE:_** Every time a player takes a step
 
-Name:  player_footstep
+# name:   player_footstep
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 player_jump
 
-Note: Every time a player jumps
+> **_NOTE:_** Every time a player jumps
 
-Name:  player_jump
+# name:   player_jump
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 player_blind
 
-Note: Every time a player is blinded by a flashbang
+> **_NOTE:_** Every time a player is blinded by a flashbang
 
-Name:  player_blind
+# name:   player_blind
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  attacker  user ID who threw the flash
+- short  attacker  user ID who threw the flash
 
-short  entityid  the flashbang going off
+- short  entityid  the flashbang going off
 
-float  blind_duration
+- float  blind_duration
 
 player_falldamage
 
-Note: Every time a player takes damage due to a fall
+> **_NOTE:_** Every time a player takes damage due to a fall
 
-Name:  player_falldamage
+# name:   player_falldamage
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-float  damage
+- float  damage
 
 door_moving
 
-Note: Every time a door is put in motion (opened)
+> **_NOTE:_** Every time a door is put in motion (opened)
 
-Name:  door_moving
+# name:   door_moving
 
-Structure:
+- Structure:
 
 long  entindex
 
-short  userid
+- short  userid
 
 round_freeze_end
 
-Note: When the round's mp_freezetime is up
+> **_NOTE:_** When the round's mp_freezetime is up
 
-Name:  round_freeze_end
+# name:   round_freeze_end
 
-Structure:
+- Structure:
 
 mb_input_lock_success
 
-Name:  mb_input_lock_success
+# name:   mb_input_lock_success
 
-Structure:
+- Structure:
 
 mb_input_lock_cancel
 
-Name:  mb_input_lock_cancel
+# name:   mb_input_lock_cancel
 
-Structure:
+- Structure:
 
 nav_blocked
 
-Note: Guess: Called when an area is blocked by the nav of a map
+> **_NOTE:_** Guess: Called when an area is blocked by the nav of a map
 
-Name:  nav_blocked
+# name:   nav_blocked
 
-Structure:
+- Structure:
 
 long  area
 
-bool  blocked
+- bool  blocked
 
 nav_generate
 
-Note: Called when a nav file does not exist for a map and bots are added
+> **_NOTE:_** Called when a nav file does not exist for a map and bots are added
 
-Name:  nav_generate
+# name:   nav_generate
 
-Structure:
+- Structure:
 
 player_stats_updated
 
-Note: Guess: Called when the player stats (achievments) are sent to valve
+> **_NOTE:_** Guess: Called when the player stats (achievments) are sent to valve
 
-Name:  player_stats_updated
+# name:   player_stats_updated
 
-Structure:
+- Structure:
 
-bool  forceupload
+- bool  forceupload
 
 achievement_info_loaded
 
-Name:  achievement_info_loaded
+# name:   achievement_info_loaded
 
-Structure:
+- Structure:
 
 spec_target_updated
 
-Name:  spec_target_updated
+# name:   spec_target_updated
 
-Structure:
+- Structure:
 
-byte  userid  entindex of the player
+> byte  userid  entindex of the player
 
 spec_mode_updated
 
-Name:  spec_target_updated
+# name:   spec_target_updated
 
-Structure:
+- Structure:
 
-byte  userid  entindex of the player
+> byte  userid  entindex of the player
 
 hltv_changed_mode
 
-Name:  hltv_changed_mode
+# name:   hltv_changed_mode
 
-Structure:
+- Structure:
 
 long  oldmode
 
@@ -1466,27 +1465,27 @@ long  obs_target
 
 cs_game_disconnected
 
-Name:  cs_game_disconnected
+# name:   cs_game_disconnected
 
-Structure:
+- Structure:
 
 cs_win_panel_round
 
-Name:  cs_win_panel_round
+# name:   cs_win_panel_round
 
-Structure:
+- Structure:
 
-bool  show_timer_defend
+- bool  show_timer_defend
 
-bool  show_timer_attack
+- bool  show_timer_attack
 
-short  timer_time
+- short  timer_time
 
-byte  final_event  defined in cs_gamerules.h
+> byte  final_event  defined in cs_gamerules.h
 
 string  funfact_token
 
-short  funfact_player
+- short  funfact_player
 
 long  funfact_data1
 
@@ -1496,93 +1495,93 @@ long  funfact_data3
 
 cs_win_panel_match
 
-Name:  cs_win_panel_match
+# name:   cs_win_panel_match
 
-Structure:
+- Structure:
 
 cs_match_end_restart
 
-Name:  cs_match_end_restart
+# name:   cs_match_end_restart
 
-Structure:
+- Structure:
 
 cs_pre_restart
 
-Name:  cs_pre_restart
+# name:   cs_pre_restart
 
-Structure:
+- Structure:
 
 show_freezepanel
 
-Name:  show_freezepanel
+# name:   show_freezepanel
 
-Structure:
+- Structure:
 
-short  victim  endindex of the one who was killed
+- short  victim  endindex of the one who was killed
 
-short  killer  entindex of the killer entity
+- short  killer  entindex of the killer entity
 
-short  hits_taken
+- short  hits_taken
 
-short  damage_taken
+- short  damage_taken
 
-short  hits_given
+- short  hits_given
 
-short  damage_given
+- short  damage_given
 
 hide_freezepanel
 
-Name:  hide_freezepanel
+# name:   hide_freezepanel
 
-Structure:
+- Structure:
 
 freezecam_started
 
-Name:  freezecam_started
+# name:   freezecam_started
 
-Structure:
+- Structure:
 
 player_avenged_teammate
 
-Name:  player_avenged_teammate
+# name:   player_avenged_teammate
 
-Structure:
+- Structure:
 
-short  avenger_id
+- short  avenger_id
 
-short  avenged_player_id
+- short  avenged_player_id
 
 achievement_earned
 
-Name:  achievement_earned
+# name:   achievement_earned
 
-Structure:
+- Structure:
 
-byte  player  entindex of the player
+> byte  player  entindex of the player
 
-short  achievement  achievement ID
+- short  achievement  achievement ID
 
 achievement_earned_local
 
-Name:  achievement_earned_local
+# name:   achievement_earned_local
 
-Structure:
+- Structure:
 
-short  achievement  achievement ID
+- short  achievement  achievement ID
 
-short  splitscreenplayer  splitscreen ID
+- short  splitscreenplayer  splitscreen ID
 
 item_found
 
-Name:  item_found
+# name:   item_found
 
-Structure:
+- Structure:
 
-byte  player  entindex of the player
+> byte  player  entindex of the player
 
-byte  quality  quality of the item
+> byte  quality  quality of the item
 
-byte  method  method by which we acquired the item
+> byte  method  method by which we acquired the item
 
 long  itemdef  the item definition index
 
@@ -1590,33 +1589,33 @@ long  itemid  the item id in the players inventory
 
 items_gifted
 
-Name:  items_gifted
+# name:   items_gifted
 
-Structure:
+- Structure:
 
-byte  player  entindex of the player who sent the gift
+> byte  player  entindex of the player who sent the gift
 
 long  itemdef  the item definition index of the gift that was opened
 
-byte  numgifts  how many recipients got the gifts in this gift batch
+> byte  numgifts  how many recipients got the gifts in this gift batch
 
-byte  giftidx  index of recipient in this gift batch (0 for the first recipient, 1 for second, and so on...)
+> byte  giftidx  index of recipient in this gift batch (0 for the first recipient, 1 for second, and so on...)
 
 long  accountid  gift recipient's account ID
 
 repost_xbox_achievements
 
-Name:  repost_xbox_achievements
+# name:   repost_xbox_achievements
 
-Structure:
+- Structure:
 
-short  splitscreenplayer  splitscreen ID
+- short  splitscreenplayer  splitscreen ID
 
 match_end_conditions
 
-Name:  match_end_conditions
+# name:   match_end_conditions
 
-Structure:
+- Structure:
 
 long  frags
 
@@ -1628,365 +1627,365 @@ long  time
 
 round_mvp
 
-Name:  round_mvp
+# name:   round_mvp
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  reason
+- short  reason
 
 long  value
 
 long  musickitmvps
 
-byte  nomusic
+> byte  nomusic
 
 player_decal
 
-Name:  player_decal
+# name:   player_decal
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 teamplay_round_start
 
-Name:  teamplay_round_start
+# name:   teamplay_round_start
 
-Structure:
+- Structure:
 
-bool  full_reset  is this a full reset of the map
+- bool  full_reset  is this a full reset of the map
 
 show_survival_respawn_status
 
-Name:  show_survival_respawn_status
+# name:   show_survival_respawn_status
 
-Structure:
+- Structure:
 
 string  loc_token
 
 long  duration
 
-short  userid
+- short  userid
 
 client_disconnect
 
-Name:  client_disconnect
+# name:   client_disconnect
 
-Structure:
+- Structure:
 
 gg_player_levelup
 
-Name:  gg_player_levelup
+# name:   gg_player_levelup
 
-Structure:
+- Structure:
 
-short  userid  player who leveled up
+- short  userid  player who leveled up
 
-short  weaponrank
+- short  weaponrank
 
 string  weaponname  name of weapon being awarded
 
 ggtr_player_levelup
 
-Name:  ggtr_player_levelup
+# name:   ggtr_player_levelup
 
-Structure:
+- Structure:
 
-short  userid  player who leveled up
+- short  userid  player who leveled up
 
-short  weaponrank
+- short  weaponrank
 
 string  weaponname  name of weapon being awarded
 
 assassination_target_killed
 
-Name:  assassination_target_killed
+# name:   assassination_target_killed
 
-Structure:
+- Structure:
 
-short  target  player killed
+- short  target  player killed
 
-short  killer  killing player (with the quest)
+- short  killer  killing player (with the quest)
 
 ggprogressive_player_levelup
 
-Name:  ggprogressive_player_levelup
+# name:   ggprogressive_player_levelup
 
-Structure:
+- Structure:
 
-short  userid  player who leveled up
+- short  userid  player who leveled up
 
-short  weaponrank
+- short  weaponrank
 
 string  weaponname  name of weapon being awarded
 
 gg_killed_enemy
 
-Name:  gg_killed_enemy
+# name:   gg_killed_enemy
 
-Structure:
+- Structure:
 
-short  victimid  user ID who died
+- short  victimid  user ID who died
 
-short  attackerid  user ID who killed
+- short  attackerid  user ID who killed
 
-short  dominated  did killer dominate victim with this kill
+- short  dominated  did killer dominate victim with this kill
 
-short  revenge  did killer get revenge on victim with this kill
+- short  revenge  did killer get revenge on victim with this kill
 
-bool  bonus  did killer kill with a bonus weapon?
+- bool  bonus  did killer kill with a bonus weapon?
 
 gg_final_weapon_achieved
 
-Name:  gg_final_weapon_achieved
+# name:   gg_final_weapon_achieved
 
-Structure:
+- Structure:
 
-short  playerid  user ID who achieved the final gun game weapon
+- short  playerid  user ID who achieved the final gun game weapon
 
 gg_bonus_grenade_achieved
 
-Name:  gg_bonus_grenade_achieved
+# name:   gg_bonus_grenade_achieved
 
-Structure:
+- Structure:
 
-short  userid  user ID who achieved the bonus grenade
+- short  userid  user ID who achieved the bonus grenade
 
 switch_team
 
-Name:  switch_team
+# name:   switch_team
 
-Structure:
+- Structure:
 
-short  numPlayers  number of active players on both T and CT
+- short  numPlayers  number of active players on both T and CT
 
-short  numSpectators  number of spectators
+- short  numSpectators  number of spectators
 
-short  avg_rank  average rank of human players
+- short  avg_rank  average rank of human players
 
-short  numTSlotsFree
+- short  numTSlotsFree
 
-short  numCTSlotsFree
+- short  numCTSlotsFree
 
 gg_leader
 
-Name:  gg_leader
+# name:   gg_leader
 
-Structure:
+- Structure:
 
-short  playerid  user ID that is currently in the lead
+- short  playerid  user ID that is currently in the lead
 
 gg_team_leader
 
-Name:  gg_team_leader
+# name:   gg_team_leader
 
-Structure:
+- Structure:
 
-short  playerid  user ID that is currently in the lead
+- short  playerid  user ID that is currently in the lead
 
 gg_player_impending_upgrade
 
-Name:  gg_player_impending_upgrade
+# name:   gg_player_impending_upgrade
 
-Structure:
+- Structure:
 
-short  userid  player who will be leveling up
+- short  userid  player who will be leveling up
 
 write_profile_data
 
-Name:  write_profile_data
+# name:   write_profile_data
 
-Structure:
+- Structure:
 
 trial_time_expired
 
-Note: fired when a player runs out of time in trial mode
+> **_NOTE:_** fired when a player runs out of time in trial mode
 
-Name:  trial_time_expired
+# name:   trial_time_expired
 
-Structure:
+- Structure:
 
-short  slot  player whose time has expired
+- short  slot  player whose time has expired
 
 update_matchmaking_stats
 
-Name:  update_matchmaking_stats
+# name:   update_matchmaking_stats
 
-Structure:
+- Structure:
 
 player_reset_vote
 
-Name:  player_reset_vote
+# name:   player_reset_vote
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  vote
+- short  vote
 
 enable_restart_voting
 
-Name:  enable_restart_voting
+# name:   enable_restart_voting
 
-Structure:
+- Structure:
 
-bool  enable
+- bool  enable
 
 sfuievent
 
-Name:  sfuievent
+# name:   sfuievent
 
-Structure:
+- Structure:
 
 string  action
 
 string  data
 
-byte  slot
+> byte  slot
 
 start_vote
 
-Name:  start_vote
+# name:   start_vote
 
-Structure:
+- Structure:
 
-short  userid  user ID on server
+- short  userid  user ID on server
 
-byte  type
+> byte  type
 
-short  vote_parameter
+- short  vote_parameter
 
 player_given_c4
 
-Name:  player_given_c4
+# name:   player_given_c4
 
-Structure:
+- Structure:
 
-short  userid  user ID who received the c4
+- short  userid  user ID who received the c4
 
 player_become_ghost
 
-Name:  player_become_ghost
+# name:   player_become_ghost
 
-Structure:
+- Structure:
 
-short  userid  user ID who became a ghost
+- short  userid  user ID who became a ghost
 
 gg_reset_round_start_sounds
 
-Name:  gg_reset_round_start_sounds
+# name:   gg_reset_round_start_sounds
 
-Structure:
+- Structure:
 
-short  userid  user ID who should have round start sounds reset
+- short  userid  user ID who should have round start sounds reset
 
 tr_player_flashbanged
 
-Name:  tr_player_flashbanged
+# name:   tr_player_flashbanged
 
-Structure:
+- Structure:
 
-short  userid  user ID of the player banged
+- short  userid  user ID of the player banged
 
 tr_mark_complete
 
-Name:  tr_mark_complete
+# name:   tr_mark_complete
 
-Structure:
+- Structure:
 
-short  complete
+- short  complete
 
 tr_mark_best_time
 
-Name:  tr_mark_best_time
+# name:   tr_mark_best_time
 
-Structure:
+- Structure:
 
 long  time
 
 tr_exit_hint_trigger
 
-Name:  tr_exit_hint_trigger
+# name:   tr_exit_hint_trigger
 
-Structure:
+- Structure:
 
 bot_takeover
 
-Name:  bot_takeover
+# name:   bot_takeover
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  botid
+- short  botid
 
-short  index
+- short  index
 
 tr_show_finish_msgbox
 
-Name:  tr_show_finish_msgbox
+# name:   tr_show_finish_msgbox
 
-Structure:
+- Structure:
 
-short  userid  user ID of the player
+- short  userid  user ID of the player
 
 tr_show_exit_msgbox
 
-Name:  tr_show_exit_msgbox
+# name:   tr_show_exit_msgbox
 
-Structure:
+- Structure:
 
-short  userid  user ID of the player
+- short  userid  user ID of the player
 
 reset_player_controls
 
-Note: used for demos
+> **_NOTE:_** used for demos
 
-Name:  reset_player_controls
+# name:   reset_player_controls
 
-Structure:
+- Structure:
 
 jointeam_failed
 
-Name:  jointeam_failed
+# name:   jointeam_failed
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-byte  reason  0: team_full
+> byte  reason  0: team_full
 
 teamchange_pending
 
-Name:  teamchange_pending
+# name:   teamchange_pending
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-byte  toteam
+> byte  toteam
 
 material_default_complete
 
-Name:  material_default_complete
+# name:   material_default_complete
 
-Structure:
+- Structure:
 
 cs_prev_next_spectator
 
-Name:  cs_prev_next_spectator
+# name:   cs_prev_next_spectator
 
-Structure:
+- Structure:
 
-bool  next
+- bool  next
 
 cs_handle_ime_event
 
-Name:  cs_handle_ime_event
+# name:   cs_handle_ime_event
 
-Structure:
+- Structure:
 
 1  local
 
@@ -1996,11 +1995,11 @@ wstring  eventdata
 
 nextlevel_changed
 
-Note: a game event, name may be 32 characters long
+> **_NOTE:_** a game event, name may be 32 characters long
 
-Name:  nextlevel_changed
+# name:   nextlevel_changed
 
-Structure:
+- Structure:
 
 string  nextlevel
 
@@ -2010,21 +2009,21 @@ string  skirmishmode
 
 seasoncoin_levelup
 
-Name:  seasoncoin_levelup
+# name:   seasoncoin_levelup
 
-Structure:
+- Structure:
 
-short  player  entindex of the player
+- short  player  entindex of the player
 
-short  category
+- short  category
 
-short  rank
+- short  rank
 
 tournament_reward
 
-Name:  tournament_reward
+# name:   tournament_reward
 
-Structure:
+- Structure:
 
 long  defindex
 
@@ -2034,271 +2033,271 @@ long  accountid
 
 start_halftime
 
-Name:  start_halftime
+# name:   start_halftime
 
-Structure:
+- Structure:
 
 ammo_refill
 
-Name:  ammo_refill
+# name:   ammo_refill
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-bool  success
+- bool  success
 
 parachute_pickup
 
-Name:  parachute_pickup
+# name:   parachute_pickup
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 parachute_deploy
 
-Name:  parachute_deploy
+# name:   parachute_deploy
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 dronegun_attack
 
-Name:  dronegun_attack
+# name:   dronegun_attack
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 drone_dispatched
 
-Name:  drone_dispatched
+# name:   drone_dispatched
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  priority
+- short  priority
 
-short  drone_dispatched
+- short  drone_dispatched
 
 loot_crate_visible
 
-Name:  loot_crate_visible
+# name:   loot_crate_visible
 
-Structure:
+- Structure:
 
-short  userid  player entindex
+- short  userid  player entindex
 
-short  subject  crate entindex
+- short  subject  crate entindex
 
 string  type  type of crate (metal, wood, or paradrop)
 
 loot_crate_opened
 
-Name:  loot_crate_opened
+# name:   loot_crate_opened
 
-Structure:
+- Structure:
 
-short  userid  player entindex
+- short  userid  player entindex
 
 string  type  type of crate (metal, wood, or paradrop)
 
 open_crate_instr
 
-Name:  open_crate_instr
+# name:   open_crate_instr
 
-Structure:
+- Structure:
 
-short  userid  player entindex
+- short  userid  player entindex
 
-short  subject  crate entindex
+- short  subject  crate entindex
 
 string  type  type of crate (metal, wood, or paradrop)
 
 smoke_beacon_paradrop
 
-Name:  smoke_beacon_paradrop
+# name:   smoke_beacon_paradrop
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  paradrop
+- short  paradrop
 
 survival_paradrop_spawn
 
-Name:  survival_paradrop_spawn
+# name:   survival_paradrop_spawn
 
-Structure:
+- Structure:
 
-short  entityid
+- short  entityid
 
 survival_paradrop_break
 
-Name:  survival_paradrop_break
+# name:   survival_paradrop_break
 
-Structure:
+- Structure:
 
-short  entityid
+- short  entityid
 
 drone_cargo_detached
 
-Name:  drone_cargo_detached
+# name:   drone_cargo_detached
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  cargo
+- short  cargo
 
-bool  delivered
+- bool  delivered
 
 drone_above_roof
 
-Name:  drone_above_roof
+# name:   drone_above_roof
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  cargo
+- short  cargo
 
 choppers_incoming_warning
 
-Name:  choppers_incoming_warning
+# name:   choppers_incoming_warning
 
-Structure:
+- Structure:
 
-bool  global
+- bool  global
 
 firstbombs_incoming_warning
 
-Name:  firstbombs_incoming_warning
+# name:   firstbombs_incoming_warning
 
-Structure:
+- Structure:
 
-bool  global
+- bool  global
 
 dz_item_interaction
 
-Name:  dz_item_interaction
+# name:   dz_item_interaction
 
-Structure:
+- Structure:
 
-short  userid  player entindex
+- short  userid  player entindex
 
-short  subject  crate entindex
+- short  subject  crate entindex
 
 string  type  type of crate (metal, wood, or paradrop)
 
 snowball_hit_player_face
 
-Name:  snowball_hit_player_face
+# name:   snowball_hit_player_face
 
-Structure:
+- Structure:
 
-short  userid  player userid
+- short  userid  player userid
 
 survival_teammate_respawn
 
-Name:  survival_teammate_respawn
+# name:   survival_teammate_respawn
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 survival_no_respawns_warning
 
-Name:  survival_no_respawns_warning
+# name:   survival_no_respawns_warning
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 survival_no_respawns_final
 
-Name:  survival_no_respawns_final
+# name:   survival_no_respawns_final
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
 player_ping
 
-Name:  player_ping
+# name:   player_ping
 
-Structure:
+- Structure:
 
-short  userid
+- short  userid
 
-short  entityid
+- short  entityid
 
-float  x
+- float  x
 
-float  y
+- float  y
 
-float  z
+- float  z
 
-bool  urgent
+- bool  urgent
 
 player_ping_stop
 
-Name:  player_ping_stop
+# name:   player_ping_stop
 
-Structure:
+- Structure:
 
-short  entityid
+- short  entityid
 
 guardian_wave_restart
 
-Name:  guardian_wave_restart
+# name:   guardian_wave_restart
 
-Structure:
+- Structure:
 
 weapon_fire
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 11/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 11/32
 
-Note: Every time a client fires their weapon and it's empty
+> **_NOTE:_** Every time a client fires their weapon and it's empty
 
-Name: weapon_fire_on_empty
+# name:  weapon_fire_on_empty
 
-Structure:short userid
-
-stringweaponweapon name used
-
-Note: Every time a client throws their grenade
-
-Name: grenade_thrown
-
-Structure:short userid
+- Structure:- short userid
 
 stringweaponweapon name used
 
-Name: weapon_outofammo
+> **_NOTE:_** Every time a client throws their grenade
 
-Structure:shortuserid
+# name:  grenade_thrown
 
-Note: Every time a client reloads their weapon
+- Structure:- short userid
 
-Name: weapon_reload
+stringweaponweapon name used
 
-Structure:shortuserid
+# name:  weapon_outofammo
 
-Note: Every time a client zooms a scoped weapon
+- Structure:- shortuserid
 
-Name: weapon_zoom
+> **_NOTE:_** Every time a client reloads their weapon
 
-Structure:shortuserid
+# name:  weapon_reload
 
-Name: silencer_detach
+- Structure:- shortuserid
 
-Structure:shortuserid
+> **_NOTE:_** Every time a client zooms a scoped weapon
+
+# name:  weapon_zoom
+
+- Structure:- shortuserid
+
+# name:  silencer_detach
+
+- Structure:- shortuserid
 
 weapon_fire_on_empty
 
@@ -2316,57 +2315,57 @@ silencer_detach
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 12/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 12/32
 
 ```
 
-Name: inspect_weapon
+# name:  inspect_weapon
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Note: exists for the game instructor to let it know when the player zoomed in with a regular
+> **_NOTE:_** exists for the game instructor to let it know when the player zoomed in with a regular
 
 rifle. Different from the above weapon_zoom because we don't use this event to notify bots
 
-Name: weapon_zoom_rifle
+# name:  weapon_zoom_rifle
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: player_spawned
+# name:  player_spawned
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-bool inrestarttrue if restart is pending
+- bool inrestarttrue if restart is pending
 
-Note: Every time an item is picked up (generally weapons)
+> **_NOTE:_** Every time an item is picked up (generally weapons)
 
-Name: item_pickup
+# name:  item_pickup
 
-Structure:short userid
+- Structure:- short userid
 
 stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
-bool silent
+- bool silent
 
 long defindex
 
-Name: item_pickup_slerp
+# name:  item_pickup_slerp
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortindex
+- shortindex
 
-shortbehavior
+- shortbehavior
 
-Name: item_pickup_failed
+# name:  item_pickup_failed
 
-Structure:short userid
+- Structure:- short userid
 
 stringitem
 
-short reason
+- short reason
 
-short limit
+- short limit
 
 inspect_weapon
 
@@ -2384,77 +2383,77 @@ item_pickup_failed
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 13/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 13/32
 
 ```
 
-Name: item_remove
+# name:  item_remove
 
-Structure:short userid
+- Structure:- short userid
 
 stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long defindex
 
-Name: ammo_pickup
+# name:  ammo_pickup
 
-Structure:short userid
+- Structure:- short userid
 
 stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long index the weapon entindex
 
-Name: item_equip
+# name:  item_equip
 
-Structure:short userid
+- Structure:- short userid
 
 stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long defindex
 
-bool canzoom
+- bool canzoom
 
-bool hassilencer
+- bool hassilencer
 
-bool issilenced
+- bool issilenced
 
-bool hastracers
+- bool hastracers
 
-short weptype see below
+- short weptype see below
 
-WEAPONTYPE_UNKNOWN = -1
+> WEAPONTYPE_UNKNOWN = -1
 
-WEAPONTYPE_KNIFE = 0
+> WEAPONTYPE_KNIFE = 0
 
-WEAPONTYPE_PISTOL = 1
+> WEAPONTYPE_PISTOL = 1
 
-WEAPONTYPE_SUBMACHINEGUN = 2
+> WEAPONTYPE_SUBMACHINEGUN = 2
 
-WEAPONTYPE_RIFLE = 3
+> WEAPONTYPE_RIFLE = 3
 
-WEAPONTYPE_SHOTGUN = 4
+> WEAPONTYPE_SHOTGUN = 4
 
-WEAPONTYPE_SNIPER_RIFLE = 5
+> WEAPONTYPE_SNIPER_RIFLE = 5
 
-WEAPONTYPE_MACHINEGUN = 6
+> WEAPONTYPE_MACHINEGUN = 6
 
-WEAPONTYPE_C4 = 7
+> WEAPONTYPE_C4 = 7
 
-WEAPONTYPE_TASER = 8
+> WEAPONTYPE_TASER = 8
 
-WEAPONTYPE_GRENADE = 9
+> WEAPONTYPE_GRENADE = 9
 
-WEAPONTYPE_HEALTHSHOT = 11
+> WEAPONTYPE_HEALTHSHOT = 11
 
-bool ispainted
+- bool ispainted
 
-Name: enter_buyzone
+# name:  enter_buyzone
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-bool canbuy
+- bool canbuy
 
-Name: exit_buyzone
+# name:  exit_buyzone
 
 item_remove
 
@@ -2470,49 +2469,49 @@ exit_buyzone
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 14/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 14/32
 
 ```
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-bool canbuy
+- bool canbuy
 
-Name: buytime_ended
+# name:  buytime_ended
 
-Structure:
+- Structure:
 
-Name: enter_bombzone
+# name:  enter_bombzone
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-bool hasbomb
+- bool hasbomb
 
-bool isplanted
+- bool isplanted
 
-Name: exit_bombzone
+# name:  exit_bombzone
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-bool hasbomb
+- bool hasbomb
 
-bool isplanted
+- bool isplanted
 
-Name: enter_rescue_zone
+# name:  enter_rescue_zone
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: exit_rescue_zone
+# name:  exit_rescue_zone
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: silencer_off
+# name:  silencer_off
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: silencer_on
+# name:  silencer_on
 
-Structure:shortuserid
+- Structure:- shortuserid
 
 buytime_ended
 
@@ -2532,49 +2531,49 @@ silencer_on
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 15/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 15/32
 
 ```
 
-Name: buymenu_open
+# name:  buymenu_open
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: buymenu_close
+# name:  buymenu_close
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Note: sent before all other round restart actions
+> **_NOTE:_** sent before all other round restart actions
 
-Name: round_prestart
+# name:  round_prestart
 
-Structure:
+- Structure:
 
-Note: sent after all other round restart actions
+> **_NOTE:_** sent after all other round restart actions
 
-Name: round_poststart
+# name:  round_poststart
 
-Structure:
+- Structure:
 
-Name: round_start
+# name:  round_start
 
-Structure:long timelimit round time limit in seconds
+- Structure:long timelimit round time limit in seconds
 
 long fraglimit frag limit in seconds
 
 stringobjectiveround objective
 
-Name: round_end
+# name:  round_end
 
-Structure:byte winner winner team/user id
+- Structure:> byte winner winner team/user id
 
-byte reason reason why team won
+> byte reason reason why team won
 
 stringmessage end round message
 
-byte legacy server-generated legacy value
+> byte legacy server-generated legacy value
 
-short player_count
+- short player_count
 
 total number of players alive at the end of round, used for statistics
 
@@ -2582,7 +2581,7 @@ gathering, computed on the server in the event client is in replay when
 
 receiving this message
 
-byte nomusic if set, don't play round end music, because action is still on-going
+> byte nomusic if set, don't play round end music, because action is still on-going
 
 buymenu_open
 
@@ -2600,67 +2599,67 @@ round_end
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 16/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 16/32
 
 ```
 
-Note: Every time a grenade bounces
+> **_NOTE:_** Every time a grenade bounces
 
-Name: grenade_bounce
+# name:  grenade_bounce
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Note: Every time a hegrenade explodes
+> **_NOTE:_** Every time a hegrenade explodes
 
-Name: hegrenade_detonate
+# name:  hegrenade_detonate
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortentityid
+- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Note: Every time a flashbang detonates
+> **_NOTE:_** Every time a flashbang detonates
 
-Name: flashbang_detonate
+# name:  flashbang_detonate
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortentityid
+- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Note: Every time a smokegrenade detonates
+> **_NOTE:_** Every time a smokegrenade detonates
 
-Name: smokegrenade_detonate
+# name:  smokegrenade_detonate
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortentityid
+- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Name: smokegrenade_expired
+# name:  smokegrenade_expired
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortentityid
+- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
 grenade_bounce
 
@@ -2676,69 +2675,69 @@ smokegrenade_expired
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 17/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 17/32
 
 ```
 
-float z
+- float z
 
-Name: molotov_detonate
+# name:  molotov_detonate
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Name: decoy_detonate
+# name:  decoy_detonate
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortentityid
+- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Name: decoy_started
+# name:  decoy_started
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortentityid
+- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Note: Every time a tagrenade explodes
+> **_NOTE:_** Every time a tagrenade explodes
 
-Name: tagrenade_detonate
+# name:  tagrenade_detonate
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortentityid
+- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Name: inferno_startburn
+# name:  inferno_startburn
 
-Structure:shortentityid
+- Structure:- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
 molotov_detonate
 
@@ -2754,61 +2753,61 @@ inferno_startburn
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 18/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 18/32
 
 ```
 
-Note:
+> **_NOTE:_**
 
-Name: inferno_expire
+# name:  inferno_expire
 
-Structure:shortentityid
+- Structure:- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Note:
+> **_NOTE:_**
 
-Name: inferno_extinguish
+# name:  inferno_extinguish
 
-Structure:shortentityid
+- Structure:- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Note:
+> **_NOTE:_**
 
-Name: decoy_firing
+# name:  decoy_firing
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortentityid
+- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Note: Every time a bullet hits something
+> **_NOTE:_** Every time a bullet hits something
 
-Name: bullet_impact
+# name:  bullet_impact
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-Note: Every time a player takes a step
+> **_NOTE:_** Every time a player takes a step
 
 inferno_expire
 
@@ -2824,53 +2823,53 @@ player_footstep
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 19/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 19/32
 
 ```
 
-Name: player_footstep
+# name:  player_footstep
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Note: Every time a player jumps
+> **_NOTE:_** Every time a player jumps
 
-Name: player_jump
+# name:  player_jump
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Note: Every time a player is blinded by a flashbang
+> **_NOTE:_** Every time a player is blinded by a flashbang
 
-Name: player_blind
+# name:  player_blind
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortattacker user ID who threw the flash
+- shortattacker user ID who threw the flash
 
-shortentityid the flashbang going off
+- shortentityid the flashbang going off
 
-float blind_duration
+- float blind_duration
 
-Note: Every time a player takes damage due to a fall
+> **_NOTE:_** Every time a player takes damage due to a fall
 
-Name: player_falldamage
+# name:  player_falldamage
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-float damage
+- float damage
 
-Note: Every time a door is put in motion (opened)
+> **_NOTE:_** Every time a door is put in motion (opened)
 
-Name: door_moving
+# name:  door_moving
 
-Structure:long entindex
+- Structure:long entindex
 
-shortuserid
+- shortuserid
 
-Note: When the round's mp_freezetime is up
+> **_NOTE:_** When the round's mp_freezetime is up
 
-Name: round_freeze_end
+# name:  round_freeze_end
 
-Structure:
+- Structure:
 
 player_jump
 
@@ -2886,45 +2885,45 @@ round_freeze_end
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 20/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 20/32
 
 ```
 
-Name: mb_input_lock_success
+# name:  mb_input_lock_success
 
-Structure:
+- Structure:
 
-Name: mb_input_lock_cancel
+# name:  mb_input_lock_cancel
 
-Structure:
+- Structure:
 
-Note: Guess: Called when an area is blocked by the nav of a map
+> **_NOTE:_** Guess: Called when an area is blocked by the nav of a map
 
-Name: nav_blocked
+# name:  nav_blocked
 
-Structure:longarea
+- Structure:longarea
 
-boolblocked
+- boolblocked
 
-Note: Called when a nav file does not exist for a map and bots are added
+> **_NOTE:_** Called when a nav file does not exist for a map and bots are added
 
-Name: nav_generate
+# name:  nav_generate
 
-Structure:
+- Structure:
 
-Note: Guess: Called when the player stats (achievments) are sent to valve
+> **_NOTE:_** Guess: Called when the player stats (achievments) are sent to valve
 
-Name: player_stats_updated
+# name:  player_stats_updated
 
-Structure:boolforceupload
+- Structure:- boolforceupload
 
-Name: achievement_info_loaded
+# name:  achievement_info_loaded
 
-Structure:
+- Structure:
 
-Name: spec_target_updated
+# name:  spec_target_updated
 
-Structure:byteuseridentindex of the player
+- Structure:> byteuseridentindex of the player
 
 mb_input_lock_success
 
@@ -2944,39 +2943,39 @@ spec_target_updated
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 21/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 21/32
 
 ```
 
-Name: spec_target_updated
+# name:  spec_target_updated
 
-Structure:byteuseridentindex of the player
+- Structure:> byteuseridentindex of the player
 
-Name: hltv_changed_mode
+# name:  hltv_changed_mode
 
-Structure:longoldmode
+- Structure:longoldmode
 
 longnewmode
 
 longobs_target
 
-Name: cs_game_disconnected
+# name:  cs_game_disconnected
 
-Structure:
+- Structure:
 
-Name: cs_win_panel_round
+# name:  cs_win_panel_round
 
-Structure:bool show_timer_defend
+- Structure:- bool show_timer_defend
 
-bool show_timer_attack
+- bool show_timer_attack
 
-short timer_time
+- short timer_time
 
-byte final_event defined in cs_gamerules.h
+> byte final_event defined in cs_gamerules.h
 
 stringfunfact_token
 
-short funfact_player
+- short funfact_player
 
 long funfact_data1
 
@@ -2984,83 +2983,83 @@ long funfact_data2
 
 long funfact_data3
 
-Name: cs_win_panel_match
+# name:  cs_win_panel_match
 
-Structure:
+- Structure:
 
-Name: cs_match_end_restart
+# name:  cs_match_end_restart
 
-Structure:
+- Structure:
 
-Name: cs_pre_restart
+# name:  cs_pre_restart
 
-Structure:
+- Structure:
 
-spec_mode_updated
+- spec_mode_updated
 
-hltv_changed_mode
+- hltv_changed_mode
 
-cs_game_disconnected
+- cs_game_disconnected
 
-cs_win_panel_round
+- cs_win_panel_round
 
-cs_win_panel_match
+- cs_win_panel_match
 
-cs_match_end_restart
+- cs_match_end_restart
 
-cs_pre_restart
+- cs_pre_restart
 
 ```
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 22/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 22/32
 
 ```
 
-Name: show_freezepanel
+# name:  show_freezepanel
 
-Structure:shortvictim endindex of the one who was killed
+- Structure:- shortvictim endindex of the one who was killed
 
-shortkiller entindex of the killer entity
+- shortkiller entindex of the killer entity
 
-shorthits_taken
+- shorthits_taken
 
-shortdamage_taken
+- shortdamage_taken
 
-shorthits_given
+- shorthits_given
 
-shortdamage_given
+- shortdamage_given
 
-Name: hide_freezepanel
+# name:  hide_freezepanel
 
-Structure:
+- Structure:
 
-Name: freezecam_started
+# name:  freezecam_started
 
-Structure:
+- Structure:
 
-Name: player_avenged_teammate
+# name:  player_avenged_teammate
 
-Structure:shortavenger_id
+- Structure:- shortavenger_id
 
-shortavenged_player_id
+- shortavenged_player_id
 
-Name: achievement_earned
+# name:  achievement_earned
 
-Structure:byte player entindex of the player
+- Structure:> byte player entindex of the player
 
-shortachievementachievement ID
+- shortachievementachievement ID
 
-Name: achievement_earned_local
+# name:  achievement_earned_local
 
-Structure:shortachievement achievement ID
+- Structure:- shortachievement achievement ID
 
-shortsplitscreenplayersplitscreen ID
+- shortsplitscreenplayersplitscreen ID
 
-Name: item_found
+# name:  item_found
 
-Structure:byteplayer entindex of the player
+- Structure:> byteplayer entindex of the player
 
 show_freezepanel
 
@@ -3080,39 +3079,39 @@ item_found
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 23/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 23/32
 
 ```
 
-bytequality quality of the item
+> bytequality quality of the item
 
-bytemethodmethod by which we acquired the item
+> bytemethodmethod by which we acquired the item
 
 longitemdefthe item definition index
 
 longitemid the item id in the players inventory
 
-Name: items_gifted
+# name:  items_gifted
 
-Structure:byteplayer entindex of the player who sent the gift
+- Structure:> byteplayer entindex of the player who sent the gift
 
 longitemdef the item definition index of the gift that was opened
 
-bytenumgifts how many recipients got the gifts in this gift batch
+> bytenumgifts how many recipients got the gifts in this gift batch
 
-bytegiftidx index of recipient in this gift batch (0 for the first recipient, 1 for second, and
+> bytegiftidx index of recipient in this gift batch (0 for the first recipient, 1 for second, and
 
 so on...)
 
 longaccountidgift recipient's account ID
 
-Name: repost_xbox_achievements
+# name:  repost_xbox_achievements
 
-Structure:shortsplitscreenplayersplitscreen ID
+- Structure:- shortsplitscreenplayersplitscreen ID
 
-Name: match_end_conditions
+# name:  match_end_conditions
 
-Structure:longfrags
+- Structure:longfrags
 
 longmax_rounds
 
@@ -3120,21 +3119,21 @@ longwin_rounds
 
 longtime
 
-Name: round_mvp
+# name:  round_mvp
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortreason
+- shortreason
 
 long value
 
 long musickitmvps
 
-byte nomusic
+> byte nomusic
 
-Name: player_decal
+# name:  player_decal
 
-Structure:shortuserid
+- Structure:- shortuserid
 
 items_gifted
 
@@ -3152,53 +3151,53 @@ teamplay_round_start
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 24/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 24/32
 
 ```
 
-Name: teamplay_round_start
+# name:  teamplay_round_start
 
-Structure:boolfull_resetis this a full reset of the map
+- Structure:- boolfull_resetis this a full reset of the map
 
-Name: show_survival_respawn_status
+# name:  show_survival_respawn_status
 
-Structure:stringloc_token
+- Structure:stringloc_token
 
 long duration
 
-short userid
+- short userid
 
-Name: client_disconnect
+# name:  client_disconnect
 
-Structure:
+- Structure:
 
-Name: gg_player_levelup
+# name:  gg_player_levelup
 
-Structure:short userid player who leveled up
+- Structure:- short userid player who leveled up
 
-short weaponrank
-
-stringweaponnamename of weapon being awarded
-
-Name: ggtr_player_levelup
-
-Structure:short userid player who leveled up
-
-short weaponrank
+- short weaponrank
 
 stringweaponnamename of weapon being awarded
 
-Name: assassination_target_killed
+# name:  ggtr_player_levelup
 
-Structure:shorttargetplayer killed
+- Structure:- short userid player who leveled up
 
-shortkiller killing player (with the quest)
+- short weaponrank
 
-Name: ggprogressive_player_levelup
+stringweaponnamename of weapon being awarded
 
-Structure:short userid player who leveled up
+# name:  assassination_target_killed
 
-short weaponrank
+- Structure:- shorttargetplayer killed
+
+- shortkiller killing player (with the quest)
+
+# name:  ggprogressive_player_levelup
+
+- Structure:- short userid player who leveled up
+
+- short weaponrank
 
 stringweaponnamename of weapon being awarded
 
@@ -3218,53 +3217,53 @@ ggprogressive_player_levelup
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 25/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 25/32
 
 ```
 
-Name: gg_killed_enemy
+# name:  gg_killed_enemy
 
-Structure:shortvictimid user ID who died
+- Structure:- shortvictimid user ID who died
 
-shortattackerid user ID who killed
+- shortattackerid user ID who killed
 
-shortdominateddid killer dominate victim with this kill
+- shortdominateddid killer dominate victim with this kill
 
-shortrevenge did killer get revenge on victim with this kill
+- shortrevenge did killer get revenge on victim with this kill
 
-bool bonus did killer kill with a bonus weapon?
+- bool bonus did killer kill with a bonus weapon?
 
-Name: gg_final_weapon_achieved
+# name:  gg_final_weapon_achieved
 
-Structure:shortplayeriduser ID who achieved the final gun game weapon
+- Structure:- shortplayeriduser ID who achieved the final gun game weapon
 
-Name: gg_bonus_grenade_achieved
+# name:  gg_bonus_grenade_achieved
 
-Structure:shortuseriduser ID who achieved the bonus grenade
+- Structure:- shortuseriduser ID who achieved the bonus grenade
 
-Name: switch_team
+# name:  switch_team
 
-Structure:shortnumPlayers number of active players on both T and CT
+- Structure:- shortnumPlayers number of active players on both T and CT
 
-shortnumSpectators number of spectators
+- shortnumSpectators number of spectators
 
-shortavg_rank average rank of human players
+- shortavg_rank average rank of human players
 
-shortnumTSlotsFree
+- shortnumTSlotsFree
 
-shortnumCTSlotsFree
+- shortnumCTSlotsFree
 
-Name: gg_leader
+# name:  gg_leader
 
-Structure:shortplayeriduser ID that is currently in the lead
+- Structure:- shortplayeriduser ID that is currently in the lead
 
-Name: gg_team_leader
+# name:  gg_team_leader
 
-Structure:shortplayeriduser ID that is currently in the lead
+- Structure:- shortplayeriduser ID that is currently in the lead
 
-Name: gg_player_impending_upgrade
+# name:  gg_player_impending_upgrade
 
-Structure:shortuseridplayer who will be leveling up
+- Structure:- shortuseridplayer who will be leveling up
 
 gg_killed_enemy
 
@@ -3284,107 +3283,107 @@ gg_player_impending_upgrade
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 26/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 26/32
 
 ```
 
-Name: write_profile_data
+# name:  write_profile_data
 
-Structure:
+- Structure:
 
-Note: fired when a player runs out of time in trial mode
+> **_NOTE:_** fired when a player runs out of time in trial mode
 
-Name: trial_time_expired
+# name:  trial_time_expired
 
-Structure:shortslotplayer whose time has expired
+- Structure:- shortslotplayer whose time has expired
 
-Name: update_matchmaking_stats
+# name:  update_matchmaking_stats
 
-Structure:
+- Structure:
 
-Name: player_reset_vote
+# name:  player_reset_vote
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortvote
+- shortvote
 
-Name: enable_restart_voting
+# name:  enable_restart_voting
 
-Structure:boolenable
+- Structure:- boolenable
 
-Name: sfuievent
+# name:  sfuievent
 
-Structure:stringaction
+- Structure:stringaction
 
 stringdata
 
-byte slot
+> byte slot
 
-Name: start_vote
+# name:  start_vote
 
-Structure:shortuserid user ID on server
+- Structure:- shortuserid user ID on server
 
-byte type
+> byte type
 
-shortvote_parameter
+- shortvote_parameter
 
-write_profile_data
+- write_profile_data
 
-trial_time_expired
+- trial_time_expired
 
-update_matchmaking_stats
+- update_matchmaking_stats
 
-player_reset_vote
+- player_reset_vote
 
-enable_restart_voting
+- enable_restart_voting
 
-sfuievent
+- sfuievent
 
-start_vote
+- start_vote
 
 ```
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 27/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 27/32
 
 ```
 
-Name: player_given_c4
+# name:  player_given_c4
 
-Structure:shortuseriduser ID who received the c4
+- Structure:- shortuseriduser ID who received the c4
 
-Name: player_become_ghost
+# name:  player_become_ghost
 
-Structure:shortuseriduser ID who became a ghost
+- Structure:- shortuseriduser ID who became a ghost
 
-Name: gg_reset_round_start_sounds
+# name:  gg_reset_round_start_sounds
 
-Structure:shortuseriduser ID who should have round start sounds reset
+- Structure:- shortuseriduser ID who should have round start sounds reset
 
-Name: tr_player_flashbanged
+# name:  tr_player_flashbanged
 
-Structure:shortuseriduser ID of the player banged
+- Structure:- shortuseriduser ID of the player banged
 
-Name: tr_mark_complete
+# name:  tr_mark_complete
 
-Structure:shortcomplete
+- Structure:- shortcomplete
 
-Name: tr_mark_best_time
+# name:  tr_mark_best_time
 
-Structure:longtime
+- Structure:longtime
 
-Name: tr_exit_hint_trigger
+# name:  tr_exit_hint_trigger
 
-Structure:
+- Structure:
 
-Name: bot_takeover
+# name:  bot_takeover
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortbotid
+- shortbotid
 
-shortindex
+- shortindex
 
 player_given_c4
 
@@ -3406,47 +3405,47 @@ bot_takeover
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 28/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 28/32
 
 ```
 
-Name: tr_show_finish_msgbox
+# name:  tr_show_finish_msgbox
 
-Structure:shortuseriduser ID of the player
+- Structure:- shortuseriduser ID of the player
 
-Name: tr_show_exit_msgbox
+# name:  tr_show_exit_msgbox
 
-Structure:shortuseriduser ID of the player
+- Structure:- shortuseriduser ID of the player
 
-Note: used for demos
+> **_NOTE:_** used for demos
 
-Name: reset_player_controls
+# name:  reset_player_controls
 
-Structure:
+- Structure:
 
-Name: jointeam_failed
+# name:  jointeam_failed
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-byte reason0: team_full
+> byte reason0: team_full
 
-Name: teamchange_pending
+# name:  teamchange_pending
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-byte toteam
+> byte toteam
 
-Name: material_default_complete
+# name:  material_default_complete
 
-Structure:
+- Structure:
 
-Name: cs_prev_next_spectator
+# name:  cs_prev_next_spectator
 
-Structure:boolnext
+- Structure:- boolnext
 
-Name: cs_handle_ime_event
+# name:  cs_handle_ime_event
 
-Structure:1 local
+- Structure:1 local
 
 tr_show_finish_msgbox
 
@@ -3468,7 +3467,7 @@ cs_handle_ime_event
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 29/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 29/32
 
 ```
 
@@ -3476,45 +3475,45 @@ string eventtype
 
 wstringeventdata
 
-Note: a game event, name may be 32 characters long
+> **_NOTE:_** a game event, name may be 32 characters long
 
-Name: nextlevel_changed
+# name:  nextlevel_changed
 
-Structure:stringnextlevel
+- Structure:stringnextlevel
 
 stringmapgroup
 
 stringskirmishmode
 
-Name: seasoncoin_levelup
+# name:  seasoncoin_levelup
 
-Structure:shortplayer entindex of the player
+- Structure:- shortplayer entindex of the player
 
-shortcategory
+- shortcategory
 
-shortrank
+- shortrank
 
-Name: tournament_reward
+# name:  tournament_reward
 
-Structure:longdefindex
+- Structure:longdefindex
 
 longtotalrewards
 
 longaccountid
 
-Name: start_halftime
+# name:  start_halftime
 
-Structure:
+- Structure:
 
-Name: ammo_refill
+# name:  ammo_refill
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-bool success
+- bool success
 
-Name: parachute_pickup
+# name:  parachute_pickup
 
-Structure:shortuserid
+- Structure:- shortuserid
 
 nextlevel_changed
 
@@ -3532,53 +3531,53 @@ parachute_pickup
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 30/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 30/32
 
 ```
 
-Name: parachute_deploy
+# name:  parachute_deploy
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: dronegun_attack
+# name:  dronegun_attack
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: drone_dispatched
+# name:  drone_dispatched
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortpriority
+- shortpriority
 
-shortdrone_dispatched
+- shortdrone_dispatched
 
-Name: loot_crate_visible
+# name:  loot_crate_visible
 
-Structure:short userid player entindex
+- Structure:- short userid player entindex
 
-short subjectcrate entindex
-
-stringtype type of crate (metal, wood, or paradrop)
-
-Name: loot_crate_opened
-
-Structure:short useridplayer entindex
+- short subjectcrate entindex
 
 stringtype type of crate (metal, wood, or paradrop)
 
-Name: open_crate_instr
+# name:  loot_crate_opened
 
-Structure:short userid player entindex
-
-short subjectcrate entindex
+- Structure:- short useridplayer entindex
 
 stringtype type of crate (metal, wood, or paradrop)
 
-Name: smoke_beacon_paradrop
+# name:  open_crate_instr
 
-Structure:shortuserid
+- Structure:- short userid player entindex
 
-shortparadrop
+- short subjectcrate entindex
+
+stringtype type of crate (metal, wood, or paradrop)
+
+# name:  smoke_beacon_paradrop
+
+- Structure:- shortuserid
+
+- shortparadrop
 
 parachute_deploy
 
@@ -3598,49 +3597,49 @@ smoke_beacon_paradrop
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 31/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 31/32
 
 ```
 
-Name: survival_paradrop_spawn
+# name:  survival_paradrop_spawn
 
-Structure:shortentityid
+- Structure:- shortentityid
 
-Name: survival_paradrop_break
+# name:  survival_paradrop_break
 
-Structure:shortentityid
+- Structure:- shortentityid
 
-Name: drone_cargo_detached
+# name:  drone_cargo_detached
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortcargo
+- shortcargo
 
-bool delivered
+- bool delivered
 
-Name: drone_above_roof
+# name:  drone_above_roof
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortcargo
+- shortcargo
 
-Name: choppers_incoming_warning
+# name:  choppers_incoming_warning
 
-Structure:boolglobal
+- Structure:- boolglobal
 
-Name: firstbombs_incoming_warning
+# name:  firstbombs_incoming_warning
 
-Structure:boolglobal
+- Structure:- boolglobal
 
-Name: dz_item_interaction
+# name:  dz_item_interaction
 
-Structure:short userid player entindex
+- Structure:- short userid player entindex
 
-short subjectcrate entindex
+- short subjectcrate entindex
 
 stringtype type of crate (metal, wood, or paradrop)
 
-Name: snowball_hit_player_face
+# name:  snowball_hit_player_face
 
 survival_paradrop_spawn
 
@@ -3662,47 +3661,47 @@ snowball_hit_player_face
 
 7/26/22, 11:04 PM Counter-Strike: Global Offensive Events - AlliedModders Wiki
 
-https://wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 32/32
+https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 32/32
 
 ```
 
-Structure:shortuseridplayer userid
+- Structure:- shortuseridplayer userid
 
-Name: survival_teammate_respawn
+# name:  survival_teammate_respawn
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: survival_no_respawns_warning
+# name:  survival_no_respawns_warning
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: survival_no_respawns_final
+# name:  survival_no_respawns_final
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-Name: player_ping
+# name:  player_ping
 
-Structure:shortuserid
+- Structure:- shortuserid
 
-shortentityid
+- shortentityid
 
-float x
+- float x
 
-float y
+- float y
 
-float z
+- float z
 
-bool urgent
+- bool urgent
 
-Name: player_ping_stop
+# name:  player_ping_stop
 
-Structure:shortentityid
+- Structure:- shortentityid
 
-Name: guardian_wave_restart
+# name:  guardian_wave_restart
 
-Structure:
+- Structure:
 
-Retrieved from "https://wiki.alliedmods.net/index.php?title=Counter-Strike:_Global_Offensive_Events&oldid=11142"
+Retrieved from "https:#wiki.alliedmods.net/index.php?title=Counter-Strike:_Global_Offensive_Events&oldid=11142"
 
 This page was last edited on 17 January 2021, at 07:01.
 
@@ -3710,23 +3709,23 @@ This page was last edited on 17 January 2021, at 07:01.
 
 ```
 
-survival_teammate_respawn
+- survival_teammate_respawn
 
-survival_no_respawns_warning
+- survival_no_respawns_warning
 
-survival_no_respawns_final
+- survival_no_respawns_final
 
-player_ping
+- player_ping
 
-player_ping_stop
+- player_ping_stop
 
-guardian_wave_restart
+- guardian_wave_restart
 
 ```
 
 convars.inc
 
-/**
+#*
 
  * vim: set ts=4 sw=4 tw=99 noet :
 
@@ -3762,7 +3761,7 @@ convars.inc
 
  * You should have received a copy of the GNU General Public License along with
 
- * this program.  If not, see <http://www.gnu.org/licenses/>.
+ * this program.  If not, see <http:#www.gnu.org/licenses/>.
 
  *
 
@@ -3780,7 +3779,7 @@ convars.inc
 
  * exceptions, found in LICENSE.txt (as of this writing, version JULY-31-2007),
 
- * or <http://www.sourcemod.net/license.php>.
+ * or <http:#www.sourcemod.net/license.php>.
 
  *
 
@@ -3796,7 +3795,7 @@ convars.inc
 
 #define _convars_included
 
-/**
+#*
 
  * Console variable bound values used with Get/SetConVarBounds()
 
@@ -3812,7 +3811,7 @@ ConVarBound_Lower
 
 };
 
-/**
+#*
 
  * Console variable query result values.
 
@@ -3822,19 +3821,19 @@ enum ConVarQueryResult
 
 {
 
-ConVarQuery_Cancelled = -1,         //< Client disconnected during query */
+ConVarQuery_Cancelled = -1,         #< Client disconnected during query */
 
-ConVarQuery_Okay = 0,               //< Retrieval of client convar value was successful. */
+ConVarQuery_Okay = 0,               #< Retrieval of client convar value was successful. */
 
-ConVarQuery_NotFound,               //< Client convar was not found. */
+ConVarQuery_NotFound,               #< Client convar was not found. */
 
-ConVarQuery_NotValid,               //< A console command with the same name was found, but there is no convar. */
+ConVarQuery_NotValid,               #< A console command with the same name was found, but there is no convar. */
 
-ConVarQuery_Protected               //< Client convar was found, but it is protected. The server cannot retrieve its value. */
+ConVarQuery_Protected               #< Client convar was found, but it is protected. The server cannot retrieve its value. */
 
 };
 
-/**
+#*
 
  * Called when a console variable's value is changed.
 
@@ -3850,7 +3849,7 @@ ConVarQuery_Protected               //< Client convar was found, but it 
 
 typedef ConVarChanged = function void (ConVar convar, const char[] oldValue, const char[] newValue);
 
-/**
+#*
 
  * Creates a new console variable.
 
@@ -3864,13 +3863,13 @@ typedef ConVarChanged = function void (ConVar convar, const char[] oldValue, con
 
  * @param flags         Optional bitstring of flags determining how the convar should be handled. See FCVAR_* constants for more details.
 
- * @param hasMin        Optional boolean that determines if the convar has a minimum value.
+ * @param hasMin        Optional - boolean that determines if the convar has a minimum value.
 
- * @param min           Minimum floating point value that the convar can have if hasMin is true.
+ * @param min           Minimum - floating point value that the convar can have if hasMin is true.
 
- * @param hasMax        Optional boolean that determines if the convar has a maximum value.
+ * @param hasMax        Optional - boolean that determines if the convar has a maximum value.
 
- * @param max           Maximum floating point value that the convar can have if hasMax is true.
+ * @param max           Maximum - floating point value that the convar can have if hasMax is true.
 
  * @return              A handle to the newly created convar. If the convar already exists, a handle to it will still be returned.
 
@@ -3888,11 +3887,11 @@ const char[] description="",
 
 int flags=0,
 
-bool hasMin=false, float min=0.0,
+- bool hasMin=false, - float min=0.0,
 
-bool hasMax=false, float max=0.0);
+- bool hasMax=false, - float max=0.0);
 
-/**
+#*
 
  * Searches for a console variable.
 
@@ -3906,23 +3905,23 @@ bool hasMax=false, float max=0.0);
 
 native ConVar FindConVar(const char[] name);
 
-// A ConVar is a configurable, named setting in the srcds console.
+# A ConVar is a configurable, named setting in the srcds console.
 
 methodmap ConVar < Handle
 
 {
 
-// Retrieves or sets a boolean value for the convar.
+# Retrieves or sets a - boolean value for the convar.
 
-property bool BoolValue {
+property - bool BoolValue {
 
 public native get();
 
-public native set(bool b);
+public native set(- bool b);
 
 }
 
-// Retrieves or sets an integer value for the convar.
+# Retrieves or sets an integer value for the convar.
 
 property int IntValue {
 
@@ -3932,17 +3931,17 @@ public native set(int value);
 
 }
 
-// Retrieves or sets a float value for the convar.
+# Retrieves or sets a - float value for the convar.
 
-property float FloatValue {
+property - float FloatValue {
 
 public native get();
 
-public native set(float value);
+public native set(- float value);
 
 }
 
-// Gets or sets the flag bits (FCVAR_*) on the convar.
+# Gets or sets the flag bits (FCVAR_*) on the convar.
 
 property int Flags {
 
@@ -3952,7 +3951,7 @@ public native set(int flags);
 
 }
 
-// Retrieves the plugin handle of the convar's creator
+# Retrieves the plugin handle of the convar's creator
 
 property Handle Plugin {
 
@@ -3960,235 +3959,235 @@ public native get();
 
 }
 
-// Sets the boolean value of a console variable.
+# Sets the - boolean value of a console variable.
 
-//
+#
 
-// Note: The replicate and notify params are only relevant for the
+# > **_NOTE:_** The replicate and notify params are only relevant for the
 
-// original, Dark Messiah, and Episode 1 engines. Newer engines
+# original, Dark Messiah, and Episode 1 engines. Newer engines
 
-// automatically do these things when the convar value is changed.
+# automatically do these things when the convar value is changed.
 
-//
+#
 
-// @param value     New boolean value.
+# @param value     New - boolean value.
 
-// @param replicate If set to true, the new convar value will be set on all clients.
+# @param replicate If set to true, the new convar value will be set on all clients.
 
-//                  This will only work if the convar has the FCVAR_REPLICATED flag
+#                  This will only work if the convar has the FCVAR_REPLICATED flag
 
-//                  and actually exists on clients.
+#                  and actually exists on clients.
 
-// @param notify    If set to true, clients will be notified that the convar has changed.
+# @param notify    If set to true, clients will be notified that the convar has changed.
 
-//                  This will only work if the convar has the FCVAR_NOTIFY flag.
+#                  This will only work if the convar has the FCVAR_NOTIFY flag.
 
-public native void SetBool(bool value, bool replicate=false, bool notify=false);
+public native void SetBool(- bool value, - bool replicate=false, - bool notify=false);
 
-// Sets the integer value of a console variable.
+# Sets the integer value of a console variable.
 
-//
+#
 
-// Note: The replicate and notify params are only relevant for the
+# > **_NOTE:_** The replicate and notify params are only relevant for the
 
-// original, Dark Messiah, and Episode 1 engines. Newer engines
+# original, Dark Messiah, and Episode 1 engines. Newer engines
 
-// automatically do these things when the convar value is changed.
+# automatically do these things when the convar value is changed.
 
-//
+#
 
-// @param value     New integer value.
+# @param value     New integer value.
 
-// @param replicate If set to true, the new convar value will be set on all clients.
+# @param replicate If set to true, the new convar value will be set on all clients.
 
-//                  This will only work if the convar has the FCVAR_REPLICATED flag
+#                  This will only work if the convar has the FCVAR_REPLICATED flag
 
-//                  and actually exists on clients.
+#                  and actually exists on clients.
 
-// @param notify    If set to true, clients will be notified that the convar has changed.
+# @param notify    If set to true, clients will be notified that the convar has changed.
 
-//                  This will only work if the convar has the FCVAR_NOTIFY flag.
+#                  This will only work if the convar has the FCVAR_NOTIFY flag.
 
-public native void SetInt(int value, bool replicate=false, bool notify=false);
+public native void SetInt(int value, - bool replicate=false, - bool notify=false);
 
-// Sets the floating point value of a console variable.
+# Sets the - floating point value of a console variable.
 
-//
+#
 
-// Note: The replicate and notify params are only relevant for the
+# > **_NOTE:_** The replicate and notify params are only relevant for the
 
-// original, Dark Messiah, and Episode 1 engines. Newer engines
+# original, Dark Messiah, and Episode 1 engines. Newer engines
 
-// automatically do these things when the convar value is changed.
+# automatically do these things when the convar value is changed.
 
-//
+#
 
-// @param value     New floating point value.
+# @param value     New - floating point value.
 
-// @param replicate If set to true, the new convar value will be set on all clients.
+# @param replicate If set to true, the new convar value will be set on all clients.
 
-//                  This will only work if the convar has the FCVAR_REPLICATED flag
+#                  This will only work if the convar has the FCVAR_REPLICATED flag
 
-//                  and actually exists on clients.
+#                  and actually exists on clients.
 
-// @param notify    If set to true, clients will be notified that the convar has changed.
+# @param notify    If set to true, clients will be notified that the convar has changed.
 
-//                  This will only work if the convar has the FCVAR_NOTIFY flag.
+#                  This will only work if the convar has the FCVAR_NOTIFY flag.
 
-public native void SetFloat(float value, bool replicate=false, bool notify=false);
+public native void SetFloat(- float value, - bool replicate=false, - bool notify=false);
 
-// Retrieves the string value of a console variable.
+# Retrieves the string value of a console variable.
 
-//
+#
 
-// @param value      Buffer to store the value of the convar.
+# @param value      Buffer to store the value of the convar.
 
-// @param maxlength  Maximum length of string buffer.
+# @param maxlength  Maximum length of string buffer.
 
 public native void GetString(char[] value, int maxlength);
 
-// Sets the string value of a console variable.
+# Sets the string value of a console variable.
 
-//
+#
 
-// Note: The replicate and notify params are only relevant for the
+# > **_NOTE:_** The replicate and notify params are only relevant for the
 
-// original, Dark Messiah, and Episode 1 engines. Newer engines
+# original, Dark Messiah, and Episode 1 engines. Newer engines
 
-// automatically do these things when the convar value is changed.
+# automatically do these things when the convar value is changed.
 
-//
+#
 
-// @param value      New string value.
+# @param value      New string value.
 
-// @param replicate  If set to true, the new convar value will be set on all clients.
+# @param replicate  If set to true, the new convar value will be set on all clients.
 
-//                   This will only work if the convar has the FCVAR_REPLICATED flag
+#                   This will only work if the convar has the FCVAR_REPLICATED flag
 
-//                   and actually exists on clients.
+#                   and actually exists on clients.
 
-// @param notify     If set to true, clients will be notified that the convar has changed.
+# @param notify     If set to true, clients will be notified that the convar has changed.
 
-//                   This will only work if the convar has the FCVAR_NOTIFY flag.
+#                   This will only work if the convar has the FCVAR_NOTIFY flag.
 
-public native void SetString(const char[] value, bool replicate=false, bool notify=false);
+public native void SetString(const char[] value, - bool replicate=false, - bool notify=false);
 
-// Resets the console variable to its default value.
+# Resets the console variable to its default value.
 
-//
+#
 
-// Note: The replicate and notify params are only relevant for the
+# > **_NOTE:_** The replicate and notify params are only relevant for the
 
-// original, Dark Messiah, and Episode 1 engines. Newer engines
+# original, Dark Messiah, and Episode 1 engines. Newer engines
 
-// automatically do these things when the convar value is changed.
+# automatically do these things when the convar value is changed.
 
-//
+#
 
-// @param replicate  If set to true, the new convar value will be set on all clients.
+# @param replicate  If set to true, the new convar value will be set on all clients.
 
-//                   This will only work if the convar has the FCVAR_REPLICATED flag
+#                   This will only work if the convar has the FCVAR_REPLICATED flag
 
-//                   and actually exists on clients.
+#                   and actually exists on clients.
 
-// @param notify     If set to true, clients will be notified that the convar has changed.
+# @param notify     If set to true, clients will be notified that the convar has changed.
 
-//                   This will only work if the convar has the FCVAR_NOTIFY flag.
+#                   This will only work if the convar has the FCVAR_NOTIFY flag.
 
-public native void RestoreDefault(bool replicate=false, bool notify=false);
+public native void RestoreDefault(- bool replicate=false, - bool notify=false);
 
-// Retrieves the default string value of a console variable.
+# Retrieves the default string value of a console variable.
 
-//
+#
 
-// @param value      Buffer to store the default value of the convar.
+# @param value      Buffer to store the default value of the convar.
 
-// @param maxlength  Maximum length of string buffer.
+# @param maxlength  Maximum length of string buffer.
 
-// @return           Number of bytes written to the buffer (UTF-8 safe).
+# @return           Number of > bytes written to the buffer (UTF-8 safe).
 
 public native int GetDefault(char[] value, int maxlength);
 
-// Retrieves the specified bound of a console variable.
+# Retrieves the specified bound of a console variable.
 
-//
+#
 
-// @param type       Type of bound to retrieve, ConVarBound_Lower or ConVarBound_Upper.
+# @param type       Type of bound to retrieve, ConVarBound_Lower or ConVarBound_Upper.
 
-// @param value      By-reference cell to store the specified floating point bound value.
+# @param value      By-reference cell to store the specified - floating point bound value.
 
-// @return           True if the convar has the specified bound set, false otherwise.
+# @return           True if the convar has the specified bound set, false otherwise.
 
-public native bool GetBounds(ConVarBounds type, float &value);
+public native - bool GetBounds(ConVarBounds type, - float &value);
 
-// Sets the specified bound of a console variable.
+# Sets the specified bound of a console variable.
 
-//
+#
 
-// @param type       Type of bound to set, ConVarBound_Lower or ConVarBound_Upper
+# @param type       Type of bound to set, ConVarBound_Lower or ConVarBound_Upper
 
-// @param set        If set to true, convar will use specified bound. If false, bound will be removed.
+# @param set        If set to true, convar will use specified bound. If false, bound will be removed.
 
-// @param value      Floating point value to use as the specified bound.
+# @param value      Floating point value to use as the specified bound.
 
-public native void SetBounds(ConVarBounds type, bool set, float value=0.0);
+public native void SetBounds(ConVarBounds type, - bool set, - float value=0.0);
 
-// Retrieves the name of a console variable.
+# Retrieves the name of a console variable.
 
-//
+#
 
-// @param name       Buffer to store the name of the convar.
+# @param name       Buffer to store the name of the convar.
 
-// @param maxlength  Maximum length of string buffer.
+# @param maxlength  Maximum length of string buffer.
 
 public native void GetName(char[] name, int maxlength);
 
-// Retrieves the description of a console variable.
+# Retrieves the description of a console variable.
 
-//
+#
 
-// @param buffer     Buffer to store the description of the convar.
+# @param buffer     Buffer to store the description of the convar.
 
-// @param maxlength  Maximum length of string buffer.
+# @param maxlength  Maximum length of string buffer.
 
 public native void GetDescription(char[] buffer, int maxlength);
 
-// Replicates a convar value to a specific client. This does not change the actual convar value.
+# Replicates a convar value to a specific client. This does not change the actual convar value.
 
-//
+#
 
-// @param client     Client index
+# @param client     Client index
 
-// @param value      String value to send
+# @param value      String value to send
 
-// @return           True on success, false on failure
+# @return           True on success, false on failure
 
-// @error            Invalid client index, client not in game, or client is fake
+# @error            Invalid client index, client not in game, or client is fake
 
-public native bool ReplicateToClient(int client, const char[] value);
+public native - bool ReplicateToClient(int client, const char[] value);
 
-// Creates a hook for when a console variable's value is changed.
+# Creates a hook for when a console variable's value is changed.
 
-//
+#
 
-// @param callback  An OnConVarChanged function pointer.
+# @param callback  An OnConVarChanged function pointer.
 
 public native void AddChangeHook(ConVarChanged callback);
 
-// Removes a hook for when a console variable's value is changed.
+# Removes a hook for when a console variable's value is changed.
 
-//
+#
 
-// @param callback  An OnConVarChanged function pointer.
+# @param callback  An OnConVarChanged function pointer.
 
-// @error           No active hook on convar.
+# @error           No active hook on convar.
 
 public native void RemoveChangeHook(ConVarChanged callback);
 
 }
 
-/**
+#*
 
  * Creates a hook for when a console variable's value is changed.
 
@@ -4204,7 +4203,7 @@ public native void RemoveChangeHook(ConVarChanged callback);
 
 native void HookConVarChange(Handle convar, ConVarChanged callback);
 
-/**
+#*
 
  * Removes a hook for when a console variable's value is changed.
 
@@ -4220,29 +4219,29 @@ native void HookConVarChange(Handle convar, ConVarChanged callback);
 
 native void UnhookConVarChange(Handle convar, ConVarChanged callback);
 
-/**
+#*
 
- * Returns the boolean value of a console variable.
+ * Returns the - boolean value of a console variable.
 
  *
 
  * @param convar        Handle to the convar.
 
- * @return              The boolean value of the convar.
+ * @return              The - boolean value of the convar.
 
  * @error               Invalid or corrupt Handle.
 
  */
 
-native bool GetConVarBool(Handle convar);
+native - bool GetConVarBool(Handle convar);
 
-/**
+#*
 
- * Sets the boolean value of a console variable.
+ * Sets the - boolean value of a console variable.
 
  *
 
- * Note: The replicate and notify params are only relevant for the original, Dark Messiah, and
+ * > **_NOTE:_** The replicate and notify params are only relevant for the original, Dark Messiah, and
 
  * Episode 1 engines. Newer engines automatically do these things when the convar value is changed.
 
@@ -4250,7 +4249,7 @@ native bool GetConVarBool(Handle convar);
 
  * @param convar        Handle to the convar.
 
- * @param value         New boolean value.
+ * @param value         New - boolean value.
 
  * @param replicate     If set to true, the new convar value will be set on all clients.
 
@@ -4266,9 +4265,9 @@ native bool GetConVarBool(Handle convar);
 
  */
 
-native void SetConVarBool(Handle convar, bool value, bool replicate=false, bool notify=false);
+native void SetConVarBool(Handle convar, - bool value, - bool replicate=false, - bool notify=false);
 
-/**
+#*
 
  * Returns the integer value of a console variable.
 
@@ -4284,13 +4283,13 @@ native void SetConVarBool(Handle convar, bool value, bool replicate=false, bool 
 
 native int GetConVarInt(Handle convar);
 
-/**
+#*
 
  * Sets the integer value of a console variable.
 
  *
 
- * Note: The replicate and notify params are only relevant for the original, Dark Messiah, and
+ * > **_NOTE:_** The replicate and notify params are only relevant for the original, Dark Messiah, and
 
  * Episode 1 engines. Newer engines automatically do these things when the convar value is changed.
 
@@ -4314,31 +4313,31 @@ native int GetConVarInt(Handle convar);
 
  */
 
-native void SetConVarInt(Handle convar, int value, bool replicate=false, bool notify=false);
+native void SetConVarInt(Handle convar, int value, - bool replicate=false, - bool notify=false);
 
-/**
+#*
 
- * Returns the floating point value of a console variable.
+ * Returns the - floating point value of a console variable.
 
  *
 
  * @param convar        Handle to the convar.
 
- * @return              The floating point value of the convar.
+ * @return              The - floating point value of the convar.
 
  * @error               Invalid or corrupt Handle.
 
  */
 
-native float GetConVarFloat(Handle convar);
+native - float GetConVarFloat(Handle convar);
 
-/**
+#*
 
- * Sets the floating point value of a console variable.
+ * Sets the - floating point value of a console variable.
 
  *
 
- * Note: The replicate and notify params are only relevant for the original, Dark Messiah, and
+ * > **_NOTE:_** The replicate and notify params are only relevant for the original, Dark Messiah, and
 
  * Episode 1 engines. Newer engines automatically do these things when the convar value is changed.
 
@@ -4346,7 +4345,7 @@ native float GetConVarFloat(Handle convar);
 
  * @param convar        Handle to the convar.
 
- * @param value         New floating point value.
+ * @param value         New - floating point value.
 
  * @param replicate     If set to true, the new convar value will be set on all clients.
 
@@ -4362,9 +4361,9 @@ native float GetConVarFloat(Handle convar);
 
  */
 
-native void SetConVarFloat(Handle convar, float value, bool replicate=false, bool notify=false);
+native void SetConVarFloat(Handle convar, - float value, - bool replicate=false, - bool notify=false);
 
-/**
+#*
 
  * Retrieves the string value of a console variable.
 
@@ -4382,13 +4381,13 @@ native void SetConVarFloat(Handle convar, float value, bool replicate=false, boo
 
 native void GetConVarString(Handle convar, char[] value, int maxlength);
 
-/**
+#*
 
  * Sets the string value of a console variable.
 
  *
 
- * Note: The replicate and notify params are only relevant for the original, Dark Messiah, and
+ * > **_NOTE:_** The replicate and notify params are only relevant for the original, Dark Messiah, and
 
  * Episode 1 engines. Newer engines automatically do these things when the convar value is changed.
 
@@ -4412,15 +4411,15 @@ native void GetConVarString(Handle convar, char[] value, int maxlength);
 
  */
 
-native void SetConVarString(Handle convar, const char[] value, bool replicate=false, bool notify=false);
+native void SetConVarString(Handle convar, const char[] value, - bool replicate=false, - bool notify=false);
 
-/**
+#*
 
  * Resets the console variable to its default value.
 
  *
 
- * Note: The replicate and notify params are only relevant for the original, Dark Messiah, and
+ * > **_NOTE:_** The replicate and notify params are only relevant for the original, Dark Messiah, and
 
  * Episode 1 engines. Newer engines automatically do these things when the convar value is changed.
 
@@ -4442,9 +4441,9 @@ native void SetConVarString(Handle convar, const char[] value, bool replicate=fa
 
  */
 
-native void ResetConVar(Handle convar, bool replicate=false, bool notify=false);
+native void ResetConVar(Handle convar, - bool replicate=false, - bool notify=false);
 
-/**
+#*
 
  * Retrieves the default string value of a console variable.
 
@@ -4456,7 +4455,7 @@ native void ResetConVar(Handle convar, bool replicate=false, bool notify=false);
 
  * @param maxlength     Maximum length of string buffer.
 
- * @return              Number of bytes written to the buffer (UTF-8 safe).
+ * @return              Number of > bytes written to the buffer (UTF-8 safe).
 
  * @error               Invalid or corrupt Handle.
 
@@ -4464,7 +4463,7 @@ native void ResetConVar(Handle convar, bool replicate=false, bool notify=false);
 
 native int GetConVarDefault(Handle convar, char[] value, int maxlength);
 
-/**
+#*
 
  * Returns the bitstring of flags on a console variable.
 
@@ -4480,7 +4479,7 @@ native int GetConVarDefault(Handle convar, char[] value, int maxlength);
 
 native int GetConVarFlags(Handle convar);
 
-/**
+#*
 
  * Sets the bitstring of flags on a console variable.
 
@@ -4496,7 +4495,7 @@ native int GetConVarFlags(Handle convar);
 
 native void SetConVarFlags(Handle convar, int flags);
 
-/**
+#*
 
  * Retrieves the specified bound of a console variable.
 
@@ -4506,7 +4505,7 @@ native void SetConVarFlags(Handle convar, int flags);
 
  * @param type          Type of bound to retrieve, ConVarBound_Lower or ConVarBound_Upper.
 
- * @param value         By-reference cell to store the specified floating point bound value.
+ * @param value         By-reference cell to store the specified - floating point bound value.
 
  * @return              True if the convar has the specified bound set, false otherwise.
 
@@ -4514,9 +4513,9 @@ native void SetConVarFlags(Handle convar, int flags);
 
  */
 
-native bool GetConVarBounds(Handle convar, ConVarBounds type, float &value);
+native - bool GetConVarBounds(Handle convar, ConVarBounds type, - float &value);
 
-/**
+#*
 
  * Sets the specified bound of a console variable.
 
@@ -4534,9 +4533,9 @@ native bool GetConVarBounds(Handle convar, ConVarBounds type, float &value);
 
  */
 
-native void SetConVarBounds(Handle convar, ConVarBounds type, bool set, float value=0.0);
+native void SetConVarBounds(Handle convar, ConVarBounds type, - bool set, - float value=0.0);
 
-/**
+#*
 
  * Retrieves the name of a console variable.
 
@@ -4554,7 +4553,7 @@ native void SetConVarBounds(Handle convar, ConVarBounds type, bool set, float va
 
 native void GetConVarName(Handle convar, char[] name, int maxlength);
 
-/**
+#*
 
  * Replicates a convar value to a specific client. This does not change the actual convar value.
 
@@ -4572,53 +4571,53 @@ native void GetConVarName(Handle convar, char[] name, int maxlength);
 
  */
 
-native bool SendConVarValue(int client, Handle convar, const char[] value);
+native - bool SendConVarValue(int client, Handle convar, const char[] value);
 
 typeset ConVarQueryFinished
 
 {
 
-// Called when a query to retrieve a client's console variable has finished.
+# Called when a query to retrieve a client's console variable has finished.
 
-//
+#
 
-// @param cookie        Unique identifier of query.
+# @param cookie        Unique identifier of query.
 
-// @param client        Player index.
+# @param client        Player index.
 
-// @param result        Result of query that tells one whether or not query was successful.
+# @param result        Result of query that tells one whether or not query was successful.
 
-//                      See ConVarQueryResult enum for more details.
+#                      See ConVarQueryResult enum for more details.
 
-// @param convarName    Name of client convar that was queried.
+# @param convarName    Name of client convar that was queried.
 
-// @param convarValue   Value of client convar that was queried if successful. This will be "" if it was not.
+# @param convarValue   Value of client convar that was queried if successful. This will be "" if it was not.
 
-// @param value         Value that was passed when query was started.
+# @param value         Value that was passed when query was started.
 
 function void (QueryCookie cookie, int client, ConVarQueryResult result, const char[] cvarName, const char[] cvarValue, any value);
 
-// Called when a query to retrieve a client's console variable has finished.
+# Called when a query to retrieve a client's console variable has finished.
 
-//
+#
 
-// @param cookie        Unique identifier of query.
+# @param cookie        Unique identifier of query.
 
-// @param client        Player index.
+# @param client        Player index.
 
-// @param result        Result of query that tells one whether or not query was successful.
+# @param result        Result of query that tells one whether or not query was successful.
 
-//                      See ConVarQueryResult enum for more details.
+#                      See ConVarQueryResult enum for more details.
 
-// @param convarName    Name of client convar that was queried.
+# @param convarName    Name of client convar that was queried.
 
-// @param convarValue   Value of client convar that was queried if successful. This will be "" if it was not.
+# @param convarValue   Value of client convar that was queried if successful. This will be "" if it was not.
 
 function void (QueryCookie cookie, int client, ConVarQueryResult result, const char[] cvarName, const char[] cvarValue);
 
 };
 
-/**
+#*
 
  * Starts a query to retrieve the value of a client's console variable.
 
@@ -4640,7 +4639,7 @@ function void (QueryCookie cookie, int client, ConVarQueryResult result, const c
 
 native QueryCookie QueryClientConVar(int client, const char[] cvarName, ConVarQueryFinished callback, any value=0);
 
-/**
+#*
 
  * Returns true if the supplied character is valid in a ConVar name.
 
@@ -4652,7 +4651,7 @@ native QueryCookie QueryClientConVar(int client, const char[] cvarName, ConVarQu
 
  */
 
-stock bool IsValidConVarChar(int c)
+stock - bool IsValidConVarChar(int c)
 
 {
 
