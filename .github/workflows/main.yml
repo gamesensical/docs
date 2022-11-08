@@ -24,10 +24,6 @@
     # Destination path
     path: # optional
     
-- name: Index.md
-  uses: actions/download-artifact@v3.0.1
-  with
-
 jobs:
   my_job:
     name: deploy to staging
