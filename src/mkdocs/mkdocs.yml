@@ -25,4 +25,4 @@ markdown_extensions:
 plugins:
   - exclude:
       glob:
-       - "*/README.md"
+       - "README.md"
