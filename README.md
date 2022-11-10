@@ -1,12 +1,8 @@
-# Welcome to gamesense_docs
+# docs
 
-"This website documents the usage of gamesense.pub features for users and developers.
+*/*Documentation of the gamesense lua api*/
 
-All content is split by categories. Use navigation bar and/or search to find what you interested in."
-
-# Documentation of the gamesense lua api
-
-# Table of Contents:
+# Counter-Strike: Global Offensive
 
 - 1. Events
 
@@ -2587,17 +2583,17 @@ receiving this message
 
 > byte nomusic if set, don't play round end music, because action is still on-going
 
-buymenu_open
+- buymenu_open
 
-buymenu_close
+- buymenu_close
 
-round_prestart
+- round_prestart
 
-round_poststart
+- round_poststart
 
-round_start
+- round_start
 
-round_end
+- round_end
 
 ```
 
@@ -2875,15 +2871,15 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 19/32
 
 - Structure:
 
-player_jump
+- player_jump
 
-player_blind
+- player_blind
 
-player_falldamage
+- player_falldamage
 
-door_moving
+- door_moving
 
-round_freeze_end
+- round_freeze_end
 
 ```
 
@@ -2929,19 +2925,19 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 20/32
 
 - Structure:> byteuseridentindex of the player
 
-mb_input_lock_success
+- mb_input_lock_success
 
-mb_input_lock_cancel
+- mb_input_lock_cancel
 
-nav_blocked
+- nav_blocked
 
-nav_generate
+- nav_generate
 
-player_stats_updated
+- player_stats_updated
 
-achievement_info_loaded
+- achievement_info_loaded
 
-spec_target_updated
+- spec_target_updated
 
 ```
 
@@ -2981,11 +2977,11 @@ stringfunfact_token
 
 - short funfact_player
 
-long funfact_data1
+-long funfact_data1
 
-long funfact_data2
+- long funfact_data2
 
-long funfact_data3
+- long funfact_data3
 
 # name:  cs_win_panel_match
 
@@ -3065,19 +3061,19 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 22/32
 
 - Structure:> byteplayer entindex of the player
 
-show_freezepanel
+- show_freezepanel
 
-hide_freezepanel
+- hide_freezepanel
 
-freezecam_started
+- freezecam_started
 
-player_avenged_teammate
+- player_avenged_teammate
 
-achievement_earned
+- achievement_earned
 
-achievement_earned_local
+- achievement_earned_local
 
-item_found
+- item_found
 
 ```
 
@@ -3139,17 +3135,17 @@ long musickitmvps
 
 - Structure:- shortuserid
 
-items_gifted
+- items_gifted
 
-repost_xbox_achievements
+- repost_xbox_achievements
 
-match_end_conditions
+- match_end_conditions
 
-round_mvp
+- round_mvp
 
-player_decal
+- player_decal
 
-teamplay_round_start
+- teamplay_round_start
 
 ```
 
