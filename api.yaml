@@ -1,0 +1,1378 @@
+type: LuaFunctionsTableArray
+MyArray:
+  - alias: _G
+    functions:
+      - alias: defer
+        arguments: []
+        returns: []
+        description: '`shutdown` event (obsolete)'
+      - alias: vector
+        arguments:
+          - alias: nX
+            type: number
+            optional: false
+            description: x asix coordinate
+          - alias: nY
+            type: number
+            optional: false
+            description: y asix coordinate
+          - alias: nZ
+            type: number
+            optional: false
+            description: z asix coordinate
+        returns:
+          - type: vector{}
+            description: instance of vector object
+        description: creates a new vector object with given coordinates
+      - alias: readfile
+        arguments:
+          - alias: sPath
+            type: string
+            optional: false
+            description: >-
+              path to file relative to MOD directory, e.g.
+              `...\steamapps\common\Counter-Strike Global Offensive\csgo`
+        returns:
+          - type: string
+            description: contents of file
+        description: reads a file contents
+      - alias: vtable_bind
+        arguments:
+          - alias: sModuleFileName
+            type: string
+            optional: false
+            description: a module filename, e.g. `engine.dll`
+          - alias: sInterfaceAlias
+            type: string
+            optional: false
+            description: a module's interface alias, e.g. `VEngineClient014`
+          - alias: nVTFI
+            type: number
+            optional: false
+            description: >-
+              a virtual table function index inside the interface, e.g. for
+              GetNetChannelInfo it's `78`
+          - alias: sTypeOf
+            type: string
+            optional: false
+            description: >-
+              a function typeof to which the result pointer is casted, e.g. for
+              GetNetChannelInfo it's `void*(__thiscall*)(void*)`
+        returns:
+          - type: cdata
+            description: a C data object (a function pointer)
+        description: >-
+          binds virtual function table method from module's interface to a
+          callable cdata object (call it like the lua function). **Keep in mind
+          that the first argument of `sTypeOf` must be a `void*` (a pointer to
+          the interface)**
+      - alias: vtable_thunk
+        arguments:
+          - alias: nVTFI
+            type: number
+            optional: false
+            description: >-
+              a virtual table function index inside the interface, e.g. for
+              GetLatency it's `9`
+          - alias: sTypeOf
+            type: string
+            optional: false
+            description: >-
+              a function typeof to which the result pointer is casted, e.g. for
+              GetLatency it's `float(__thiscall*)(void*, int)`
+        returns:
+          - type: cdata
+            description: a C data object (a function pointer)
+        description: >-
+          thunks virtual function table method from interface to a callable
+          cdata object (call it like the lua function, but the first argument
+          must be a pointer to the interface). **Keep in mind that the first
+          argument of `sTypeOf` must be a `void*` (a pointer to the interface)**
+      - alias: writefile
+        arguments:
+          - alias: sPath
+            type: string
+            optional: false
+            description: >-
+              path to file relative to MOD directory, e.g.
+              `...\steamapps\common\Counter-Strike Global Offensive\csgo`
+          - alias: sData
+            type: string
+            optional: false
+            description: contents to write
+        returns: []
+        description: writes contents to file
+  - alias: bit
+    functions:
+      - alias: arshift
+        arguments:
+          - alias: nValue
+            type: number
+            optional: false
+            description: value to shift
+          - alias: nPositions
+            type: number
+            optional: false
+            description: number of positions to shift
+        returns:
+          - type: number
+            description: '-'
+        description: arithmetic right-shift by bits of value
+      - alias: band
+        arguments:
+          - alias: nValue1
+            type: number
+            optional: false
+            description: value for bitwise and
+          - alias: nValue2
+            type: number
+            optional: true
+            description: value for bitwise and
+          - alias: ...
+            type: variadic number
+            optional: true
+            description: values for bitwise and
+        returns:
+          - type: number
+            description: '-'
+        description: bitwise and of values
+      - alias: bnot
+        arguments:
+          - alias: nValue
+            type: number
+            optional: false
+            description: value for bitwise not
+        returns:
+          - type: number
+            description: '-'
+        description: bitwise not of value
+      - alias: bor
+        arguments:
+          - alias: nValue1
+            type: number
+            optional: false
+            description: value for bitwise or
+          - alias: nValue2
+            type: number
+            optional: true
+            description: value for bitwise or
+          - alias: ...
+            type: variadic number
+            optional: true
+            description: values for bitwise or
+        returns:
+          - type: number
+            description: '-'
+        description: bitwise or of values
+      - alias: bswap
+        arguments:
+          - alias: nValue
+            type: number
+            optional: false
+            description: value for byte swap
+        returns:
+          - type: number
+            description: '-'
+        description: byte-swap of value (little-endian <-> big-endian)
+      - alias: bxor
+        arguments:
+          - alias: nValue1
+            type: number
+            optional: false
+            description: value for bitwise xor
+          - alias: nValue2
+            type: number
+            optional: true
+            description: value for bitwise xor
+          - alias: ...
+            type: variadic number
+            optional: true
+            description: value sfor bitwise xor
+        returns:
+          - type: number
+            description: '-'
+        description: bitwise xor of values
+      - alias: lshift
+        arguments:
+          - alias: nValue
+            type: number
+            optional: false
+            description: value to shift
+          - alias: nPositions
+            type: number
+            optional: false
+            description: number of positions to shift
+        returns:
+          - type: number
+            description: '-'
+        description: logical left-shift by bits of value
+      - alias: rol
+        arguments:
+          - alias: nValue
+            type: number
+            optional: false
+            description: value to rotate
+          - alias: nPositions
+            type: number
+            optional: false
+            description: number of positions to rotate
+        returns:
+          - type: number
+            description: '-'
+        description: left-rotate by bits of value
+      - alias: ror
+        arguments:
+          - alias: nValue
+            type: number
+            optional: false
+            description: value to rotate
+          - alias: nPositions
+            type: number
+            optional: false
+            description: number of positions to rotate
+        returns:
+          - type: number
+            description: '-'
+        description: right-rotate by bits of value
+      - alias: rshift
+        arguments:
+          - alias: nValue
+            type: number
+            optional: false
+            description: value to shift
+          - alias: nPositions
+            type: number
+            optional: false
+            description: number of positions to shift
+        returns:
+          - type: number
+            description: '-'
+        description: logical left-shift by bits of value
+      - alias: tobit
+        arguments:
+          - alias: nValue
+            type: number
+            optional: false
+            description: value to normalize
+        returns:
+          - type: number
+            description: '-'
+        description: >-
+          normalize number to the numeric range of bit operations (all bit ops
+          use this implicitly)
+      - alias: tohex
+        arguments:
+          - alias: nValue
+            type: number
+            optional: false
+            description: value to format
+          - alias: 'n'
+            type: number
+            optional: true
+            description: amount of hex digits (default is 8)
+        returns:
+          - type: string
+            description: result
+        description: format value as hex with digit limit
+  - alias: client
+    functions:
+      - alias: camera_angles
+        arguments: []
+        returns: []
+        description: ''
+      - alias: camera_position
+        arguments: []
+        returns: []
+        description: ''
+      - alias: color_log
+        arguments: []
+        returns: []
+        description: ''
+      - alias: create_interface
+        arguments: []
+        returns: []
+        description: ''
+      - alias: delay_call
+        arguments: []
+        returns: []
+        description: ''
+      - alias: draw_circle
+        arguments: []
+        returns: []
+        description: ''
+      - alias: draw_circle_outline
+        arguments: []
+        returns: []
+        description: ''
+      - alias: draw_debug_text
+        arguments: []
+        returns: []
+        description: ''
+      - alias: draw_gradient
+        arguments: []
+        returns: []
+        description: ''
+      - alias: draw_hitboxes
+        arguments: []
+        returns: []
+        description: ''
+      - alias: draw_indicator
+        arguments: []
+        returns: []
+        description: ''
+      - alias: draw_line
+        arguments: []
+        returns: []
+        description: ''
+      - alias: draw_rectangle
+        arguments: []
+        returns: []
+        description: ''
+      - alias: draw_text
+        arguments: []
+        returns: []
+        description: ''
+      - alias: error_log
+        arguments: []
+        returns: []
+        description: ''
+      - alias: exec
+        arguments: []
+        returns: []
+        description: ''
+      - alias: eye_position
+        arguments: []
+        returns: []
+        description: ''
+      - alias: find_signature
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_cvar
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_model_name
+        arguments: []
+        returns: []
+        description: ''
+      - alias: key_state
+        arguments: []
+        returns: []
+        description: ''
+      - alias: latency
+        arguments: []
+        returns: []
+        description: ''
+      - alias: log
+        arguments: []
+        returns: []
+        description: ''
+      - alias: random_float
+        arguments: []
+        returns: []
+        description: ''
+      - alias: random_int
+        arguments: []
+        returns: []
+        description: ''
+      - alias: register_esp_flag
+        arguments: []
+        returns: []
+        description: ''
+      - alias: reload_active_scripts
+        arguments: []
+        returns: []
+        description: ''
+      - alias: scale_damage
+        arguments: []
+        returns: []
+        description: ''
+      - alias: screen_size
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_clan_tag
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_cvar
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_event_callback
+        arguments: []
+        returns: []
+        description: ''
+      - alias: system_time
+        arguments: []
+        returns: []
+        description: ''
+      - alias: timestamp
+        arguments: []
+        returns: []
+        description: ''
+      - alias: trace_bullet
+        arguments: []
+        returns: []
+        description: ''
+      - alias: trace_line
+        arguments: []
+        returns: []
+        description: ''
+      - alias: unix_time
+        arguments: []
+        returns: []
+        description: ''
+      - alias: unset_event_callback
+        arguments: []
+        returns: []
+        description: ''
+      - alias: update_player_list
+        arguments: []
+        returns: []
+        description: ''
+      - alias: userid_to_entindex
+        arguments: []
+        returns: []
+        description: ''
+      - alias: visible
+        arguments: []
+        returns: []
+        description: ''
+      - alias: world_to_screen
+        arguments: []
+        description: ''
+  - alias: config
+    functions:
+      - alias: export
+        arguments: []
+        returns: []
+        description: ''
+      - alias: import
+        arguments: []
+        returns: []
+        description: ''
+      - alias: load
+        arguments: []
+        description: ''
+  - alias: cvar{}
+    functions:
+      - alias: get_float
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_int
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_string
+        arguments: []
+        returns: []
+        description: ''
+      - alias: invoke_callback
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_float
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_int
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_raw_float
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_raw_int
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_string
+        arguments: []
+        returns: []
+        description: ''
+  - alias: database
+    functions:
+      - alias: flush
+        arguments: []
+        returns: []
+        description: ''
+      - alias: read
+        arguments: []
+        returns: []
+        description: ''
+      - alias: write
+        arguments: []
+        description: ''
+  - alias: entity
+    functions:
+      - alias: get_all
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_bounding_box
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_classname
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_esp_data
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_game_rules
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_local_player
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_origin
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_player_name
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_player_resource
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_player_weapon
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_players
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_prop
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_steam64
+        arguments: []
+        returns: []
+        description: ''
+      - alias: hitbox_position
+        arguments: []
+        returns: []
+        description: ''
+      - alias: is_alive
+        arguments: []
+        returns: []
+        description: ''
+      - alias: is_dormant
+        arguments: []
+        returns: []
+        description: ''
+      - alias: is_enemy
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_prop
+        arguments: []
+        description: ''
+  - alias: globals
+    functions:
+      - alias: absoluteframetime
+        arguments: []
+        returns: []
+        description: ''
+      - alias: chokedcommands
+        arguments: []
+        returns: []
+        description: ''
+      - alias: commandack
+        arguments: []
+        returns: []
+        description: ''
+      - alias: curtime
+        arguments: []
+        returns: []
+        description: ''
+      - alias: framecount
+        arguments: []
+        returns: []
+        description: ''
+      - alias: frametime
+        arguments: []
+        returns: []
+        description: ''
+      - alias: lastoutgoingcommand
+        arguments: []
+        returns: []
+        description: ''
+      - alias: mapname
+        arguments: []
+        returns: []
+        description: ''
+      - alias: maxplayers
+        arguments: []
+        returns: []
+        description: ''
+      - alias: oldcommandack
+        arguments: []
+        returns: []
+        description: ''
+      - alias: realtime
+        arguments: []
+        returns: []
+        description: ''
+      - alias: tickcount
+        arguments: []
+        returns: []
+        description: ''
+      - alias: tickinterval
+        arguments: []
+        description: ''
+  - alias: json
+    functions:
+      - alias: decode_invalid_numbers
+        arguments: []
+        returns: []
+        description: ''
+      - alias: decode_max_depth
+        arguments: []
+        returns: []
+        description: ''
+      - alias: encode_invalid_numbers
+        arguments: []
+        returns: []
+        description: ''
+      - alias: encode_max_depth
+        arguments: []
+        returns: []
+        description: ''
+      - alias: encode_number_precision
+        arguments: []
+        returns: []
+        description: ''
+      - alias: encode_sparse_array
+        arguments: []
+        returns: []
+        description: ''
+      - alias: parse
+        arguments: []
+        returns: []
+        description: ''
+      - alias: stringify
+        arguments: []
+        description: ''
+  - alias: materialsystem
+    functions:
+      - alias: arms_material
+        arguments: []
+        returns: []
+        description: ''
+      - alias: chams_material
+        arguments: []
+        returns: []
+        description: ''
+      - alias: find_material
+        arguments: []
+        returns: []
+        description: ''
+      - alias: find_materials
+        arguments: []
+        returns: []
+        description: ''
+      - alias: find_texture
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_model_materials
+        arguments: []
+        returns: []
+        description: ''
+      - alias: override_material
+        arguments: []
+        description: ''
+  - alias: materialsystem{}
+    functions:
+      - alias: alpha_modulate
+        arguments: []
+        returns: []
+        description: ''
+      - alias: color_modulate
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_material_var_flag
+        arguments: []
+        returns: []
+        description: ''
+      - alias: get_shader_param
+        arguments: []
+        returns: []
+        description: ''
+      - alias: reload
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_material_var_flag
+        arguments: []
+        returns: []
+        description: ''
+      - alias: set_shader_param
+        arguments: []
+        description: ''
+  - alias: ffi
+    functions:
+      - alias: abi
+        arguments: []
+        returns: []
+        description: ''
+      - alias: alignof
+        arguments: []
+        returns: []
+        description: ''
+      - alias: cast
+        arguments: []
+        returns: []
+        description: ''
+      - alias: cdef
+        arguments: []
+        returns: []
+        description: ''
+      - alias: copy
+        arguments: []
+        returns: []
+        description: ''
+      - alias: errno
+        arguments: []
+        returns: []
+        description: ''
+      - alias: fill
+        arguments: []
+        returns: []
+        description: ''
+      - alias: gc
+        arguments: []
+        returns: []
+        description: ''
+      - alias: istype
+        arguments: []
+        returns: []
+        description: ''
+      - alias: metatype
+        arguments: []
+        returns: []
+        description: ''
+      - alias: new
+        arguments: []
+        returns: []
+        description: ''
+      - alias: offsetof
+        arguments: []
+        returns: []
+        description: ''
+      - alias: sizeof
+        arguments: []
+        returns: []
+        description: ''
+      - alias: string
+        arguments: []
+        returns: []
+        description: ''
+      - alias: typeinfo
+        arguments: []
+        returns: []
+        description: ''
+      - alias: typeof
+        arguments: []
+        description: ''
+  - alias: vector{}
+    functions:
+      - alias: init
+        arguments: []
+        returns: []
+        description: ''
+      - alias: init_from_angles
+        arguments: []
+        returns: []
+        description: ''
+      - alias: scale
+        arguments: []
+        returns: []
+        description: ''
+      - alias: scaled
+        arguments: []
+        returns: []
+        description: ''
+      - alias: normalize
+        arguments: []
+        returns: []
+        description: ''
+      - alias: normalized
+        arguments: []
+        returns: []
+        description: ''
+      - alias: length2d
+        arguments: []
+        returns: []
+        description: ''
+      - alias: length2dsqr
+        arguments: []
+        returns: []
+        description: ''
+      - alias: length
+        arguments: []
+        returns: []
+        description: ''
+      - alias: lengthsqr
+        arguments: []
+        returns: []
+        description: ''
+      - alias: lerp
+        arguments: []
+        returns: []
+        description: ''
+      - alias: dot
+        arguments: []
+        returns: []
+        description: ''
+      - alias: dist
+        arguments: []
+        returns: []
+        description: ''
+      - alias: dist2d
+        arguments: []
+        returns: []
+        description: ''
+      - alias: cross
+        arguments: []
+        returns: []
+        description: ''
+      - alias: angles
+        arguments: []
+        returns: []
+        description: ''
+      - alias: vectors
+        arguments: []
+        returns: []
+        description: ''
+      - alias: to
+        arguments: []
+        description: ''
+  - alias: panorama
+    functions:
+      - alias: loadstring
+        arguments: []
+        returns: []
+        description: ''
+      - alias: open
+        arguments: []
+        description: ''
+  - alias: plist
+    functions:
+      - alias: get
+        arguments:
+          - alias: nEntityIndex
+            type: number
+            optional: false
+            description: entity index of the player
+          - alias: sUiFieldName
+            type: string
+            optional: false
+            description: Name of the field inside player list, e.g. `Correction Active`
+        returns:
+          - type: any
+            description: value of ui element (ui element specific type)
+        description: >-
+          Gets the value of corresponding ui element for specific player in
+          playerlist tab
+      - alias: set
+        arguments:
+          - alias: nEntityIndex
+            type: number
+            optional: false
+            description: entity index of the player
+          - alias: sUiFieldName
+            type: string
+            optional: false
+            description: Name of the field inside player list, e.g. `Correction Active`
+          - alias: value
+            type: any
+            optional: false
+            description: value to set (ui element specific type)
+        description: >-
+          Sets the value to corresponding ui element for specific player in
+          playerlist tab
+  - alias: renderer
+    functions:
+      - alias: circle
+        arguments: []
+        returns: []
+        description: ''
+      - alias: circle_outline
+        arguments: []
+        returns: []
+        description: ''
+      - alias: gradient
+        arguments: []
+        returns: []
+        description: ''
+      - alias: indicator
+        arguments: []
+        returns: []
+        description: ''
+      - alias: line
+        arguments: []
+        returns: []
+        description: ''
+      - alias: load_jpg
+        arguments: []
+        returns: []
+        description: ''
+      - alias: load_png
+        arguments: []
+        returns: []
+        description: ''
+      - alias: load_rgba
+        arguments: []
+        returns: []
+        description: ''
+      - alias: load_svg
+        arguments: []
+        returns: []
+        description: ''
+      - alias: measure_text
+        arguments: []
+        returns: []
+        description: ''
+      - alias: rectangle
+        arguments: []
+        returns: []
+        description: ''
+      - alias: text
+        arguments: []
+        returns: []
+        description: ''
+      - alias: texture
+        arguments: []
+        returns: []
+        description: ''
+      - alias: triangle
+        arguments: []
+        returns: []
+        description: ''
+      - alias: world_to_screen
+        arguments: []
+        description: ''
+  - alias: ui
+    functions:
+      - alias: get
+        arguments:
+          - alias: nUiElementReference
+            type: number
+            optional: false
+            description: a ui element reference to get value of
+        returns:
+          - type: any
+            description: value of ui element (ui element specific type)
+        description: Gets the value of referenced ui element
+      - alias: is_menu_open
+        returns:
+          - type: boolean
+            description: '-'
+        description: returns whether cheat menu is open
+      - alias: menu_position
+        returns:
+          - type: number
+            description: x axis coordinate of menu
+          - type: number
+            description: y axis coordinate of menu
+        description: returns position of the menu as 2 values
+      - alias: menu_size
+        returns:
+          - type: number
+            description: width of menu
+          - type: number
+            description: height of menu
+        description: returns dimensions of the menu as 2 values
+      - alias: mouse_position
+        returns:
+          - type: number
+            description: x axis coordinate of menu
+          - type: number
+            description: y axis coordinate of menu
+        description: returns position of the menu as 2 values
+      - alias: name
+        arguments:
+          - alias: nUiElementReference
+            type: number
+            optional: false
+            description: a ui element reference to get value of
+        returns:
+          - type: string
+            description: alias of ui element
+        description: Gets the alias of referenced ui element
+      - alias: new_button
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure
+      - alias: new_checkbox
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure
+      - alias: new_color_picker
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+          - alias: nR
+            type: number
+            optional: true
+            description: value of red channel (0 - 255)
+          - alias: nG
+            type: number
+            optional: true
+            description: value of green channel (0 - 255)
+          - alias: nB
+            type: number
+            optional: true
+            description: value of blue channel (0 - 255)
+          - alias: nA
+            type: number
+            optional: true
+            description: value of alpha channel (0 - 255)
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure
+      - alias: new_combobox
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+          - alias: ...
+            type: variadic string / table{string, ...}
+            optional: false
+            description: values that will be added to combobox
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure
+      - alias: new_hotkey
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+          - alias: bInline
+            type: boolean
+            optional: true
+            description: >-
+              whether on not, the newly created ui element will be placed to the
+              right of preceding ui element
+          - alias: nInitVK
+            type: number
+            optional: true
+            description: initial virtual key value
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure
+      - alias: new_label
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure. **Keep in mind that reference of that ui element
+          can be used only in `ui.set` and `ui.name`**
+      - alias: new_listbox
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+          - alias: tItems
+            type: table{string, ...}
+            optional: false
+            description: values that will be added to listbox
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure
+      - alias: new_multiselect
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+          - alias: ...
+            type: variadic string / table{string, ...}
+            optional: false
+            description: values that will be added to multiselect
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure
+      - alias: new_slider
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+          - alias: nMin
+            type: number
+            optional: false
+            description: minimum value of slider (must be an integer)
+          - alias: nMax
+            type: number
+            optional: false
+            description: maximum value of slider (must be an integer)
+          - alias: nInit
+            type: number
+            optional: true
+            description: initial value of slider (must be an integer)
+          - alias: bShowTooltip
+            type: boolean
+            optional: true
+            description: whether or not to show current value of the slider
+          - alias: sUnit
+            type: string
+            optional: true
+            description: string to append to tooltip (max 3 symbols)
+          - alias: nScale
+            type: number
+            optional: true
+            description: >-
+              multiplier for displayed value, e.g. slider with range of `0-10`
+              and scale set to `0.1` would result in tooltip to display values
+              within `0.0-1.0` range
+          - alias: tTooltops
+            type: table{[nValue] = string, ...}
+            optional: true
+            description: override tooltip for specified value
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure
+      - alias: new_string
+        arguments:
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+          - alias: sValue
+            type: string
+            optional: false
+            description: initial value of element
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element. **This doesn't
+          populate any ui elements visually**
+      - alias: new_textbox
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element
+        returns:
+          - type: number
+            description: a ui element reference
+        description: >-
+          returns reference of a newly created ui element at specified location
+          in menu structure. **Keep in mind that this element doesn't store it's
+          value in configuration**
+      - alias: reference
+        arguments:
+          - alias: sTabAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab, e.g. `Visuals`
+          - alias: sContainerAlias
+            type: number
+            optional: false
+            description: alias of the cheat menu tab container, e.g. `Effects`
+          - alias: sUiElementAlias
+            type: number
+            optional: false
+            description: alias of the new element, e.g. `Force third person (alive)`
+        returns:
+          - type: number, ...
+            description: >-
+              a ui element reference (multiple references if corresponding ui
+              element contains inlined following ui elements)
+        description: >-
+          returns a reference of a built-in ui element at specified location in
+          menu structure. **Keep in mind that it's better not to call this more
+          than once per enviroment**
+      - alias: set
+        arguments:
+          - alias: nUiElementReference
+            type: number
+            optional: false
+            description: a ui element reference to get value of
+          - alias: value
+            type: any
+            optional: false
+            description: value to set (ui element specific type)
+          - alias: ...
+            type: variadic any
+            optional: true
+            description: values to set (ui element specific type)
+        description: Sets the value of referenced ui element
+      - alias: set_callback
+        arguments:
+          - alias: nUiElementReference
+            type: number
+            optional: false
+            description: a ui element reference to get value of
+          - alias: fnCallback
+            type: function
+            optional: false
+            description: >-
+              a function that will be called on ui element action. **Reference
+              to that ui element is passed to callback function as first
+              argument**
+        description: Binds function that will be called on ui element action
+      - alias: set_visible
+        arguments:
+          - alias: nUiElementReference
+            type: number
+            optional: false
+            description: a ui element reference to get value of
+          - alias: bVisible
+            type: boolean
+            optional: false
+            description: whether on not the referenced ui element is visible in ui
+        description: Changes visibility of referenced ui element
+      - alias: update
+        arguments:
+          - alias: nUiElementReference
+            type: number
+            optional: false
+            description: a ui element reference to get value of
+          - alias: ...
+            type: any
+            optional: false
+            description: values that will be overriden (ui element specific type)
+        description: Updates values of referenced ui element
