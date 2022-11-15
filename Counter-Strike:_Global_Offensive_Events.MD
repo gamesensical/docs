@@ -1,6 +1,6 @@
 # docs
 
-*/*Documentation of the gamesense lua api*/
+# Documentation of the gamesense lua api
 
 # Counter-Strike: Global Offensive
 
@@ -361,7 +361,7 @@
 - 169 guardian_wave_restart
 
 
-#player_death
+player_death
 
 > **_NOTE:_** When a client dies
 
@@ -377,13 +377,13 @@
 
 - bool  assistedflash  assister helped with a flash
 
-string  weapon  weapon name killer used
+- string  weapon  weapon name killer used
 
-string  weapon_itemid  inventory item id of weapon killer used
+- string  weapon_itemid  inventory item id of weapon killer used
 
-string  weapon_fauxitemid  faux item id of weapon killer used
+- string  weapon_fauxitemid  faux item id of weapon killer used
 
-string  weapon_originalowner_xuid
+- string  weapon_originalowner_xuid
 
 - bool  headshot  signals a headshot
 
@@ -409,23 +409,23 @@ other_death
 
 > **_NOTE:_** As far as I know only used for chicken deaths at the moment
 
-## name:   other_death
+# name:   other_death
 
 - Structure:
 
 - short  otherid
 
-string  othertype
+- string  othertype
 
 - short  attacker  user ID who attacked
 
-string  weapon  weapon name attacker used, if not the world
+- string  weapon  weapon name attacker used, if not the world
 
-string  weapon_itemid  inventory item id of weapon killer used
+- string  weapon_itemid  inventory item id of weapon killer used
 
-string  weapon_fauxitemid  faux item id of weapon killer used
+- string  weapon_fauxitemid  faux item id of weapon killer used
 
-string  weapon_originalowner_xuid
+- string  weapon_originalowner_xuid
 
 - bool  headshot  signals a headshot
 
@@ -451,7 +451,7 @@ player_hurt
 
 > byte  armor  remaining armor points
 
-string  weapon  weapon name attacker used, if not the world
+- string  weapon  weapon name attacker used, if not the world
 
 - short  dmg_health  damage done to health
 
@@ -471,7 +471,7 @@ item_purchase
 
 - short  loadout
 
-string  weapon
+- string  weapon
 
 bomb_beginplant
 
@@ -745,7 +745,7 @@ weapon_fire
 
 - short  userid
 
-string  weapon  weapon name used
+- string  weapon  weapon name used
 
 - bool  silenced  is weapon silenced
 
@@ -759,7 +759,7 @@ weapon_fire_on_empty
 
 - short  userid
 
-string  weapon  weapon name used
+- string  weapon  weapon name used
 
 grenade_thrown
 
@@ -771,7 +771,7 @@ grenade_thrown
 
 - short  userid
 
-string  weapon  weapon name used
+- string  weapon  weapon name used
 
 weapon_outofammo
 
@@ -847,7 +847,7 @@ item_pickup
 
 - short  userid
 
-string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
+- string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 - bool  silent
 
@@ -873,7 +873,7 @@ item_pickup_failed
 
 - short  userid
 
-string  item
+- string  item
 
 - short  reason
 
@@ -887,7 +887,7 @@ item_remove
 
 - short  userid
 
-string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
+- string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long  defindex
 
@@ -899,7 +899,7 @@ ammo_pickup
 
 - short  userid
 
-string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
+- string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long  index  the weapon entindex
 
@@ -911,7 +911,7 @@ item_equip
 
 - short  userid
 
-string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
+- string  item  either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long  defindex
 
@@ -1075,7 +1075,7 @@ long  timelimit  round time limit in seconds
 
 long  fraglimit  frag limit in seconds
 
-string  objective  round objective
+- string  objective  round objective
 
 round_end
 
@@ -1087,7 +1087,7 @@ round_end
 
 > byte  reason  reason why team won
 
-string  message  end round message
+- string  message  end round message
 
 > byte  legacy  server-generated legacy value
 
@@ -1483,7 +1483,7 @@ cs_win_panel_round
 
 > byte  final_event  defined in cs_gamerules.h
 
-string  funfact_token
+- string  funfact_token
 
 - short  funfact_player
 
@@ -1663,7 +1663,7 @@ show_survival_respawn_status
 
 - Structure:
 
-string  loc_token
+- string  loc_token
 
 long  duration
 
@@ -1685,7 +1685,7 @@ gg_player_levelup
 
 - short  weaponrank
 
-string  weaponname  name of weapon being awarded
+- string  weaponname  name of weapon being awarded
 
 ggtr_player_levelup
 
@@ -1697,7 +1697,7 @@ ggtr_player_levelup
 
 - short  weaponrank
 
-string  weaponname  name of weapon being awarded
+- string  weaponname  name of weapon being awarded
 
 assassination_target_killed
 
@@ -1719,7 +1719,7 @@ ggprogressive_player_levelup
 
 - short  weaponrank
 
-string  weaponname  name of weapon being awarded
+- string  weaponname  name of weapon being awarded
 
 gg_killed_enemy
 
@@ -1839,9 +1839,9 @@ sfuievent
 
 - Structure:
 
-string  action
+- string  action
 
-string  data
+- string  data
 
 > byte  slot
 
@@ -1989,9 +1989,9 @@ cs_handle_ime_event
 
 1  local
 
-string  eventtype
+- string  eventtype
 
-wstring  eventdata
+w- string  eventdata
 
 nextlevel_changed
 
@@ -2001,11 +2001,11 @@ nextlevel_changed
 
 - Structure:
 
-string  nextlevel
+- string  nextlevel
 
-string  mapgroup
+- string  mapgroup
 
-string  skirmishmode
+- string  skirmishmode
 
 seasoncoin_levelup
 
@@ -2093,7 +2093,7 @@ loot_crate_visible
 
 - short  subject  crate entindex
 
-string  type  type of crate (metal, wood, or paradrop)
+- string  type  type of crate (metal, wood, or paradrop)
 
 loot_crate_opened
 
@@ -2103,7 +2103,7 @@ loot_crate_opened
 
 - short  userid  player entindex
 
-string  type  type of crate (metal, wood, or paradrop)
+- string  type  type of crate (metal, wood, or paradrop)
 
 open_crate_instr
 
@@ -2115,7 +2115,7 @@ open_crate_instr
 
 - short  subject  crate entindex
 
-string  type  type of crate (metal, wood, or paradrop)
+- string  type  type of crate (metal, wood, or paradrop)
 
 smoke_beacon_paradrop
 
@@ -2191,7 +2191,7 @@ dz_item_interaction
 
 - short  subject  crate entindex
 
-string  type  type of crate (metal, wood, or paradrop)
+- string  type  type of crate (metal, wood, or paradrop)
 
 snowball_hit_player_face
 
@@ -2269,7 +2269,7 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 11/32
 
 - Structure:- short userid
 
-stringweaponweapon name used
+- stringweaponweapon name used
 
 > **_NOTE:_** Every time a client throws their grenade
 
@@ -2277,7 +2277,7 @@ stringweaponweapon name used
 
 - Structure:- short userid
 
-stringweaponweapon name used
+- stringweaponweapon name used
 
 # name:  weapon_outofammo
 
@@ -2343,7 +2343,7 @@ rifle. Different from the above weapon_zoom because we don't use this event to n
 
 - Structure:- short userid
 
-stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
+- stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 - bool silent
 
@@ -2361,7 +2361,7 @@ long defindex
 
 - Structure:- short userid
 
-stringitem
+- stringitem
 
 - short reason
 
@@ -2391,7 +2391,7 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 13/32
 
 - Structure:- short userid
 
-stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
+- stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long defindex
 
@@ -2399,7 +2399,7 @@ long defindex
 
 - Structure:- short userid
 
-stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
+- stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long index the weapon entindex
 
@@ -2407,7 +2407,7 @@ long index the weapon entindex
 
 - Structure:- short userid
 
-stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
+- stringitem either a weapon such as 'tmp' or 'hegrenade', or an item such as 'nvgs'
 
 long defindex
 
@@ -2561,7 +2561,7 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 15/32
 
 long fraglimit frag limit in seconds
 
-stringobjectiveround objective
+- stringobjectiveround objective
 
 # name:  round_end
 
@@ -2569,7 +2569,7 @@ stringobjectiveround objective
 
 > byte reason reason why team won
 
-stringmessage end round message
+- stringmessage end round message
 
 > byte legacy server-generated legacy value
 
@@ -2973,7 +2973,7 @@ longobs_target
 
 > byte final_event defined in cs_gamerules.h
 
-stringfunfact_token
+- stringfunfact_token
 
 - short funfact_player
 
@@ -3161,7 +3161,7 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 24/32
 
 # name:  show_survival_respawn_status
 
-- Structure:stringloc_token
+- Structure:- stringloc_token
 
 long duration
 
@@ -3177,7 +3177,7 @@ long duration
 
 - short weaponrank
 
-stringweaponnamename of weapon being awarded
+- stringweaponnamename of weapon being awarded
 
 # name:  ggtr_player_levelup
 
@@ -3185,7 +3185,7 @@ stringweaponnamename of weapon being awarded
 
 - short weaponrank
 
-stringweaponnamename of weapon being awarded
+- stringweaponnamename of weapon being awarded
 
 # name:  assassination_target_killed
 
@@ -3199,7 +3199,7 @@ stringweaponnamename of weapon being awarded
 
 - short weaponrank
 
-stringweaponnamename of weapon being awarded
+- stringweaponnamename of weapon being awarded
 
 show_survival_respawn_status
 
@@ -3313,9 +3313,9 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 26/32
 
 # name:  sfuievent
 
-- Structure:stringaction
+- Structure:- stringaction
 
-stringdata
+- stringdata
 
 > byte slot
 
@@ -3471,19 +3471,19 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 29/32
 
 ```
 
-string eventtype
+- string eventtype
 
-wstringeventdata
+w- stringeventdata
 
 > **_NOTE:_** a game event, name may be 32 characters long
 
 # name:  nextlevel_changed
 
-- Structure:stringnextlevel
+- Structure:- stringnextlevel
 
-stringmapgroup
+- stringmapgroup
 
-stringskirmishmode
+- stringskirmishmode
 
 # name:  seasoncoin_levelup
 
@@ -3515,17 +3515,17 @@ longaccountid
 
 - Structure:- shortuserid
 
-nextlevel_changed
+- nextlevel_changed
 
-seasoncoin_levelup
+- seasoncoin_levelup
 
-tournament_reward
+- tournament_reward
 
-start_halftime
+- start_halftime
 
-ammo_refill
+- ammo_refill
 
-parachute_pickup
+- parachute_pickup
 
 ```
 
@@ -3557,13 +3557,13 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 30/32
 
 - short subjectcrate entindex
 
-stringtype type of crate (metal, wood, or paradrop)
+- stringtype type of crate (metal, wood, or paradrop)
 
 # name:  loot_crate_opened
 
 - Structure:- short useridplayer entindex
 
-stringtype type of crate (metal, wood, or paradrop)
+- stringtype type of crate (metal, wood, or paradrop)
 
 # name:  open_crate_instr
 
@@ -3571,7 +3571,7 @@ stringtype type of crate (metal, wood, or paradrop)
 
 - short subjectcrate entindex
 
-stringtype type of crate (metal, wood, or paradrop)
+- stringtype type of crate (metal, wood, or paradrop)
 
 # name:  smoke_beacon_paradrop
 
@@ -3579,19 +3579,19 @@ stringtype type of crate (metal, wood, or paradrop)
 
 - shortparadrop
 
-parachute_deploy
+- parachute_deploy
 
-dronegun_attack
+- dronegun_attack
 
-drone_dispatched
+- drone_dispatched
 
-loot_crate_visible
+- loot_crate_visible
 
-loot_crate_opened
+- loot_crate_opened
 
-open_crate_instr
+- open_crate_instr
 
-smoke_beacon_paradrop
+- smoke_beacon_paradrop
 
 ```
 
@@ -3637,25 +3637,25 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 31/32
 
 - short subjectcrate entindex
 
-stringtype type of crate (metal, wood, or paradrop)
+- stringtype type of crate (metal, wood, or paradrop)
 
 # name:  snowball_hit_player_face
 
-survival_paradrop_spawn
+- survival_paradrop_spawn
 
-survival_paradrop_break
+- survival_paradrop_break
 
-drone_cargo_detached
+- drone_cargo_detached
 
-drone_above_roof
+- drone_above_roof
 
-choppers_incoming_warning
+- choppers_incoming_warning
 
-firstbombs_incoming_warning
+- firstbombs_incoming_warning
 
-dz_item_interaction
+- dz_item_interaction
 
-snowball_hit_player_face
+- snowball_hit_player_face
 
 ```
 
@@ -3701,11 +3701,11 @@ https:#wiki.alliedmods.net/Counter-Strike:_Global_Offensive_Events 32/32
 
 - Structure:
 
+
+```
 Retrieved from "https:#wiki.alliedmods.net/index.php?title=Counter-Strike:_Global_Offensive_Events&oldid=11142"
 
 This page was last edited on 17 January 2021, at 07:01.
-
-```
 
 ```
 
@@ -3721,85 +3721,19 @@ This page was last edited on 17 January 2021, at 07:01.
 
 - guardian_wave_restart
 
-```
+# if defined _convars_included
 
-convars.inc
+ # endinput
 
-#*
+# endif
 
- * vim: set ts=4 sw=4 tw=99 noet :
+# define _convars_included
 
- * =============================================================================
-
- * SourceMod (C)2004-2014 AlliedModders LLC.  All rights reserved.
-
- * =============================================================================
-
- *
-
- * This file is part of the SourceMod/SourcePawn SDK.
-
- *
-
- * This program is free software; you can redistribute it and/or modify it under
-
- * the terms of the GNU General Public License, version 3.0, as published by the
-
- * Free Software Foundation.
-
- * 
-
- * This program is distributed in the hope that it will be useful, but WITHOUT
-
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-
- * FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
-
- * details.
-
- *
-
- * You should have received a copy of the GNU General Public License along with
-
- * this program.  If not, see <http:#www.gnu.org/licenses/>.
-
- *
-
- * As a special exception, AlliedModders LLC gives you permission to link the
-
- * code of this program (as well as its derivative works) to "Half-Life 2," the
-
- * "Source Engine," the "SourcePawn JIT," and any Game MODs that run on software
-
- * by the Valve Corporation.  You must obey the GNU General Public License in
-
- * all respects for all other code used.  Additionally, AlliedModders LLC grants
-
- * this exception to all derivative works.  AlliedModders LLC defines further
-
- * exceptions, found in LICENSE.txt (as of this writing, version JULY-31-2007),
-
- * or <http:#www.sourcemod.net/license.php>.
-
- *
-
- * Version: $Id$
-
- */
-
-#if defined _convars_included
-
- #endinput
-
-#endif
-
-#define _convars_included
-
-#*
+#
 
  * Console variable bound values used with Get/SetConVarBounds()
 
- */
+ #
 
 enum ConVarBounds
 
@@ -3811,29 +3745,29 @@ ConVarBound_Lower
 
 };
 
-#*
+#
 
  * Console variable query result values.
 
- */
+ #
 
 enum ConVarQueryResult
 
 {
 
-ConVarQuery_Cancelled = -1,         #< Client disconnected during query */
+ConVarQuery_Cancelled = -1,         #< Client disconnected during query #
 
-ConVarQuery_Okay = 0,               #< Retrieval of client convar value was successful. */
+ConVarQuery_Okay = 0,               #< Retrieval of client convar value was successful. #
 
-ConVarQuery_NotFound,               #< Client convar was not found. */
+ConVarQuery_NotFound,               #< Client convar was not found. #
 
-ConVarQuery_NotValid,               #< A console command with the same name was found, but there is no convar. */
+ConVarQuery_NotValid,               #< A console command with the same name was found, but there is no convar. #
 
-ConVarQuery_Protected               #< Client convar was found, but it is protected. The server cannot retrieve its value. */
+ConVarQuery_Protected               #< Client convar was found, but it is protected. The server cannot retrieve its value. #
 
 };
 
-#*
+#
 
  * Called when a console variable's value is changed.
 
@@ -3845,11 +3779,11 @@ ConVarQuery_Protected               #< Client convar was found, but it i
 
  * @param newValue      String containing the new value of the convar.
 
- */
+ #
 
 typedef ConVarChanged = function void (ConVar convar, const char[] oldValue, const char[] newValue);
 
-#*
+#
 
  * Creates a new console variable.
 
@@ -3861,7 +3795,7 @@ typedef ConVarChanged = function void (ConVar convar, const char[] oldValue, con
 
  * @param description   Optional description of the convar.
 
- * @param flags         Optional bitstring of flags determining how the convar should be handled. See FCVAR_* constants for more details.
+ * @param flags         Optional bit- string of flags determining how the convar should be handled. See FCVAR_* constants for more details.
 
  * @param hasMin        Optional - boolean that determines if the convar has a minimum value.
 
@@ -3875,7 +3809,7 @@ typedef ConVarChanged = function void (ConVar convar, const char[] oldValue, con
 
  * @error               Convar name is blank or is the same as an existing console command.
 
- */
+ #
 
 native ConVar CreateConVar(
 
@@ -3891,7 +3825,7 @@ int flags=0,
 
 - bool hasMax=false, - float max=0.0);
 
-#*
+#
 
  * Searches for a console variable.
 
@@ -3901,7 +3835,7 @@ int flags=0,
 
  * @return              A ConVar object if found; null otherwise.
 
- */
+ #
 
 native ConVar FindConVar(const char[] name);
 
@@ -3971,15 +3905,15 @@ public native get();
 
 #
 
-# @param value     New - boolean value.
+* @param  value     New - boolean value.
 
-# @param replicate If set to true, the new convar value will be set on all clients.
+* @param  replicate If set to true, the new convar value will be set on all clients.
 
 #                  This will only work if the convar has the FCVAR_REPLICATED flag
 
 #                  and actually exists on clients.
 
-# @param notify    If set to true, clients will be notified that the convar has changed.
+* @param  notify    If set to true, clients will be notified that the convar has changed.
 
 #                  This will only work if the convar has the FCVAR_NOTIFY flag.
 
@@ -3997,15 +3931,15 @@ public native void SetBool(- bool value, - bool replicate=false, - bool notify=f
 
 #
 
-# @param value     New integer value.
+* @param  value     New integer value.
 
-# @param replicate If set to true, the new convar value will be set on all clients.
+* @param  replicate If set to true, the new convar value will be set on all clients.
 
 #                  This will only work if the convar has the FCVAR_REPLICATED flag
 
 #                  and actually exists on clients.
 
-# @param notify    If set to true, clients will be notified that the convar has changed.
+* @param  notify    If set to true, clients will be notified that the convar has changed.
 
 #                  This will only work if the convar has the FCVAR_NOTIFY flag.
 
@@ -4023,31 +3957,31 @@ public native void SetInt(int value, - bool replicate=false, - bool notify=false
 
 #
 
-# @param value     New - floating point value.
+* @param  value     New - floating point value.
 
-# @param replicate If set to true, the new convar value will be set on all clients.
+* @param  replicate If set to true, the new convar value will be set on all clients.
 
 #                  This will only work if the convar has the FCVAR_REPLICATED flag
 
 #                  and actually exists on clients.
 
-# @param notify    If set to true, clients will be notified that the convar has changed.
+* @param  notify    If set to true, clients will be notified that the convar has changed.
 
 #                  This will only work if the convar has the FCVAR_NOTIFY flag.
 
 public native void SetFloat(- float value, - bool replicate=false, - bool notify=false);
 
-# Retrieves the string value of a console variable.
+# Retrieves the - string value of a console variable.
 
 #
 
-# @param value      Buffer to store the value of the convar.
+* @param  value      Buffer to store the value of the convar.
 
-# @param maxlength  Maximum length of string buffer.
+* @param  maxlength  Maximum length of - string buffer.
 
 public native void GetString(char[] value, int maxlength);
 
-# Sets the string value of a console variable.
+# Sets the - string value of a console variable.
 
 #
 
@@ -4059,15 +3993,15 @@ public native void GetString(char[] value, int maxlength);
 
 #
 
-# @param value      New string value.
+* @param  value      New - string value.
 
-# @param replicate  If set to true, the new convar value will be set on all clients.
+* @param  replicate  If set to true, the new convar value will be set on all clients.
 
 #                   This will only work if the convar has the FCVAR_REPLICATED flag
 
 #                   and actually exists on clients.
 
-# @param notify     If set to true, clients will be notified that the convar has changed.
+* @param  notify     If set to true, clients will be notified that the convar has changed.
 
 #                   This will only work if the convar has the FCVAR_NOTIFY flag.
 
@@ -4085,27 +4019,27 @@ public native void SetString(const char[] value, - bool replicate=false, - bool 
 
 #
 
-# @param replicate  If set to true, the new convar value will be set on all clients.
+* @param  replicate  If set to true, the new convar value will be set on all clients.
 
 #                   This will only work if the convar has the FCVAR_REPLICATED flag
 
 #                   and actually exists on clients.
 
-# @param notify     If set to true, clients will be notified that the convar has changed.
+* @param  notify     If set to true, clients will be notified that the convar has changed.
 
 #                   This will only work if the convar has the FCVAR_NOTIFY flag.
 
 public native void RestoreDefault(- bool replicate=false, - bool notify=false);
 
-# Retrieves the default string value of a console variable.
+# Retrieves the default - string value of a console variable.
 
 #
 
-# @param value      Buffer to store the default value of the convar.
+* @param  value      Buffer to store the default value of the convar.
 
-# @param maxlength  Maximum length of string buffer.
+* @param  maxlength  Maximum length of - string buffer.
 
-# @return           Number of > bytes written to the buffer (UTF-8 safe).
+* @return           Number of > bytes written to the buffer (UTF-8 safe).
 
 public native int GetDefault(char[] value, int maxlength);
 
@@ -4113,11 +4047,11 @@ public native int GetDefault(char[] value, int maxlength);
 
 #
 
-# @param type       Type of bound to retrieve, ConVarBound_Lower or ConVarBound_Upper.
+* @param  type       Type of bound to retrieve, ConVarBound_Lower or ConVarBound_Upper.
 
-# @param value      By-reference cell to store the specified - floating point bound value.
+* @param  value      By-reference cell to store the specified - floating point bound value.
 
-# @return           True if the convar has the specified bound set, false otherwise.
+* @return           True if the convar has the specified bound set, false otherwise.
 
 public native - bool GetBounds(ConVarBounds type, - float &value);
 
@@ -4125,11 +4059,11 @@ public native - bool GetBounds(ConVarBounds type, - float &value);
 
 #
 
-# @param type       Type of bound to set, ConVarBound_Lower or ConVarBound_Upper
+* @param  type       Type of bound to set, ConVarBound_Lower or ConVarBound_Upper
 
-# @param set        If set to true, convar will use specified bound. If false, bound will be removed.
+* @param  set        If set to true, convar will use specified bound. If false, bound will be removed.
 
-# @param value      Floating point value to use as the specified bound.
+* @param  value      Floating point value to use as the specified bound.
 
 public native void SetBounds(ConVarBounds type, - bool set, - float value=0.0);
 
@@ -4137,9 +4071,9 @@ public native void SetBounds(ConVarBounds type, - bool set, - float value=0.0);
 
 #
 
-# @param name       Buffer to store the name of the convar.
+* @param  name       Buffer to store the name of the convar.
 
-# @param maxlength  Maximum length of string buffer.
+* @param  maxlength  Maximum length of - string buffer.
 
 public native void GetName(char[] name, int maxlength);
 
@@ -4147,9 +4081,9 @@ public native void GetName(char[] name, int maxlength);
 
 #
 
-# @param buffer     Buffer to store the description of the convar.
+* @param  buffer     Buffer to store the description of the convar.
 
-# @param maxlength  Maximum length of string buffer.
+* @param  maxlength  Maximum length of - string buffer.
 
 public native void GetDescription(char[] buffer, int maxlength);
 
@@ -4157,11 +4091,11 @@ public native void GetDescription(char[] buffer, int maxlength);
 
 #
 
-# @param client     Client index
+* @param  client     Client index
 
-# @param value      String value to send
+* @param  value      String value to send
 
-# @return           True on success, false on failure
+* @return           True on success, false on failure
 
 # @error            Invalid client index, client not in game, or client is fake
 
@@ -4171,7 +4105,7 @@ public native - bool ReplicateToClient(int client, const char[] value);
 
 #
 
-# @param callback  An OnConVarChanged function pointer.
+* @param  callback  An OnConVarChanged function pointer.
 
 public native void AddChangeHook(ConVarChanged callback);
 
@@ -4179,7 +4113,7 @@ public native void AddChangeHook(ConVarChanged callback);
 
 #
 
-# @param callback  An OnConVarChanged function pointer.
+* @param  callback  An OnConVarChanged function pointer.
 
 # @error           No active hook on convar.
 
@@ -4187,7 +4121,7 @@ public native void RemoveChangeHook(ConVarChanged callback);
 
 }
 
-#*
+#
 
  * Creates a hook for when a console variable's value is changed.
 
@@ -4199,11 +4133,11 @@ public native void RemoveChangeHook(ConVarChanged callback);
 
  * @error               Invalid or corrupt Handle or invalid callback function.
 
- */
+ #
 
 native void HookConVarChange(Handle convar, ConVarChanged callback);
 
-#*
+#
 
  * Removes a hook for when a console variable's value is changed.
 
@@ -4215,11 +4149,11 @@ native void HookConVarChange(Handle convar, ConVarChanged callback);
 
  * @error               Invalid or corrupt Handle, invalid callback function, or no active hook on convar.
 
- */
+ #
 
 native void UnhookConVarChange(Handle convar, ConVarChanged callback);
 
-#*
+#
 
  * Returns the - boolean value of a console variable.
 
@@ -4231,11 +4165,11 @@ native void UnhookConVarChange(Handle convar, ConVarChanged callback);
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native - bool GetConVarBool(Handle convar);
 
-#*
+#
 
  * Sets the - boolean value of a console variable.
 
@@ -4263,11 +4197,11 @@ native - bool GetConVarBool(Handle convar);
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native void SetConVarBool(Handle convar, - bool value, - bool replicate=false, - bool notify=false);
 
-#*
+#
 
  * Returns the integer value of a console variable.
 
@@ -4279,11 +4213,11 @@ native void SetConVarBool(Handle convar, - bool value, - bool replicate=false, -
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native int GetConVarInt(Handle convar);
 
-#*
+#
 
  * Sets the integer value of a console variable.
 
@@ -4311,11 +4245,11 @@ native int GetConVarInt(Handle convar);
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native void SetConVarInt(Handle convar, int value, - bool replicate=false, - bool notify=false);
 
-#*
+#
 
  * Returns the - floating point value of a console variable.
 
@@ -4327,11 +4261,11 @@ native void SetConVarInt(Handle convar, int value, - bool replicate=false, - boo
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native - float GetConVarFloat(Handle convar);
 
-#*
+#
 
  * Sets the - floating point value of a console variable.
 
@@ -4359,13 +4293,13 @@ native - float GetConVarFloat(Handle convar);
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native void SetConVarFloat(Handle convar, - float value, - bool replicate=false, - bool notify=false);
 
-#*
+#
 
- * Retrieves the string value of a console variable.
+ * Retrieves the - string value of a console variable.
 
  *
 
@@ -4373,17 +4307,17 @@ native void SetConVarFloat(Handle convar, - float value, - bool replicate=false,
 
  * @param value         Buffer to store the value of the convar.
 
- * @param maxlength     Maximum length of string buffer.
+ * @param maxlength     Maximum length of - string buffer.
 
  * @error               Invalid or corrupt Handle.     
 
- */
+ #
 
 native void GetConVarString(Handle convar, char[] value, int maxlength);
 
-#*
+#
 
- * Sets the string value of a console variable.
+ * Sets the - string value of a console variable.
 
  *
 
@@ -4395,7 +4329,7 @@ native void GetConVarString(Handle convar, char[] value, int maxlength);
 
  * @param convar        Handle to the convar.
 
- * @param value         New string value.
+ * @param value         New - string value.
 
  * @param replicate     If set to true, the new convar value will be set on all clients.
 
@@ -4409,11 +4343,11 @@ native void GetConVarString(Handle convar, char[] value, int maxlength);
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native void SetConVarString(Handle convar, const char[] value, - bool replicate=false, - bool notify=false);
 
-#*
+#
 
  * Resets the console variable to its default value.
 
@@ -4439,13 +4373,13 @@ native void SetConVarString(Handle convar, const char[] value, - bool replicate=
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native void ResetConVar(Handle convar, - bool replicate=false, - bool notify=false);
 
-#*
+#
 
- * Retrieves the default string value of a console variable.
+ * Retrieves the default - string value of a console variable.
 
  *
 
@@ -4453,49 +4387,49 @@ native void ResetConVar(Handle convar, - bool replicate=false, - bool notify=fal
 
  * @param value         Buffer to store the default value of the convar.
 
- * @param maxlength     Maximum length of string buffer.
+ * @param maxlength     Maximum length of - string buffer.
 
  * @return              Number of > bytes written to the buffer (UTF-8 safe).
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native int GetConVarDefault(Handle convar, char[] value, int maxlength);
 
-#*
+#
 
- * Returns the bitstring of flags on a console variable.
+ * Returns the bit- string of flags on a console variable.
 
  *
 
  * @param convar        Handle to the convar.
 
- * @return              A bitstring containing the FCVAR_* flags that are enabled.
+ * @return              A bit- string containing the FCVAR_* flags that are enabled.
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native int GetConVarFlags(Handle convar);
 
-#*
+#
 
- * Sets the bitstring of flags on a console variable.
+ * Sets the bit- string of flags on a console variable.
 
  *
 
  * @param convar        Handle to the convar.
 
- * @param flags         A bitstring containing the FCVAR_* flags to enable.
+ * @param flags         A bit- string containing the FCVAR_* flags to enable.
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native void SetConVarFlags(Handle convar, int flags);
 
-#*
+#
 
  * Retrieves the specified bound of a console variable.
 
@@ -4511,11 +4445,11 @@ native void SetConVarFlags(Handle convar, int flags);
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native - bool GetConVarBounds(Handle convar, ConVarBounds type, - float &value);
 
-#*
+#
 
  * Sets the specified bound of a console variable.
 
@@ -4531,11 +4465,11 @@ native - bool GetConVarBounds(Handle convar, ConVarBounds type, - float &value);
 
  * @error               Invalid or corrupt Handle.
 
- */
+ #
 
 native void SetConVarBounds(Handle convar, ConVarBounds type, - bool set, - float value=0.0);
 
-#*
+#
 
  * Retrieves the name of a console variable.
 
@@ -4545,15 +4479,15 @@ native void SetConVarBounds(Handle convar, ConVarBounds type, - bool set, - floa
 
  * @param name          Buffer to store the name of the convar.
 
- * @param maxlength     Maximum length of string buffer.
+ * @param maxlength     Maximum length of - string buffer.
 
  * @error               Invalid or corrupt Handle.     
 
- */
+ #
 
 native void GetConVarName(Handle convar, char[] name, int maxlength);
 
-#*
+#
 
  * Replicates a convar value to a specific client. This does not change the actual convar value.
 
@@ -4569,7 +4503,7 @@ native void GetConVarName(Handle convar, char[] name, int maxlength);
 
  * @error               Invalid client index, client not in game, or client is fake
 
- */
+ #
 
 native - bool SendConVarValue(int client, Handle convar, const char[] value);
 
@@ -4581,19 +4515,19 @@ typeset ConVarQueryFinished
 
 #
 
-# @param cookie        Unique identifier of query.
+* @param  cookie        Unique identifier of query.
 
-# @param client        Player index.
+* @param  client        Player index.
 
-# @param result        Result of query that tells one whether or not query was successful.
+* @param  result        Result of query that tells one whether or not query was successful.
 
 #                      See ConVarQueryResult enum for more details.
 
-# @param convarName    Name of client convar that was queried.
+* @param  convarName    Name of client convar that was queried.
 
-# @param convarValue   Value of client convar that was queried if successful. This will be "" if it was not.
+* @param  convarValue   Value of client convar that was queried if successful. This will be "" if it was not.
 
-# @param value         Value that was passed when query was started.
+* @param  value         Value that was passed when query was started.
 
 function void (QueryCookie cookie, int client, ConVarQueryResult result, const char[] cvarName, const char[] cvarValue, any value);
 
@@ -4601,23 +4535,23 @@ function void (QueryCookie cookie, int client, ConVarQueryResult result, const c
 
 #
 
-# @param cookie        Unique identifier of query.
+* @param  cookie        Unique identifier of query.
 
-# @param client        Player index.
+* @param  client        Player index.
 
-# @param result        Result of query that tells one whether or not query was successful.
+* @param  result        Result of query that tells one whether or not query was successful.
 
 #                      See ConVarQueryResult enum for more details.
 
-# @param convarName    Name of client convar that was queried.
+* @param  convarName    Name of client convar that was queried.
 
-# @param convarValue   Value of client convar that was queried if successful. This will be "" if it was not.
+* @param  convarValue   Value of client convar that was queried if successful. This will be "" if it was not.
 
 function void (QueryCookie cookie, int client, ConVarQueryResult result, const char[] cvarName, const char[] cvarValue);
 
 };
 
-#*
+#
 
  * Starts a query to retrieve the value of a client's console variable.
 
@@ -4635,11 +4569,11 @@ function void (QueryCookie cookie, int client, ConVarQueryResult result, const c
 
  *                      Returns QUERYCOOKIE_FAILED on failure, such as when used on a bot.
 
- */
+ #
 
 native QueryCookie QueryClientConVar(int client, const char[] cvarName, ConVarQueryFinished callback, any value=0);
 
-#*
+#
 
  * Returns true if the supplied character is valid in a ConVar name.
 
@@ -4649,7 +4583,7 @@ native QueryCookie QueryClientConVar(int client, const char[] cvarName, ConVarQu
 
  * @return              True is valid for ConVars, false otherwise
 
- */
+ #
 
 stock - bool IsValidConVarChar(int c)
 
