@@ -55,6 +55,17 @@ Argument | Type | Description
 Returns the display name
 
 
+#### ui.type
+
+`ui.type(item: number)`: string
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **item** | number (menu reference) | The special value returned by ui.new_checkbox, ui.new_slider, ui.new_combobox, ui.new_hotkey, or ui.reference.
+
+Returns the type of an element.
+
+
 #### ui.new_button
 
 `ui.new_button(tab: string, container: string, name: string, callback: function)`: number (menu item)
@@ -259,9 +270,21 @@ Sets the change callback of a custom menu item. It will be executed on change an
 Argument | Type | Description
 -------- | ---- | -----------
   **item** | number (menu reference) | A menu item reference.
-  **visible** | boolean | Boolean. Pass false to hide the control from the menu.
+  **visible** | boolean | Boolean. Pass false to hide the control from the menu, or nil to return the previous visibility state.
 
 Sets the visibility of the menu item
+
+
+#### ui.set_enabled
+
+`ui.set_enabled(item: number, enabled: boolean)`
+
+Argument | Type | Description
+-------- | ---- | -----------
+  **item** | number (menu reference) | A menu item reference.
+  **enabled** | boolean | Boolean. Pass false to lock the control.
+
+If not enabled, the element will be locked from value alteration.
 
 
 #### ui.update
